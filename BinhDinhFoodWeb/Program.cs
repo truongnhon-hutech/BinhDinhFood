@@ -29,6 +29,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=ProductGridView}/{action=Index}/{id?}");
 
 app.Run();

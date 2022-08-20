@@ -217,14 +217,6 @@
     <None Include="wwwroot\Content\img\products\shoes\thumb\1.jpg" />
     <None Include="wwwroot\Content\img\products\shoes\thumb\2.jpg" />
     <None Include="wwwroot\Content\img\search.svg" />
-    <None Include="wwwroot\Content\img\slides\.DS_Store" />
-    <None Include="wwwroot\Content\img\slides\slide_home_1.jpg" />
-    <None Include="wwwroot\Content\img\slides\slide_home_1_vertical.jpg" />
-    <None Include="wwwroot\Content\img\slides\slide_home_2.jpg" />
-    <None Include="wwwroot\Content\img\slides\slide_home_2_vertical.jpg" />
-    <None Include="wwwroot\Content\img\slides\slide_home_3.jpg" />
-    <None Include="wwwroot\Content\img\slides\slide_home_3_vertical.jpg" />
-    <None Include="wwwroot\Content\img\slides\slide_home_4_vertical.jpg" />
     <None Include="wwwroot\Content\img\staff\.DS_Store" />
     <None Include="wwwroot\Content\img\staff\1_carousel.jpg" />
     <None Include="wwwroot\Content\img\staff\2_carousel.jpg" />

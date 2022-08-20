@@ -1,18 +1,30 @@
+@using System.Globalization
+
+@{
+    CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
+
+}
 
 <!--/carousel-->
 <div id="carousel-home">
     <div class="owl-carousel owl-theme">
-        <div class="owl-slide cover" style="background-image: url(~/Content/img/slides/slide_home_2.jpg);">
+        <div class="owl-slide cover" >
+        <img src="~/content/img/slides/slide_home_1.jpg" />
             <div class="opacity-mask d-flex align-items-center" data-opacity-mask="rgba(0, 0, 0, 0.5)">
                 <div class="container">
                     <div class="row justify-content-center justify-content-md-end">
                         <div class="col-lg-6 static">
                             <div class="slide-text text-right white">
-                                <h2 class="owl-slide-animated owl-slide-title">Attack Air<br>Max 720 Sage Low</h2>
+                                <h2 class="owl-slide-animated owl-slide-title">@ViewData["objBannerName1"]</h2>
                                 <p class="owl-slide-animated owl-slide-subtitle">
-                                    Limited items available at this price
+                                    <div class="feat_text_block">
+
+                                    <div class="price_box">
+                                        <span class="new_price">@ViewData["objBannerPrice1"] Đ</span>
+                                    </div>
+                                    </div>
                                 </p>
-                                <div class="owl-slide-animated owl-slide-cta"><a class="btn_1" href="~/Content/listing-grid-1-full.html" role="button">Shop Now</a></div>
+                                <div class="owl-slide-animated owl-slide-cta"><a class="btn_1" href="~/Content/listing-grid-1-full.html" role="button">Mua Ngay</a></div>
                             </div>
                         </div>
                     </div>
@@ -20,17 +32,22 @@
             </div>
         </div>
         <!--/owl-slide-->
-        <div class="owl-slide cover" style="background-image: url(~/Content/img/slides/slide_home_1.jpg);">
+        <div class="owl-slide cover" >
+            <img src="~/content/img/slides/slide_home_2.jpg" />
             <div class="opacity-mask d-flex align-items-center" data-opacity-mask="rgba(0, 0, 0, 0.5)">
                 <div class="container">
                     <div class="row justify-content-center justify-content-md-start">
                         <div class="col-lg-6 static">
                             <div class="slide-text white">
-                                <h2 class="owl-slide-animated owl-slide-title">Attack Air<br>VaporMax Flyknit 3</h2>
+                                <h2 class="owl-slide-animated owl-slide-title">@ViewData["objBannerName2"]</h2>
                                 <p class="owl-slide-animated owl-slide-subtitle">
-                                    Limited items available at this price
+                                    <div class="feat_text_block">
+                                        <div class="price_box">
+                                        <span class="new_price">@ViewData["objBannerPrice2"] Đ</span>
+                                        </div>
+                                    </div>
                                 </p>
-                                <div class="owl-slide-animated owl-slide-cta"><a class="btn_1" href="~/Content/listing-grid-1-full.html" role="button">Shop Now</a></div>
+                                <div class="owl-slide-animated owl-slide-cta"><a class="btn_1" href="~/Content/listing-grid-1-full.html" role="button">Mua ngay</a></div>
                             </div>
                         </div>
                     </div>
@@ -38,17 +55,23 @@
             </div>
         </div>
         <!--/owl-slide-->
-        <div class="owl-slide cover" style="background-image: url(~/Content/img/slides/slide_home_3.jpg);">
+        <div class="owl-slide cover" >
+            <img src="~/content/img/slides/slide_home_3.jpg"/>
             <div class="opacity-mask d-flex align-items-center" data-opacity-mask="rgba(255, 255, 255, 0.5)">
                 <div class="container">
                     <div class="row justify-content-center justify-content-md-start">
                         <div class="col-lg-12 static">
                             <div class="slide-text text-center black">
-                                <h2 class="owl-slide-animated owl-slide-title">Attack Air<br>Monarch IV SE</h2>
+                                <h2 class="owl-slide-animated owl-slide-title">@ViewData["objBannerName3"]</h2>
                                 <p class="owl-slide-animated owl-slide-subtitle">
-                                    Lightweight cushioning and durable support with a Phylon midsole
+                                    <div class="feat_text_block">
+
+                                    <div class="price_box">
+                                        <span class="new_price">@ViewData["objBannerPrice3"] Đ</span>
+                                    </div>
+                                    </div>
                                 </p>
-                                <div class="owl-slide-animated owl-slide-cta"><a class="btn_1" href="~/Content/listing-grid-1-full.html" role="button">Shop Now</a></div>
+                                <div class="owl-slide-animated owl-slide-cta"><a class="btn_1" href="~/Content/listing-grid-1-full.html" role="button">Mua ngay</a></div>
                             </div>
                         </div>
                     </div>
@@ -65,7 +88,7 @@
 <ul id="banners_grid" class="clearfix">
     <li>
         <a href="~/Content/#0" class="img_container">
-            <img src="~/Content/img/banners_cat_placeholder.jpg" data-src="~/Content/img/banner_1.jpg" alt="" class="lazy">
+            <img src="~/Content/img/products/@ViewData["objBannerImage1"]" alt="" class="lazy">
             <div class="short_info opacity-mask" data-opacity-mask="rgba(0, 0, 0, 0.5)">
                 <h3>Hải sản</h3>
                 <div><span class="btn_1">Mua ngay</span></div>
@@ -74,7 +97,7 @@
     </li>
     <li>
         <a href="~/Content/#0" class="img_container">
-            <img src="~/Content/img/banners_cat_placeholder.jpg" data-src="~/Content/img/banner_2.jpg" alt="" class="lazy">
+            <img src="~/Content/img/products/@ViewData["objBannerImage2"]" alt="" class="lazy">
             <div class="short_info opacity-mask" data-opacity-mask="rgba(0, 0, 0, 0.5)">
                 <h3>Đồ khô</h3>
                 <div><span class="btn_1">Mua ngay</span></div>
@@ -83,7 +106,7 @@
     </li>
     <li>
         <a href="~/Content/#0" class="img_container">
-            <img src="~/Content/img/banners_cat_placeholder.jpg" data-src="~/Content/img/banner_3.jpg" alt="" class="lazy">
+            <img src="~/Content/img/products/@ViewData["objBannerImage3"]" alt="" class="lazy">
             <div class="short_info opacity-mask" data-opacity-mask="rgba(0, 0, 0, 0.5)">
                 <h3>Bánh đặc sản</h3>
                 <div><span class="btn_1">Mua ngay</span></div>
@@ -107,8 +130,8 @@
                     <figure>
                         <span class="ribbon off"> - @Convert.ToDouble(@item.ProductDiscount)%</span>
                         <a href="~/Content/product-detail-1.html">
-                            <img class="img-fluid lazy" src="~/Content/img/products/@item.ProductImage" alt="@item.ProductName" style="width: 400px; height: 300px">
-                            <img class="img-fluid lazy" src="~/Content/img/products/@item.ProductImage" alt="@item.ProductName" style="width: 400px; height: 300px">
+                            <img class="img-fluid lazy" src="~/Content/img/products/@item.ProductImage" alt="@item.ProductName" style="width: 400px; height: 200px">
+                            <img class="img-fluid lazy" src="~/Content/img/products/@item.ProductImage" alt="@item.ProductName" style="width: 400px; height: 200px">
                         </a>
                         <div data-countdown="2022/8/22" class="countdown"></div>
                     </figure>
@@ -117,13 +140,13 @@
                         <h3>@item.ProductName</h3>
                     </a>
                     <div class="price_box">
-                        <span class="new_price">@item.ProductPrice</span>
-                        <span class="old_price">@Convert.ToDouble(@item.ProductPrice -(@Convert.ToDouble(@item.ProductPrice) * @Convert.ToDouble(@item.ProductDiscount)))</span>
+                        <span class="old_price">@item.ProductPrice.ToString("#,###", cul.NumberFormat) Đ;</span>
+                        <span class="new_price">@Convert.ToDouble(@item.ProductPrice -(@Convert.ToDouble(@item.ProductPrice) * @Convert.ToDouble(@item.ProductDiscount))).ToString("#,###", cul.NumberFormat) Đ</span>
                     </div>
                     <ul>
-                        <li><a href="~/Content/#0" class="tooltip-1" data-toggle="tooltip" data-placement="left" title="Add to favorites"><i class="ti-heart"></i><span>Add to favorites</span></a></li>
-                        <li><a href="~/Content/#0" class="tooltip-1" data-toggle="tooltip" data-placement="left" title="Add to compare"><i class="ti-control-shuffle"></i><span>Add to compare</span></a></li>
-                        <li><a href="~/Content/#0" class="tooltip-1" data-toggle="tooltip" data-placement="left" title="Add to cart"><i class="ti-shopping-cart"></i><span>Add to cart</span></a></li>
+                        <li><a href="~/Content/#0" class="tooltip-1" data-toggle="tooltip" data-placement="left" title="Thêm vào yêu thích"><i class="ti-heart"></i><span>Thêm vào yêu thích</span></a></li>
+                        <li><a href="~/Content/#0" class="tooltip-1" data-toggle="tooltip" data-placement="left" title="So sánh"><i class="ti-control-shuffle"></i><span>So sánh</span></a></li>
+                        <li><a href="~/Content/#0" class="tooltip-1" data-toggle="tooltip" data-placement="left" title="Thêm vào giỏ hàng"><i class="ti-shopping-cart"></i><span>So sánh</span></a></li>
                     </ul>
                 </div>
                 <!-- /grid_item -->
@@ -134,19 +157,19 @@
 </div>
 <!-- /container -->
 
-<div class="featured lazy" data-bg="url(~/Content/img/featured_home.jpg)">
+<div class="featured lazy" data-bg="url(~/content/img/slides/slide_home_4.jpg")">
+    <img src="~/content/img/slides/slide_home_4.jpg" />
     <div class="opacity-mask d-flex align-items-center" data-opacity-mask="rgba(0, 0, 0, 0.5)">
         <div class="container margin_60">
             <div class="row justify-content-center justify-content-md-start">
                 <div class="col-lg-6 wow" data-wow-offset="150">
-                    <h3>Armor<br>Air Color 720</h3>
-                    <p>Lightweight cushioning and durable support with a Phylon midsole</p>
+                    <h3>@ViewData["objBannerName1"]</h3>
                     <div class="feat_text_block">
                         <div class="price_box">
-                            <span class="new_price">$90.00</span>
-                            <span class="old_price">$170.00</span>
+                            <span class="new_price">@ViewData["objBannerPrice1"]</span>
+                            <span class="old_price">@ViewData["objBannerPrice1"]</span>
                         </div>
-                        <a class="btn_1" href="~/Content/listing-grid-1-full.html" role="button">Shop Now</a>
+                        <a class="btn_1" href="~/Content/listing-grid-1-full.html" role="button">Mua ngay</a>
                     </div>
                 </div>
             </div>
@@ -154,6 +177,7 @@
     </div>
 </div>
 <!-- /featured -->
+
 
 <div class="container margin_60_35">
     <div class="main_title">
@@ -166,10 +190,11 @@
         {
             <div class="item">
                 <div class="grid_item">
-                    <span class="ribbon new">New</span>
+                    <span class="ribbon new">Mới</span>
                     <figure>
                         <a href="~/Content/product-detail-1.html">
-                            <img class="owl-lazy" src="~/Content/img/products/@item.ProductImage" alt="@item.ProductName" width="400" height="300">
+                            <img class="img-fluid lazy" src="~/Content/img/products/@item.ProductImage" alt="@item.ProductName" style="width: 400px; height: 200px">
+                            <img class="img-fluid lazy" src="~/Content/img/products/@item.ProductImage" alt="@item.ProductName" style="width: 400px; height: 200px">
                         </a>
                     </figure>
                     <div class="rating"><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star"></i></div>
@@ -177,12 +202,12 @@
                         <h3>@item.ProductName</h3>
                     </a>
                     <div class="price_box">
-                        <span class="new_price">@item.ProductPrice Đ</span>
+                        <span class="new_price">@item.ProductPrice.ToString("#,###", cul.NumberFormat)Đ</span>
                     </div>
                     <ul>
-                        <li><a href="~/Content/#0" class="tooltip-1" data-toggle="tooltip" data-placement="left" title="Add to favorites"><i class="ti-heart"></i><span>Add to favorites</span></a></li>
-                        <li><a href="~/Content/#0" class="tooltip-1" data-toggle="tooltip" data-placement="left" title="Add to compare"><i class="ti-control-shuffle"></i><span>Add to compare</span></a></li>
-                        <li><a href="~/Content/#0" class="tooltip-1" data-toggle="tooltip" data-placement="left" title="Add to cart"><i class="ti-shopping-cart"></i><span>Add to cart</span></a></li>
+                        <li><a href="~/Content/#0" class="tooltip-1" data-toggle="tooltip" data-placement="left" title="Thêm vào yêu thích"><i class="ti-heart"></i><span>Thêm vào yêu thích</span></a></li>
+                        <li><a href="~/Content/#0" class="tooltip-1" data-toggle="tooltip" data-placement="left" title="So sánh"><i class="ti-control-shuffle"></i><span>So sánh</span></a></li>
+                        <li><a href="~/Content/#0" class="tooltip-1" data-toggle="tooltip" data-placement="left" title="Thêm vào giỏ hàng"><i class="ti-shopping-cart"></i><span>Thêm vào giỏ hàng</span></a></li>
                     </ul>
                 </div>
                 <!-- /grid_item -->
@@ -197,22 +222,22 @@
     <div class="container margin_30">
         <div id="brands" class="owl-carousel owl-theme">
             <div class="item">
-                <a href="~/Content/#0"><img src="~/Content/img/brands/placeholder_brands.png" data-src="~/Content/img/brands/logo_1.png" alt="" class="owl-lazy"></a>
+                <a href="~/Content/#0"><img  src="~/Content/img/brands/logo_1.png" alt="" class="owl-lazy"></a>
             </div><!-- /item -->
             <div class="item">
-                <a href="~/Content/#0"><img src="~/Content/img/brands/placeholder_brands.png" data-src="~/Content/img/brands/logo_2.png" alt="" class="owl-lazy"></a>
+                <a href="~/Content/#0"><img  src="~/Content/img/brands/logo_2.png" alt="" class="owl-lazy"></a>
             </div><!-- /item -->
             <div class="item">
-                <a href="~/Content/#0"><img src="~/Content/img/brands/placeholder_brands.png" data-src="~/Content/img/brands/logo_3.png" alt="" class="owl-lazy"></a>
+                <a href="~/Content/#0"><img  src="~/Content/img/brands/logo_3.png" alt="" class="owl-lazy"></a>
             </div><!-- /item -->
             <div class="item">
-                <a href="~/Content/#0"><img src="~/Content/img/brands/placeholder_brands.png" data-src="~/Content/img/brands/logo_4.png" alt="" class="owl-lazy"></a>
+                <a href="~/Content/#0"><img  src="~/Content/img/brands/logo_4.png" alt="" class="owl-lazy"></a>
             </div><!-- /item -->
             <div class="item">
-                <a href="~/Content/#0"><img src="~/Content/img/brands/placeholder_brands.png" data-src="~/Content/img/brands/logo_5.png" alt="" class="owl-lazy"></a>
+                <a href="~/Content/#0"><img  src="~/Content/img/brands/logo_5.png" alt="" class="owl-lazy"></a>
             </div><!-- /item -->
             <div class="item">
-                <a href="~/Content/#0"><img src="~/Content/img/brands/placeholder_brands.png" data-src="~/Content/img/brands/logo_6.png" alt="" class="owl-lazy"></a>
+                <a href="~/Content/#0"><img  src="~/Content/img/brands/logo_6.png" alt="" class="owl-lazy"></a>
             </div><!-- /item -->
         </div><!-- /carousel -->
     </div><!-- /container -->
@@ -221,70 +246,28 @@
 
 <div class="container margin_60_35">
     <div class="main_title">
-        <h2>Tim mới nhất</h2>
+        <h2>Tin mới nhất</h2>
         <span>Bài viết</span>
-        <p>Theo dỏi những bài viết mới nhất về Bình Định Food</p>
+        <p>Theo dõi những bài viết mới nhất về Bình Định Food</p>
     </div>
     <div class="row">
-        <div class="col-lg-6">
-            <a class="box_news" href="~/Content/blog.html">
-                <figure>
-                    <img src="~/Content/img/blog-thumb-placeholder.jpg" data-src="~/Content/img/blog-thumb-1.jpg" alt="" width="400" height="266" class="lazy">
-                    <figcaption><strong>28</strong>Dec</figcaption>
-                </figure>
-                <ul>
-                    <li>by Mark Twain</li>
-                    <li>20.11.2017</li>
-                </ul>
-                <h4>Pri oportere scribentur eu</h4>
-                <p>Cu eum alia elit, usu in eius appareat, deleniti sapientem honestatis eos ex. In ius esse ullum vidisse....</p>
-            </a>
-        </div>
-        <!-- /box_news -->
-        <div class="col-lg-6">
-            <a class="box_news" href="~/Content/blog.html">
-                <figure>
-                    <img src="~/Content/img/blog-thumb-placeholder.jpg" data-src="~/Content/img/blog-thumb-2.jpg" alt="" width="400" height="266" class="lazy">
-                    <figcaption><strong>28</strong>Dec</figcaption>
-                </figure>
-                <ul>
-                    <li>By Jhon Doe</li>
-                    <li>20.11.2017</li>
-                </ul>
-                <h4>Duo eius postea suscipit ad</h4>
-                <p>Cu eum alia elit, usu in eius appareat, deleniti sapientem honestatis eos ex. In ius esse ullum vidisse....</p>
-            </a>
-        </div>
-        <!-- /box_news -->
-        <div class="col-lg-6">
-            <a class="box_news" href="~/Content/blog.html">
-                <figure>
-                    <img src="~/Content/img/blog-thumb-placeholder.jpg" data-src="~/Content/img/blog-thumb-3.jpg" alt="" width="400" height="266" class="lazy">
-                    <figcaption><strong>28</strong>Dec</figcaption>
-                </figure>
-                <ul>
-                    <li>By Luca Robinson</li>
-                    <li>20.11.2017</li>
-                </ul>
-                <h4>Elitr mandamus cu has</h4>
-                <p>Cu eum alia elit, usu in eius appareat, deleniti sapientem honestatis eos ex. In ius esse ullum vidisse....</p>
-            </a>
-        </div>
-        <!-- /box_news -->
-        <div class="col-lg-6">
-            <a class="box_news" href="~/Content/blog.html">
-                <figure>
-                    <img src="~/Content/img/blog-thumb-placeholder.jpg" data-src="~/Content/img/blog-thumb-4.jpg" alt="" width="400" height="266" class="lazy">
-                    <figcaption><strong>28</strong>Dec</figcaption>
-                </figure>
-                <ul>
-                    <li>By Paula Rodrigez</li>
-                    <li>20.11.2017</li>
-                </ul>
-                <h4>Id est adhuc ignota delenit</h4>
-                <p>Cu eum alia elit, usu in eius appareat, deleniti sapientem honestatis eos ex. In ius esse ullum vidisse....</p>
-            </a>
-        </div>
+        @foreach(var item in Model)
+        {
+            <div class="col-lg-6">
+                <a class="box_news" href="~/Content/blog.html">
+                    <figure>
+                        <img src="~/Content/img/products/@item.ProductImage" alt="@item.ProductName" width="400" height="266" class="lazy">
+                        <figcaption><strong>@item.ProductDateCreated.Day</strong>@item.ProductDateCreated.Month</figcaption>
+                    </figure>
+                    <ul>
+                        <li>@item.ProductDateCreated</li>
+                    </ul>
+                    <h4>@item.ProductName</h4>
+                    <p>@item.ProductDescription ...</p>
+                </a>
+            </div>
+        }
+        
         <!-- /box_news -->
     </div>
     <!-- /row -->

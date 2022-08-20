@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "hvWVJq2I88Vdq7SWhFadf5A8ksWKT8VFJl0LneOkcRA=",
+  "Hash": "rA3P9zlDOep+ZHIG4Z7434bVCx1JOIDK4qJD4ls73Rw=",
   "Source": "BinhDinhFoodWeb",
   "BasePath": "_content/BinhDinhFoodWeb",
   "Mode": "Default",
@@ -3060,23 +3060,6 @@
       "OriginalItemSpec": "wwwroot\\Content\\img\\search.svg"
     },
     {
-      "Identity": "C:\\Users\\vothu\\Downloads\\My-first-website-Contest\\BinhDinhFood\\BinhDinhFoodWeb\\wwwroot\\Content\\img\\slides\\.DS_Store",
-      "SourceId": "BinhDinhFoodWeb",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\vothu\\Downloads\\My-first-website-Contest\\BinhDinhFood\\BinhDinhFoodWeb\\wwwroot\\",
-      "BasePath": "_content/BinhDinhFoodWeb",
-      "RelativePath": "Content/img/slides/.DS_Store",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Content\\img\\slides\\.DS_Store"
-    },
-    {
       "Identity": "C:\\Users\\vothu\\Downloads\\My-first-website-Contest\\BinhDinhFood\\BinhDinhFoodWeb\\wwwroot\\Content\\img\\slides\\slide_home_1.jpg",
       "SourceId": "BinhDinhFoodWeb",
       "SourceType": "Discovered",
@@ -3092,23 +3075,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Content\\img\\slides\\slide_home_1.jpg"
-    },
-    {
-      "Identity": "C:\\Users\\vothu\\Downloads\\My-first-website-Contest\\BinhDinhFood\\BinhDinhFoodWeb\\wwwroot\\Content\\img\\slides\\slide_home_1_vertical.jpg",
-      "SourceId": "BinhDinhFoodWeb",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\vothu\\Downloads\\My-first-website-Contest\\BinhDinhFood\\BinhDinhFoodWeb\\wwwroot\\",
-      "BasePath": "_content/BinhDinhFoodWeb",
-      "RelativePath": "Content/img/slides/slide_home_1_vertical.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Content\\img\\slides\\slide_home_1_vertical.jpg"
     },
     {
       "Identity": "C:\\Users\\vothu\\Downloads\\My-first-website-Contest\\BinhDinhFood\\BinhDinhFoodWeb\\wwwroot\\Content\\img\\slides\\slide_home_2.jpg",
@@ -3128,23 +3094,6 @@
       "OriginalItemSpec": "wwwroot\\Content\\img\\slides\\slide_home_2.jpg"
     },
     {
-      "Identity": "C:\\Users\\vothu\\Downloads\\My-first-website-Contest\\BinhDinhFood\\BinhDinhFoodWeb\\wwwroot\\Content\\img\\slides\\slide_home_2_vertical.jpg",
-      "SourceId": "BinhDinhFoodWeb",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\vothu\\Downloads\\My-first-website-Contest\\BinhDinhFood\\BinhDinhFoodWeb\\wwwroot\\",
-      "BasePath": "_content/BinhDinhFoodWeb",
-      "RelativePath": "Content/img/slides/slide_home_2_vertical.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Content\\img\\slides\\slide_home_2_vertical.jpg"
-    },
-    {
       "Identity": "C:\\Users\\vothu\\Downloads\\My-first-website-Contest\\BinhDinhFood\\BinhDinhFoodWeb\\wwwroot\\Content\\img\\slides\\slide_home_3.jpg",
       "SourceId": "BinhDinhFoodWeb",
       "SourceType": "Discovered",
@@ -3162,12 +3111,12 @@
       "OriginalItemSpec": "wwwroot\\Content\\img\\slides\\slide_home_3.jpg"
     },
     {
-      "Identity": "C:\\Users\\vothu\\Downloads\\My-first-website-Contest\\BinhDinhFood\\BinhDinhFoodWeb\\wwwroot\\Content\\img\\slides\\slide_home_3_vertical.jpg",
+      "Identity": "C:\\Users\\vothu\\Downloads\\My-first-website-Contest\\BinhDinhFood\\BinhDinhFoodWeb\\wwwroot\\Content\\img\\slides\\slide_home_4.jpg",
       "SourceId": "BinhDinhFoodWeb",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\vothu\\Downloads\\My-first-website-Contest\\BinhDinhFood\\BinhDinhFoodWeb\\wwwroot\\",
       "BasePath": "_content/BinhDinhFoodWeb",
-      "RelativePath": "Content/img/slides/slide_home_3_vertical.jpg",
+      "RelativePath": "Content/img/slides/slide_home_4.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -3176,24 +3125,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Content\\img\\slides\\slide_home_3_vertical.jpg"
-    },
-    {
-      "Identity": "C:\\Users\\vothu\\Downloads\\My-first-website-Contest\\BinhDinhFood\\BinhDinhFoodWeb\\wwwroot\\Content\\img\\slides\\slide_home_4_vertical.jpg",
-      "SourceId": "BinhDinhFoodWeb",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\vothu\\Downloads\\My-first-website-Contest\\BinhDinhFood\\BinhDinhFoodWeb\\wwwroot\\",
-      "BasePath": "_content/BinhDinhFoodWeb",
-      "RelativePath": "Content/img/slides/slide_home_4_vertical.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Content\\img\\slides\\slide_home_4_vertical.jpg"
+      "OriginalItemSpec": "wwwroot\\Content\\img\\slides\\slide_home_4.jpg"
     },
     {
       "Identity": "C:\\Users\\vothu\\Downloads\\My-first-website-Contest\\BinhDinhFood\\BinhDinhFoodWeb\\wwwroot\\Content\\img\\staff\\.DS_Store",
