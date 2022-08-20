@@ -11,9 +11,9 @@ namespace BinhDinhFoodWeb.Controllers
         {
             _repo = repo;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var objProductList = _repo.GetProducts();
+            var objProductList = await _repo.GetProducts();
             return View(objProductList);
         }
     }

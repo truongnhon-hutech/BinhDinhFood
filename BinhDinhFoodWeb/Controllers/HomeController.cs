@@ -15,21 +15,20 @@ namespace BinhDinhFoodWeb.Controllers
         {
             _repo = repo;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var objProductList = _repo.GetProducts();
-
+            var objProductList = await _repo.GetProducts();
             // search data for banner
-            var tmp1 = _repo.GetProductById(6);
+            var tmp1 = await _repo.GetProductById(6);
             ViewData["objBannerName1"] = tmp1.ProductName;
             ViewData["objBannerImage1"] = tmp1.ProductImage;
             ViewData["objBannerPrice1"] = tmp1.ProductPrice.ToString("#,###", cul.NumberFormat);
-            var tmp2 = _repo.GetProductById(7);
+            var tmp2 = await _repo.GetProductById(7);
 
             ViewData["objBannerName2"] = tmp2.ProductName;
             ViewData["objBannerImage2"] = tmp2.ProductImage;
             ViewData["objBannerPrice2"] = tmp2.ProductPrice.ToString("#,###", cul.NumberFormat);
-            var tmp3 = _repo.GetProductById(16);
+            var tmp3 = await _repo.GetProductById(16);
 
             ViewData["objBannerName3"] = tmp3.ProductName;
             ViewData["objBannerImage3"] = tmp3.ProductImage;

@@ -1,5 +1,6 @@
 ﻿using BinhDinhFood.Models;
 using BinhDinhFoodWeb.Intefaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace BinhDinhFoodWeb.Repositories
 {
@@ -17,14 +18,13 @@ namespace BinhDinhFoodWeb.Repositories
             throw new NotImplementedException();
         }
 
-        public Product GetProductById(int id)
+        public async Task<Product> GetProductById(int id)
         {
-            return _context.Products.Find(id);
+            return await _context.Products.FindAsync(id);
         }
-
-        public List<Product> GetProducts()
+        public async Task<List<Product>> GetProducts()
         {
-            return _context.Products.Take(8).ToList();
+            return await _context.Products.Take(8).ToListAsync();
         }
     }
 }
