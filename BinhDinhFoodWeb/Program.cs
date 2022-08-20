@@ -1,4 +1,6 @@
 using BinhDinhFood.Models;
+using BinhDinhFoodWeb.Intefaces;
+using BinhDinhFoodWeb.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,7 +11,7 @@ builder.Services.AddDbContext<BinhDinhFoodDbContext>(options => options.UseSqlSe
     builder.Configuration.GetConnectionString("DefaultConnection")
     ));
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();// follow code freecodecamp.com but i dont know what exactly is
-
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -1,4 +1,5 @@
 ﻿using BinhDinhFood.Models;
+using BinhDinhFoodWeb.Intefaces;
 using BinhDinhFoodWeb.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
@@ -8,27 +9,28 @@ namespace BinhDinhFoodWeb.Controllers
 {
     public class HomeController : Controller
     {
-        //private readonly ILogger<HomeController> _logger;
         CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
-        private readonly BinhDinhFoodDbContext _db;
-        public HomeController(BinhDinhFoodDbContext db)
+        private readonly IProductRepository _repo;
+        public HomeController(IProductRepository repo)
         {
-            _db = db;
+            _repo = repo;
         }
-
         public IActionResult Index()
         {
-            IEnumerable<Product> objProductList = _db.Products.Take(8);
-            //var objProductList = _db.Products.ToList();
-            var tmp1 = _db.Products.Find(6);
+            var objProductList = _repo.GetProducts();
+
+            // search data for banner
+            var tmp1 = _repo.GetProductById(6);
             ViewData["objBannerName1"] = tmp1.ProductName;
             ViewData["objBannerImage1"] = tmp1.ProductImage;
             ViewData["objBannerPrice1"] = tmp1.ProductPrice.ToString("#,###", cul.NumberFormat);
-            var tmp2 = _db.Products.Find(7);
+            var tmp2 = _repo.GetProductById(7);
+
             ViewData["objBannerName2"] = tmp2.ProductName;
             ViewData["objBannerImage2"] = tmp2.ProductImage;
             ViewData["objBannerPrice2"] = tmp2.ProductPrice.ToString("#,###", cul.NumberFormat);
-            var tmp3 = _db.Products.Find(16);
+            var tmp3 = _repo.GetProductById(16);
+
             ViewData["objBannerName3"] = tmp3.ProductName;
             ViewData["objBannerImage3"] = tmp3.ProductImage;
             ViewData["objBannerPrice3"] = tmp3.ProductPrice.ToString("#,###", cul.NumberFormat);

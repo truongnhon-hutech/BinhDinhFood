@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using BinhDinhFoodWeb.Models;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -29,5 +30,7 @@ namespace BinhDinhFood.Models
         [ForeignKey("Category")]
         public int CategoryId { get; set; }
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+        public virtual ICollection<ProductRating> ProductRatings { get; set; }
+
     }
 }

@@ -4,6 +4,7 @@ using BinhDinhFood.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BinhDinhFoodWeb.Migrations
 {
     [DbContext(typeof(BinhDinhFoodDbContext))]
-    partial class BinhDinhFoodDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220820124921_AddBlogTable")]
+    partial class AddBlogTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -217,30 +219,6 @@ namespace BinhDinhFoodWeb.Migrations
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Product", (string)null);
-                });
-
-            modelBuilder.Entity("BinhDinhFoodWeb.Models.Blog", b =>
-                {
-                    b.Property<int>("BlogId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BlogId"), 1L, 1);
-
-                    b.Property<string>("BlogContent")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("BlogDateCreated")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("BlogName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("BlogId");
-
-                    b.ToTable("Blog", (string)null);
                 });
 
             modelBuilder.Entity("BinhDinhFoodWeb.Models.ProductRating", b =>

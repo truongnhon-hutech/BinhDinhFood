@@ -1,4 +1,5 @@
-﻿using Microsoft.CodeAnalysis;
+﻿using BinhDinhFoodWeb.Models;
+using Microsoft.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
 
 namespace BinhDinhFood.Models
@@ -14,6 +15,10 @@ namespace BinhDinhFood.Models
         public DbSet<Product> Products { get; set; }
         public DbSet<Admin> Admins { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<ProductRating> ProductRatings { get; set; }
+        public DbSet<Blog> Blogs{ get; set; }
+        
+        
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -22,6 +27,8 @@ namespace BinhDinhFood.Models
             modelBuilder.Entity<Order>().ToTable("Order");
             modelBuilder.Entity<OrderDetail>().ToTable("OrderDetail");
             modelBuilder.Entity<Product>().ToTable("Product");
+            modelBuilder.Entity<ProductRating>().ToTable("ProductRating");
+            modelBuilder.Entity<Blog>().ToTable("Blog");
             modelBuilder.Entity<OrderDetail>()
                 .HasKey(c => new { c.ProductId, c.OrderId });
 
@@ -31,6 +38,15 @@ namespace BinhDinhFood.Models
             modelBuilder.Entity<Product>()
                 .HasMany(e => e.OrderDetails);
 
+            //modelBuilder.Entity<ProductRating>()
+            //    .HasKey(f => new { f.ProductRatingId});
+
+            modelBuilder.Entity<Product>()
+                .HasMany(g => g.ProductRatings);
+            modelBuilder.Entity<Customer>()
+                .HasMany(g => g.ProductRatings);
+
+            
         }
     }
 }

@@ -1,18 +1,19 @@
 ﻿using BinhDinhFood.Models;
+using BinhDinhFoodWeb.Intefaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BinhDinhFoodWeb.Controllers
 {
     public class ProductGridViewController : Controller
     {
-        private readonly BinhDinhFoodDbContext _db;
-        public ProductGridViewController(BinhDinhFoodDbContext db)
+        private readonly IProductRepository _repo;
+        public ProductGridViewController(IProductRepository repo)
         {
-            _db = db;
+            _repo = repo;
         }
         public IActionResult Index()
         {
-            IEnumerable<Product> objProductList = _db.Products.Take(8);
+            var objProductList = _repo.GetProducts();
             return View(objProductList);
         }
     }

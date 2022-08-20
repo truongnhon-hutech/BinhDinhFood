@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using BinhDinhFoodWeb.Models;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -30,6 +31,8 @@ namespace BinhDinhFood.Models
         [DisplayName("Hình đại diện")]
         public string CustomerImage { get; set; }
         public ICollection<Order> Orders { get; set; }
+        public virtual ICollection<ProductRating> ProductRatings { get; set; }
+
 
     }
 }
