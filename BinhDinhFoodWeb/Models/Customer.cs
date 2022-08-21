@@ -11,7 +11,16 @@ namespace BinhDinhFood.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int CustomerId { get; set; }
         [DisplayName("Họ tên")]
-        public string CustomerFullName { get; set; }
+        public string CustomerFullName { 
+            get
+            {
+                return CustomerLastName + " " + CustomerFirstName;
+            } 
+        }
+        [DisplayName("Họ")]
+        public string CustomerLastName { get; set; }
+        [DisplayName("Tên")]
+        public string CustomerFirstName { get; set; }
         [Required]
         [StringLength(50)]
         [DisplayName("Tài khoản")]
