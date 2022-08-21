@@ -1,14 +1,11 @@
 @using System.Globalization
-
 @{
     CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
 }
-
-<!--/carousel-->
 <div id="carousel-home">
     <div class="owl-carousel owl-theme">
-        <div class="owl-slide cover" >
-        <img src="~/content/img/slides/slide_home_1.jpg" />
+        <div class="owl-slide cover">
+            <img src="~/content/img/slides/slide_home_1.jpg" />
             <div class="opacity-mask d-flex align-items-center" data-opacity-mask="rgba(0, 0, 0, 0.5)">
                 <div class="container">
                     <div class="row justify-content-center justify-content-md-end">
@@ -17,13 +14,12 @@
                                 <h2 class="owl-slide-animated owl-slide-title">@ViewData["objBannerName1"]</h2>
                                 <p class="owl-slide-animated owl-slide-subtitle">
                                     <div class="feat_text_block">
-
-                                    <div class="price_box">
-                                        <span class="new_price">@ViewData["objBannerPrice1"] Đ</span>
-                                    </div>
+                                        <div class="price_box">
+                                            <span class="new_price">@ViewData["objBannerPrice1"] Đ</span>
+                                        </div>
                                     </div>
                                 </p>
-                                <div class="owl-slide-animated owl-slide-cta"><a class="btn_1" href="~/Content/listing-grid-1-full.html" role="button">Mua Ngay</a></div>
+                                <div class="owl-slide-animated owl-slide-cta"><a class="btn_1" role="button">Thêm vào giỏ hàng</a></div>
                             </div>
                         </div>
                     </div>
@@ -31,7 +27,7 @@
             </div>
         </div>
         <!--/owl-slide-->
-        <div class="owl-slide cover" >
+        <div class="owl-slide cover">
             <img src="~/content/img/slides/slide_home_2.jpg" />
             <div class="opacity-mask d-flex align-items-center" data-opacity-mask="rgba(0, 0, 0, 0.5)">
                 <div class="container">
@@ -42,11 +38,11 @@
                                 <p class="owl-slide-animated owl-slide-subtitle">
                                     <div class="feat_text_block">
                                         <div class="price_box">
-                                        <span class="new_price">@ViewData["objBannerPrice2"] Đ</span>
+                                            <span class="new_price">@ViewData["objBannerPrice2"] Đ</span>
                                         </div>
                                     </div>
                                 </p>
-                                <div class="owl-slide-animated owl-slide-cta"><a class="btn_1" href="~/Content/listing-grid-1-full.html" role="button">Mua ngay</a></div>
+                                <div class="owl-slide-animated owl-slide-cta"><a class="btn_1" role="button">Thêm vào giỏ hàng</a></div>
                             </div>
                         </div>
                     </div>
@@ -54,8 +50,8 @@
             </div>
         </div>
         <!--/owl-slide-->
-        <div class="owl-slide cover" >
-            <img src="~/content/img/slides/slide_home_3.jpg"/>
+        <div class="owl-slide cover">
+            <img src="~/content/img/slides/slide_home_3.jpg" />
             <div class="opacity-mask d-flex align-items-center" data-opacity-mask="rgba(255, 255, 255, 0.5)">
                 <div class="container">
                     <div class="row justify-content-center justify-content-md-start">
@@ -65,12 +61,12 @@
                                 <p class="owl-slide-animated owl-slide-subtitle">
                                     <div class="feat_text_block">
 
-                                    <div class="price_box">
-                                        <span class="new_price">@ViewData["objBannerPrice3"] Đ</span>
-                                    </div>
+                                        <div class="price_box">
+                                            <span class="new_price">@ViewData["objBannerPrice3"] Đ</span>
+                                        </div>
                                     </div>
                                 </p>
-                                <div class="owl-slide-animated owl-slide-cta"><a class="btn_1" href="~/Content/listing-grid-1-full.html" role="button">Mua ngay</a></div>
+                                <div class="owl-slide-animated owl-slide-cta"><a class="btn_1" role="button">Thêm vào giỏ hàng</a></div>
                             </div>
                         </div>
                     </div>
@@ -145,7 +141,7 @@
                     <ul>
                         <li><a href="~/Content/#0" class="tooltip-1" data-toggle="tooltip" data-placement="left" title="Thêm vào yêu thích"><i class="ti-heart"></i><span>Thêm vào yêu thích</span></a></li>
                         <li><a href="~/Content/#0" class="tooltip-1" data-toggle="tooltip" data-placement="left" title="So sánh"><i class="ti-control-shuffle"></i><span>So sánh</span></a></li>
-                        <li><a href="~/Content/#0" class="tooltip-1" data-toggle="tooltip" data-placement="left" title="Thêm vào giỏ hàng"><i class="ti-shopping-cart"></i><span>So sánh</span></a></li>
+                        <li><a asp-action="AddInCart" asp-controller="Cart" asp-route-id="@item.ProductId" class="tooltip-1" data-toggle="tooltip" data-placement="left" title="Thêm vào giỏ hàng"><i class="ti-shopping-cart"></i><span>Thêm vào giỏ hàng</span></a></li>
                     </ul>
                 </div>
                 <!-- /grid_item -->

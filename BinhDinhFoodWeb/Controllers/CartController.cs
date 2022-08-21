@@ -36,23 +36,6 @@ namespace BinhDinhFoodWeb.Controllers
             HttpContext.Session.SetString("Cart", JsonConvert.SerializeObject(listCartStatic));
             List<Cart> listCart = JsonConvert.DeserializeObject<List<Cart>>(HttpContext.Session.GetString("Cart"));
             return listCart;
-
-        }
-        // Add product to cart
-        public IActionResult AddInCart(int id)
-        {
-            List<Cart> listCart = GetAll();
-            Cart cart = listCart.FirstOrDefault(x => x.iProductId == id);
-            if(cart == null)
-            {
-                cart = new Cart();
-                listCart.Add(cart);
-            }
-            else
-            {
-                cart.iQuantity++;
-            }
-            return View(cart);
         }
         // sum all money 
         public double TotalMoney()
@@ -65,6 +48,22 @@ namespace BinhDinhFoodWeb.Controllers
             }
             return totalMoney;
         }
+        // Add product to cart
+        public IActionResult AddInCart(int id)
+        {
+            List<Cart> listCart = GetAll();
+            Cart cart = listCart.FirstOrDefault(x => x.iProductId == id);
+            if(cart == null)
+            {
+                cart = new Cart(id);
+                listCart.Add(cart);
+            }
+            else
+            {
+                cart.iQuantity++;
+            }
+            return RedirectToAction("Index", "Home");
+        }
         // remove product in cart
         public IActionResult RemoveInCart(int id) 
         {
@@ -74,7 +73,6 @@ namespace BinhDinhFoodWeb.Controllers
             {
                 listCart.RemoveAll(x=> x.iProductId ==id);
                 return RedirectToAction("Cart");
-
             }
             return RedirectToAction("Cart");
         }
@@ -103,6 +101,14 @@ namespace BinhDinhFoodWeb.Controllers
         {
             return View();
         }
+        // Partial View
+        // list product
+        // total product or viewbag and transmissive to another controller
+        public IActionResult ListProductPartial()
+        {
+            List<Cart> listCart = GetAll();
 
+            return PartialView(listCart);
+        }
     }
 }
