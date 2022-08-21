@@ -18,11 +18,11 @@ namespace BinhDinhFoodWeb.Repositories
             throw new NotImplementedException();
         }
 
-        public async Task<Product> GetProductById(int id)
+        public async Task<Product> GetProducts(int id)
         {
             return await _context.Products.FindAsync(id);
         }
-        public async Task<List<Product>> GetProducts()
+        public async Task<List<Product>> GetAll()
         {
             return await _context.Products.Take(8).ToListAsync();
         }

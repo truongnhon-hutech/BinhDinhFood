@@ -4,8 +4,8 @@ namespace BinhDinhFoodWeb.Intefaces
 {
     public interface IProductRepository
     {
-        public Task<List<Product>> GetProducts();
-        public Task<Product> GetProductById(int id);
+        public Task<List<Product>> GetAll();
+        public Task<Product> GetProducts(int id);
         public void AddProduct(Product product);
     }
 }

@@ -12,6 +12,18 @@ builder.Services.AddDbContext<BinhDinhFoodDbContext>(options => options.UseSqlSe
     ));
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();// follow code freecodecamp.com but i dont know what exactly is
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<ICartRepository, CartRepository>();
+builder.Services.AddScoped<IBlogRepository, BlogRepository>();
+
+builder.Services.AddDistributedMemoryCache();
+
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromSeconds(10);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -28,9 +40,10 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+app.UseSession();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=ProductGridView}/{action=Index}/{id?}");
+    pattern: "{controller=Cart}/{action=Index}/{id?}");
 
 app.Run();

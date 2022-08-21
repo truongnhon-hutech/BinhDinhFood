@@ -2,7 +2,6 @@
 
 @{
     CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
-
 }
 
 <!--/carousel-->
@@ -140,7 +139,7 @@
                         <h3>@item.ProductName</h3>
                     </a>
                     <div class="price_box">
-                        <span class="old_price">@item.ProductPrice.ToString("#,###", cul.NumberFormat) Đ;</span>
+                        <span class="old_price">@item.ProductPrice.ToString("#,###", cul.NumberFormat) Đ</span>
                         <span class="new_price">@Convert.ToDouble(@item.ProductPrice -(@Convert.ToDouble(@item.ProductPrice) * @Convert.ToDouble(@item.ProductDiscount))).ToString("#,###", cul.NumberFormat) Đ</span>
                     </div>
                     <ul>
