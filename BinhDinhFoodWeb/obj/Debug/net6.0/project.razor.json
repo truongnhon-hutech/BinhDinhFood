@@ -16298,6 +16298,11 @@
   "RootNamespace": "BinhDinhFoodWeb",
   "Documents": [
     {
+      "FilePath": "f:\\University\\Projects\\BinhDinhFood\\BinhDinhFood\\BinhDinhFoodWeb\\Views\\Product\\Create.cshtml",
+      "TargetPath": "Views\\Product\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "f:\\University\\Projects\\BinhDinhFood\\BinhDinhFood\\BinhDinhFoodWeb\\Views\\Home\\Help.cshtml",
       "TargetPath": "Views\\Home\\Help.cshtml",
       "FileKind": "mvc"
@@ -16343,6 +16348,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "f:\\University\\Projects\\BinhDinhFood\\BinhDinhFood\\BinhDinhFoodWeb\\Views\\Product\\Delete.cshtml",
+      "TargetPath": "Views\\Product\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "f:\\University\\Projects\\BinhDinhFood\\BinhDinhFood\\BinhDinhFoodWeb\\Views\\Home\\Contact.cshtml",
       "TargetPath": "Views\\Home\\Contact.cshtml",
       "FileKind": "mvc"
@@ -16353,13 +16363,28 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "f:\\University\\Projects\\BinhDinhFood\\BinhDinhFood\\BinhDinhFoodWeb\\Views\\Product\\Edit.cshtml",
+      "TargetPath": "Views\\Product\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "f:\\University\\Projects\\BinhDinhFood\\BinhDinhFood\\BinhDinhFoodWeb\\Views\\Blog\\BlogPost.cshtml",
       "TargetPath": "Views\\Blog\\BlogPost.cshtml",
       "FileKind": "mvc"
     },
     {
+      "FilePath": "f:\\University\\Projects\\BinhDinhFood\\BinhDinhFood\\BinhDinhFoodWeb\\Views\\Product\\Details.cshtml",
+      "TargetPath": "Views\\Product\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "f:\\University\\Projects\\BinhDinhFood\\BinhDinhFood\\BinhDinhFoodWeb\\Views\\_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "f:\\University\\Projects\\BinhDinhFood\\BinhDinhFood\\BinhDinhFoodWeb\\Views\\Product\\Index.cshtml",
+      "TargetPath": "Views\\Product\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
