@@ -1,0 +1,274 @@
+@using System.Globalization
+
+@{
+    CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
+}
+
+<!--/carousel-->
+<div id="carousel-home">
+    <div class="owl-carousel owl-theme">
+        <div class="owl-slide cover" >
+        <img src="~/content/img/slides/slide_home_1.jpg" />
+            <div class="opacity-mask d-flex align-items-center" data-opacity-mask="rgba(0, 0, 0, 0.5)">
+                <div class="container">
+                    <div class="row justify-content-center justify-content-md-end">
+                        <div class="col-lg-6 static">
+                            <div class="slide-text text-right white">
+                                <h2 class="owl-slide-animated owl-slide-title">@ViewData["objBannerName1"]</h2>
+                                <p class="owl-slide-animated owl-slide-subtitle">
+                                    <div class="feat_text_block">
+
+                                    <div class="price_box">
+                                        <span class="new_price">@ViewData["objBannerPrice1"] Đ</span>
+                                    </div>
+                                    </div>
+                                </p>
+                                <div class="owl-slide-animated owl-slide-cta"><a class="btn_1" href="~/Content/listing-grid-1-full.html" role="button">Mua Ngay</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/owl-slide-->
+        <div class="owl-slide cover" >
+            <img src="~/content/img/slides/slide_home_2.jpg" />
+            <div class="opacity-mask d-flex align-items-center" data-opacity-mask="rgba(0, 0, 0, 0.5)">
+                <div class="container">
+                    <div class="row justify-content-center justify-content-md-start">
+                        <div class="col-lg-6 static">
+                            <div class="slide-text white">
+                                <h2 class="owl-slide-animated owl-slide-title">@ViewData["objBannerName2"]</h2>
+                                <p class="owl-slide-animated owl-slide-subtitle">
+                                    <div class="feat_text_block">
+                                        <div class="price_box">
+                                        <span class="new_price">@ViewData["objBannerPrice2"] Đ</span>
+                                        </div>
+                                    </div>
+                                </p>
+                                <div class="owl-slide-animated owl-slide-cta"><a class="btn_1" href="~/Content/listing-grid-1-full.html" role="button">Mua ngay</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/owl-slide-->
+        <div class="owl-slide cover" >
+            <img src="~/content/img/slides/slide_home_3.jpg"/>
+            <div class="opacity-mask d-flex align-items-center" data-opacity-mask="rgba(255, 255, 255, 0.5)">
+                <div class="container">
+                    <div class="row justify-content-center justify-content-md-start">
+                        <div class="col-lg-12 static">
+                            <div class="slide-text text-center black">
+                                <h2 class="owl-slide-animated owl-slide-title">@ViewData["objBannerName3"]</h2>
+                                <p class="owl-slide-animated owl-slide-subtitle">
+                                    <div class="feat_text_block">
+
+                                    <div class="price_box">
+                                        <span class="new_price">@ViewData["objBannerPrice3"] Đ</span>
+                                    </div>
+                                    </div>
+                                </p>
+                                <div class="owl-slide-animated owl-slide-cta"><a class="btn_1" href="~/Content/listing-grid-1-full.html" role="button">Mua ngay</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/owl-slide-->
+        </div>
+    </div>
+    <div id="icon_drag_mobile"></div>
+</div>
+<!--/carousel-->
+
+<!--/banners_grid -->
+<ul id="banners_grid" class="clearfix">
+    <li>
+        <a href="~/Content/#0" class="img_container">
+            <img src="~/Content/img/products/@ViewData["objBannerImage1"]" alt="" class="lazy">
+            <div class="short_info opacity-mask" data-opacity-mask="rgba(0, 0, 0, 0.5)">
+                <h3>Hải sản</h3>
+                <div><span class="btn_1">Mua ngay</span></div>
+            </div>
+        </a>
+    </li>
+    <li>
+        <a href="~/Content/#0" class="img_container">
+            <img src="~/Content/img/products/@ViewData["objBannerImage2"]" alt="" class="lazy">
+            <div class="short_info opacity-mask" data-opacity-mask="rgba(0, 0, 0, 0.5)">
+                <h3>Đồ khô</h3>
+                <div><span class="btn_1">Mua ngay</span></div>
+            </div>
+        </a>
+    </li>
+    <li>
+        <a href="~/Content/#0" class="img_container">
+            <img src="~/Content/img/products/@ViewData["objBannerImage3"]" alt="" class="lazy">
+            <div class="short_info opacity-mask" data-opacity-mask="rgba(0, 0, 0, 0.5)">
+                <h3>Bánh đặc sản</h3>
+                <div><span class="btn_1">Mua ngay</span></div>
+            </div>
+        </a>
+    </li>
+</ul>
+<!--/banners_grid -->
+
+<div class="container margin_60_35">
+    <div class="main_title">
+        <h2>Bán chạy</h2>
+        <span>Sản phẩm</span>
+        <p>Những đặc sản được mua nhiều nhất</p>
+    </div>
+    <div class="row small-gutters">
+        @foreach(var item in Model)
+        {
+            <div class="col-6 col-md-4 col-xl-3">
+                <div class="grid_item">
+                    <figure>
+                        <span class="ribbon off"> - @Convert.ToDouble(@item.ProductDiscount)%</span>
+                        <a href="~/Content/product-detail-1.html">
+                            <img class="img-fluid lazy" src="~/Content/img/products/@item.ProductImage" alt="@item.ProductName" style="width: 400px; height: 200px">
+                            <img class="img-fluid lazy" src="~/Content/img/products/@item.ProductImage" alt="@item.ProductName" style="width: 400px; height: 200px">
+                        </a>
+                        <div data-countdown="2022/8/22" class="countdown"></div>
+                    </figure>
+                    <div class="rating"><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star"></i></div>
+                    <a href="~/Content/product-detail-1.html">
+                        <h3>@item.ProductName</h3>
+                    </a>
+                    <div class="price_box">
+                        <span class="old_price">@item.ProductPrice.ToString("#,###", cul.NumberFormat) Đ</span>
+                        <span class="new_price">@Convert.ToDouble(@item.ProductPrice -(@Convert.ToDouble(@item.ProductPrice) * @Convert.ToDouble(@item.ProductDiscount))).ToString("#,###", cul.NumberFormat) Đ</span>
+                    </div>
+                    <ul>
+                        <li><a href="~/Content/#0" class="tooltip-1" data-toggle="tooltip" data-placement="left" title="Thêm vào yêu thích"><i class="ti-heart"></i><span>Thêm vào yêu thích</span></a></li>
+                        <li><a href="~/Content/#0" class="tooltip-1" data-toggle="tooltip" data-placement="left" title="So sánh"><i class="ti-control-shuffle"></i><span>So sánh</span></a></li>
+                        <li><a href="~/Content/#0" class="tooltip-1" data-toggle="tooltip" data-placement="left" title="Thêm vào giỏ hàng"><i class="ti-shopping-cart"></i><span>So sánh</span></a></li>
+                    </ul>
+                </div>
+                <!-- /grid_item -->
+            </div>
+        }
+    </div>
+    <!-- /row -->
+</div>
+<!-- /container -->
+
+<div class="featured lazy" data-bg="url(~/content/img/slides/slide_home_4.jpg")">
+    <img src="~/content/img/slides/slide_home_4.jpg" />
+    <div class="opacity-mask d-flex align-items-center" data-opacity-mask="rgba(0, 0, 0, 0.5)">
+        <div class="container margin_60">
+            <div class="row justify-content-center justify-content-md-start">
+                <div class="col-lg-6 wow" data-wow-offset="150">
+                    <h3>@ViewData["objBannerName1"]</h3>
+                    <div class="feat_text_block">
+                        <div class="price_box">
+                            <span class="new_price">@ViewData["objBannerPrice1"]</span>
+                            <span class="old_price">@ViewData["objBannerPrice1"]</span>
+                        </div>
+                        <a class="btn_1" href="~/Content/listing-grid-1-full.html" role="button">Mua ngay</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /featured -->
+
+
+<div class="container margin_60_35">
+    <div class="main_title">
+        <h2>Mới nhất</h2>
+        <span>Sản phẩm</span>
+        <p>Hàng mới nhập</p>
+    </div>
+    <div class="owl-carousel owl-theme products_carousel">
+        @foreach(var item in Model)
+        {
+            <div class="item">
+                <div class="grid_item">
+                    <span class="ribbon new">Mới</span>
+                    <figure>
+                        <a href="~/Content/product-detail-1.html">
+                            <img class="img-fluid lazy" src="~/Content/img/products/@item.ProductImage" alt="@item.ProductName" style="width: 400px; height: 200px">
+                            <img class="img-fluid lazy" src="~/Content/img/products/@item.ProductImage" alt="@item.ProductName" style="width: 400px; height: 200px">
+                        </a>
+                    </figure>
+                    <div class="rating"><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star"></i></div>
+                    <a href="~/Content/product-detail-1.html">
+                        <h3>@item.ProductName</h3>
+                    </a>
+                    <div class="price_box">
+                        <span class="new_price">@item.ProductPrice.ToString("#,###", cul.NumberFormat)Đ</span>
+                    </div>
+                    <ul>
+                        <li><a href="~/Content/#0" class="tooltip-1" data-toggle="tooltip" data-placement="left" title="Thêm vào yêu thích"><i class="ti-heart"></i><span>Thêm vào yêu thích</span></a></li>
+                        <li><a href="~/Content/#0" class="tooltip-1" data-toggle="tooltip" data-placement="left" title="So sánh"><i class="ti-control-shuffle"></i><span>So sánh</span></a></li>
+                        <li><a href="~/Content/#0" class="tooltip-1" data-toggle="tooltip" data-placement="left" title="Thêm vào giỏ hàng"><i class="ti-shopping-cart"></i><span>Thêm vào giỏ hàng</span></a></li>
+                    </ul>
+                </div>
+                <!-- /grid_item -->
+            </div>
+        }
+    </div>
+    <!-- /products_carousel -->
+</div>
+<!-- /container -->
+
+<div class="bg_gray">
+    <div class="container margin_30">
+        <div id="brands" class="owl-carousel owl-theme">
+            <div class="item">
+                <a href="~/Content/#0"><img  src="~/Content/img/brands/logo_1.png" alt="" class="owl-lazy"></a>
+            </div><!-- /item -->
+            <div class="item">
+                <a href="~/Content/#0"><img  src="~/Content/img/brands/logo_2.png" alt="" class="owl-lazy"></a>
+            </div><!-- /item -->
+            <div class="item">
+                <a href="~/Content/#0"><img  src="~/Content/img/brands/logo_3.png" alt="" class="owl-lazy"></a>
+            </div><!-- /item -->
+            <div class="item">
+                <a href="~/Content/#0"><img  src="~/Content/img/brands/logo_4.png" alt="" class="owl-lazy"></a>
+            </div><!-- /item -->
+            <div class="item">
+                <a href="~/Content/#0"><img  src="~/Content/img/brands/logo_5.png" alt="" class="owl-lazy"></a>
+            </div><!-- /item -->
+            <div class="item">
+                <a href="~/Content/#0"><img  src="~/Content/img/brands/logo_6.png" alt="" class="owl-lazy"></a>
+            </div><!-- /item -->
+        </div><!-- /carousel -->
+    </div><!-- /container -->
+</div>
+<!-- /bg_gray -->
+
+<div class="container margin_60_35">
+    <div class="main_title">
+        <h2>Tin mới nhất</h2>
+        <span>Bài viết</span>
+        <p>Theo dõi những bài viết mới nhất về Bình Định Food</p>
+    </div>
+    <div class="row">
+        @foreach(var item in Model)
+        {
+            <div class="col-lg-6">
+                <a class="box_news" href="~/Content/blog.html">
+                    <figure>
+                        <img src="~/Content/img/products/@item.ProductImage" alt="@item.ProductName" width="400" height="266" class="lazy">
+                        <figcaption><strong>@item.ProductDateCreated.Day</strong>@item.ProductDateCreated.Month</figcaption>
+                    </figure>
+                    <ul>
+                        <li>@item.ProductDateCreated</li>
+                    </ul>
+                    <h4>@item.ProductName</h4>
+                    <p>@item.ProductDescription ...</p>
+                </a>
+            </div>
+        }
+        
+        <!-- /box_news -->
+    </div>
+    <!-- /row -->
+</div>
+<!-- /container -->
