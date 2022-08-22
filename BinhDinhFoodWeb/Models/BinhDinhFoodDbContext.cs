@@ -17,8 +17,6 @@ namespace BinhDinhFood.Models
         public DbSet<Category> Categories { get; set; }
         public DbSet<ProductRating> ProductRatings { get; set; }
         public DbSet<Blog> Blogs{ get; set; }
-        
-        
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

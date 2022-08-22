@@ -27,10 +27,19 @@ namespace BinhDinhFoodWeb.Models
 
         public Cart() { }
 
-        public Cart(int ProductId)
+        //public Cart(int ProductId)
+        //{
+        //    iProductId = ProductId;
+        //    Product product = _db.Products.Single(n => n.ProductId == iProductId);
+        //    sProductName = product.ProductName;
+        //    sProductImage = product.ProductImage;
+        //    dUnitPrice = double.Parse(product.ProductPrice.ToString());
+        //    iQuantity = 1;
+        //} 
+        public Cart(Product product)
         {
-            iProductId = ProductId;
-            Product product = _db.Products.Single(n => n.ProductId == iProductId);
+            iProductId = product.ProductId;
+            //Product product = _db.Products.Single(n => n.ProductId == iProductId);
             sProductName = product.ProductName;
             sProductImage = product.ProductImage;
             dUnitPrice = double.Parse(product.ProductPrice.ToString());

@@ -11,13 +11,16 @@ namespace BinhDinhFoodWeb.Controllers
     {
         // declare _repo but don't use
         private readonly ICartRepository _repo;
+        private readonly IProductRepository _pdRepo;
         public static List<Cart> listCartStatic = new List<Cart>();
-        public CartController(ICartRepository repo)
+        public CartController(ICartRepository repo, IProductRepository pdRepo)
         {
             _repo = repo;
+            _pdRepo = pdRepo;
         }
         public IActionResult Index()
         {
+            SetAll();
             List<Cart> listCart = GetAll();
             ViewData["TotalSubMoney"] = TotalMoney();
             ViewData["TotalMoney"] = 30000 + TotalMoney();
@@ -30,13 +33,20 @@ namespace BinhDinhFoodWeb.Controllers
             return View(listCart);
         }
         // get all product in cart
-        public List<Cart> GetAll()
+        public List<Cart> SetAll()
         {
             //Get data cart from session
             HttpContext.Session.SetString("Cart", JsonConvert.SerializeObject(listCartStatic));
-            List<Cart> listCart = JsonConvert.DeserializeObject<List<Cart>>(HttpContext.Session.GetString("Cart"));
-            return listCart;
+            return listCartStatic;
         }
+        public List<Cart> GetAll()
+        {
+            //Get data cart from session
+            List<Cart> listCart = JsonConvert.DeserializeObject<List<Cart>>(HttpContext.Session.GetString("Cart"));
+            
+            return listCart != null ? listCart : new List<Cart>();
+        }
+        
         // sum all money 
         public double TotalMoney()
         {
@@ -49,19 +59,23 @@ namespace BinhDinhFoodWeb.Controllers
             return totalMoney;
         }
         // Add product to cart
-        public IActionResult AddInCart(int id)
+        public async Task<IActionResult> AddInCart(int id)
         {
             List<Cart> listCart = GetAll();
             Cart cart = listCart.FirstOrDefault(x => x.iProductId == id);
             if(cart == null)
             {
-                cart = new Cart(id);
+                Product pd = await _pdRepo.GetProducts(id);
+                cart = new Cart(pd);
                 listCart.Add(cart);
+                SetAll();
             }
             else
             {
                 cart.iQuantity++;
             }
+
+            GetAll();
             return RedirectToAction("Index", "Home");
         }
         // remove product in cart
@@ -85,6 +99,10 @@ namespace BinhDinhFoodWeb.Controllers
         }
         // Update Cart
             // ? update in form
+        public IActionResult UpdateCart()
+        {
+            return View();
+        }
         
         // Order - checkout
         public IActionResult Checkout()
@@ -109,6 +127,13 @@ namespace BinhDinhFoodWeb.Controllers
             List<Cart> listCart = GetAll();
 
             return PartialView(listCart);
+        }
+        // total product -- didn't apply view
+        public IActionResult TotalCartPartial()
+        {
+            List<Cart> listCart = GetAll();
+            var total = listCart.Count();
+            return PartialView(total);
         }
     }
 }
