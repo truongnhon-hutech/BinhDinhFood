@@ -1,0 +1,29 @@
+﻿<div class="container margin_60_35">
+    <div class="main_title">
+        <h2>Tin mới nhất</h2>
+        <span>Bài viết</span>
+        <p>Theo dõi những bài viết mới nhất về Bình Định Food</p>
+    </div>
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-lg-6">
+                <a class="box_news" asp-action="ProductDetail" asp-controller="Product" asp-route-id="@item.ProductId">
+                    <figure>
+                        <img src="~/Content/img/products/@item.ProductImage" alt="@item.ProductName" width="400" height="266" class="lazy">
+                        <figcaption><strong>@item.ProductDateCreated.Day</strong>@item.ProductDateCreated.Month</figcaption>
+                    </figure>
+                    <ul>
+                        <li>@item.ProductDateCreated</li>
+                    </ul>
+                    <h4>@item.ProductName</h4>
+                    <p>@item.ProductDescription ...</p>
+                </a>
+            </div>
+        }
+
+        <!-- /box_news -->
+    </div>
+    <!-- /row -->
+</div>
+<!-- /container -->

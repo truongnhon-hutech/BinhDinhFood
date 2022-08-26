@@ -1,0 +1,42 @@
+﻿using BinhDinhFoodWeb.Models;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
+
+namespace BinhDinhFood.Models
+{
+    public class Product
+    {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int ProductId { get; set; }
+        [Required]
+        [StringLength(100)]
+        [DisplayName("Tên sản phẩm")]
+        public string ProductName { get; set; }
+        [DisplayName("Giá")]
+        public double ProductPrice { get; set; }
+        [DisplayName("Nội dung")]
+        public string ProductDescription { get; set; }
+        [DisplayName("Số lượng")]
+        public int ProductAmount { get; set; }
+        [DisplayName("Khuyến mãi")]
+        [Range(0, 1)]
+        public int ProductDiscount { get; set; }
+        [DisplayName("Hình ảnh")]
+        public string ProductImage { get; set; }
+        [DisplayName("Ngày thêm")]
+        public DateTime ProductDateCreated { get; set; } = DateTime.Now;
+        [DisplayName("Loại sản phẩm")]
+        [JsonIgnore]
+        [IgnoreDataMember]
+        public virtual Category? Category { get; set; }
+        [ForeignKey("Category")]
+        public int CategoryId { get; set; }
+        public virtual ICollection<OrderDetail>? OrderDetails { get; set; }
+        public virtual ICollection<ProductRating>? ProductRatings { get; set; }
+
+    }
+}

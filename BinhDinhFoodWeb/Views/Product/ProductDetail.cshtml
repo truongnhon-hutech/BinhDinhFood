@@ -1,0 +1,230 @@
+﻿@using System.Globalization
+@using BinhDinhFood.Models
+@{
+	CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
+	var product = new List<Product>();
+}
+<div class="container margin_30">
+	<div class="countdown_inner">
+		-20% This offer ends in <div data-countdown="2022/08/25" class="countdown"></div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="all">
+				<div class="slider">
+					<div class="owl-carousel owl-theme main">
+						<div><img src="~/Content/img/products/@Model.ProductImage" class="item-box"></div>
+						<div><img src="~/Content/img/products/@Model.ProductImage" class="item-box"></div>
+						<div><img src="~/Content/img/products/@Model.ProductImage" class="item-box"></div>
+						<div><img src="~/Content/img/products/@Model.ProductImage" class="item-box"></div>
+						<div><img src="~/Content/img/products/@Model.ProductImage" class="item-box"></div>
+					</div>
+						<div><img src="~/Content/img/products/@Model.ProductImage" class="item-box"></div>
+					<div class="left nonl"><i class="ti-angle-left"></i></div>
+					<div class="right"><i class="ti-angle-right"></i></div>
+				</div>
+				<div class="slider-two">
+						<div ><img src="~/Content/img/products/@Model.ProductImage" class="item active"></div>
+					<div class="owl-carousel owl-theme thumbs">
+						<div><img src="~/Content/img/products/@Model.ProductImage" class="item active"></div>
+						<div><img src="~/Content/img/products/@Model.ProductImage" class="item"></div>
+						<div><img src="~/Content/img/products/@Model.ProductImage" class="item"></div>
+						<div><img src="~/Content/img/products/@Model.ProductImage" class="item"></div>
+						<div><img src="~/Content/img/products/@Model.ProductImage" class="item"></div>
+					</div>
+					<div class="left-t nonl-t"></div>
+					<div class="right-t"></div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="breadcrumbs">
+				<ul>
+					<li><a href="#">Trang chủ</a></li>
+					<li><a href="#">Loại</a></li>
+					<li><a href="#">@Model.ProductName</a></li>
+				</ul>
+			</div>
+			<!-- /page_header -->
+			<div class="prod_info">
+				<h1>@Model.ProductName</h1>
+				<span class="rating">
+					<i class="icon-star voted"></i>
+					<i class="icon-star voted"></i>
+					<i class="icon-star voted"></i>
+					<i class="icon-star voted"></i>
+					<i class="icon-star"></i><em>4 reviews</em></span>
+				<p><small>Mã: @Model.ProductId</small><br></p>
+				<div class="prod_options">
+					<div class="row">
+						<label class="col-xl-5 col-lg-5  col-md-6 col-6 pt-0"><strong>Màu sắc</strong></label>
+						<div class="col-xl-4 col-lg-5 col-md-6 col-6 colors">
+							<ul>
+								<li><a href="#0" class="color color_1 active"></a></li>
+								<li><a href="#0" class="color color_2"></a></li>
+								<li><a href="#0" class="color color_3"></a></li>
+								<li><a href="#0" class="color color_4"></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="row">
+						<label class="col-xl-5 col-lg-5 col-md-6 col-6"><strong>Kích thước</strong><a href="#0" data-toggle="modal" data-target="#size-modal"><i class="ti-help-alt"></i></a></label>
+						<div class="col-xl-4 col-lg-5 col-md-6 col-6">
+							<div class="custom-select-form">
+								<select class="wide">
+									<option value="" selected>Small (S)</option>
+									<option value="">M</option>
+									<option value=" ">L</option>
+									<option value=" ">XL</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<label class="col-xl-5 col-lg-5  col-md-6 col-6"><strong>Số lượng</strong></label>
+						<div class="col-xl-4 col-lg-5 col-md-6 col-6">
+							<div class="numbers-row">
+								<input type="text" value="1" id="quantity_1" class="qty2" name="quantity_1">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-5 col-md-6">
+						<div class="price_main">
+							<span class="new_price">@Convert.ToDouble(@Model.ProductPrice -(@Convert.ToDouble(@Model.ProductPrice) * @Convert.ToDouble(@Model.ProductDiscount))).ToString("#,###", cul.NumberFormat) Đ</span>
+							<span class="percentage">- @Convert.ToDouble(@Model.ProductDiscount)%</span>
+							<span class="old_price">@Model.ProductPrice.ToString("#,###", cul.NumberFormat) Đ</span>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6">
+						<div class="btn_add_to_cart"><a asp-action="Index" asp-controller="Cart" class="btn_1">Thêm vào giỏ hàng</a></div>
+					</div>
+			</div>
+			<!-- /prod_info -->
+			<div class="product_actions">
+				<ul>
+					<li>
+						<a href="#"><i class="ti-heart"></i><span>Thêm vào danh sách yêu thích</span></a>
+					</li>
+					<li>
+						<a href="#"><i class="ti-control-shuffle"></i><span>So sánh</span></a>
+					</li>
+				</ul>
+			</div>
+			<!-- /product_actions -->
+		</div>
+	</div>
+	<!-- /row -->
+</div>
+</div>
+<!-- /container -->
+
+<div class="tabs_product">
+	<div class="container">
+		<ul class="nav nav-tabs" role="tablist">
+			<li class="nav-item">
+				<a id="tab-A" href="#pane-A" class="nav-link active" data-toggle="tab" role="tab">Mô tả sản phẩm</a>
+			</li>
+			<li class="nav-item">
+				<a id="tab-B" href="#pane-B" class="nav-link" data-toggle="tab" role="tab">Đánh giá</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<!-- /tabs_product -->
+<div class="tab_content_wrapper">
+	<div class="container">
+		<div class="tab-content" role="tablist">
+			<div id="pane-A" class="card tab-pane fade active show" role="tabpanel" aria-labelledby="tab-A">
+				<div class="card-header" role="tab" id="heading-A">
+					<h5 class="mb-0">
+						<a class="collapsed" data-toggle="collapse" href="#collapse-A" aria-expanded="false" aria-controls="collapse-A">
+							Mô tả sản phẩm
+						</a>
+					</h5>
+				</div>
+				<div id="collapse-A" class="collapse" role="tabpanel" aria-labelledby="heading-A">
+					<div class="card-body">
+						<div class="row justify-content-between">
+							<div class="col-lg-6">
+								<h3>Chi tiết</h3>
+								<p>@Model.ProductDescription</p>
+							</div>
+							<div class="col-lg-5">
+								<h3>Thông tin chi tiết</h3>
+								<div class="table-responsive">
+									<table class="table table-sm table-striped">
+										<tbody>
+											<tr>
+												<td><strong>Màu sắc</strong></td>
+												<td>Blue, Purple</td>
+											</tr>
+											<tr>
+												<td><strong>Kích thước</strong></td>
+												<td>150x100x100</td>
+											</tr>
+											<tr>
+												<td><strong>Cân nặng</strong></td>
+												<td>0.6kg</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<!-- /table-responsive -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /TAB A -->
+			@await Component.InvokeAsync("ProductRatingComponent", new {
+				id = @Model.ProductId
+			})
+			<p class="text-right"><a asp-action="LeaveReview" asp-controller="Product" asp-route-id="@Model.ProductId" class="btn_1">Bình luận</a></p>
+
+		</div>
+		<!-- /tab-content -->
+	</div>
+	<!-- /container -->
+</div>
+<!-- /tab_content_wrapper -->
+@await Component.InvokeAsync("RelatedProductComponent")
+
+
+<!-- /container -->
+
+<div class="feat">
+	<div class="container">
+		<ul>
+			<li>
+				<div class="box">
+					<i class="ti-gift"></i>
+					<div class="justify-content-center">
+						<h3>Free Shipping</h3>
+						<p>For all oders over $99</p>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="box">
+					<i class="ti-wallet"></i>
+					<div class="justify-content-center">
+						<h3>Secure Payment</h3>
+						<p>100% secure payment</p>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="box">
+					<i class="ti-headphone-alt"></i>
+					<div class="justify-content-center">
+						<h3>24/7 Support</h3>
+						<p>Online top support</p>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>
+<!--/feat-->

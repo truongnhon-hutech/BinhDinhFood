@@ -1,0 +1,180 @@
+﻿@using System.Globalization
+@using BinhDinhFood.Models
+@{
+    ViewData["Title"] = "All-Product";
+    CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
+}
+<div class="top_banner">
+    <div class="opacity-mask d-flex align-items-center" data-opacity-mask="rgba(0, 0, 0, 0.3)">
+        <div class="container">
+            <div class="breadcrumbs">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Category</a></li>
+                    <li>@ViewData["Title"]</li>
+                </ul>
+            </div>
+            <h1>Bình Định Food - Danh sách</h1>
+        </div>
+    </div>
+    <img src="~/Content/img/slides/slide_home_4.jpg" class="img-fluid" alt="">
+</div>
+<!-- /top_banner -->
+
+<div id="stick_here"></div>
+<div class="toolbox elemento_stick">
+    <div class="container">
+        <ul class="clearfix">
+            <li>
+                <div class="sort_select">
+                    <select name="sort" id="sort">
+                        <option asp-action="SearchByFilter" asp-route-sortOrder="@ViewData["PopularitySortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"] value="popularity" selected="selected">Phổ biến</option>
+                        <option asp-action="SearchByFilter" asp-route-sortOrder="@ViewData["NewsSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"] value="date">Mới nhất</option>
+                        <option asp-action="SearchByFilter" asp-route-sortOrder="@ViewData["PriceSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"] value="price">Giá thấp đến cao</option>
+                        <option asp-action="SearchByFilter" asp-route-sortOrder="@ViewData["PriceDescSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"] value="price-desc">Giá cao đến thấp</option>
+                    </select>
+                </div>
+            </li>
+            <li>
+                <a href=""><i class="ti-view-grid"></i></a>
+                <a href=""><i class="ti-view-list"></i></a>
+            </li>
+            <li>
+                <a href="" class="open_filters">
+                    <i class="ti-filter"></i><span>Filters</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- /toolbox -->
+<div class="container margin_30">
+    <div class="row">
+        <aside class="col-lg-3" id="sidebar_fixed">
+            <div class="filter_col">
+                <div class="inner_bt"><a href="#" class="open_filters"><i class="ti-close"></i></a></div>
+                <div class="filter_type version_2">
+                    <h4><a href="#filter_1" data-toggle="collapse" class="opened">Loại sản phẩm</a></h4>
+                    <div class="collapse show" id="filter_1">
+                        <ul>
+                            @foreach (var item in ViewData["ListCategory"] as List<Category>)
+                            {
+                                <li>
+                                    <label class="container_check">
+                                        @item.CategoryName
+                                        <input type="checkbox" value="@item.CategoryId = @ViewData["Test"]" id="item_@item.CategoryId">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                    <!-- /filter_type -->
+                </div>
+                <!-- /filter_type -->
+                <div class="filter_type version_2">
+                    <h4><a href="#filter_2" data-toggle="collapse" class="closed">Chương trình</a></h4>
+                    <div class="collapse show" id="filter_2">
+                        <ul>
+                            <li>
+                                <label class="container_check">
+                                    Khuyến mãi <small>06</small>
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="container_check">
+                                    Giá gốc <small>12</small>
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- /filter_type -->
+                <div class="filter_type version_2">
+                    <h4><a href="#filter_4" data-toggle="collapse" class="opened">Giá tiền</a></h4>
+                    <div class="collapse show" id="filter_4">
+                        <ul>
+                            <li>
+                                <label class="container_check">
+                                    0 Đ - 50.000 Đ<small>11</small>
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="container_check">
+                                    50.000 Đ — 100.000 Đ<small>08</small>
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- /filter_type -->
+                <div class="buttons">
+                    <a href="#0" class="btn_1">Lọc</a> <a href="#0" class="btn_1 gray">Trở lại</a>
+                </div>
+            </div>
+        </aside>
+        <div class="col-lg-9">
+            <div class="row small-gutters">
+                @foreach (var item in Model)
+                {
+                    <div class="col-6 col-md-4">
+                        <div class="grid_item">
+                            <span class="ribbon off">- @item.ProductDiscount</span>
+                            <figure>
+                                <a asp-action="ProductDetail" asp-route-id="@item.ProductId">
+                                    <img class="img-fluid lazy" src="~/Content/img/products/@item.ProductImage" alt="@item.ProductName" style="width: 400px; height: 200px">
+                                </a>
+                                <div data-countdown="2022/08/24" class="countdown"></div>
+                            </figure>
+                            <a href="">
+                                <h3>@item.ProductName</h3>
+                            </a>
+                            <div class="price_box">
+                                <span class="new_price">@item.ProductPrice.ToString("#,###", cul.NumberFormat)Đ</span>
+                                <span class="old_price">@Convert.ToDouble(@item.ProductPrice -(@Convert.ToDouble(@item.ProductPrice) * @Convert.ToDouble(@item.ProductDiscount))).ToString("#,###", cul.NumberFormat) Đ</span>
+                            </div>
+                            <ul>
+                                <li><a href="#0" class="tooltip-1" data-toggle="tooltip" data-placement="left" title="Add to favorites"><i class="ti-heart"></i><span>Thêm vào yêu thích</span></a></li>
+                                <li><a href="#0" class="tooltip-1" data-toggle="tooltip" data-placement="left" title="Add to compare"><i class="ti-control-shuffle"></i><span>So sánh</span></a></li>
+                                <li><a asp-action="AddInCart" asp-controller="Cart" asp-route-id="@item.ProductId" class="tooltip-1" data-toggle="tooltip" data-placement="left" title="Thêm vào giỏ hàng"><i class="ti-shopping-cart"></i><span>Thêm vào giỏ hàng</span></a></li>
+                            </ul>
+                        </div>
+                        <!-- /grid_item -->
+                    </div>
+                    <!-- /col -->
+                }
+            </div>
+            <!-- /row -->
+            <div class="pagination__wrapper">
+                <ul class="pagination">
+                    <li><a href="#0" class="prev" title="previous page">&#10094;</a></li>
+                    <li>
+                        <a href="#0" class="active">1</a>
+                    </li>
+                    <li>
+                        <a href="#0">2</a>
+                    </li>
+                    <li>
+                        <a href="#0">3</a>
+                    </li>
+                    <li>
+                        <a href="#0">4</a>
+                    </li>
+                    <li><a href="#0" class="next" title="next page">&#10095;</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- /col -->
+    </div>
+    <!-- /row -->			
+        
+</div>
+<!-- /container -->

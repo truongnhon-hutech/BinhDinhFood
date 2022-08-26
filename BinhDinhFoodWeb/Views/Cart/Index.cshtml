@@ -1,0 +1,9 @@
+﻿@model IEnumerable<BinhDinhFoodWeb.Models.Item>
+
+@{
+	ViewData["Title"] = "Giỏ hàng";
+}
+
+@await Component.InvokeAsync("CartComponent", new {
+		list = Model
+		})

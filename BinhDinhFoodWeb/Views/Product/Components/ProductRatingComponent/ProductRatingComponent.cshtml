@@ -1,0 +1,40 @@
+﻿<div id="pane-B" class="card tab-pane fade" role="tabpanel" aria-labelledby="tab-B">
+	<div class="card-header" role="tab" id="heading-B">
+		<h5 class="mb-0">
+			<a class="collapsed" data-toggle="collapse" href="#collapse-B" aria-expanded="false" aria-controls="collapse-B">
+				Đánh giá
+			</a>
+		</h5>
+	</div>
+	<div id="collapse-B" class="collapse" role="tabpanel" aria-labelledby="heading-B">
+		<div class="card-body">
+			<div class="row justify-content-between">
+				@foreach(var item in Model){
+					<div class="col-lg-6">
+						<div class="review_content">
+							<div class="clearfix add_bottom_10">
+								<span class="rating">
+									@for (int i = 1; i <= @item.Stars; i++)
+									{
+										<i class="icon-star voted"></i>
+									}
+									@for (int i = 1; i <= 5 - @item.Stars; i++)
+									{
+										<i class="icon-star"></i>
+									}
+									<em>@item.Stars/5.0</em>
+								</span>
+								<em>Đăng lúc @item.PRDateCreated</em>
+							</div>
+							<h4>@item.RatingContent</h4>
+							<p></p>
+						</div>
+					</div>
+				}
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /card-body -->
+	</div>
+</div>
+<!-- /tab B -->
