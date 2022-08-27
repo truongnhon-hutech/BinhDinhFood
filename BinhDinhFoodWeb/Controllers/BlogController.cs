@@ -1,4 +1,5 @@
 ﻿using BinhDinhFoodWeb.Intefaces;
+using BinhDinhFoodWeb.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BinhDinhFoodWeb.Controllers
@@ -10,14 +11,15 @@ namespace BinhDinhFoodWeb.Controllers
 		{
 			_repo = repo;
 		}
-        public async Task<IActionResult> Index()
+		public async Task<IActionResult> Index()
 		{
-			var listBlog = await _repo.GetAll();
+			//var listBlog = await _repo.GetAll();
+			var listBlog = await _repo.GetListAsync(orderBy: x=>x.OrderBy(x=>x.BlogId));
 			return View(listBlog);
 		}
 		public async Task<IActionResult> BlogPost(int id)
 		{
-			var post = await _repo.Get(id);
+			var post = await _repo.GetListAsync(filter: x => x.BlogId == id);
 			return View(post);
 		}
 

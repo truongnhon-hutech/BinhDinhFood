@@ -1,5 +1,6 @@
 using BinhDinhFood.Models;
 using BinhDinhFoodWeb.Intefaces;
+using BinhDinhFoodWeb.Models;
 using BinhDinhFoodWeb.Repositories;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,12 +11,13 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<BinhDinhFoodDbContext>(options => options.UseSqlServer(
     builder.Configuration.GetConnectionString("DefaultConnection")
     ));
-builder.Services.AddRazorPages().AddRazorRuntimeCompilation();// follow code freecodecamp.com but i dont know what exactly is
+builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<ICartRepository, CartRepository>();
 builder.Services.AddScoped<IBlogRepository, BlogRepository>();
 builder.Services.AddScoped<IProductRatingRepository, ProductRatingRepository>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+//builder.Services.AddScoped<IRepository, RepositoryBase>();
 
 builder.Services.AddDistributedMemoryCache();
 

@@ -2,11 +2,11 @@
 
 namespace BinhDinhFoodWeb.Intefaces
 {
-	public interface IProductRatingRepository
+	public interface IProductRatingRepository : IRepository<ProductRating>
 	{
-		public Task<List<ProductRating>> GetAllProductRatingsAsync(int id);
-		public Task<ProductRating> GetProductRatingAsync(int id);
-		public void Save();
-		public void Add(ProductRating pd);
+		//public Task<List<ProductRating>> GetAllProductRatingsAsync(int id);
+		//public Task<ProductRating> GetProductRatingAsync(int id);
+		//public Task Save();
+		//public Task Add(ProductRating pd);
 	}
 }

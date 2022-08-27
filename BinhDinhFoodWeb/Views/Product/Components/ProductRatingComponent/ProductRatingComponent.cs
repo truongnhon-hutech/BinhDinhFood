@@ -12,7 +12,7 @@ namespace BinhDinhFoodWeb.Views.Product.Components.ProductRatingComponent
         }
         public async Task<IViewComponentResult> InvokeAsync(int id)
         {
-            var obj = await _repo.GetAllProductRatingsAsync(id);
+            var obj = await _repo.GetListAsync(filter: x=>x.ProductId == id);
             return View("ProductRatingComponent", obj);
         }
     }

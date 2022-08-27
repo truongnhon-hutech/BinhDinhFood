@@ -12,7 +12,7 @@ namespace BinhDinhFoodWeb.Views.Blog.Components.BlogAsideComponent
         }
         public async Task<IViewComponentResult> InvokeAsync() 
         { 
-            var obj = await _repo.GetAll();
+            var obj = await _repo.GetListAsync();
             return View("BlogAsideComponent", obj);
         }
     }

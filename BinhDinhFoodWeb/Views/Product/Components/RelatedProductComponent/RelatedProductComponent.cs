@@ -12,7 +12,7 @@ namespace BinhDinhFoodWeb.Views.Product.Components.RelatedProductComponent
         }
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var obj = await _repo.GetAllProductsAsync();
+            var obj = await _repo.GetListAsync();
             return View("RelatedProductComponent",obj);
         }
     }

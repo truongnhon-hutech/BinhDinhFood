@@ -12,9 +12,8 @@ namespace BinhDinhFoodWeb.Views.Home.Components.NewsComponent
         }
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var obj = await _repo.GetAllProductsAsync();
-            var obj1= obj.Take(2).ToList();
-            return View("NewComponent", obj1);
+            var obj = await _repo.GetListAsync(take: 2);
+            return View("NewComponent", obj);
         }
     }
 }

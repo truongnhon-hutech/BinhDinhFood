@@ -2,9 +2,7 @@
 
 namespace BinhDinhFoodWeb.Intefaces
 {
-	public interface IBlogRepository
+	public interface IBlogRepository : IRepository<Blog>
 	{
-		public Task<List<Blog>> GetAll();	
-		public Task<Blog> Get(int id);
 	}
 }

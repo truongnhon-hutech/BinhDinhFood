@@ -71,7 +71,7 @@ namespace BinhDinhFoodWeb.Controllers
             bool isInCart = listCart.Any(x => x.Product.ProductId == id);
             if (!isInCart)
             {
-                Item newItem = new Item { Product = await _productRepo.GetProductByIdAsync(id), Quantity = 1 };
+                Item newItem = new Item { Product = await _productRepo.GetByIdAsync(id), Quantity = 1 };
                 listCart.Add(newItem);
             }
             else

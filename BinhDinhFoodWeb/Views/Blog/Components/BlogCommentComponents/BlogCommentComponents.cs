@@ -14,7 +14,7 @@ namespace BinhDinhFoodWeb.Views.Blog.Components.BlogCommentComponents
         {
             //@await Component.InvokeAsync("BlogCommentComponents")
 
-            var obj = await _repo.GetAll();
+            var obj = await _repo.GetListAsync();
             return View("BlogCommentComponents", obj);
         }
     }
