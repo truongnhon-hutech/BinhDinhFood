@@ -1,6 +1,7 @@
 ﻿using BinhDinhFood.Models;
 using BinhDinhFoodWeb.Intefaces;
 using BinhDinhFoodWeb.Models;
+using BinhDinhFoodWeb.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 
@@ -10,10 +11,13 @@ namespace BinhDinhFoodWeb.Controllers
     {
         private readonly IProductRepository _repoProduct;
         private readonly ICategoryRepository _repoCategory;
-        public ProductController(IProductRepository repoProduct, ICategoryRepository repoCategory)
+        private readonly IProductRatingRepository _repoProductRating;
+
+        public ProductController(IProductRepository repoProduct, ICategoryRepository repoCategory, IProductRatingRepository repoProductRating)
         {
             _repoProduct = repoProduct;
-            _repoCategory = repoCategory;  
+            _repoCategory = repoCategory;
+            _repoProductRating = repoProductRating;
         }
         public async Task<IActionResult> Index()
         {
@@ -37,7 +41,15 @@ namespace BinhDinhFoodWeb.Controllers
         [HttpPost]
         public async Task<IActionResult> LeaveReview(IFormCollection form, int id)
         {
-
+            ProductRating pd = new ProductRating();
+            pd.CustomerId = 1;
+            pd.ProductId = id;
+            pd.Stars = Convert.ToInt32(form["rating-input"]);
+            pd.RatingContent = form["RatingContent"];
+            pd.PRDateCreated = DateTime.Now;
+            _repoProductRating.Add(pd);
+            _repoProductRating.Save();
+            
             return RedirectToAction("Confirm");
         }
 

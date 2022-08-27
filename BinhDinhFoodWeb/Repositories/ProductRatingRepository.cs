@@ -19,5 +19,9 @@ namespace BinhDinhFoodWeb.Repositories
             => await _context.ProductRatings
                 .Where(x => x.ProductId == id)
                 .ToListAsync();
-	}
+
+        public void Save()=> _context.SaveChanges();
+
+        public void Add(ProductRating pd) => _context.ProductRatings.Add(pd);
+    }
 }
