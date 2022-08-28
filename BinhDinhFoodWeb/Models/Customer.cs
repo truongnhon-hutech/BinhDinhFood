@@ -29,7 +29,7 @@ namespace BinhDinhFood.Models
         [DisplayName("Trạng thái")]
         public bool CustomerState { get; set; }
         [DisplayName("Hình đại diện")]
-        public string CustomerImage { get; set; }
+        public string? CustomerImage { get; set; }
         public ICollection<Order> Orders { get; set; }
         public virtual ICollection<ProductRating> ProductRatings { get; set; }
 

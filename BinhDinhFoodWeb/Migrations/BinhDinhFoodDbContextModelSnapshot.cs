@@ -44,12 +44,15 @@ namespace BinhDinhFoodWeb.Migrations
                         .HasMaxLength(8)
                         .HasColumnType("nvarchar(8)");
 
-                    b.Property<string>("AdminUSerName")
+                    b.Property<string>("AdminUserName")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
                     b.HasKey("AdminId");
+
+                    b.HasIndex("AdminUserName")
+                        .IsUnique();
 
                     b.ToTable("Admin", (string)null);
                 });
@@ -99,7 +102,6 @@ namespace BinhDinhFoodWeb.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CustomerImage")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CustomerPassword")
@@ -116,6 +118,9 @@ namespace BinhDinhFoodWeb.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.HasKey("CustomerId");
+
+                    b.HasIndex("CustomerUserName")
+                        .IsUnique();
 
                     b.ToTable("Customer", (string)null);
                 });
@@ -194,14 +199,12 @@ namespace BinhDinhFoodWeb.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("ProductDescription")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("ProductDiscount")
                         .HasColumnType("int");
 
                     b.Property<string>("ProductImage")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ProductName")
@@ -234,6 +237,9 @@ namespace BinhDinhFoodWeb.Migrations
                     b.Property<DateTime>("BlogDateCreated")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("BlogImage")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("BlogName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -261,7 +267,6 @@ namespace BinhDinhFoodWeb.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("RatingContent")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Stars")
@@ -274,6 +279,30 @@ namespace BinhDinhFoodWeb.Migrations
                     b.HasIndex("ProductId");
 
                     b.ToTable("ProductRating", (string)null);
+                });
+
+            modelBuilder.Entity("BinhDinhFoodWeb.Models.Token", b =>
+                {
+                    b.Property<int>("TokenID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TokenID"), 1L, 1);
+
+                    b.Property<string>("CustomerUserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Expiry")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("TokenValue")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("TokenID");
+
+                    b.ToTable("Token", (string)null);
                 });
 
             modelBuilder.Entity("BinhDinhFood.Models.Order", b =>

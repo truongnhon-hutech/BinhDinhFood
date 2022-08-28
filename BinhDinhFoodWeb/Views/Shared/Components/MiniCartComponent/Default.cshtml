@@ -1,4 +1,8 @@
 ﻿@model IEnumerable<Item>
+@using System.Globalization
+@{
+    CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
+}
 <a class="cart_bt" asp-action="Index" asp-controller="Cart"><strong>@ViewData["Count"]</strong></a>
 <div class="dropdown-menu">
     <ul>
@@ -10,7 +14,7 @@
                         <img src="~/Content/img/products/@item.Product.ProductImage" alt=""
                                 width="50" height="50" class="lazy">
                     </figure>
-                    <strong><span>@item.Product.ProductName</span>@item.Product.ProductPrice</strong>
+                    <strong><span>@item.Product.ProductName</span>@item.Product.ProductPrice.ToString("#,###", cul.NumberFormat) Đ</strong>
                 </a>
                 <a asp-action="RemoveInMiniCart" asp-controller="Cart" asp-route-id="@item.Product.ProductId" data-ajax="true" data-ajax-update="#mini-cart" class="action"><i class="ti-trash"></i></a>
             </li>

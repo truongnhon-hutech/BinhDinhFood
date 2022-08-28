@@ -195,7 +195,17 @@
                                     <div class="dropdown dropdown-access">
                                         <a asp-action="Index" asp-controller="Home" class="access_link"><span>Tài khoản</span></a>
                                         <div class="dropdown-menu">
-                                            <a asp-action="Index" asp-controller="Home" class="btn_1">Đăng nhập hoặc đăng ký</a>
+                                            @if (User.Identity.IsAuthenticated)
+                                            {
+                                                {
+                                                    <a asp-action="ChangeInfor" asp-controller="User">@User.Claims.FirstOrDefault(x => x.Type == System.Security.Claims.ClaimTypes.Name).Value</a>
+                                                    <a asp-action="Logout" asp-controller="User" class="button_inc">Logout</a>
+                                                }
+                                            }
+                                            else
+                                            {
+                                                <a asp-action="Index" asp-controller="User" class="btn_1">Đăng nhập hoặc đăng ký</a>
+                                            }
                                             <ul>
                                                 <li>
                                                     <a asp-action="TrackOrder" asp-controller="Cart">

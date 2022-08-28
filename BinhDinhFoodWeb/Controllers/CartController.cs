@@ -28,8 +28,8 @@ namespace BinhDinhFoodWeb.Controllers
         }
         public IActionResult UpdateCart()
         {
-            var shippingCost = 300000;
             List<Item> cart = _cartRepo.Get(HttpContext.Session);
+            var shippingCost = 300000;
             ViewData["TotalSubMoney"] = TotalMoney();
             ViewData["ShippingCost"] = shippingCost;
             ViewData["TotalMoney"] = shippingCost + TotalMoney();
@@ -76,7 +76,7 @@ namespace BinhDinhFoodWeb.Controllers
             }
             else
             {
-                Item item = listCart.FirstOrDefault(x => x.Product.ProductId == id);
+                Item? item = listCart.FirstOrDefault(x => x.Product.ProductId == id);
                 item.Quantity++;
             }
             _cartRepo.Set(HttpContext.Session, listCart);
@@ -114,12 +114,31 @@ namespace BinhDinhFoodWeb.Controllers
             _cartRepo.Set(HttpContext.Session, new List<Item>());
             return ViewComponent("CartComponent", new List<Item>());
         }
-        // Update Cart
-        // ? update in form
-
         // Order - checkout
+        [HttpGet]
+        public IActionResult Order()
+        {
+            List<Item> listCart = _cartRepo.Get(HttpContext.Session);
+
+            if (listCart != null)
+                return RedirectToAction("Order", "Cart");
+            var shippingCost = 300000;
+            ViewData["TotalSubMoney"] = TotalMoney();
+            ViewData["ShippingCost"] = shippingCost;
+            ViewData["TotalMoney"] = shippingCost + TotalMoney();
+
+            return View(listCart);
+        }
+        [HttpPost]
+        public IActionResult Order(IFormCollection form)
+        {
+            // code the view for order fix other bugs to rebuild 
+            // call form, declare object, save in database
+            return View();
+        }
         public IActionResult Checkout()
         {
+
             return View();
         }
         // Comfirm order

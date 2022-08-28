@@ -12,7 +12,7 @@ namespace BinhDinhFood.Models
         [Required]
         [StringLength(50)]
         [DisplayName("Tài khoản")]
-        public string AdminUSerName { get; set; }
+        public string AdminUserName { get; set; }
         [Required]
         [StringLength(8)]
         [DisplayName("Mật khẩu")]

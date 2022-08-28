@@ -17,6 +17,7 @@ namespace BinhDinhFood.Models
         public DbSet<Category> Categories { get; set; }
         public DbSet<ProductRating> ProductRatings { get; set; }
         public DbSet<Blog> Blogs{ get; set; }
+        public DbSet<Token> Tokens { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -27,6 +28,8 @@ namespace BinhDinhFood.Models
             modelBuilder.Entity<Product>().ToTable("Product");
             modelBuilder.Entity<ProductRating>().ToTable("ProductRating");
             modelBuilder.Entity<Blog>().ToTable("Blog");
+            modelBuilder.Entity<Token>().ToTable("Token");
+
             modelBuilder.Entity<OrderDetail>()
                 .HasKey(c => new { c.ProductId, c.OrderId });
 
@@ -36,15 +39,19 @@ namespace BinhDinhFood.Models
             modelBuilder.Entity<Product>()
                 .HasMany(e => e.OrderDetails);
 
-            //modelBuilder.Entity<ProductRating>()
-            //    .HasKey(f => new { f.ProductRatingId});
-
             modelBuilder.Entity<Product>()
                 .HasMany(g => g.ProductRatings);
+
             modelBuilder.Entity<Customer>()
                 .HasMany(g => g.ProductRatings);
 
+            modelBuilder.Entity<Admin>()
+                .HasIndex(g => g.AdminUserName)
+                .IsUnique();  
             
+            modelBuilder.Entity<Customer>()
+                .HasIndex(g => g.CustomerUserName)
+                .IsUnique();            
         }
     }
 }

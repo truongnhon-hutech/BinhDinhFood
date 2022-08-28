@@ -1,0 +1,57 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container margin_30">
+    <div class="page_header">
+        <div class="breadcrumbs">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Category</a></li>
+                <li>Page active</li>
+            </ul>
+        </div>
+        <h1>Sign In or Create an Account</h1>
+    </div>
+    <!-- /page_header -->
+    <div class="row justify-content-center">
+        <div class="col-xl-6 col-lg-6 col-md-8">
+            @Html.Partial("Login")
+            <div id="forgot_pw">
+                <div class="form-group">
+                    <input type="email" class="form-control" name="email_forgot" id="email_forgot" placeholder="Type your email">
+                </div>
+                <p>A new password will be sent shortly.</p>
+                <div class="text-center"><input type="submit" value="Reset Password" class="btn_1"></div>
+            </div>
+            <!-- /box_account -->
+            <div class="row">
+                <div class="col-md-6 d-none d-lg-block">
+                    <ul class="list_ok">
+                        <li>Find Locations</li>
+                        <li>Quality Location check</li>
+                        <li>Data Protection</li>
+                    </ul>
+                </div>
+                <div class="col-md-6 d-none d-lg-block">
+                    <ul class="list_ok">
+                        <li>Secure Payments</li>
+                        <li>H24 Support</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- /row -->
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-8">
+            <div class="box_account">
+                @Html.Partial("Register")
+                
+            </div>
+            <!-- /box_account -->
+        </div>
+    </div>
+    <!-- /row -->
+</div>
+<!-- /container -->

@@ -2,11 +2,14 @@
 using BinhDinhFoodWeb.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Drawing.Printing;
+using System.Globalization;
+using System.Net.NetworkInformation;
 
 namespace BinhDinhFoodWeb.Views.Cart.Components.MiniCartComponent
 {
     public class MiniCartComponent:ViewComponent
     {
+        readonly CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
         private readonly ICartRepository _cartRepo;
         public MiniCartComponent(ICartRepository cartRepo)
         {

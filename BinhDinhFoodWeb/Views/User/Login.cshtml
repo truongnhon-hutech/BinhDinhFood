@@ -1,0 +1,39 @@
+﻿@model BinhDinhFoodWeb.Models.LoginViewModel
+
+
+<div class="box_account">
+    <h3 class="client">Đã có tài khoản</h3>
+    <div class="form_container">
+        <div class="row no-gutters">
+            <div class="col-lg-6 pr-lg-1">
+                <a href="#0" class="social_bt facebook">Login with Facebook</a>
+            </div>
+            <div class="col-lg-6 pl-lg-1">
+                <a href="#0" class="social_bt google">Login with Google</a>
+            </div>
+        </div>
+        <div class="divider"><span>Or</span></div>
+        <form asp-action="Login" method="post">
+            <div class="form-group">
+                <input asp-for="CustomerUserName" type="text" class="form-control" placeholder="User Name*">
+            </div>
+            <div class="form-group">
+                <input asp-for="CustomerPassword" type="password" class="form-control" value="" placeholder="Password*">
+            </div>
+            <div class="clearfix add_bottom_15">
+                <div class="checkboxes float-left">
+                    <label class="container_check">
+                        Remember me
+                        <input asp-for="RememberLogin" type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+                <div class="float-right">@*<a id="forgot" href="javascript:void(0);">Lost Password?</a>*@
+                <a href="@Url.Action("ForgotPassword")">ForgotPassword</a>
+                </div>
+            </div>
+            <div class="text-center"><input type="submit" value="Log In" class="btn_1 full-width"></div>
+        </form>
+    </div>
+    <!-- /form_container -->
+</div>

@@ -19,14 +19,14 @@ namespace BinhDinhFood.Models
         [DisplayName("Giá")]
         public double ProductPrice { get; set; }
         [DisplayName("Nội dung")]
-        public string ProductDescription { get; set; }
+        public string? ProductDescription { get; set; }
         [DisplayName("Số lượng")]
         public int ProductAmount { get; set; }
         [DisplayName("Khuyến mãi")]
         [Range(0, 1)]
         public int ProductDiscount { get; set; }
         [DisplayName("Hình ảnh")]
-        public string ProductImage { get; set; }
+        public string? ProductImage { get; set; }
         [DisplayName("Ngày thêm")]
         public DateTime ProductDateCreated { get; set; } = DateTime.Now;
         [DisplayName("Loại sản phẩm")]

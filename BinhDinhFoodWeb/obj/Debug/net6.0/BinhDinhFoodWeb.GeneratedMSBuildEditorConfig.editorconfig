@@ -55,6 +55,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxMaXN0UHJvZHVjdFBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/vothu/Downloads/My-first-website-Contest/BinhDinhFood/BinhDinhFoodWeb/Views/Cart/Order.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxPcmRlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/vothu/Downloads/My-first-website-Contest/BinhDinhFood/BinhDinhFoodWeb/Views/Cart/TrackOder.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxUcmFja09kZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -133,6 +137,42 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/vothu/Downloads/My-first-website-Contest/BinhDinhFood/BinhDinhFoodWeb/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vothu/Downloads/My-first-website-Contest/BinhDinhFood/BinhDinhFoodWeb/Views/User/ChangeInfor.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxDaGFuZ2VJbmZvci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vothu/Downloads/My-first-website-Contest/BinhDinhFood/BinhDinhFoodWeb/Views/User/ChangePass.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxDaGFuZ2VQYXNzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vothu/Downloads/My-first-website-Contest/BinhDinhFood/BinhDinhFoodWeb/Views/User/ForgotPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxGb3Jnb3RQYXNzd29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vothu/Downloads/My-first-website-Contest/BinhDinhFood/BinhDinhFoodWeb/Views/User/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vothu/Downloads/My-first-website-Contest/BinhDinhFood/BinhDinhFoodWeb/Views/User/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vothu/Downloads/My-first-website-Contest/BinhDinhFood/BinhDinhFoodWeb/Views/User/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vothu/Downloads/My-first-website-Contest/BinhDinhFood/BinhDinhFoodWeb/Views/User/ResetPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxSZXNldFBhc3N3b3JkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vothu/Downloads/My-first-website-Contest/BinhDinhFood/BinhDinhFoodWeb/Views/User/ShowMessage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxTaG93TWVzc2FnZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vothu/Downloads/My-first-website-Contest/BinhDinhFood/BinhDinhFoodWeb/Views/User/Test.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxUZXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/vothu/Downloads/My-first-website-Contest/BinhDinhFood/BinhDinhFoodWeb/Views/_ViewImports.cshtml]
