@@ -18,6 +18,7 @@ namespace BinhDinhFood.Models
         public DbSet<ProductRating> ProductRatings { get; set; }
         public DbSet<Blog> Blogs{ get; set; }
         public DbSet<Token> Tokens { get; set; }
+        public DbSet<Banner> Banners { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -29,6 +30,7 @@ namespace BinhDinhFood.Models
             modelBuilder.Entity<ProductRating>().ToTable("ProductRating");
             modelBuilder.Entity<Blog>().ToTable("Blog");
             modelBuilder.Entity<Token>().ToTable("Token");
+            modelBuilder.Entity<Banner>().ToTable("Banner");
 
             modelBuilder.Entity<OrderDetail>()
                 .HasKey(c => new { c.ProductId, c.OrderId });

@@ -14,6 +14,7 @@ namespace BinhDinhFoodWeb.Models
         [DisplayName("Số sao")]
         public int Stars { get; set; }
         [DisplayName("Nội dung")]
+        [StringLength(200)]
         public string? RatingContent { get; set; }
         [DisplayName("Ngày đánh giá")]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]

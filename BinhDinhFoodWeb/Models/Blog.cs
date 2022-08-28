@@ -9,11 +9,9 @@ namespace BinhDinhFoodWeb.Models
         [Key]
         public int BlogId { get; set; }
         [Required]
-        public String BlogName { get; set; }
+        public String? BlogName { get; set; }
         [DisplayName("Nội dung")]
-        public string BlogContent { get; set; }
-        [DisplayName("Hình ảnh")]
-        public string? BlogImage { get; set; }
+        public string? BlogContent { get; set; }
         [DisplayName("Ngày thêm")]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime BlogDateCreated { get; set; } = DateTime.Now;

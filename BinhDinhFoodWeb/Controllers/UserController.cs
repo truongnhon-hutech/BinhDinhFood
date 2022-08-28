@@ -59,7 +59,9 @@ namespace BinhDinhFoodWeb.Controllers
                 return RedirectToAction("Index", "User");
             var user = _repo.Validate(model);
 
-            if (user == null) return RedirectToAction("ShowMessage");
+            if (user == null) 
+                return View(model);
+                //return RedirectToAction("ShowMessage");
 
             // +1 line added for SignIn
             await _userManager.SignIn(this.HttpContext, user, model.RememberLogin);

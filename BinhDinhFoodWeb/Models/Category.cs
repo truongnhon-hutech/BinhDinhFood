@@ -10,7 +10,7 @@ namespace BinhDinhFood.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int CategoryId { get; set; }
         [Required]
-        [StringLength(100)]
+        [StringLength(50)]
         [DisplayName("Tên loại")]
         public string CategoryName { get; set; }
         [DataType(DataType.Date)]

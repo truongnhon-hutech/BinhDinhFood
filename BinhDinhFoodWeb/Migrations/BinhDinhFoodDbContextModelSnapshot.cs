@@ -70,8 +70,8 @@ namespace BinhDinhFoodWeb.Migrations
 
                     b.Property<string>("CategoryName")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("CategoryId");
 
@@ -88,21 +88,25 @@ namespace BinhDinhFoodWeb.Migrations
 
                     b.Property<string>("CustomerAddress")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<DateTime>("CustomerDateCreated")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("CustomerEmail")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("CustomerFullName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("CustomerImage")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("CustomerPassword")
                         .IsRequired()
@@ -222,6 +226,40 @@ namespace BinhDinhFoodWeb.Migrations
                     b.ToTable("Product", (string)null);
                 });
 
+            modelBuilder.Entity("BinhDinhFoodWeb.Models.Banner", b =>
+                {
+                    b.Property<int>("BannerId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BannerId"), 1L, 1);
+
+                    b.Property<DateTime>("BannerDateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("BannerDescription")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<string>("BannerImage")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("BannerName")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<double?>("BannerPrice")
+                        .HasColumnType("float");
+
+                    b.Property<int>("ProductDiscount")
+                        .HasColumnType("int");
+
+                    b.HasKey("BannerId");
+
+                    b.ToTable("Banner", (string)null);
+                });
+
             modelBuilder.Entity("BinhDinhFoodWeb.Models.Blog", b =>
                 {
                     b.Property<int>("BlogId")
@@ -231,14 +269,10 @@ namespace BinhDinhFoodWeb.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BlogId"), 1L, 1);
 
                     b.Property<string>("BlogContent")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("BlogDateCreated")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("BlogImage")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("BlogName")
                         .IsRequired()
@@ -267,7 +301,8 @@ namespace BinhDinhFoodWeb.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("RatingContent")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<int>("Stars")
                         .HasColumnType("int");
