@@ -105,6 +105,11 @@ app.UseAuthentication();
 
 app.UseSession();
 
+
+
+app.MapControllerRoute(
+    name: "Amdin",
+    pattern: "{area:exists}/{controller=Dashboard}/{action=Index}/{id?}");
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
