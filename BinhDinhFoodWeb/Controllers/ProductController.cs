@@ -21,10 +21,8 @@ namespace BinhDinhFoodWeb.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            var objProductList = await _repoProduct.GetListAsync();
-            var objCategory = await _repoCategory.GetListAsync();
-            ViewData["ListCategory"] = objCategory;
-            return View(objProductList);
+            var obj = await _repoProduct.GetListAsync();
+            return View(obj);
         }
         // Product Details page
         public async Task<IActionResult> ProductDetail(int id)
@@ -59,22 +57,63 @@ namespace BinhDinhFoodWeb.Controllers
             return View();
         }
         // Search feature
-        public async Task<IActionResult> SearchByFilter(string name, int? categoryId)
+        public async Task<IActionResult> SearchByFilter(string name, int? categoryId, string sortOrder)
         {
-            IEnumerable<Product> obj;
-            if (string.IsNullOrEmpty(name))
+            @ViewData["price_asce"] = sortOrder == "price_asce" ? "price_asce" : "price_desc";
+            @ViewData["date_asce"] = sortOrder == "date_asce" ? "date_asce" : "date_desc";
+            
+
+            IEnumerable <Product> obj = await _repoProduct.GetListAsync();
+            if (!string.IsNullOrEmpty(name))
+                obj = await _repoProduct.GetListAsync(filter: x => x.ProductName.Contains(name));
+            
+            if (categoryId.HasValue)
+                obj =  await _repoProduct.GetListAsync(filter: x =>x.CategoryId == categoryId);
+
+            ViewBag.Order = sortOrder;
+
+            switch (sortOrder)
             {
-                
-                obj = await _repoProduct.GetListAsync();
-                obj.Where(x => x.CategoryId == categoryId);
+                case "date_desc":
+                    obj = await _repoProduct.GetListAsync(orderBy: x=>x.OrderByDescending(x=>x.ProductDateCreated));
+                    break;
+                case "date_asce":
+                    obj = await _repoProduct.GetListAsync(orderBy: x=>x.OrderBy(x=>x.ProductDateCreated));
+                    break;
+                case "price_desc":
+                    obj = await _repoProduct.GetListAsync(orderBy: x => x.OrderByDescending(x => x.ProductPrice));
+                    break;
+                case "price_asce":
+                    obj = await _repoProduct.GetListAsync(orderBy: x => x.OrderBy(x => x.ProductPrice));
+                    break;
+                case "discount":
+                    obj = await _repoProduct.GetListAsync(orderBy: x => x.OrderByDescending(x=>x.ProductDiscount));
+                    break;
             }
-            else
-            {
-                obj = await _repoProduct.GetListAsync(filter: x=>x.ProductName.Contains(name));
-            }
+            return View(obj);
+        }
+        // I don't how the form working
+        [HttpGet]
+        public async Task<IActionResult> Filter()
+        {
             var objCategory = await _repoCategory.GetListAsync();
             ViewData["ListCategory"] = objCategory;
-            return View(obj);
+            //@foreach(var item in ViewData["ListCategory"] as List<Category>)
+            //{
+            //    < li >
+            //        < label class="container_check">
+            //            @item.CategoryName
+            //            <input type="checkbox" value="@item.CategoryId = @ViewData["Test"]" id="item_@item.CategoryId">
+            //            <span class="checkmark"></span>
+            //        </label>
+            //    </li>
+            //}
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> Filter(IFormCollection form)
+        {
+            return View();
         }
     }
 }

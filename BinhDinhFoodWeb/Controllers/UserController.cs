@@ -55,13 +55,11 @@ namespace BinhDinhFoodWeb.Controllers
         public async Task<IActionResult> LoginAsync(LoginViewModel model)
         {
             if (!ModelState.IsValid)
-               // return View(model);
                 return RedirectToAction("Index", "User");
             var user = _repo.Validate(model);
 
             if (user == null) 
                 return View(model);
-                //return RedirectToAction("ShowMessage");
 
             // +1 line added for SignIn
             await _userManager.SignIn(this.HttpContext, user, model.RememberLogin);
@@ -97,14 +95,14 @@ namespace BinhDinhFoodWeb.Controllers
             }
             else
             {
-                ViewBag.Message = "Please fill out all information before submitting";
+                ViewBag.Message = "Please fill out all information before submitting!";
                 return View(model);
             }
         }
         [HttpGet]
         public IActionResult ShowMessage()
         {
-            ViewBag.Message = "Password reset link has been sent to your email";
+            ViewBag.Message = "Password reset link has been sent to your email. Check your mailbox.";
             return View();
         }
         [HttpGet]
@@ -141,16 +139,17 @@ namespace BinhDinhFoodWeb.Controllers
         [HttpGet]
         public IActionResult ChangeInfor()
         {
-            if (!User.Identity.IsAuthenticated) return RedirectToAction("Login");
+            if (!User.Identity.IsAuthenticated) 
+                return RedirectToAction("Login");
             int id = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
-            //ViewBag.ID = id;
             ChangeInforViewModel model = _repo.GetUserInfor(id); 
             return View(model);
         }
         [HttpPost]
         public async Task<IActionResult> ChangeInforAsync(ChangeInforViewModel model)
         {
-            if (!User.Identity.IsAuthenticated) return RedirectToAction("Login");
+            if (!User.Identity.IsAuthenticated) 
+                return RedirectToAction("Login");
             int id = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
             await _repo.ChangeInforUser(model, id);
             return View(model);
@@ -158,13 +157,15 @@ namespace BinhDinhFoodWeb.Controllers
         [HttpGet]
         public IActionResult ChangePass()
         {
-            if (!User.Identity.IsAuthenticated) return RedirectToAction("Login");
+            if (!User.Identity.IsAuthenticated) 
+                return RedirectToAction("Login");
             return View();
         }
         [HttpPost]
         public async Task<IActionResult> ChangePassAsync(ChangePasswordViewModel model)
         {
-            if (!User.Identity.IsAuthenticated) return RedirectToAction("Login");
+            if (!User.Identity.IsAuthenticated) 
+                return RedirectToAction("Login");
             if (!ModelState.IsValid)return View(model);
             int id = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
             string user = User.FindFirstValue(ClaimTypes.Name);
@@ -173,7 +174,7 @@ namespace BinhDinhFoodWeb.Controllers
                 await _repo.ChangePasswordUser(model, id);
                 return View();
             }
-            ViewBag.Message = "Your password is wrong :(((";
+            ViewBag.Message = "Your password is wrong! Please take it again.";
             return View();
         }
     }

@@ -1,0 +1,55 @@
+﻿@model BinhDinhFood.Models.Order
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Order</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DayOrder)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DayOrder)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DayDelivery)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DayDelivery)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PaidState)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PaidState)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DeliveryState)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DeliveryState)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TotalMoney)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TotalMoney)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Customer)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Customer.CustomerPassword)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.OrderId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

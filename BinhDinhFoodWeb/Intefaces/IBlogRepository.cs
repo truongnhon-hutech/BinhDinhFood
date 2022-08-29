@@ -6,3 +6,4 @@ namespace BinhDinhFoodWeb.Intefaces
 	{
 	}
 }
+	

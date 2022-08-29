@@ -1,0 +1,36 @@
+﻿<div class="toolbox elemento_stick">
+    <div class="container">
+        <ul class="clearfix">
+            <li>
+                <div class="sort_select">
+                    <ul>
+                        <li>
+                            <a asp-action="SearchByFilter" asp-route-sortOrder="@ViewData["discount"]" value="discount">Khuyến mãi</a>
+                        </li>
+                        <li>
+                            <a asp-action="SearchByFilter" asp-route-sortOrder="@ViewData["date_asce"]" value="date_asce">Mới nhất</a>
+                        </li>
+                        <li>
+                            <a asp-action="SearchByFilter" asp-route-sortOrder="@ViewData["date_desc"]" value="date_desc" selected="selected">Cũ nhất</a>
+                        </li>
+                        <li>
+                            <a asp-action="SearchByFilter" asp-route-sortOrder="@ViewData["price_desc"]" value="price_desc">Giá thấp đến cao</a>
+                        </li>
+                        <li>
+                            <a asp-action="SearchByFilter" asp-route-sortOrder="@ViewData["price_asce"]" value="price_asce">Giá cao đến thấp</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <a href=""><i class="ti-view-grid"></i></a>
+                <a href=""><i class="ti-view-list"></i></a>
+            </li>
+            <li>
+                <a href="" class="open_filters">
+                    <i class="ti-filter"></i><span>Lọc</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

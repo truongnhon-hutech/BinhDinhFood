@@ -4,19 +4,13 @@
 }
 <div class="container margin_30">
     <div class="page_header">
-        <div class="breadcrumbs">
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Category</a></li>
-                <li>Page active</li>
-            </ul>
-        </div>
+        @await Component.InvokeAsync("HeaderComponent")
     </div>
     <!-- /page_header -->
     <div class="row">
         <div class="col-lg-9">
             <div class="singlepost">
-                <figure><img alt="" class="img-fluid" src="~/Content/img/slides/slide_home_2.jpg"></figure>
+                <figure><img alt="" class="img-fluid" src="~/Content/img/products/@Model.BlogImage" style="width:1000px; height: 600px"></figure>
                 <h1>@Model.BlogName</h1>
                 <div class="postmeta">
                     <ul>
@@ -37,8 +31,6 @@
                 <!-- /post -->
             </div>
             <!-- /single-post -->
-
-
         </div>
         <!-- /col -->
         @await Component.InvokeAsync("BlogAsideComponent")

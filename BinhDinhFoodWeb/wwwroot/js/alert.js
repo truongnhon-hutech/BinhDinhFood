@@ -16,3 +16,12 @@ function addCartFailAlert() {
         backgroundColor: 'red',
     })
 }
+function loginFirstAlert() {
+    Snackbar.show({
+        text: 'Bạn phải đăng nhập hoặc đăng ký!',
+        textColor: 'white',
+        actionText: 'Bỏ qua',
+        actionTextColor: 'white',
+        backgroundColor: 'red',
+    })
+}

@@ -16,7 +16,7 @@ namespace BinhDinhFood.Models
         public DbSet<Admin> Admins { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<ProductRating> ProductRatings { get; set; }
-        public DbSet<Blog> Blogs{ get; set; }
+        public DbSet<Banner> Blogs{ get; set; }
         public DbSet<Token> Tokens { get; set; }
         public DbSet<Banner> Banners { get; set; }
 
@@ -28,7 +28,7 @@ namespace BinhDinhFood.Models
             modelBuilder.Entity<OrderDetail>().ToTable("OrderDetail");
             modelBuilder.Entity<Product>().ToTable("Product");
             modelBuilder.Entity<ProductRating>().ToTable("ProductRating");
-            modelBuilder.Entity<Blog>().ToTable("Blog");
+            modelBuilder.Entity<Banner>().ToTable("Blog");
             modelBuilder.Entity<Token>().ToTable("Token");
             modelBuilder.Entity<Banner>().ToTable("Banner");
 
@@ -55,5 +55,7 @@ namespace BinhDinhFood.Models
                 .HasIndex(g => g.CustomerUserName)
                 .IsUnique();            
         }
+
+        public DbSet<BinhDinhFoodWeb.Models.Blog>? Blog { get; set; }
     }
 }

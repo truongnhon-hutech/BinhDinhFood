@@ -17,31 +17,26 @@ namespace BinhDinhFoodWeb.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            var objProductList = await _repo.GetListAsync();
             // search data for banner
             var tmp1 = await _repo.GetByIdAsync(6);
-            ViewData["objBannerName1"] = tmp1.ProductName;
             ViewData["objBannerImage1"] = tmp1.ProductImage;
-            ViewData["objBannerPrice1"] = tmp1.ProductPrice.ToString("#,###", cul.NumberFormat);
             var tmp2 = await _repo.GetByIdAsync(7);
 
-            ViewData["objBannerName2"] = tmp2.ProductName;
             ViewData["objBannerImage2"] = tmp2.ProductImage;
-            ViewData["objBannerPrice2"] = tmp2.ProductPrice.ToString("#,###", cul.NumberFormat);
             var tmp3 = await _repo.GetByIdAsync(16);
 
-            ViewData["objBannerName3"] = tmp3.ProductName;
             ViewData["objBannerImage3"] = tmp3.ProductImage;
-            ViewData["objBannerPrice3"] = tmp3.ProductPrice.ToString("#,###", cul.NumberFormat);
-
+            var objProductList = await _repo.GetListAsync();
             return View(objProductList);
         }
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
 
-        //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-
-        public IActionResult Error()
+        public IActionResult Error(int statuscode)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            if (statuscode == 404)
+                return View("NotFound");
+            else
+                return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
         public IActionResult About()
         {

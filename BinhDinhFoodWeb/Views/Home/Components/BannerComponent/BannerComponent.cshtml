@@ -1,0 +1,30 @@
+﻿@using System.Globalization
+@{
+    CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
+}
+@foreach (var item in Model)
+{
+    <div class="owl-slide cover">
+        <img src="~/content/img/slides/@item.BannerImage" />
+        <div class="opacity-mask d-flex align-items-center" data-opacity-mask="rgba(0, 0, 0, 0.5)">
+            <div class="container">
+                <div class="row justify-content-center justify-content-md-end">
+                    <div class="col-lg-6 static">
+                        <div class="slide-text text-right white">
+                            <h2 class="owl-slide-animated owl-slide-title">@item.BannerName</h2>
+                            <p class="owl-slide-animated owl-slide-subtitle">
+                                <div class="feat_text_block">
+                                    <div class="price_box">
+                                        <span class="new_price">@item.BannerPrice.ToString("#,###", cul.NumberFormat) Đ</span>
+                                    </div>
+                                </div>
+                            </p>
+                            <div class="owl-slide-animated owl-slide-cta"><a asp-action="ProductDetail" asp-controller="Product" asp-route-id="6" class="btn_1" role="button">Xem ngay</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/owl-slide-->
+}

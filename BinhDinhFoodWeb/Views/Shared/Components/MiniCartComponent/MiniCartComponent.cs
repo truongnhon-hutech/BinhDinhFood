@@ -25,12 +25,12 @@ namespace BinhDinhFoodWeb.Views.Cart.Components.MiniCartComponent
             }
             return totalMoney;
         }
-        public IViewComponentResult Invoke()
-        {
-            var cart = _cartRepo.Get(HttpContext.Session);
-            ViewData["TotalMoney"] = TotalMoney();
-            ViewData["Count"] = cart.Count();
-            return View(cart);
-        }
+            public IViewComponentResult Invoke()
+            {
+                var cart = _cartRepo.Get(HttpContext.Session);
+                ViewData["TotalMoney"] = TotalMoney();
+                ViewData["Count"] = cart.Count();
+                return View(cart);
+            }
     }
 }

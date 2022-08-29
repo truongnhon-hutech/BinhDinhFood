@@ -13,13 +13,12 @@ namespace BinhDinhFoodWeb.Controllers
 		}
 		public async Task<IActionResult> Index()
 		{
-			//var listBlog = await _repo.GetAll();
 			var listBlog = await _repo.GetListAsync(orderBy: x=>x.OrderBy(x=>x.BlogId));
 			return View(listBlog);
 		}
 		public async Task<IActionResult> BlogPost(int id)
 		{
-			var post = await _repo.GetListAsync(filter: x => x.BlogId == id);
+			 var post = await _repo.GetByIdAsync(id);
 			return View(post);
 		}
 

@@ -1,0 +1,8 @@
+﻿@foreach (var item in Model)
+{
+    <div class="col-lg-3">
+        <a asp-action="SearchByFilter" asp-controller="Product" asp-route-categoryId="@item.CategoryId">
+            <h3>@item.CategoryName</h3>
+        </a>
+    </div>
+} 

@@ -1,7 +1,13 @@
-﻿
+﻿@using System.Globalization
 @{
-    ViewData["Title"] = "Checkout";
+	CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
 }
+
+@{
+    ViewData["Title"] = "Order";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
 
 <div class="container margin_30">
 	<div class="page_header">
@@ -12,34 +18,46 @@
 				<li>Page active</li>
 			</ul>
 		</div>
-		<h1>Sign In or Create an Account</h1>
+		<h1>Trang thanh toán</h1>
 
 	</div>
 	<!-- /page_header -->
 	<div class="row">
-		<div class="col-lg-4 col-md-6">
+		<div class="col-lg-6 col-md-6">
 			<div class="step last">
-				<h3>3. Order Summary</h3>
+				<h3>Thông tin đơn đặt hàng</h3>
 				<div class="box_general summary">
 					<ul>
-						<li class="clearfix"><em>1x Armor Air X Fear</em>  <span>$145.00</span></li>
-						<li class="clearfix"><em>2x Armor Air Zoom Alpha</em> <span>$115.00</span></li>
+						@foreach (var item in Model)
+						{
+							<li class="clearfix"><em>@item.Product.ProductName</em>  <span>@item.Product.ProductPrice.ToString("#,###", cul.NumberFormat) Đ</span></li>
+						}
 					</ul>
-					<ul>
-						<li class="clearfix"><em><strong>Subtotal</strong></em>  <span>$450.00</span></li>
-						<li class="clearfix"><em><strong>Shipping</strong></em> <span>$0</span></li>
+				</div>
+				<!-- /box_general -->
+			</div>
+			<!-- /step -->
+		</div>
+		<div class="col-lg-6 col-md-6">
+			<div class="step last">
+				<h3>Thông tin khách hàng</h3>
+				<div class="box_general summary">
+					<form>
+						<ul>
+							<li class="clearfix"><em><strong>Họ tên</strong></em>  <span>@User.Claims.FirstOrDefault(x => x.Type == System.Security.Claims.ClaimTypes.Name).Value</span></li>
+							<li class="clearfix"><em><strong>Họ tên</strong></em>  <span>@User.Claims.FirstOrDefault(x => x.Type == System.Security.Claims.ClaimTypes.Name).Value</span></li>
+							<li class="clearfix"><em><strong>Họ tên</strong></em>  <span>@User.Claims.FirstOrDefault(x => x.Type == System.Security.Claims.ClaimTypes.Name).Value</span></li>
+							<li class="clearfix"><em><strong>Họ tên</strong></em>  <span>@User.Claims.FirstOrDefault(x => x.Type == System.Security.Claims.ClaimTypes.Name).Value</span></li>
+							<li class="clearfix"><em><strong>Họ tên</strong></em>  <span>@User.Claims.FirstOrDefault(x => x.Type == System.Security.Claims.ClaimTypes.Name).Value</span></li>
+						</ul>
+						<ul>
+							<li class="clearfix"><em><strong>Tổng tiền hàng</strong></em>  <span>@ViewData["TotalSubMoney"]</span></li>
+							<li class="clearfix"><em><strong>Phí vận chuyển</strong></em> <span>@ViewData["ShippingCost"]</span></li>
 
-					</ul>
-					<div class="total clearfix">TOTAL <span>$450.00</span></div>
-					<div class="form-group">
-						<label class="container_check">
-							Register to the Newsletter.
-							<input type="checkbox" checked>
-							<span class="checkmark"></span>
-						</label>
-					</div>
-
-					<a asp-action="Checkout" class="btn_1 full-width">Confirm and Pay</a>
+						</ul>
+						<div class="total clearfix">TỔNG TIỀN <span>@ViewData["TotalMoney"] Đ</span></div>
+						<a asp-action="Checkout" class="btn_1 full-width">Đồng ý và Thanh toán</a>
+					</form>
 				</div>
 				<!-- /box_general -->
 			</div>

@@ -16,6 +16,7 @@ builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<ICartRepository, CartRepository>();
 builder.Services.AddScoped<IBlogRepository, BlogRepository>();
+builder.Services.AddScoped<IBannerRepository, BannerRepository>();
 builder.Services.AddScoped<IProductRatingRepository, ProductRatingRepository>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
@@ -95,6 +96,8 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+app.UseStatusCodePagesWithRedirects("/Home/Error?statuscode = {0}");
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
@@ -107,9 +110,17 @@ app.UseSession();
 
 
 
-app.MapControllerRoute(
-    name: "Amdin",
-    pattern: "{area:exists}/{controller=Dashboard}/{action=Index}/{id?}");
+//app.MapControllerRoute(
+//    name: "Admin",
+//    pattern: "{area:exists}/{controller=AdmBlog}/{action=Index}/{id?}");
+
+
+app.MapAreaControllerRoute(
+    name: "Admin",
+    areaName: "Admin",
+    pattern: "Admin/{controller=AdmBanner}/{action=Index}/{id?}");
+
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");

@@ -252,7 +252,7 @@ namespace BinhDinhFoodWeb.Migrations
                     b.Property<double?>("BannerPrice")
                         .HasColumnType("float");
 
-                    b.Property<int>("ProductDiscount")
+                    b.Property<int?>("ProductDiscount")
                         .HasColumnType("int");
 
                     b.HasKey("BannerId");
@@ -273,6 +273,9 @@ namespace BinhDinhFoodWeb.Migrations
 
                     b.Property<DateTime>("BlogDateCreated")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("BlogImage")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("BlogName")
                         .IsRequired()

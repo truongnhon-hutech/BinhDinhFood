@@ -5,13 +5,7 @@
 
 <div class="container margin_30">
     <div class="page_header">
-        <div class="breadcrumbs">
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Category</a></li>
-                <li>Page active</li>
-            </ul>
-        </div>
+        @await Component.InvokeAsync("HeaderComponent")
         <h1>Bình Định Food Blog &amp; News</h1>
     </div>
     <!-- /page_header -->
@@ -31,7 +25,7 @@
                         <article class="blog">
                             <figure>
                                 <a asp-action="BlogPost" asp-route-id="@item.BlogId">
-                                    <img src="~/Content/img/slides/slide_home_1.jpg" alt="">
+                                    <img src="~/Content/img/products/@item.BlogImage" alt="">
                                     <div class="preview"><span>Đọc thêm</span></div>
                                 </a>
                             </figure>
@@ -41,7 +35,7 @@
                                 <p>@item.BlogContent</p>
                                 <ul>
                                     <li>
-                                        <div class="thumb"><img src="~/Content/img/brands/logo_1.png" alt=""></div> Admin
+                                        <div class="thumb"><img src="~/Content/img/avatar.jpg" alt=""></div> Admin
                                     </li>
                                     <li><i class="ti-comment"></i>20</li>
                                 </ul>

@@ -88,11 +88,8 @@
                                         <a asp-action="Index" asp-controller="Product" class="show-submenu-mega">Sản phẩm</a>
                                         <div class="menu-wrapper">
                                             <div class="row small-gutters">
-                                                <div class="col-lg-3">
-                                                    <a asp-action="Index" asp-controller="Product">
-                                                        <h3>CategoryName</h3>
-                                                    </a>
-                                                </div>
+                                                @await Component.InvokeAsync("HeaderCategoryComponent")
+
                                                 <div class="col-lg-3 d-xl-block d-lg-block d-md-none d-sm-none d-none">
                                                     <div class="banner_menu">
                                                         <a href="#0">
@@ -106,7 +103,7 @@
                                         </div>
                                         <!-- /menu-wrapper -->
                                     </li>
-                                    <li class="submenu">
+                                    <li >
                                         <a asp-action="Index" asp-controller="Blog">Bài viết</a>
                                     </li>
                                     <li>
@@ -151,21 +148,7 @@
                                         </span>
                                         <div id="menu">
                                             <ul>
-                                                <li>
-                                                    <span>
-                                                        <a asp-action="SearchByFilter" asp-controller="Product" value="6">item.CategoryName</a>
-                                                    </span>
-                                                </li>
-                                                <li>
-                                                    <span>
-                                                        <a asp-action="SearchByFilter" asp-controller="Product" value="6">item.CategoryName</a>
-                                                    </span>
-                                                </li>
-                                                <li>
-                                                    <span>
-                                                        <a asp-action="SearchByFilter" asp-controller="Product" value="6">item.CategoryName</a>
-                                                    </span>
-                                                </li>
+                                                @await Component.InvokeAsync("MiniCategoryNavBarComponent")
                                             </ul>
                                         </div>
                                     </li>
@@ -208,7 +191,7 @@
                                             }
                                             <ul>
                                                 <li>
-                                                    <a asp-action="TrackOrder" asp-controller="Cart">
+                                                    <a asp-action="TrackOder" asp-controller="Cart">
                                                         <i class="ti-truck"></i>Kiểm tra đơn hàng
                                                     </a>
                                                 </li>
@@ -283,9 +266,7 @@
                         <h3 data-target="#collapse_2">Loại đặc sản</h3>
                         <div class="collapse dont-collapse-sm links" id="collapse_2">
                             <ul>
-                                <li><a asp-action="Index" asp-controller="Home">Đồ khô</a></li>
-                                <li><a asp-action="Index" asp-controller="Home">Hải sản</a></li>
-                                <li><a asp-action="Index" asp-controller="Home">Bánh đặc sản</a></li>
+                                @await Component.InvokeAsync("MiniCategoryUnderNavBarComponent")
                             </ul>
                         </div>
                     </div>
@@ -371,5 +352,14 @@
     <script src="~/lib/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.min.js"></script>
     <script type="text/javascript" src="~/lib/node-snackbar/snackbar.min.js"></script>
     <script src="~/Content/js/carousel_with_thumbs.js"></script>
+    <script src="~/Content/js/jquery.cookiebar.js"></script>
+	<script>
+		$(document).ready(function() {
+			'use strict';
+			$.cookieBar({
+				fixed: true
+			});
+		});
+	</script>
 </body>
 </html>

@@ -14,7 +14,7 @@ namespace BinhDinhFoodWeb.Models
         public string? BannerName { get; set; }
         [DisplayName("Khuyến mãi")]
         [Range(0, 1)]
-        public int ProductDiscount { get; set; }
+        public int? ProductDiscount { get; set; }
         [DisplayName("Giá")]
         public double? BannerPrice { get; set; }
         [StringLength(200)]

@@ -1,0 +1,56 @@
+﻿@model BinhDinhFoodWeb.Models.Banner
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>Banner</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="BannerName" class="control-label"></label>
+                <input asp-for="BannerName" class="form-control" />
+                <span asp-validation-for="BannerName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductDiscount" class="control-label"></label>
+                <input asp-for="ProductDiscount" class="form-control" />
+                <span asp-validation-for="ProductDiscount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BannerPrice" class="control-label"></label>
+                <input asp-for="BannerPrice" class="form-control" />
+                <span asp-validation-for="BannerPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BannerDescription" class="control-label"></label>
+                <input asp-for="BannerDescription" class="form-control" />
+                <span asp-validation-for="BannerDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BannerImage" class="control-label"></label>
+                <input asp-for="BannerImage" class="form-control" />
+                <span asp-validation-for="BannerImage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BannerDateCreated" class="control-label"></label>
+                <input asp-for="BannerDateCreated" class="form-control" />
+                <span asp-validation-for="BannerDateCreated" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

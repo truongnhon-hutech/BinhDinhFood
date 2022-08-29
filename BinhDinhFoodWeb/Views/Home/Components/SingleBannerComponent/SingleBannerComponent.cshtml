@@ -1,0 +1,22 @@
+﻿@using System.Globalization
+@{
+    CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
+}
+<div class="featured lazy">
+    <img src="~/content/img/slides/@Model.BannerImage" />
+    <div class="opacity-mask d-flex align-items-center" data-opacity-mask="rgba(0, 0, 0, 0.5)">
+        <div class="container margin_60">
+            <div class="row justify-content-center justify-content-md-start">
+                <div class="col-lg-6 wow" data-wow-offset="150">
+                    <h3>@Model.BannerName</h3>
+                    <div class="feat_text_block">
+                        <div class="price_box">
+                            <span class="new_price">@Model.BannerPrice.ToString("#,###", cul.NumberFormat) Đ</span>
+                        </div>
+                        <a class="btn_1" asp-action="ProductDetail" asp-controller="Product" asp-route-id="6" role="button">Xem ngay</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

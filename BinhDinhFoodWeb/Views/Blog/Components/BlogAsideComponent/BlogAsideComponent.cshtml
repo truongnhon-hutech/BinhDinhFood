@@ -15,7 +15,7 @@
             {
                 <li>
                     <div class="alignleft">
-                        <a asp-action="BlogPost" asp-route-id="@item.BlogId"><img src="~/Content/img/slides/slide_home_4.jpg" alt=""></a>
+                        <a asp-action="BlogPost" asp-route-id="@item.BlogId"><img src="~/Content/img/products/@item.BlogImage" alt=""></a>
                     </div>
                     <small>@item.BlogDateCreated</small>
                     <h3><asp-action ="BlogPost" asp-route-id="@item.BlogId" title="">@item.BlogName ...</asp-action></h3>

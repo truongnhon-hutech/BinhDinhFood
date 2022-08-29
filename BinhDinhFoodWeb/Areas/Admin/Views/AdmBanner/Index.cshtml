@@ -1,0 +1,66 @@
+﻿@model IEnumerable<BinhDinhFoodWeb.Models.Banner>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BannerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductDiscount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BannerPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BannerDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BannerImage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BannerDateCreated)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BannerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductDiscount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BannerPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BannerDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BannerImage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BannerDateCreated)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.BannerId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.BannerId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.BannerId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
