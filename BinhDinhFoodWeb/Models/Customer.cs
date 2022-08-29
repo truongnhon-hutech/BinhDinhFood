@@ -29,6 +29,7 @@ namespace BinhDinhFood.Models
         [DisplayName("Địa chỉ")]
         [StringLength(50)]
         public string CustomerAddress { get; set; }
+        public string? CustomerPhone { get; set; }
         [DisplayName("Trạng thái")]
         public bool CustomerState { get; set; }
         [StringLength(50)]

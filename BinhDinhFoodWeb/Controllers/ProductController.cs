@@ -68,7 +68,7 @@ namespace BinhDinhFoodWeb.Controllers
                 obj = await _repoProduct.GetListAsync(filter: x => x.ProductName.Contains(name));
             
             if (categoryId.HasValue)
-                obj =  await _repoProduct.GetListAsync(filter: x =>x.CategoryId == categoryId);
+                obj =  await _repoProduct.GetListAsync(filter: x => x.CategoryId == categoryId);
 
             ViewBag.Order = sortOrder;
 

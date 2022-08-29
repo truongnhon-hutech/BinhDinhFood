@@ -16,14 +16,20 @@ namespace BinhDinhFoodWeb.Controllers
         
         private readonly ICartRepository _cartRepo;
         private readonly IProductRepository _productRepo;
-        public CartController(ICartRepository cartRepo, IProductRepository productRepo)
+        private readonly ICustomerRepository _customerRepo;
+        private readonly IOrderRepository _orderRepo;
+        private readonly IOrderDetailRepository _orderDetailRepo;
+        private double shippingCost = 30000;
+        public CartController(ICartRepository cartRepo, IProductRepository productRepo, ICustomerRepository customerRepo, IOrderDetailRepository orderDetailRepo, IOrderRepository orderRepo)
         {
             _cartRepo = cartRepo;
             _productRepo = productRepo;
+            _customerRepo = customerRepo;
+            _orderRepo = orderRepo;
+            _orderDetailRepo = orderDetailRepo;
         }
         public IActionResult Index()
         {
-            var shippingCost = 3000;
             List<Item> listCart = _cartRepo.Get(HttpContext.Session);
             ViewData["TotalSubMoney"] = TotalMoney();
             ViewData["ShippingCost"] = shippingCost;
@@ -36,7 +42,6 @@ namespace BinhDinhFoodWeb.Controllers
             if (!User.Identity.IsAuthenticated)
                 return RedirectToAction("Login", "User");
             List<Item> cart = _cartRepo.Get(HttpContext.Session);
-            var shippingCost = 300000;
             ViewData["TotalSubMoney"] = TotalMoney().ToString("#,###", cul.NumberFormat); ;
             ViewData["ShippingCost"] = shippingCost.ToString("#,###", cul.NumberFormat); ;
             ViewData["TotalMoney"] = (shippingCost + TotalMoney()).ToString("#,###", cul.NumberFormat); ;
@@ -127,7 +132,7 @@ namespace BinhDinhFoodWeb.Controllers
             return ViewComponent("CartComponent", new List<Item>());
         }
         // Order - checkout
-        public IActionResult Order()
+        public async Task<IActionResult> Order()
         {
             if(!User.Identity.IsAuthenticated)
                 return RedirectToAction("Login", "User");
@@ -135,11 +140,15 @@ namespace BinhDinhFoodWeb.Controllers
             List<Item> listCart = _cartRepo.Get(HttpContext.Session);
             
             int id = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
-            //Customer customer =
+            Customer customer = await _customerRepo.GetByIdAsync(id);
+            ViewBag.Name = customer.CustomerFullName;
+            ViewBag.Phone= customer.CustomerPhone;
+            ViewBag.Address = customer.CustomerAddress;
+            ViewBag.Email = customer.CustomerEmail;
+
             if (listCart == null)
                 return RedirectToAction("Order", "Cart");
             
-            var shippingCost = 300000;
             ViewData["TotalSubMoney"] = TotalMoney().ToString("#,###", cul.NumberFormat);
             ViewData["ShippingCost"] = shippingCost.ToString("#,###", cul.NumberFormat);
             ViewData["TotalMoney"] = (shippingCost + TotalMoney()).ToString("#,###", cul.NumberFormat);
@@ -147,11 +156,35 @@ namespace BinhDinhFoodWeb.Controllers
             return View(listCart);
         }
         [HttpPost]
-        public IActionResult Order(IFormCollection form)
+        public async Task<IActionResult> Order(IFormCollection form)
         {
             int id = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            Customer customer = await _customerRepo.GetByIdAsync(id);
+            List<Item> listCart = _cartRepo.Get(HttpContext.Session);
+            
+            Order or = new Order();
+            or.CustomerId = id;
+            or.DayOrder = DateTime.Now;
+            or.DayDelivery = DateTime.Now.AddDays(3);
+            or.PaidState = true;
+            or.DeliveryState = false;
+            or.TotalMoney = shippingCost + TotalMoney();
+            await _orderRepo.AddAsync(or);
+            await _orderRepo.SaveAsync();
 
-            return View();
+            foreach(var item in listCart)
+            {
+                OrderDetail detail = new OrderDetail();
+                detail.OrderId = or.OrderId;
+                detail.ProductId = item.Product.ProductId;
+                detail.Quantity = item.Quantity;
+                detail.UnitPrice = Convert.ToDecimal(item.Product.ProductPrice);
+                await _orderDetailRepo.AddAsync(detail);
+                await _orderDetailRepo.SaveAsync();
+            }
+            // clear cart
+            _cartRepo.Set(HttpContext.Session, new List<Item>());
+            return RedirectToAction("Comfirm");
         }
         public IActionResult Checkout()
         {

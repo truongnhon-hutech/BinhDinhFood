@@ -42,13 +42,12 @@
 			<div class="step last">
 				<h3>Thông tin khách hàng</h3>
 				<div class="box_general summary">
-					<form>
+					<form asp-action="Order" method="post">
 						<ul>
-							<li class="clearfix"><em><strong>Họ tên</strong></em>  <span>@User.Claims.FirstOrDefault(x => x.Type == System.Security.Claims.ClaimTypes.Name).Value</span></li>
-							<li class="clearfix"><em><strong>Họ tên</strong></em>  <span>@User.Claims.FirstOrDefault(x => x.Type == System.Security.Claims.ClaimTypes.Name).Value</span></li>
-							<li class="clearfix"><em><strong>Họ tên</strong></em>  <span>@User.Claims.FirstOrDefault(x => x.Type == System.Security.Claims.ClaimTypes.Name).Value</span></li>
-							<li class="clearfix"><em><strong>Họ tên</strong></em>  <span>@User.Claims.FirstOrDefault(x => x.Type == System.Security.Claims.ClaimTypes.Name).Value</span></li>
-							<li class="clearfix"><em><strong>Họ tên</strong></em>  <span>@User.Claims.FirstOrDefault(x => x.Type == System.Security.Claims.ClaimTypes.Name).Value</span></li>
+							<li class="clearfix"><em><strong>Họ tên</strong></em>  <span>@ViewBag.Name</span></li>
+							<li class="clearfix"><em><strong>Số điện thoại</strong></em>  <span>@ViewBag.Phone</span></li>
+							<li class="clearfix"><em><strong>Email</strong><span>@ViewBag.Email</span></em>  </li>
+							<li class="clearfix"><em><strong>Địa chỉ</strong></em>  <span>@ViewBag.Address</span></li>
 						</ul>
 						<ul>
 							<li class="clearfix"><em><strong>Tổng tiền hàng</strong></em>  <span>@ViewData["TotalSubMoney"]</span></li>
@@ -56,7 +55,7 @@
 
 						</ul>
 						<div class="total clearfix">TỔNG TIỀN <span>@ViewData["TotalMoney"] Đ</span></div>
-						<a asp-action="Checkout" class="btn_1 full-width">Đồng ý và Thanh toán</a>
+						<button type="submit" class="btn_1 full-width">Đồng ý và Thanh toán</button>
 					</form>
 				</div>
 				<!-- /box_general -->
