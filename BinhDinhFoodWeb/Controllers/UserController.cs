@@ -177,5 +177,9 @@ namespace BinhDinhFoodWeb.Controllers
             ViewBag.Message = "Your password is wrong! Please take it again.";
             return View();
         }
+        public IActionResult test()
+        {
+            return View();
+        }
     }
 }

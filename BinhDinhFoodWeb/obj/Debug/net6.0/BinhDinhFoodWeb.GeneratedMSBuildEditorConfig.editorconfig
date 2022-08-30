@@ -179,6 +179,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/vothu/Downloads/My-first-website-Contest/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/Shared/_LayoutLogin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9MYXlvdXRMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/vothu/Downloads/My-first-website-Contest/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -333,6 +337,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/vothu/Downloads/My-first-website-Contest/BinhDinhFood/BinhDinhFoodWeb/Views/User/ChangePass.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxDaGFuZ2VQYXNzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vothu/Downloads/My-first-website-Contest/BinhDinhFood/BinhDinhFoodWeb/Views/User/Components/ChangeInforComponent/test.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxDb21wb25lbnRzXENoYW5nZUluZm9yQ29tcG9uZW50XHRlc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/vothu/Downloads/My-first-website-Contest/BinhDinhFood/BinhDinhFoodWeb/Views/User/ForgotPassword.cshtml]

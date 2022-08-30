@@ -848,6 +848,7 @@ C:\Users\vothu\Downloads\My-first-website-Contest\BinhDinhFood\BinhDinhFoodWeb\b
 C:\Users\vothu\Downloads\My-first-website-Contest\BinhDinhFood\BinhDinhFoodWeb\bin\Debug\net6.0\refs\System.Xml.XPath.XDocument.dll
 C:\Users\vothu\Downloads\My-first-website-Contest\BinhDinhFood\BinhDinhFoodWeb\bin\Debug\net6.0\refs\WindowsBase.dll
 C:\Users\vothu\Downloads\My-first-website-Contest\BinhDinhFood\BinhDinhFoodWeb\bin\Debug\net6.0\Humanizer.dll
+C:\Users\vothu\Downloads\My-first-website-Contest\BinhDinhFood\BinhDinhFoodWeb\bin\Debug\net6.0\MailKit.dll
 C:\Users\vothu\Downloads\My-first-website-Contest\BinhDinhFood\BinhDinhFoodWeb\bin\Debug\net6.0\MessagePack.dll
 C:\Users\vothu\Downloads\My-first-website-Contest\BinhDinhFood\BinhDinhFoodWeb\bin\Debug\net6.0\MessagePack.Annotations.dll
 C:\Users\vothu\Downloads\My-first-website-Contest\BinhDinhFood\BinhDinhFoodWeb\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
@@ -894,6 +895,7 @@ C:\Users\vothu\Downloads\My-first-website-Contest\BinhDinhFood\BinhDinhFoodWeb\b
 C:\Users\vothu\Downloads\My-first-website-Contest\BinhDinhFood\BinhDinhFoodWeb\bin\Debug\net6.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
 C:\Users\vothu\Downloads\My-first-website-Contest\BinhDinhFood\BinhDinhFoodWeb\bin\Debug\net6.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
 C:\Users\vothu\Downloads\My-first-website-Contest\BinhDinhFood\BinhDinhFoodWeb\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\vothu\Downloads\My-first-website-Contest\BinhDinhFood\BinhDinhFoodWeb\bin\Debug\net6.0\MimeKit.dll
 C:\Users\vothu\Downloads\My-first-website-Contest\BinhDinhFood\BinhDinhFoodWeb\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Users\vothu\Downloads\My-first-website-Contest\BinhDinhFood\BinhDinhFoodWeb\bin\Debug\net6.0\NuGet.Common.dll
 C:\Users\vothu\Downloads\My-first-website-Contest\BinhDinhFood\BinhDinhFoodWeb\bin\Debug\net6.0\NuGet.Configuration.dll
@@ -904,6 +906,7 @@ C:\Users\vothu\Downloads\My-first-website-Contest\BinhDinhFood\BinhDinhFoodWeb\b
 C:\Users\vothu\Downloads\My-first-website-Contest\BinhDinhFood\BinhDinhFoodWeb\bin\Debug\net6.0\NuGet.ProjectModel.dll
 C:\Users\vothu\Downloads\My-first-website-Contest\BinhDinhFood\BinhDinhFoodWeb\bin\Debug\net6.0\NuGet.Protocol.dll
 C:\Users\vothu\Downloads\My-first-website-Contest\BinhDinhFood\BinhDinhFoodWeb\bin\Debug\net6.0\NuGet.Versioning.dll
+C:\Users\vothu\Downloads\My-first-website-Contest\BinhDinhFood\BinhDinhFoodWeb\bin\Debug\net6.0\BouncyCastle.Crypto.dll
 C:\Users\vothu\Downloads\My-first-website-Contest\BinhDinhFood\BinhDinhFoodWeb\bin\Debug\net6.0\System.Composition.AttributedModel.dll
 C:\Users\vothu\Downloads\My-first-website-Contest\BinhDinhFood\BinhDinhFoodWeb\bin\Debug\net6.0\System.Composition.Convention.dll
 C:\Users\vothu\Downloads\My-first-website-Contest\BinhDinhFood\BinhDinhFoodWeb\bin\Debug\net6.0\System.Composition.Hosting.dll
@@ -1104,6 +1107,3 @@ C:\Users\vothu\Downloads\My-first-website-Contest\BinhDinhFood\BinhDinhFoodWeb\o
 C:\Users\vothu\Downloads\My-first-website-Contest\BinhDinhFood\BinhDinhFoodWeb\obj\Debug\net6.0\BinhDinhFoodWeb.pdb
 C:\Users\vothu\Downloads\My-first-website-Contest\BinhDinhFood\BinhDinhFoodWeb\obj\Debug\net6.0\BinhDinhFoodWeb.genruntimeconfig.cache
 C:\Users\vothu\Downloads\My-first-website-Contest\BinhDinhFood\BinhDinhFoodWeb\obj\Debug\net6.0\ref\BinhDinhFoodWeb.dll
-C:\Users\vothu\Downloads\My-first-website-Contest\BinhDinhFood\BinhDinhFoodWeb\bin\Debug\net6.0\MailKit.dll
-C:\Users\vothu\Downloads\My-first-website-Contest\BinhDinhFood\BinhDinhFoodWeb\bin\Debug\net6.0\MimeKit.dll
-C:\Users\vothu\Downloads\My-first-website-Contest\BinhDinhFood\BinhDinhFoodWeb\bin\Debug\net6.0\BouncyCastle.Crypto.dll

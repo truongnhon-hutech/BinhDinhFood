@@ -167,6 +167,7 @@ namespace BinhDinhFoodWeb.Controllers
             or.DayOrder = DateTime.Now;
             or.DayDelivery = DateTime.Now.AddDays(3);
             or.PaidState = true;
+            // build payment momo or vnpay
             or.DeliveryState = false;
             or.TotalMoney = shippingCost + TotalMoney();
             await _orderRepo.AddAsync(or);
