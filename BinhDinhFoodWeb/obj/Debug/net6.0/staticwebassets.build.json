@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "X4f6L4fGqvF0EHxFKtcLr8FWbQR3cUSBGUb63pQzpuo=",
+  "Hash": "mSYn9uwTiVQk2Zvp0wpdvqbaMfho52JL/VqBaGT6DPw=",
   "Source": "BinhDinhFoodWeb",
   "BasePath": "_content/BinhDinhFoodWeb",
   "Mode": "Default",
@@ -8075,6 +8075,23 @@
       "OriginalItemSpec": "wwwroot\\Content\\video\\intro.ogv"
     },
     {
+      "Identity": "C:\\Users\\vothu\\Downloads\\My-first-website-Contest\\BinhDinhFood\\BinhDinhFoodWeb\\wwwroot\\css\\preloading.css",
+      "SourceId": "BinhDinhFoodWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\vothu\\Downloads\\My-first-website-Contest\\BinhDinhFood\\BinhDinhFoodWeb\\wwwroot\\",
+      "BasePath": "_content/BinhDinhFoodWeb",
+      "RelativePath": "css/preloading.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\preloading.css"
+    },
+    {
       "Identity": "C:\\Users\\vothu\\Downloads\\My-first-website-Contest\\BinhDinhFood\\BinhDinhFoodWeb\\wwwroot\\css\\site.css",
       "SourceId": "BinhDinhFoodWeb",
       "SourceType": "Discovered",
@@ -8124,6 +8141,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\alert.js"
+    },
+    {
+      "Identity": "C:\\Users\\vothu\\Downloads\\My-first-website-Contest\\BinhDinhFood\\BinhDinhFoodWeb\\wwwroot\\js\\preloading.js",
+      "SourceId": "BinhDinhFoodWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\vothu\\Downloads\\My-first-website-Contest\\BinhDinhFood\\BinhDinhFoodWeb\\wwwroot\\",
+      "BasePath": "_content/BinhDinhFoodWeb",
+      "RelativePath": "js/preloading.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\preloading.js"
     },
     {
       "Identity": "C:\\Users\\vothu\\Downloads\\My-first-website-Contest\\BinhDinhFood\\BinhDinhFoodWeb\\wwwroot\\js\\site.js",
