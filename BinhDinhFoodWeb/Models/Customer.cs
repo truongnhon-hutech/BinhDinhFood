@@ -22,6 +22,8 @@ namespace BinhDinhFood.Models
         [DisplayName("Mật khẩu")]
         public string CustomerPassword { get; set; }    
         [DisplayName("Ngày khởi tạo")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+
         public DateTime CustomerDateCreated { get; set; } = DateTime.Now;
         [DisplayName("Email")]
         [StringLength(50)]

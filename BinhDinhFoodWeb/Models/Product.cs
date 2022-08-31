@@ -28,6 +28,8 @@ namespace BinhDinhFood.Models
         [DisplayName("Hình ảnh")]
         public string? ProductImage { get; set; }
         [DisplayName("Ngày thêm")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+
         public DateTime ProductDateCreated { get; set; } = DateTime.Now;
         [DisplayName("Loại sản phẩm")]
         [JsonIgnore]

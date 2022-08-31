@@ -53,7 +53,7 @@
                 <img width="100" src="~/Content/img/slides/@Html.DisplayFor(modelItem => item.BannerImage)" alt="@Html.DisplayFor(modelItem => item.BannerImage)" />
             </td>
             <td>
-                @item.BannerDateCreated.ToShortDateString()
+                @Html.DisplayFor(modelItem => item.BannerDateCreated)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.BannerId">Edit</a> |

@@ -24,6 +24,7 @@ namespace BinhDinhFoodWeb.Models
         [DisplayName("Hình ảnh")]
         public string? BannerImage { get; set; }
         [DisplayName("Ngày thêm")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime BannerDateCreated { get; set; } = DateTime.Now;
     }
 }

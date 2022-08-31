@@ -1,54 +1,68 @@
 ﻿@model IEnumerable<BinhDinhFoodWeb.Models.Blog>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Quản lý bài viết";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
-
-<h1>Index</h1>
-
 <p>
-    <a asp-action="Create">Create New</a>
+    <a class="btn btn-primary rounded-pill" asp-action="Create">Tạo Bài viết mới</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.BlogName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BlogContent)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BlogImage)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BlogDateCreated)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.BlogName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BlogContent)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BlogImage)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BlogDateCreated)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.BlogId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.BlogId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.BlogId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Quản lý thông tin bài viết</h5>
+
+        <!-- Table with hoverable rows -->
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.BlogId)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.BlogName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.BlogContent)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.BlogImage)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.BlogDateCreated)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <th scope="row">@Html.DisplayFor(modelItem => item.BlogId)</th>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BlogName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BlogContent)
+                        </td>
+                        <td>
+                            <img width="100" src="~/Content/img/products/@Html.DisplayFor(modelItem => item.BlogImage)" alt="@Html.DisplayFor(modelItem => item.BlogImage)" />
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BlogDateCreated)
+                        </td>
+                        <td>
+                            <a class="btn btn-warning rounded-pill" asp-action="Edit" asp-route-id="@item.BlogId">Chỉnh sửa</a>
+                            <a class="btn btn-info rounded-pill" asp-action="Details" asp-route-id="@item.BlogId">Chi tiết</a>
+                            <a class="btn btn-danger rounded-pill" asp-action="Delete" asp-route-id="@item.BlogId">Xoá</a>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+        <!-- End Table with hoverable rows -->
+
+    </div>
+</div>

@@ -10,8 +10,12 @@ namespace BinhDinhFood.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int OrderId { get; set; }
         [DisplayName("Ngày đặt hàng")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+
         public DateTime DayOrder { get; set; }
         [DisplayName("Ngày vận chuyển")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+
         public DateTime DayDelivery { get; set; }
         [DisplayName("Đã trả tiền")]
         public bool PaidState { get; set; }
