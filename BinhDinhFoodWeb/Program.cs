@@ -102,6 +102,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseStatusCodePagesWithRedirects("/Home/Error?statuscode = {0}");
 
+
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 

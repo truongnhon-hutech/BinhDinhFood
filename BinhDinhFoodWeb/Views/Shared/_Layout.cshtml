@@ -52,7 +52,6 @@
         <div id="status">
             <span></span>
             <span></span>
-            <span></span>
         </div>
     </div>
     <div id="page">
@@ -207,8 +206,11 @@
                     <!-- /row -->
                 </div>
                 <div class="search_mob_wp">
-                    <input type="text" class="form-control" placeholder="Tìm kiếm hơn 1000 sản phẩm">
-                    <input type="submit" class="btn_1 full-width" value="Search">
+                    <form asp-action="SearchByFilter" asp-controller="Product" asp-name="name">
+                        <input type="text" class="form-control" placeholder="Tìm kiếm hơn 1000 sản phẩm">
+                        <input type="submit" class="btn_1 full-width" value="Search">
+                    </form>
+
                 </div>
                 <!-- /search_mobile -->
             </div>
@@ -308,7 +310,7 @@
                             <li><span>© 2022 BinhDinhFood - Dev team: Phạm Đức Tài - Võ Thương Trường Nhơn - Nguyễn Hồng Thái</span></li>
                         </ul>
                     </div>
-                    <ul style="color: white"> &copy; Bản quyền <strong><span>Bình Định Food</span></strong>. Đã đăng ký Bản quyền</ul>
+                    <div style="color: white"> &copy; Bản quyền <strong><span>Bình Định Food</span></strong>. Đã đăng ký Bản quyền</div>
                 </div>
             </div>
         </footer>
