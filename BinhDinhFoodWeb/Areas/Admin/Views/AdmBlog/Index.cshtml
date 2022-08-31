@@ -4,8 +4,19 @@
     ViewData["Title"] = "Quản lý bài viết";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
+
+
+<div class="pagetitle">
+    <h1>Quản lý bài viết</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-action="Index" asp-controller="AdmHome">Trang chủ</a></li>
+            <li class="breadcrumb-item active"><a asp-action="Index">Quản lý bài viết</a></li>
+        </ol>
+    </nav>
+</div><!-- End Page Title -->
 <p>
-    <a class="btn btn-primary rounded-pill" asp-action="Create">Tạo Bài viết mới</a>
+    <a class="btn btn-primary rounded-pill" asp-action="Create"> <i class="bi bi-file-earmark-plus"></i> Tạo Bài viết mới </a>
 </p>
 <div class="card">
     <div class="card-body">
@@ -44,7 +55,7 @@
                             @Html.DisplayFor(modelItem => item.BlogName)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.BlogContent)
+                            @Html.Raw(@item.BlogContent)
                         </td>
                         <td>
                             <img width="100" src="~/Content/img/products/@Html.DisplayFor(modelItem => item.BlogImage)" alt="@Html.DisplayFor(modelItem => item.BlogImage)" />
@@ -53,9 +64,9 @@
                             @Html.DisplayFor(modelItem => item.BlogDateCreated)
                         </td>
                         <td>
-                            <a class="btn btn-warning rounded-pill" asp-action="Edit" asp-route-id="@item.BlogId">Chỉnh sửa</a>
-                            <a class="btn btn-info rounded-pill" asp-action="Details" asp-route-id="@item.BlogId">Chi tiết</a>
-                            <a class="btn btn-danger rounded-pill" asp-action="Delete" asp-route-id="@item.BlogId">Xoá</a>
+                            <a class="btn btn-warning rounded-pill" asp-action="Edit" asp-route-id="@item.BlogId"><i class="bi bi-pencil"></i></a>
+                            <a class="btn btn-info rounded-pill" asp-action="Details" asp-route-id="@item.BlogId"><i class="bi bi-eye"></i></a>
+                            <a class="btn btn-danger rounded-pill" asp-action="Delete" asp-route-id="@item.BlogId"><i class="bi bi-trash"></i></a>
                         </td>
                     </tr>
                 }

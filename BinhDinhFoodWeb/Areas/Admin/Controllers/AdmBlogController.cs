@@ -7,25 +7,28 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BinhDinhFood.Models;
 using BinhDinhFoodWeb.Models;
+using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 
 namespace BinhDinhFoodWeb.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class AdmBlogController : Controller
     {
+        private readonly IHostingEnvironment _appEnvironment;
         private readonly BinhDinhFoodDbContext _context;
 
-        public AdmBlogController(BinhDinhFoodDbContext context)
+        public AdmBlogController(BinhDinhFoodDbContext context, IHostingEnvironment appEnvironment)
         {
             _context = context;
+            _appEnvironment = appEnvironment;
         }
 
         // GET: Admin/AdmBlog
         public async Task<IActionResult> Index()
         {
-              return _context.Blog != null ? 
-                          View(await _context.Blog.ToListAsync()) :
-                          Problem("Entity set 'BinhDinhFoodDbContext.Blog'  is null.");
+            return _context.Blog != null ?
+                        View(await _context.Blog.ToListAsync()) :
+                        Problem("Entity set 'BinhDinhFoodDbContext.Blog'  is null.");
         }
 
         // GET: Admin/AdmBlog/Details/5
@@ -59,8 +62,27 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("BlogId,BlogName,BlogContent,BlogImage,BlogDateCreated")] Blog blog)
         {
+            IFormFileCollection files = HttpContext.Request.Form.Files;
+
             if (ModelState.IsValid)
             {
+                foreach (var Image in files)
+                {
+                    if (Image != null && Image.Length > 0)
+                    {
+                        var file = Image;
+                        var uploads = Path.Combine(_appEnvironment.WebRootPath, "Content\\img\\products\\");
+                        if (file.Length > 0)
+                        {
+                            var fileName = Guid.NewGuid().ToString().Replace("-", "") + Path.GetExtension(file.FileName);
+                            using (var fileStream = new FileStream(Path.Combine(uploads, fileName), FileMode.Create))
+                            {
+                                await file.CopyToAsync(fileStream);
+                                blog.BlogImage = fileName;
+                            }
+                        }
+                    }
+                }
                 _context.Add(blog);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -91,6 +113,8 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("BlogId,BlogName,BlogContent,BlogImage,BlogDateCreated")] Blog blog)
         {
+            IFormFileCollection files = HttpContext.Request.Form.Files;
+
             if (id != blog.BlogId)
             {
                 return NotFound();
@@ -100,6 +124,23 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
             {
                 try
                 {
+                    foreach (var Image in files)
+                    {
+                        if (Image != null && Image.Length > 0)
+                        {
+                            var file = Image;
+                            var uploads = Path.Combine(_appEnvironment.WebRootPath, "Content\\img\\products\\");
+                            if (file.Length > 0)
+                            {
+                                var fileName = Guid.NewGuid().ToString().Replace("-", "") + Path.GetExtension(file.FileName);
+                                using (var fileStream = new FileStream(Path.Combine(uploads, fileName), FileMode.Create))
+                                {
+                                    await file.CopyToAsync(fileStream);
+                                    blog.BlogImage = fileName;
+                                }
+                            }
+                        }
+                    }
                     _context.Update(blog);
                     await _context.SaveChangesAsync();
                 }
@@ -151,14 +192,14 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
             {
                 _context.Blog.Remove(blog);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool BlogExists(int id)
         {
-          return (_context.Blog?.Any(e => e.BlogId == id)).GetValueOrDefault();
+            return (_context.Blog?.Any(e => e.BlogId == id)).GetValueOrDefault();
         }
     }
 }

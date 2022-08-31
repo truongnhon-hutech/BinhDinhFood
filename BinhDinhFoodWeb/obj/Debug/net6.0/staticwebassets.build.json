@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "mSYn9uwTiVQk2Zvp0wpdvqbaMfho52JL/VqBaGT6DPw=",
+  "Hash": "H2Re1rlyTwc5x+zGz6fFJey0IgJZ1m/6M46DAFgZEfg=",
   "Source": "BinhDinhFoodWeb",
   "BasePath": "_content/BinhDinhFoodWeb",
   "Mode": "Default",
@@ -6713,6 +6713,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Content\\img\\paypal.svg"
+    },
+    {
+      "Identity": "C:\\Users\\vothu\\Downloads\\My-first-website-Contest\\BinhDinhFood\\BinhDinhFoodWeb\\wwwroot\\Content\\img\\products\\56a1b3b71c8d4773ba53c511ae35daf7.jpg",
+      "SourceId": "BinhDinhFoodWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\vothu\\Downloads\\My-first-website-Contest\\BinhDinhFood\\BinhDinhFoodWeb\\wwwroot\\",
+      "BasePath": "_content/BinhDinhFoodWeb",
+      "RelativePath": "Content/img/products/56a1b3b71c8d4773ba53c511ae35daf7.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Content\\img\\products\\56a1b3b71c8d4773ba53c511ae35daf7.jpg"
     },
     {
       "Identity": "C:\\Users\\vothu\\Downloads\\My-first-website-Contest\\BinhDinhFood\\BinhDinhFoodWeb\\wwwroot\\Content\\img\\products\\banhit.png",
