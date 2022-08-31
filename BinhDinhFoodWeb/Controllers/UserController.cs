@@ -7,6 +7,7 @@ using BinhDinhFoodWeb.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
+using System;
 
 namespace BinhDinhFoodWeb.Controllers
 {
@@ -24,10 +25,7 @@ namespace BinhDinhFoodWeb.Controllers
             _mailService = mailService;
             _tokenRepository = tokenRepository;
         }
-        public IActionResult Index()
-        {
-            return View();
-        }
+       
         [HttpGet]
         public IActionResult Register()
         {
@@ -64,14 +62,13 @@ namespace BinhDinhFoodWeb.Controllers
             // +1 line added for SignIn
             await _userManager.SignIn(this.HttpContext, user, model.RememberLogin);
 
-            //return LocalRedirect("~/Home/Index");
             return RedirectToAction("Index","Home");
         }
         public async Task<IActionResult> Logout(string returnUrl)
         {
             await _userManager.SignOut(this.HttpContext);
 
-            return RedirectToAction("Login");
+            return RedirectToAction("Index", "Home");
         }
         [HttpGet]
         public IActionResult ForgotPassword()
@@ -150,15 +147,26 @@ namespace BinhDinhFoodWeb.Controllers
         {
             if (!User.Identity.IsAuthenticated) 
                 return RedirectToAction("Login");
+            
             int id = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
-            await _repo.ChangeInforUser(model, id);
-            return View(model);
+            IFormFileCollection files = HttpContext.Request.Form.Files;
+            await _repo.ChangeInforUser(model, id, files);
+            
+            return RedirectToAction("Profile");
         }
+        public async Task<IActionResult> ClearImage()
+        {
+            int id = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            await _repo.ClearImage(id);
+            return RedirectToAction("Profile");
+        }
+
         [HttpGet]
         public IActionResult ChangePass()
         {
             if (!User.Identity.IsAuthenticated) 
-                return RedirectToAction("Login");
+                return RedirectToAction("Login"); 
+            
             return View();
         }
         [HttpPost]
@@ -172,14 +180,22 @@ namespace BinhDinhFoodWeb.Controllers
             if (await _repo.HaveAccount(user, model.OldPassword))
             {
                 await _repo.ChangePasswordUser(model, id);
-                return View();
+                return RedirectToAction("Profile");
             }
             ViewBag.Message = "Your password is wrong! Please take it again.";
             return View();
         }
-        public IActionResult test()
+        public IActionResult Profile()
         {
-            return View();
+            if (!User.Identity.IsAuthenticated)
+                return RedirectToAction("Login");
+
+            int id = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            ChangeInforViewModel model = _repo.GetUserInfor(id);
+            
+            
+            return View(model);
         }
+
     }
 }

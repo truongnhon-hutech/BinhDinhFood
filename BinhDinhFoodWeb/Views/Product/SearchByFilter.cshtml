@@ -1,4 +1,7 @@
-﻿@using System.Globalization
+﻿@using X.PagedList
+@using X.PagedList.Mvc.Core
+
+@using System.Globalization
 @using BinhDinhFood.Models
 @{
     ViewData["Title"] = "SearchByFilter";
@@ -30,69 +33,68 @@
         <aside class="col-lg-3" id="sidebar_fixed">
             <div class="filter_col">
                 <form asp-action="Filter" asp-controller="Product">
-                <div class="inner_bt"><a href="#" class="open_filters"><i class="ti-close"></i></a></div>
-                <div class="filter_type version_2">
-                    <h4><a href="#filter_1" data-toggle="collapse" class="opened">Loại sản phẩm</a></h4>
-                    <div class="collapse show" id="filter_1">
-                        <ul>
-
-                        </ul>
+                    <div class="inner_bt"><a href="#" class="open_filters"><i class="ti-close"></i></a></div>
+                    <div class="filter_type version_2">
+                        <h4><a href="#filter_1" data-toggle="collapse" class="opened">Loại sản phẩm</a></h4>
+                        <div class="collapse show" id="filter_1">
+                            <ul>
+                            </ul>
+                        </div>
+                        <!-- /filter_type -->
                     </div>
                     <!-- /filter_type -->
-                </div>
-                <!-- /filter_type -->
-                <div class="filter_type version_2">
-                    <h4><a href="#filter_2" data-toggle="collapse" class="closed">Chương trình</a></h4>
-                    <div class="collapse show" id="filter_2">
-                        <ul>
-                            <li>
-                                <label class="container_check">
-                                    Khuyến mãi 
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </li>
-                            <li>
-                                <label class="container_check">
-                                    Không giá gốc 
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </li>
-                        </ul>
+                    <div class="filter_type version_2">
+                        <h4><a href="#filter_2" data-toggle="collapse" class="closed">Chương trình</a></h4>
+                        <div class="collapse show" id="filter_2">
+                            <ul>
+                                <li>
+                                    <label class="container_check">
+                                        Khuyến mãi
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="container_check">
+                                        Không giá gốc
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <!-- /filter_type -->
-                <div class="filter_type version_2">
-                    <h4><a href="#filter_4" data-toggle="collapse" class="opened">Giá tiền</a></h4>
-                    <div class="collapse show" id="filter_4">
-                        <ul>
-                            <li>
-                                <label class="container_check">
-                                    0 Đ - 50.000 Đ
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </li>
-                            <li>
-                                <label class="container_check">
-                                    50.000 Đ — 100.000 Đ
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </li>
-                        </ul>
+                    <!-- /filter_type -->
+                    <div class="filter_type version_2">
+                        <h4><a href="#filter_4" data-toggle="collapse" class="opened">Giá tiền</a></h4>
+                        <div class="collapse show" id="filter_4">
+                            <ul>
+                                <li>
+                                    <label class="container_check">
+                                        0 Đ - 50.000 Đ
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="container_check">
+                                        50.000 Đ — 100.000 Đ
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <!-- /filter_type -->
-                <div class="buttons">
-                    <input class="btn_1" type="submit">
-                    <a class="btn_1 gray">Trở lại</a>
-                </div>
+                    <!-- /filter_type -->
+                    <div class="buttons">
+                        <input class="btn_1" type="submit">
+                        <a class="btn_1 gray">Trở lại</a>
+                    </div>
                 </form>
             </div>
         </aside>
-<!-- /col -->
+        <!-- /col -->
         <div class="col-lg-9">
             <div class="row small-gutters">
                 @foreach (var item in Model)
@@ -116,7 +118,15 @@
                             <ul>
                                 <li><a href="#0" class="tooltip-1" data-toggle="tooltip" data-placement="left" title="Add to favorites"><i class="ti-heart"></i><span>Thêm vào yêu thích</span></a></li>
                                 <li><a href="#0" class="tooltip-1" data-toggle="tooltip" data-placement="left" title="Add to compare"><i class="ti-control-shuffle"></i><span>So sánh</span></a></li>
-                                <li><a asp-action="AddInCart" asp-controller="Cart" asp-route-id="@item.ProductId" class="tooltip-1" data-toggle="tooltip" data-placement="left" title="Thêm vào giỏ hàng"><i class="ti-shopping-cart"></i><span>Thêm vào giỏ hàng</span></a></li>
+                                @if(User.Identity.IsAuthenticated)
+                                {
+                                    <li><a asp-action="AddInCart" asp-controller="Cart" asp-route-id="@item.ProductId" data-ajax="true" data-ajax-success="addCartAlert" data-ajax-failure="addCartFailAlert" data-ajax-update="#mini-cart" class="tooltip-1" data-toggle="tooltip" data-placement="left" title="Thêm vào giỏ hàng"><i class="ti-shopping-cart"></i><span>Thêm vào giỏ hàng</span></a></li>
+
+                                }
+                                else
+                                {
+                                    <li><a data-ajax="true" data-ajax-success="loginFirstAlert" data-ajax-failure="addCartFailAlert" class="tooltip-1" data-toggle="tooltip" data-placement="left" title="Thêm vào giỏ hàng"><i class="ti-shopping-cart"></i><span>Thêm vào giỏ hàng</span></a></li>
+                                }
                             </ul>
                         </div>
                         <!-- /grid_item -->
@@ -128,20 +138,7 @@
             <!-- /row -->
             <div class="pagination__wrapper">
                 <ul class="pagination">
-                    <li><a href="#0" class="prev" title="previous page">&#10094;</a></li>
-                    <li>
-                        <a href="#0" class="active">1</a>
-                    </li>
-                    <li>
-                        <a href="#0">2</a>
-                    </li>
-                    <li>
-                        <a href="#0">3</a>
-                    </li>
-                    <li>
-                        <a href="#0">4</a>
-                    </li>
-                    <li><a href="#0" class="next" title="next page">&#10095;</a></li>
+                    @Html.PagedListPager((IPagedList)Model, page => Url.Action("SearchByFilter", new{ page}))
                 </ul>
             </div>
         </div>

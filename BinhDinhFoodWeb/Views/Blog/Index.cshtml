@@ -1,4 +1,5 @@
-﻿
+﻿@using X.PagedList
+@using X.PagedList.Mvc.Core
 @{
     ViewData["Title"] = "Index";
 }
@@ -50,20 +51,7 @@
 
             <div class="pagination__wrapper no_border add_bottom_30">
                 <ul class="pagination">
-                    <li><a href="#0" class="prev" title="previous page">&#10094;</a></li>
-                    <li>
-                        <a href="#0" class="active">1</a>
-                    </li>
-                    <li>
-                        <a href="#0">2</a>
-                    </li>
-                    <li>
-                        <a href="#0">3</a>
-                    </li>
-                    <li>
-                        <a href="#0">4</a>
-                    </li>
-                    <li><a href="#0" class="next" title="next page">&#10095;</a></li>
+                    @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new{ page }))
                 </ul>
             </div>
             <!-- /pagination -->

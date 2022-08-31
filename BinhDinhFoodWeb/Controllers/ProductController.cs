@@ -4,7 +4,7 @@ using BinhDinhFoodWeb.Models;
 using BinhDinhFoodWeb.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
-
+using X.PagedList;
 namespace BinhDinhFoodWeb.Controllers
 {
     public class ProductController : Controller
@@ -19,10 +19,10 @@ namespace BinhDinhFoodWeb.Controllers
             _repoCategory = repoCategory;
             _repoProductRating = repoProductRating;
         }
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page = 1)
         {
             var obj = await _repoProduct.GetListAsync();
-            return View(obj);
+            return View(obj.ToPagedList(page,7));
         }
         // Product Details page
         public async Task<IActionResult> ProductDetail(int id)
@@ -57,7 +57,7 @@ namespace BinhDinhFoodWeb.Controllers
             return View();
         }
         // Search feature
-        public async Task<IActionResult> SearchByFilter(string name, int? categoryId, string sortOrder)
+        public async Task<IActionResult> SearchByFilter(string name, int? categoryId, string sortOrder, int page = 1)
         {
             @ViewData["price_asce"] = sortOrder == "price_asce" ? "price_asce" : "price_desc";
             @ViewData["date_asce"] = sortOrder == "date_asce" ? "date_asce" : "date_desc";
@@ -90,7 +90,7 @@ namespace BinhDinhFoodWeb.Controllers
                     obj = await _repoProduct.GetListAsync(orderBy: x => x.OrderByDescending(x=>x.ProductDiscount));
                     break;
             }
-            return View(obj);
+            return View(obj.ToPagedList(page, 7));
         }
         // I don't how the form working
         [HttpGet]

@@ -1,0 +1,51 @@
+﻿@model BinhDinhFoodWeb.Models.ChangeInforViewModel
+
+<!-- Profile Edit Form -->
+<form asp-action="ChangeInfor" method="post" enctype="multipart/form-data">
+    <div class="row mb-3">
+        <label for="profileImage" class="col-md-4 col-lg-3 col-form-label">@Html.DisplayNameFor(model => model.CustomerImage)</label>
+        <div class="col-md-8 col-lg-9">
+            <img src="~/Content/img/staff/@Html.DisplayFor(model => model.CustomerImage)" alt="Profile">
+            <div class="pt-2">
+
+                <input asp-for="CustomerImage" type="file" id="upload-btn" hidden />
+                <label for="upload-btn">
+                    <a class="btn btn-primary btn-sm" title="Upload new profile image"><i class="bi bi-upload"></i></a>
+                </label>
+                    <a asp-action="ClearImage" class="btn btn-danger btn-sm" title="Remove my profile image"><i class="bi bi-trash"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label for="fullName" class="col-md-4 col-lg-3 col-form-label">@Html.DisplayNameFor(model => model.CustomerFullName)</label>
+        <div class="col-md-8 col-lg-9">
+            <input asp-for="CustomerFullName" type="text" class="form-control" id="fullName" value="@Model.CustomerFullName">
+        </div>
+    </div>
+
+
+    <div class="row mb-3">
+        <label for="Address" class="col-md-4 col-lg-3 col-form-label">@Model.CustomerAddress</label>
+        <div class="col-md-8 col-lg-9">
+            <input asp-for="CustomerAddress" type="text" class="form-control" id="Address" value="@Model.CustomerAddress">
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label for="Phone" class="col-md-4 col-lg-3 col-form-label">@Html.DisplayNameFor(model => model.CustomerPhone)</label>
+        <div class="col-md-8 col-lg-9">
+            <input asp-for="CustomerPhone" type="text" class="form-control" id="Phone" value="@Model.CustomerPhone">
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <label for="Email" class="col-md-4 col-lg-3 col-form-label">@Html.DisplayNameFor(model => model.CustomerEmail)</label>
+        <div class="col-md-8 col-lg-9">
+            <input asp-for="CustomerEmail" type="email" class="form-control" id="Email" value="@Model.CustomerEmail">
+        </div>
+    </div>
+
+    <div class="text-center"><input type="submit" value="Cập nhật" class="btn btn-primary"></div>
+
+</form><!-- End Profile Edit Form -->

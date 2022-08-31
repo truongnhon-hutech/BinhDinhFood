@@ -1,0 +1,82 @@
+﻿@{
+    ViewData["Title"] = "Đổi thông tin";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutLogin.cshtml";
+}
+
+<div class="container">
+    <!-- register page-->
+    <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-12">
+        <div class="container">
+            <div class="row justify-content-center">
+
+                <div class="d-flex justify-content-center py-5">
+                    <a asp-action="Index" asp-controller="Home" class="logo d-flex align-items-center w-auto">
+                        <img src="~/Content/img/Bình Định Food-black.png" alt="">
+                        <span class="d-none d-lg-block">Bình Đình Food</span>
+                    </a>
+                </div>
+                <!-- End Logo -->
+
+                <div class="pagetitle">
+                    <h1>Thông tin của bạn</h1>
+                    <nav>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Home">Trang chủ</a></li>
+                            <li class="breadcrumb-item active">Trang người dùng</li>
+                        </ol>
+                    </nav>
+                </div><!-- End Page Title -->
+
+                <section class="section profile">
+                    <div class="row">
+                        <div class="col-xl-4">
+                            @await Component.InvokeAsync("AvatarComponent")
+                        </div>
+
+                        <div class="col-xl-8">
+
+                            <div class="card">
+                                <div class="card-body pt-3">
+                                    <!-- Bordered Tabs -->
+                                    <ul class="nav nav-tabs nav-tabs-bordered">
+
+                                        <li class="nav-item">
+                                            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Tổng quát</button>
+                                        </li>
+
+                                        <li class="nav-item">
+                                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-edit">Chỉnh sửa thông tin</button>
+                                        </li>
+
+                                        <li class="nav-item">
+                                            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password" data-ajax="true" data-ajax-update="#ChagePass">Đổi mật khẩu</button>
+                                        </li>
+
+                                    </ul>
+                                    <div class="tab-content pt-2">
+
+                                        <div class="tab-pane fade show active profile-overview" id="profile-overview">
+                                            @await Component.InvokeAsync("ShowProfileComponent")
+
+                                        </div>
+
+                                        <div class="tab-pane fade profile-edit pt-3" id="profile-edit">
+                                            @await Component.InvokeAsync("EditProfileComponent")
+
+                                        </div>
+                                        <div class="tab-pane fade pt-3" id="profile-change-password">
+                                            <!-- Change Password Form -->
+
+                                            <a asp-action="ChangePass" asp-controller="User" id="ChangePass" >Đổi mật khẩu</a>
+                                        </div>
+                                    </div><!-- End Bordered Tabs -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </section>
+</div>

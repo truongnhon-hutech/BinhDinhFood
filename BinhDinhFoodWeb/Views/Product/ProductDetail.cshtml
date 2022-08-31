@@ -14,23 +14,23 @@
 				<div class="slider">
 					<div class="owl-carousel owl-theme main">
 						<div><img src="~/Content/img/products/@Model.ProductImage" class="item-box"></div>
-						<div><img src="~/Content/img/products/@Model.ProductImage" class="item-box"></div>
-						<div><img src="~/Content/img/products/@Model.ProductImage" class="item-box"></div>
-						<div><img src="~/Content/img/products/@Model.ProductImage" class="item-box"></div>
-						<div><img src="~/Content/img/products/@Model.ProductImage" class="item-box"></div>
-						<div><img src="~/Content/img/products/@Model.ProductImage" class="item-box"></div>
+						<div><img src="~/Content/img/products/@Model.ProductImage" class="item-box" style="filter: contrast(200%);"></div>
+						<div><img src="~/Content/img/products/@Model.ProductImage" class="item-box" style="filter: drop-shadow(8px 8px 10px gray);"></div>
+						<div><img src="~/Content/img/products/@Model.ProductImage" class="item-box" style="filter: grayscale(50%);"></div>
+						<div><img src="~/Content/img/products/@Model.ProductImage" class="item-box" style="filter: hue-rotate(90deg);"></div>
+						<div><img src="~/Content/img/products/@Model.ProductImage" class="item-box" style="filter: brightness(200%);"></div>
 					</div>
 					<div class="left nonl"><i class="ti-angle-left"></i></div>
 					<div class="right"><i class="ti-angle-right"></i></div>
 				</div>
 				<div class="slider-two">
 					<div class="owl-carousel owl-theme thumbs">
-						<div ><img src="~/Content/img/products/@Model.ProductImage" class="item active"></div>
 						<div><img src="~/Content/img/products/@Model.ProductImage" class="item active"></div>
-						<div><img src="~/Content/img/products/@Model.ProductImage" class="item"></div>
-						<div><img src="~/Content/img/products/@Model.ProductImage" class="item"></div>
-						<div><img src="~/Content/img/products/@Model.ProductImage" class="item"></div>
-						<div><img src="~/Content/img/products/@Model.ProductImage" class="item"></div>
+						<div><img src="~/Content/img/products/@Model.ProductImage" class="item" style="filter: drop-shadow(8px 8px 10px gray);"></div>
+						<div><img src="~/Content/img/products/@Model.ProductImage" class="item" style="filter: grayscale(50%);"></div>
+						<div><img src="~/Content/img/products/@Model.ProductImage" class="item" style="filter: hue-rotate(90deg);"></div>
+						<div><img src="~/Content/img/products/@Model.ProductImage" class="item" style="filter: contrast(200%);"></div>
+						<div><img src="~/Content/img/products/@Model.ProductImage" class="item" style="filter: brightness(200%);"></div>
 					</div>
 					<div class="left-t nonl-t"></div>
 					<div class="right-t"></div>
@@ -53,33 +53,10 @@
 					<i class="icon-star voted"></i>
 					<i class="icon-star voted"></i>
 					<i class="icon-star voted"></i>
-					<i class="icon-star"></i><em>4 reviews</em></span>
+					<i class="icon-star"></i><em>4 reviews</em>
+				</span>
 				<p><small>Mã: @Model.ProductId</small><br></p>
 				<div class="prod_options">
-					<div class="row">
-						<label class="col-xl-5 col-lg-5  col-md-6 col-6 pt-0"><strong>Màu sắc</strong></label>
-						<div class="col-xl-4 col-lg-5 col-md-6 col-6 colors">
-							<ul>
-								<li><a href="#0" class="color color_1 active"></a></li>
-								<li><a href="#0" class="color color_2"></a></li>
-								<li><a href="#0" class="color color_3"></a></li>
-								<li><a href="#0" class="color color_4"></a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="row">
-						<label class="col-xl-5 col-lg-5 col-md-6 col-6"><strong>Kích thước</strong><a href="#0" data-toggle="modal" data-target="#size-modal"><i class="ti-help-alt"></i></a></label>
-						<div class="col-xl-4 col-lg-5 col-md-6 col-6">
-							<div class="custom-select-form">
-								<select class="wide">
-									<option value="" selected>Small (S)</option>
-									<option value="">M</option>
-									<option value=" ">L</option>
-									<option value=" ">XL</option>
-								</select>
-							</div>
-						</div>
-					</div>
 					<div class="row">
 						<label class="col-xl-5 col-lg-5  col-md-6 col-6"><strong>Số lượng</strong></label>
 						<div class="col-xl-4 col-lg-5 col-md-6 col-6">
@@ -98,25 +75,41 @@
 						</div>
 					</div>
 					<div class="col-lg-4 col-md-6">
-						<div class="btn_add_to_cart"><a asp-action="Index" asp-controller="Cart" class="btn_1">Thêm vào giỏ hàng</a></div>
+						@if (User.Identity.IsAuthenticated)
+						{
+							<div class="btn_add_to_cart">
+								<a class="btn_1 asp-action="AddInCart" asp-controller="Cart" asp-route-id="@Model.ProductId" data-ajax="true" data-ajax-success="addCartAlert" data-ajax-failure="addCartFailAlert" data-ajax-update="#mini-cart">
+									<i class="ti-shopping-cart"></i> Thêm vào giỏ hàng
+								</a>
+							</div>
+
+						}
+						else
+						{
+							<div class="btn_add_to_cart">
+								<a class="btn_1" data-ajax="true" data-ajax-success="loginFirstAlert" data-ajax-failure="addCartFailAlert">
+									<i class="ti-shopping-cart"></i>
+									Thêm vào giỏ hàng</a>
+							</div>
+						}
 					</div>
+				</div>
+				<!-- /prod_info -->
+				<div class="product_actions">
+					<ul>
+						<li>
+							<a href="#"><i class="ti-heart"></i><span>Thêm vào danh sách yêu thích</span></a>
+						</li>
+						<li>
+							<a href="#"><i class="ti-control-shuffle"></i><span>So sánh</span></a>
+						</li>
+					</ul>
+				</div>
+				<!-- /product_actions -->
 			</div>
-			<!-- /prod_info -->
-			<div class="product_actions">
-				<ul>
-					<li>
-						<a href="#"><i class="ti-heart"></i><span>Thêm vào danh sách yêu thích</span></a>
-					</li>
-					<li>
-						<a href="#"><i class="ti-control-shuffle"></i><span>So sánh</span></a>
-					</li>
-				</ul>
-			</div>
-			<!-- /product_actions -->
 		</div>
+		<!-- /row -->
 	</div>
-	<!-- /row -->
-</div>
 </div>
 <!-- /container -->
 
@@ -179,7 +172,7 @@
 			</div>
 			<!-- /TAB A -->
 			@await Component.InvokeAsync("ProductRatingComponent", new {
-				id = @Model.ProductId
+			id = @Model.ProductId
 			})
 			<p class="text-right"><a asp-action="LeaveReview" asp-controller="Product" asp-route-id="@Model.ProductId" class="btn_1">Bình luận</a></p>
 

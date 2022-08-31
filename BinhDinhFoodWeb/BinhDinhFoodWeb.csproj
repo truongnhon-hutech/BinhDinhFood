@@ -7,6 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\Content\img\staff\avatar.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Content\img\staff\avatar.jpg" />
     <None Include="wwwroot\Content\sass\.sass-cache\15d0ecb28ac2ebbde0040e5fc526352bdf258014\about.scssc" />
     <None Include="wwwroot\Content\sass\.sass-cache\15d0ecb28ac2ebbde0040e5fc526352bdf258014\account.scssc" />
     <None Include="wwwroot\Content\sass\.sass-cache\15d0ecb28ac2ebbde0040e5fc526352bdf258014\blog.scssc" />
@@ -93,10 +98,6 @@
     <None Include="wwwroot\Content\img\about_1.svg" />
     <None Include="wwwroot\Content\img\about_2.svg" />
     <None Include="wwwroot\Content\img\about_3.svg" />
-    <None Include="wwwroot\Content\img\apple-touch-icon-114x114-precomposed.png" />
-    <None Include="wwwroot\Content\img\apple-touch-icon-144x144-precomposed.png" />
-    <None Include="wwwroot\Content\img\apple-touch-icon-57x57-precomposed.png" />
-    <None Include="wwwroot\Content\img\apple-touch-icon-72x72-precomposed.png" />
     <None Include="wwwroot\Content\img\arrow_about.png" />
     <None Include="wwwroot\Content\img\arrow_left.svg" />
     <None Include="wwwroot\Content\img\arrow_right.svg" />
@@ -129,7 +130,6 @@
     <None Include="wwwroot\Content\img\credit-cards_visa.svg" />
     <None Include="wwwroot\Content\img\drag_icon.svg" />
     <None Include="wwwroot\Content\img\facebook_icon.svg" />
-    <None Include="wwwroot\Content\img\favicon.ico" />
     <None Include="wwwroot\Content\img\iconfinder_user_male4_172628 %281%29.svg" />
     <None Include="wwwroot\Content\img\icon_access.svg" />
     <None Include="wwwroot\Content\img\icon_cart.svg" />
@@ -220,6 +220,7 @@
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.8" />
     <PackageReference Include="MimeKit" Version="3.4.0" />
+    <PackageReference Include="X.PagedList.Mvc.Core" Version="8.4.3" />
   </ItemGroup>
 
   <ProjectExtensions><VisualStudio><UserProperties appsettings_1development_1json__JsonSchema="https://appliedengdesign.github.io/cnccodes-json-schema/draft/2022-07/schema" /></VisualStudio></ProjectExtensions>

@@ -72,11 +72,15 @@ namespace BinhDinhFoodWeb.Models
     public class ChangeInforViewModel
     {
         [DisplayName("Họ tên")]
-        public string? CustomerFullName { get; set; }
+        public string CustomerFullName { get; set; }
+        [DisplayName("Số điện thoại")]
+        public string CustomerPhone { get; set; }
         [DisplayName("Email")]
-        public string? CustomerEmail { get; set; }
+        public string CustomerEmail { get; set; }
         [DisplayName("Địa chỉ")]
-        public string? CustomerAddress { get; set; }
+        public string CustomerAddress { get; set; }
+        [DisplayName("Hình đại diện")]
+        public string? CustomerImage { get; set; }
     }
     public class ChangePasswordViewModel
     {

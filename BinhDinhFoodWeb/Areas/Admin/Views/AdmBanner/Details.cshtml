@@ -39,13 +39,13 @@
             @Html.DisplayNameFor(model => model.BannerImage)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BannerImage)
+            <img width="100" src="~/Content/img/slides/@Html.DisplayFor(model => model.BannerImage)" alt="@Html.DisplayFor(model => model.BannerImage)"/>
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.BannerDateCreated)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BannerDateCreated)
+            @Model.BannerDateCreated.ToShortDateString()
         </dd>
     </dl>
 </div>

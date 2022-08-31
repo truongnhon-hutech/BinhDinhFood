@@ -56,8 +56,8 @@
                     <div class="row small-gutters">
                         <div class="col-xl-3 col-lg-3 d-lg-flex align-items-center">
                             <div id="logo">
-                                <a asp-action="Index" asp-controller="Home" 
-                                    style="color: white; font-size: 20px; font-family: Century Gothic, Arial, Tahoma, Serif;">
+                                <a asp-action="Index" asp-controller="Home"
+                                   style="color: white; font-size: 20px; font-family: Century Gothic, Arial, Tahoma, Serif;">
                                     <img src="~/Content/img/logo.png" alt="" height="70" width="100">Bình Định <b>Food</b>
                                 </a>
                             </div>
@@ -103,7 +103,7 @@
                                         </div>
                                         <!-- /menu-wrapper -->
                                     </li>
-                                    <li >
+                                    <li>
                                         <a asp-action="Index" asp-controller="Blog">Bài viết</a>
                                     </li>
                                     <li>
@@ -176,42 +176,8 @@
                                 </li>
                                 <li>
                                     <div class="dropdown dropdown-access">
-                                        <a asp-action="Index" asp-controller="Home" class="access_link"><span>Tài khoản</span></a>
-                                        <div class="dropdown-menu">
-                                            @if (User.Identity.IsAuthenticated)
-                                            {
-                                                {
-                                                    <a asp-action="ChangeInfor" asp-controller="User">@User.Claims.FirstOrDefault(x => x.Type == System.Security.Claims.ClaimTypes.Name).Value</a>
-                                                    <a asp-action="Logout" asp-controller="User" class="button_inc">Logout</a>
-                                                }
-                                            }
-                                            else
-                                            {
-                                                <a asp-action="Index" asp-controller="User" class="btn_1">Đăng nhập hoặc đăng ký</a>
-                                            }
-                                            <ul>
-                                                <li>
-                                                    <a asp-action="TrackOder" asp-controller="Cart">
-                                                        <i class="ti-truck"></i>Kiểm tra đơn hàng
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a asp-action="Order" asp-controller="Cart">
-                                                        <i class="ti-package"></i>Đơn hàng của bạn
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a asp-action="Index" asp-controller="Home">
-                                                        <i class="ti-user"></i>Thông tin tài khoản
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a asp-action="Help" asp-controller="Home">
-                                                        <i class="ti-help-alt"></i>Trợ giúp và hỏi đáp
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
+                                        @await Component.InvokeAsync("AccountComponent")
+
                                     </div>
                                     <!-- /dropdown-access-->
                                 </li>
@@ -335,6 +301,7 @@
                             <li><span>© 2022 BinhDinhFood - Dev team: Phạm Đức Tài - Võ Thương Trường Nhơn - Nguyễn Hồng Thái</span></li>
                         </ul>
                     </div>
+                    <ul style="color: white"> &copy; Bản quyền <strong><span>Bình Định Food</span></strong>. Đã đăng ký Bản quyền</ul>
                 </div>
             </div>
         </footer>
@@ -353,14 +320,14 @@
     <script type="text/javascript" src="~/lib/node-snackbar/snackbar.min.js"></script>
     <script src="~/Content/js/carousel_with_thumbs.js"></script>
     <script src="~/Content/js/jquery.cookiebar.js"></script>
-	<script>
-		$(document).ready(function() {
-			'use strict';
-			$.cookieBar({
-				fixed: true
-			});
-		});
-	</script>
+    <script>
+        $(document).ready(function () {
+            'use strict';
+            $.cookieBar({
+                fixed: true
+            });
+        });
+    </script>
 
     <script src="//code.tidio.co/incvhb7bukkdgzpkw5m28i383htztlrb.js" async></script>
 

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "pNZJWeBBk9l1W4p6XQFRiAboP+eev+R7E3rvPua6yjc=",
+  "Hash": "X4f6L4fGqvF0EHxFKtcLr8FWbQR3cUSBGUb63pQzpuo=",
   "Source": "BinhDinhFoodWeb",
   "BasePath": "_content/BinhDinhFoodWeb",
   "Mode": "Default",
@@ -83,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Content\\admin\\img\\apple-touch-icon.png"
+    },
+    {
+      "Identity": "C:\\Users\\vothu\\Downloads\\My-first-website-Contest\\BinhDinhFood\\BinhDinhFoodWeb\\wwwroot\\Content\\admin\\img\\avatar.jpg",
+      "SourceId": "BinhDinhFoodWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\vothu\\Downloads\\My-first-website-Contest\\BinhDinhFood\\BinhDinhFoodWeb\\wwwroot\\",
+      "BasePath": "_content/BinhDinhFoodWeb",
+      "RelativePath": "Content/admin/img/avatar.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Content\\admin\\img\\avatar.jpg"
     },
     {
       "Identity": "C:\\Users\\vothu\\Downloads\\My-first-website-Contest\\BinhDinhFood\\BinhDinhFoodWeb\\wwwroot\\Content\\admin\\img\\card.jpg",
@@ -372,23 +389,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Content\\admin\\img\\product-5.jpg"
-    },
-    {
-      "Identity": "C:\\Users\\vothu\\Downloads\\My-first-website-Contest\\BinhDinhFood\\BinhDinhFoodWeb\\wwwroot\\Content\\admin\\img\\profile-img.jpg",
-      "SourceId": "BinhDinhFoodWeb",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\vothu\\Downloads\\My-first-website-Contest\\BinhDinhFood\\BinhDinhFoodWeb\\wwwroot\\",
-      "BasePath": "_content/BinhDinhFoodWeb",
-      "RelativePath": "Content/admin/img/profile-img.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Content\\admin\\img\\profile-img.jpg"
     },
     {
       "Identity": "C:\\Users\\vothu\\Downloads\\My-first-website-Contest\\BinhDinhFood\\BinhDinhFoodWeb\\wwwroot\\Content\\admin\\img\\slides-1.jpg",
@@ -6968,6 +6968,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Content\\img\\slides\\slide_home_4.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\vothu\\Downloads\\My-first-website-Contest\\BinhDinhFood\\BinhDinhFoodWeb\\wwwroot\\Content\\img\\staff\\0d45bade8d1e402fa2615717f3808101.jpg",
+      "SourceId": "BinhDinhFoodWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\vothu\\Downloads\\My-first-website-Contest\\BinhDinhFood\\BinhDinhFoodWeb\\wwwroot\\",
+      "BasePath": "_content/BinhDinhFoodWeb",
+      "RelativePath": "Content/img/staff/0d45bade8d1e402fa2615717f3808101.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Content\\img\\staff\\0d45bade8d1e402fa2615717f3808101.jpg"
     },
     {
       "Identity": "C:\\Users\\vothu\\Downloads\\My-first-website-Contest\\BinhDinhFood\\BinhDinhFoodWeb\\wwwroot\\Content\\img\\staff\\nhon.jpg",

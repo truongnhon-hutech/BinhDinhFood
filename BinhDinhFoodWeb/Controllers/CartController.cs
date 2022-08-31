@@ -76,8 +76,7 @@ namespace BinhDinhFoodWeb.Controllers
         // Add product to cart
         public async Task<IActionResult> AddInCart(int id)
         {
-            if (!User.Identity.IsAuthenticated)
-                return RedirectToAction("Login", "User");
+            
             List<Item> listCart = _cartRepo.Get(HttpContext.Session);
             bool isInCart = listCart.Any(x => x.Product.ProductId == id);
             if (!isInCart)
@@ -96,8 +95,7 @@ namespace BinhDinhFoodWeb.Controllers
         // remove product in cart
         public IActionResult RemoveInCart(int id)
         {
-            if (!User.Identity.IsAuthenticated)
-                return RedirectToAction("Login", "User");
+            
             List<Item> listCart = _cartRepo.Get(HttpContext.Session);
             bool cart = listCart.Any(x => x.Product.ProductId == id);
             if (cart)
@@ -110,8 +108,6 @@ namespace BinhDinhFoodWeb.Controllers
         }
         public IActionResult RemoveInMiniCart(int id)
         {
-            if (!User.Identity.IsAuthenticated)
-                return RedirectToAction("Login", "User");
             List<Item> listCart = _cartRepo.Get(HttpContext.Session);
             bool cart = listCart.Any(x => x.Product.ProductId == id);
             if (cart)
@@ -126,8 +122,6 @@ namespace BinhDinhFoodWeb.Controllers
         // remove all product in cart
         public IActionResult RemoveAll()
         {
-            if (!User.Identity.IsAuthenticated)
-                return RedirectToAction("Login", "User");
             _cartRepo.Set(HttpContext.Session, new List<Item>());
             return ViewComponent("CartComponent", new List<Item>());
         }

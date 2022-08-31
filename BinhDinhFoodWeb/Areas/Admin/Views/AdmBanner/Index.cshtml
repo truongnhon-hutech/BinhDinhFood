@@ -50,10 +50,10 @@
                 @Html.DisplayFor(modelItem => item.BannerDescription)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.BannerImage)
+                <img width="100" src="~/Content/img/slides/@Html.DisplayFor(modelItem => item.BannerImage)" alt="@Html.DisplayFor(modelItem => item.BannerImage)" />
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.BannerDateCreated)
+                @item.BannerDateCreated.ToShortDateString()
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.BannerId">Edit</a> |

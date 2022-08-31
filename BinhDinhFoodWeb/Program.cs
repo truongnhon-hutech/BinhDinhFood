@@ -122,11 +122,11 @@ app.UseSession();
 app.MapAreaControllerRoute(
     name: "Admin",
     areaName: "Admin",
-    pattern: "Admin/{controller=AdmBanner}/{action=Index}/{id?}");
+    pattern: "Admin/{controller=AdmHome}/{action=Index}/{id?}");
 
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=User}/{action=Register}/{id?}");
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();

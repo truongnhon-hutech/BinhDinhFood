@@ -10,7 +10,9 @@ namespace BinhDinhFoodWeb.Intefaces
         public Task<bool> HaveAccount(string userName,string password);
         public Task ResetPassWord(ResetViewModel model);
         public string CreateResetPasswordLink(string customerUserName);
-        public Task ChangeInforUser(ChangeInforViewModel model,int id);
+        public Task ChangeInforUser(ChangeInforViewModel model,int id, IFormFileCollection files);
+        public Task ClearImage(int id);
+        public Customer GetCustomer(int id);
         public Task ChangePasswordUser(ChangePasswordViewModel model,int id);
         public ChangeInforViewModel GetUserInfor(int id);
     }

@@ -1,0 +1,30 @@
+﻿@model BinhDinhFoodWeb.Models.ChangeInforViewModel
+
+
+<div class="card">
+    <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+        <img src="~/Content/img/staff/@Html.DisplayFor(model => model.CustomerImage)" alt="Profile" class="rounded-circle">
+        <h2>@Html.DisplayFor(model => model.CustomerFullName)</h2>
+    </div>
+</div>
+<h5 class="card-title">Profile Details</h5>
+
+<div class="row">
+    <div class="col-lg-3 col-md-4 label ">@Html.DisplayNameFor(model => model.CustomerFullName)</div>
+    <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => model.CustomerFullName)</div>
+</div>
+
+<div class="row">
+    <div class="col-lg-3 col-md-4 label">@Html.DisplayNameFor(model => model.CustomerAddress)</div>
+    <div class="col-lg-9 col-md-8"> @Html.DisplayFor(model => model.CustomerAddress)</div>
+</div>
+
+<div class="row">
+    <div class="col-lg-3 col-md-4 label">@Html.DisplayNameFor(model => model.CustomerPhone)</div>
+    <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => model.CustomerPhone)</div>
+</div>
+
+<div class="row">
+    <div class="col-lg-3 col-md-4 label">@Html.DisplayNameFor(model => model.CustomerEmail)</div>
+    <div class="col-lg-9 col-md-8">@Html.DisplayFor(model => model.CustomerEmail)</div>
+</div>
