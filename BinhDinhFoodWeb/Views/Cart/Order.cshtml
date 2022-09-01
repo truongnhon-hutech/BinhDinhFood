@@ -4,65 +4,65 @@
 }
 
 @{
-    ViewData["Title"] = "Order";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewData["Title"] = "Order";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 
-<div class="container margin_30">
-	<div class="page_header">
-		<div class="breadcrumbs">
-			<ul>
-				<li><a href="#">Home</a></li>
-				<li><a href="#">Category</a></li>
-				<li>Page active</li>
-			</ul>
-		</div>
-		<h1>Trang thanh toán</h1>
 
+<div class="page_header">
+	<div class="breadcrumbs">
+		<ul>
+			<li><a asp-action="Index" asp-controller="Home">Trang chủ</a></li>
+			<li><a asp-action="Index" asp-controller="Product">Sản phẩm</a></li>
+		</ul>
 	</div>
-	<!-- /page_header -->
-	<div class="row">
-		<div class="col-lg-6 col-md-6">
-			<div class="step last">
-				<h3>Thông tin đơn đặt hàng</h3>
-				<div class="box_general summary">
+	<h1>Thanh toán</h1>
+
+</div>
+<!-- /top_banner -->
+<!-- /page_header -->
+<div class="row">
+	<div class="col-lg-6 col-md-6">
+		<div class="step last">
+			<h3>Thông tin đơn đặt hàng</h3>
+			<div class="box_general summary">
+				<ul>
+					@foreach (var item in Model)
+					{
+						<li class="clearfix"><em>@item.Product.ProductName</em>  <span>@item.Product.ProductPrice.ToString("#,###", cul.NumberFormat) Đ</span></li>
+					}
+				</ul>
+			</div>
+			<!-- /box_general -->
+		</div>
+		<!-- /step -->
+	</div>
+	<div class="col-lg-6 col-md-6">
+		<div class="step last">
+			<h3>Thông tin khách hàng</h3>
+			<div class="box_general summary">
+				<form asp-action="Order" method="post">
 					<ul>
-						@foreach (var item in Model)
-						{
-							<li class="clearfix"><em>@item.Product.ProductName</em>  <span>@item.Product.ProductPrice.ToString("#,###", cul.NumberFormat) Đ</span></li>
-						}
+						<li class="clearfix"><em><strong>Họ tên</strong></em>  <span>@ViewBag.Name</span></li>
+						<li class="clearfix"><em><strong>Số điện thoại</strong></em>  <span>@ViewBag.Phone</span></li>
+						<li class="clearfix"><em><strong>Email</strong><span>@ViewBag.Email</span></em>  </li>
+						<li class="clearfix"><em><strong>Địa chỉ</strong></em>  <span>@ViewBag.Address</span></li>
 					</ul>
-				</div>
-				<!-- /box_general -->
-			</div>
-			<!-- /step -->
-		</div>
-		<div class="col-lg-6 col-md-6">
-			<div class="step last">
-				<h3>Thông tin khách hàng</h3>
-				<div class="box_general summary">
-					<form asp-action="Order" method="post">
-						<ul>
-							<li class="clearfix"><em><strong>Họ tên</strong></em>  <span>@ViewBag.Name</span></li>
-							<li class="clearfix"><em><strong>Số điện thoại</strong></em>  <span>@ViewBag.Phone</span></li>
-							<li class="clearfix"><em><strong>Email</strong><span>@ViewBag.Email</span></em>  </li>
-							<li class="clearfix"><em><strong>Địa chỉ</strong></em>  <span>@ViewBag.Address</span></li>
-						</ul>
-						<ul>
-							<li class="clearfix"><em><strong>Tổng tiền hàng</strong></em>  <span>@ViewData["TotalSubMoney"]</span></li>
-							<li class="clearfix"><em><strong>Phí vận chuyển</strong></em> <span>@ViewData["ShippingCost"]</span></li>
+					<ul>
+						<li class="clearfix"><em><strong>Tổng tiền hàng</strong></em>  <span>@ViewData["TotalSubMoney"]</span></li>
+						<li class="clearfix"><em><strong>Phí vận chuyển</strong></em> <span>@ViewData["ShippingCost"]</span></li>
 
-						</ul>
-						<div class="total clearfix">TỔNG TIỀN <span>@ViewData["TotalMoney"] Đ</span></div>
-						<button type="submit" class="btn_1 full-width">Đồng ý và Thanh toán</button>
-					</form>
-				</div>
-				<!-- /box_general -->
+					</ul>
+					<div class="total clearfix">TỔNG TIỀN <span>@ViewData["TotalMoney"] Đ</span></div>
+					<button type="submit" class="btn_1 full-width">Đồng ý và Thanh toán</button>
+				</form>
 			</div>
-			<!-- /step -->
+			<!-- /box_general -->
 		</div>
+		<!-- /step -->
 	</div>
-	<!-- /row -->
+</div>
+<!-- /row -->
 </div>
 <!-- /container -->

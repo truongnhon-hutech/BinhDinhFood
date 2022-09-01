@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BinhDinhFood.Models;
 using BinhDinhFoodWeb.Models;
+using System.Reflection.Metadata;
+using Microsoft.AspNetCore.Hosting;
 
 namespace BinhDinhFoodWeb.Areas.Admin.Controllers
 {
@@ -14,10 +16,12 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
     public class AdmBannerController : Controller
     {
         private readonly BinhDinhFoodDbContext _context;
+        private readonly IWebHostEnvironment _appEnvironment;
 
-        public AdmBannerController(BinhDinhFoodDbContext context)
+        public AdmBannerController(BinhDinhFoodDbContext context, IWebHostEnvironment appEnvironment)
         {
             _context = context;
+            _appEnvironment = appEnvironment;
         }
 
         // GET: Admin/AdmBanner
@@ -61,6 +65,24 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                IFormFileCollection files = HttpContext.Request.Form.Files;
+                foreach (var Image in files)
+                {
+                    if (Image != null && Image.Length > 0)
+                    {
+                        var file = Image;
+                        var uploads = Path.Combine(_appEnvironment.WebRootPath, "Content\\img\\slides\\");
+                        if (file.Length > 0)
+                        {
+                            var fileName = Guid.NewGuid().ToString().Replace("-", "") + Path.GetExtension(file.FileName);
+                            using (var fileStream = new FileStream(Path.Combine(uploads, fileName), FileMode.Create))
+                            {
+                                await file.CopyToAsync(fileStream);
+                                banner.BannerImage = fileName;
+                            }
+                        }
+                    }
+                }
                 _context.Add(banner);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -100,6 +122,24 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
             {
                 try
                 {
+                    IFormFileCollection files = HttpContext.Request.Form.Files;
+                    foreach (var Image in files)
+                    {
+                        if (Image != null && Image.Length > 0)
+                        {
+                            var file = Image;
+                            var uploads = Path.Combine(_appEnvironment.WebRootPath, "Content\\img\\slides\\");
+                            if (file.Length > 0)
+                            {
+                                var fileName = Guid.NewGuid().ToString().Replace("-", "") + Path.GetExtension(file.FileName);
+                                using (var fileStream = new FileStream(Path.Combine(uploads, fileName), FileMode.Create))
+                                {
+                                    await file.CopyToAsync(fileStream);
+                                    banner.BannerImage = fileName;
+                                }
+                            }
+                        }
+                    }
                     _context.Update(banner);
                     await _context.SaveChangesAsync();
                 }

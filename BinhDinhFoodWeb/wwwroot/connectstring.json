@@ -1,0 +1,23 @@
+﻿{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*",
+  "ConnectionStrings": {
+    "DefaultConnection": "Data Source=SQL8004.site4now.net;Initial Catalog=db_a8c2ed_binhdinhfood;User Id=db_a8c2ed_binhdinhfood_admin;Password=!Lov3MyPiano"
+  },
+
+  "ConnectionStringsOrg": {
+    "DefaultConnectionOrg": "Server=TRUONGNHON\\SQLEXPRESS; Database=BinhDinhFood; Trusted_Connection=True; MultipleActiveResultSets=true; user id=sa; password=123;"
+  },
+  "MailSettings": {
+    "Mail": "<fromemail>",
+    "DisplayName": "<displayname>",
+    "Password": "<yourpasswordhere>",
+    "Host": "smtp-mail.outlook.com",
+    "Port": 587
+  }
+}

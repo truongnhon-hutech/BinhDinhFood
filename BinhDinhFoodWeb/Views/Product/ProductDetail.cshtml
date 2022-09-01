@@ -40,9 +40,9 @@
 		<div class="col-md-6">
 			<div class="breadcrumbs">
 				<ul>
-					<li><a href="#">Trang chủ</a></li>
-					<li><a href="#">Loại</a></li>
-					<li><a href="#">@Model.ProductName</a></li>
+					<li><a asp-action="Index" asp-controller="Home">Trang chủ</a></li>
+					<li><a asp-action="Index" asp-controller="Product">Sản phẩm</a></li>
+					<li><a>@Model.ProductName</a></li>
 				</ul>
 			</div>
 			<!-- /page_header -->
@@ -53,7 +53,7 @@
 					<i class="icon-star voted"></i>
 					<i class="icon-star voted"></i>
 					<i class="icon-star voted"></i>
-					<i class="icon-star"></i><em>4 reviews</em>
+					<i class="icon-star"></i><em>@ViewBag.Review reviews</em>
 				</span>
 				<p><small>Mã: @Model.ProductId</small><br></p>
 				<div class="prod_options">

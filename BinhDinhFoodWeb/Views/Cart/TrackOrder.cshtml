@@ -1,0 +1,16 @@
+﻿@using System.Globalization
+@{
+    ViewData["Title"] = "TrackOder";
+    CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
+}
+<div class="container">
+    <div class="row justify-content-center text-center">
+        <div class="col-xl-7 col-lg-9">
+            <img src="~/Content/img/track_order.svg" alt="" class="img-fluid add_bottom_15" width="200" height="177">
+            <p>Kiểm tra đơn hàng của bạn</p>
+        </div>
+        @await Component.InvokeAsync("OrdersComponent", @Model)
+    </div>
+    <!-- /row -->
+</div>
+<!-- /container -->

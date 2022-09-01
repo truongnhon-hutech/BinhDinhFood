@@ -28,7 +28,7 @@
                         <i class="icon-star voted"></i>
                         <i class="icon-star"></i>
                     </div>
-                    <a href="~/Content/product-detail-1.html">
+                    <a asp-action="ProductDetail" asp-controller="Product" asp-route-id="@item.ProductId">
                         <h3>@item.ProductName</h3>
                     </a>
                     <div class="price_box">

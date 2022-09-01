@@ -1,19 +1,18 @@
 ﻿@{
     ViewData["Title"] = "Trợ giúp";
 }
-
-
-<div class="container margin_30">
-    <div class="page_header">
-        <div class="breadcrumbs">
-            <ul>
-                <li> <a href="#"> Trang chủ </a> </li>
-                <li> <a href="#"> Danh mục </a> </li>
-                <li> Trang đang hoạt động </li>
-            </ul>
-        </div>
-        <h1> Trợ giúp và Hỗ trợ </h1>
+<!-- /top_banner -->
+<div class="page_header">
+    <div class="breadcrumbs">
+        <ul>
+            <li><a asp-action="Index" asp-controller="Home">Trang chủ</a></li>
+            <li><a asp-action="Index" asp-controller="Product">Trợ giúp</a></li>
+        </ul>
     </div>
+    <h1> Trợ giúp và Hỗ trợ </h1>
+</div>
+<div id="container">
+
     <div class="search-input">
         <input type="text" placeholder="Tìm kiếm câu hỏi hoặc bài viết ...">
         <button type="submit"> <i class="ti-search"> </i> </button>
@@ -63,21 +62,21 @@
             </a>
         </div>
     </div>
-</div>
-<div class="bg_white">
-    <div class="container margin_30">
-        <h5> Các bài báo phổ biến </h5>
-        <div class="list_articles add_bottom_15 clearfix">
-            <ul>
-                <li> <a href="#0"> <i class="ti-file"> </i> <strong> Tài khoản </strong> - Et dicit vidisse epicurei pri </a> </li>
-                <li> <a href="#0"> <i class="ti-file"> </i> <strong> Tài khoản </strong> - Ad sit Virtute rationibus hiệu quả </a> </li>
-                <li> <a href="#0"> <i class="ti-file"> </i> <strong> Hoàn lại tiền </strong> - Partem vocibus omittam pri ne </a> </li>
-                <li> <a href="#0"> <i class="ti-file"> </i> <strong> Vận chuyển </strong> - Bộ đôi ứng dụng gỡ lỗi trường hợp </a> </li>
-                <li> <a href="#0"> <i class="ti-file"> </i> <strong> Thanh toán </strong> - Cản trở quo trong torquatos </a> </li>
-                <li> <a href="#0"> <i class="ti-file"> </i> <strong> Bảo hành </strong> - Nec omnis alieum no </a> </li>
-                <li> <a href="#0"> <i class="ti-file"> </i> <strong> Hoàn lại tiền </strong> - Quo eu soleat secureisi menandri </a> </li>
-                <li> <a href="#0"> <i class="ti-file"> </i> <strong> Bài đánh giá </strong> - Et dicit vidisse epicurei pri </a> </li>
-            </ul>
+    <div class="bg_white">
+        <div class="container margin_30">
+            <h5> Các bài báo phổ biến </h5>
+            <div class="list_articles add_bottom_15 clearfix">
+                <ul>
+                    <li> <a href="#0"> <i class="ti-file"> </i> <strong> Tài khoản </strong> - Et dicit vidisse epicurei pri </a> </li>
+                    <li> <a href="#0"> <i class="ti-file"> </i> <strong> Tài khoản </strong> - Ad sit Virtute rationibus hiệu quả </a> </li>
+                    <li> <a href="#0"> <i class="ti-file"> </i> <strong> Hoàn lại tiền </strong> - Partem vocibus omittam pri ne </a> </li>
+                    <li> <a href="#0"> <i class="ti-file"> </i> <strong> Vận chuyển </strong> - Bộ đôi ứng dụng gỡ lỗi trường hợp </a> </li>
+                    <li> <a href="#0"> <i class="ti-file"> </i> <strong> Thanh toán </strong> - Cản trở quo trong torquatos </a> </li>
+                    <li> <a href="#0"> <i class="ti-file"> </i> <strong> Bảo hành </strong> - Nec omnis alieum no </a> </li>
+                    <li> <a href="#0"> <i class="ti-file"> </i> <strong> Hoàn lại tiền </strong> - Quo eu soleat secureisi menandri </a> </li>
+                    <li> <a href="#0"> <i class="ti-file"> </i> <strong> Bài đánh giá </strong> - Et dicit vidisse epicurei pri </a> </li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>

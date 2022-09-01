@@ -31,9 +31,9 @@ namespace BinhDinhFoodWeb.Controllers
         public IActionResult Index()
         {
             List<Item> listCart = _cartRepo.Get(HttpContext.Session);
-            ViewData["TotalSubMoney"] = TotalMoney();
-            ViewData["ShippingCost"] = shippingCost;
-            ViewData["TotalMoney"] = shippingCost + TotalMoney();
+            ViewData["TotalSubMoney"] = TotalMoney().ToString("#,###", cul.NumberFormat); ;
+            ViewData["ShippingCost"] = shippingCost.ToString("#,###", cul.NumberFormat); ;
+            ViewData["TotalMoney"] = (shippingCost + TotalMoney()).ToString("#,###", cul.NumberFormat); ;
 
             return View(listCart);
         }
@@ -42,8 +42,8 @@ namespace BinhDinhFoodWeb.Controllers
             if (!User.Identity.IsAuthenticated)
                 return RedirectToAction("Login", "User");
             List<Item> cart = _cartRepo.Get(HttpContext.Session);
-            ViewData["TotalSubMoney"] = TotalMoney().ToString("#,###", cul.NumberFormat); ;
-            ViewData["ShippingCost"] = shippingCost.ToString("#,###", cul.NumberFormat); ;
+            ViewData["TotalSubMoney"] = TotalMoney().ToString("#,###", cul.NumberFormat);
+            ViewData["ShippingCost"] = shippingCost.ToString("#,###", cul.NumberFormat);
             ViewData["TotalMoney"] = (shippingCost + TotalMoney()).ToString("#,###", cul.NumberFormat); ;
             return ViewComponent("CartComponent", cart);
         }
@@ -192,9 +192,22 @@ namespace BinhDinhFoodWeb.Controllers
             return View();
         }
         // Track your order
-        public IActionResult TrackOder()
+        public async Task<IActionResult> TrackOrderAsync()
         {
-            return View();
+            if (!User.Identity.IsAuthenticated)
+                return RedirectToAction("Login");
+            int id = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
+
+            IEnumerable<Order> obj = await _orderRepo.GetListAsync(filter: x => x.CustomerId == id);
+            return View(obj);
+        }
+
+        public async Task<IActionResult> OderDetail(int id)
+        {
+            if (!User.Identity.IsAuthenticated)
+                return RedirectToAction("Login");
+            IEnumerable<OrderDetail> obj = await _orderDetailRepo.GetListAsync(filter: x => x.OrderId == id, includeProperties:"Product");
+            return View(obj);
         }
     }
 }

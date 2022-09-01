@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "H2Re1rlyTwc5x+zGz6fFJey0IgJZ1m/6M46DAFgZEfg=",
+  "Hash": "wfX3a7bMU1cxo+dFU8KiDG/m4ybdg9SV+w2V5hY8sMs=",
   "Source": "BinhDinhFoodWeb",
   "BasePath": "_content/BinhDinhFoodWeb",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\vothu\\Downloads\\My-first-website-Contest\\BinhDinhFood\\BinhDinhFoodWeb\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\BinhDinhFoodWeb.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\vothu\\Downloads\\My-first-website-Contest\\BinhDinhFood\\BinhDinhFoodWeb\\wwwroot\\connectstring.json",
+      "SourceId": "BinhDinhFoodWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\vothu\\Downloads\\My-first-website-Contest\\BinhDinhFood\\BinhDinhFoodWeb\\wwwroot\\",
+      "BasePath": "_content/BinhDinhFoodWeb",
+      "RelativePath": "connectstring.json",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\connectstring.json"
     },
     {
       "Identity": "C:\\Users\\vothu\\Downloads\\My-first-website-Contest\\BinhDinhFood\\BinhDinhFoodWeb\\wwwroot\\Content\\admin\\css\\style.css",
@@ -6800,6 +6817,23 @@
       "OriginalItemSpec": "wwwroot\\Content\\img\\products\\chatre.png"
     },
     {
+      "Identity": "C:\\Users\\vothu\\Downloads\\My-first-website-Contest\\BinhDinhFood\\BinhDinhFoodWeb\\wwwroot\\Content\\img\\products\\faf7a10281d0450b86c3267a6aa0f70b.jpg",
+      "SourceId": "BinhDinhFoodWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\vothu\\Downloads\\My-first-website-Contest\\BinhDinhFood\\BinhDinhFoodWeb\\wwwroot\\",
+      "BasePath": "_content/BinhDinhFoodWeb",
+      "RelativePath": "Content/img/products/faf7a10281d0450b86c3267a6aa0f70b.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Content\\img\\products\\faf7a10281d0450b86c3267a6aa0f70b.jpg"
+    },
+    {
       "Identity": "C:\\Users\\vothu\\Downloads\\My-first-website-Contest\\BinhDinhFood\\BinhDinhFoodWeb\\wwwroot\\Content\\img\\products\\giebo.png",
       "SourceId": "BinhDinhFoodWeb",
       "SourceType": "Discovered",
@@ -8158,6 +8192,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\alert.js"
+    },
+    {
+      "Identity": "C:\\Users\\vothu\\Downloads\\My-first-website-Contest\\BinhDinhFood\\BinhDinhFoodWeb\\wwwroot\\js\\imagePreview.js",
+      "SourceId": "BinhDinhFoodWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\vothu\\Downloads\\My-first-website-Contest\\BinhDinhFood\\BinhDinhFoodWeb\\wwwroot\\",
+      "BasePath": "_content/BinhDinhFoodWeb",
+      "RelativePath": "js/imagePreview.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\imagePreview.js"
     },
     {
       "Identity": "C:\\Users\\vothu\\Downloads\\My-first-website-Contest\\BinhDinhFood\\BinhDinhFoodWeb\\wwwroot\\js\\preloading.js",

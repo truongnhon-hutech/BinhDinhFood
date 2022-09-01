@@ -5,5 +5,5 @@ namespace BinhDinhFoodWeb.Intefaces
 {
 	public interface IOrderRepository : IRepository<Order>
     {
-	}
+	}	
 }

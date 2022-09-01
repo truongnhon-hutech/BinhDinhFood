@@ -95,6 +95,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtQ3VzdG9tZXJcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/vothu/Downloads/My-first-website-Contest/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmHome/Components/CustomerComponent/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtSG9tZVxDb21wb25lbnRzXEN1c3RvbWVyQ29tcG9uZW50XERlZmF1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vothu/Downloads/My-first-website-Contest/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmHome/Components/RevenueComponent/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtSG9tZVxDb21wb25lbnRzXFJldmVudWVDb21wb25lbnRcRGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vothu/Downloads/My-first-website-Contest/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmHome/Components/SaleComponent/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtSG9tZVxDb21wb25lbnRzXFNhbGVDb21wb25lbnRcRGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/vothu/Downloads/My-first-website-Contest/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmHome/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -227,16 +239,28 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxDb21wb25lbnRzXEl0ZW1Db21wb25lbnRcRGVmYXVsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/vothu/Downloads/My-first-website-Contest/BinhDinhFood/BinhDinhFoodWeb/Views/Cart/Components/OrderDetailComponent/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxDb21wb25lbnRzXE9yZGVyRGV0YWlsQ29tcG9uZW50XERlZmF1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vothu/Downloads/My-first-website-Contest/BinhDinhFood/BinhDinhFoodWeb/Views/Cart/Components/OrdersComponent/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxDb21wb25lbnRzXE9yZGVyc0NvbXBvbmVudFxEZWZhdWx0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/vothu/Downloads/My-first-website-Contest/BinhDinhFood/BinhDinhFoodWeb/Views/Cart/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/vothu/Downloads/My-first-website-Contest/BinhDinhFood/BinhDinhFoodWeb/Views/Cart/OderDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxPZGVyRGV0YWlsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/vothu/Downloads/My-first-website-Contest/BinhDinhFood/BinhDinhFoodWeb/Views/Cart/Order.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxPcmRlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/My-first-website-Contest/BinhDinhFood/BinhDinhFoodWeb/Views/Cart/TrackOder.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxUcmFja09kZXIuY3NodG1s
+[C:/Users/vothu/Downloads/My-first-website-Contest/BinhDinhFood/BinhDinhFoodWeb/Views/Cart/TrackOrder.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxUcmFja09yZGVyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/vothu/Downloads/My-first-website-Contest/BinhDinhFood/BinhDinhFoodWeb/Views/Cart/_ShowItem.cshtml]
@@ -329,10 +353,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/vothu/Downloads/My-first-website-Contest/BinhDinhFood/BinhDinhFoodWeb/Views/Shared/Components/MiniCategoryUnderNavBarComponent/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcTWluaUNhdGVnb3J5VW5kZXJOYXZCYXJDb21wb25lbnRcRGVmYXVsdC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/vothu/Downloads/My-first-website-Contest/BinhDinhFood/BinhDinhFoodWeb/Views/Shared/Components/PreLoadingComponent/Default.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcUHJlTG9hZGluZ0NvbXBvbmVudFxEZWZhdWx0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/vothu/Downloads/My-first-website-Contest/BinhDinhFood/BinhDinhFoodWeb/Views/Shared/Error.cshtml]

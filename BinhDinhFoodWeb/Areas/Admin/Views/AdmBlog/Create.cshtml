@@ -6,7 +6,7 @@
 }
 
 <div class="pagetitle">
-    <h1>Tạo bài viết</h1>
+    <h1>Bài viết</h1>
     <nav>
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a asp-action="Index" asp-controller="AdmHome">Trang chủ</a></li>
@@ -35,11 +35,12 @@
                         <div class="col-12">
                             <label asp-for="BlogImage" class="form-label"></label>
                             <br>
+                            <img class="img-fluid" id="img-preview" src="" />
                             <input asp-for="BlogImage" class="form-control" type="file" id="upload-btn" hidden />
                             <label for="upload-btn" asp-for="BlogImage" class="form-label">
                                 <a class="btn btn-primary btn-sm" title="Upload new profile image"><i class="bi bi-upload"></i></a>
                             </label>
-                            <a asp-action="ClearImage" class="btn btn-danger btn-sm" title="Remove my profile image"><i class="bi bi-trash"></i></a>
+                            <a id="clear-btn" class="btn btn-danger btn-sm" title="Remove my profile image"><i class="bi bi-trash"></i></a>
                             <span asp-validation-for="BlogImage" class="text-danger"></span>
                         </div>
 
@@ -52,7 +53,6 @@
                         <div class="col-12">
                             <label asp-for="BlogContent" class="form-label"></label>
                             <textarea asp-for="BlogContent" class="form-control"></textarea>
-
                             <span asp-validation-for="BlogContent" class="text-danger"></span>
                         </div>
 

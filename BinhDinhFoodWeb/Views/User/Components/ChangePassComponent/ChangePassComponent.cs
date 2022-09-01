@@ -9,7 +9,7 @@ namespace BinhDinhFoodWeb.Views.User.Components.ChangePassComponent
     {
         public IViewComponentResult Invoke()
         {
-            return View();
+            return View();  
         }
     }
 }

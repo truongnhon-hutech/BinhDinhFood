@@ -44,7 +44,7 @@
     <header id="header" class="header fixed-top d-flex align-items-center">
 
         <div class="d-flex align-items-center justify-content-between">
-            <a href="index.html" class="logo d-flex align-items-center">
+            <a asp-action="Index" asp-controller="AdmHome" class="logo d-flex align-items-center">
                 <img src="assets/img/logo.png" alt="">
                 <span class="d-none d-lg-block">BinhDinhFood</span>
             </a>
@@ -412,19 +412,21 @@
 
     <!-- Template Main JS File -->
     <script src="~/content/admin/js/main.js"></script>
+    <script src="~/js/imagepreview.js"></script>
 
     <!-- Tiny -->
-
 
     <script src="https://cdn.tiny.cloud/1/xekc15gke11qin6cwkvv4jha5qamongkxqxqkige4s3m32yr/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
         tinymce.init({
+            menubar: false,
+            toolbar: false,
+            statusbar: false,
             selector: "textarea",
             plugins: [
-                "insertdatetime"
-            ],
-            width: 700,
-            height: 400,
+                "insertdatetime",
+                "autoresize"
+            ]
         });
     </script>
 

@@ -28,7 +28,7 @@ namespace BinhDinhFoodWeb.Views.Cart.Components.MiniCartComponent
             public IViewComponentResult Invoke()
             {
                 var cart = _cartRepo.Get(HttpContext.Session);
-                ViewData["TotalMoney"] = TotalMoney();
+                ViewData["TotalMoney"] = TotalMoney().ToString("#,###", cul.NumberFormat);
                 ViewData["Count"] = cart.Count();
                 return View(cart);
             }
