@@ -75,20 +75,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtQ2F0ZWdvcnlcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/My-first-website-Contest/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmCustomer/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtQ3VzdG9tZXJcQ3JlYXRlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/vothu/Downloads/My-first-website-Contest/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmCustomer/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtQ3VzdG9tZXJcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/vothu/Downloads/My-first-website-Contest/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmCustomer/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtQ3VzdG9tZXJcRGV0YWlscy5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/vothu/Downloads/My-first-website-Contest/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmCustomer/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtQ3VzdG9tZXJcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/vothu/Downloads/My-first-website-Contest/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmCustomer/Index.cshtml]

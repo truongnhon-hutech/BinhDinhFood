@@ -6,7 +6,9 @@ namespace BinhDinhFoodWeb.Views.Cart.Components.OderDetail
 {
     public class OrderDetailComponent : ViewComponent
     {
-        public IViewComponentResult Invoke(IEnumerable<OrderDetail> obj) { return View(obj); } 
-
+        public IViewComponentResult Invoke(IEnumerable<OrderDetail> obj)
+        {
+            return View(obj);
+        }
     }
 }

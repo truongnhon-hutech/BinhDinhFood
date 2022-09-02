@@ -5,12 +5,22 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
-
+<div class="pagetitle">
+    <h1>Quản lý loại sản phẩm</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-action="Index" asp-controller="AdmHome">Trang chủ</a></li>
+            <li class="breadcrumb-item active"><a asp-action="Index">Quản lý loại sản phẩm</a></li>
+        </ol>
+    </nav>
+</div><!-- End Page Title -->
 <p>
-    <a asp-action="Create">Create New</a>
+    <a class="btn btn-primary rounded-pill" asp-action="Create"> <i class="bi bi-file-earmark-plus"></i> Tạo loại sản phẩm mới </a>
 </p>
-<table class="table">
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Quản lý thông tin bài viết</h5>
+        <table class="table">
     <thead>
         <tr>
             <th>
@@ -32,11 +42,13 @@
                 @Html.DisplayFor(modelItem => item.CategoryDateCreated)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.CategoryId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.CategoryId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.CategoryId">Delete</a>
+                <a class="btn btn-warning rounded-pill" asp-action="Edit" asp-route-id="@item.CategoryId"><i class="bi bi-pencil"></i></a>
+                <a class="btn btn-info rounded-pill" asp-action="Details" asp-route-id="@item.CategoryId"><i class="bi bi-eye"></i></a>
+                <a class="btn btn-danger rounded-pill" asp-action="Delete" asp-route-id="@item.CategoryId"><i class="bi bi-trash"></i></a>
             </td>
         </tr>
 }
     </tbody>
 </table>
+    </div>
+</div>

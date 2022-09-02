@@ -45,78 +45,78 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
             return View(customer);
         }
 
-        // GET: Admin/AdmCustomer/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
+        //// GET: Admin/AdmCustomer/Create
+        //public IActionResult Create()
+        //{
+        //    return View();
+        //}
 
-        // POST: Admin/AdmCustomer/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CustomerId,CustomerFullName,CustomerUserName,CustomerPassword,CustomerDateCreated,CustomerEmail,CustomerAddress,CustomerState,CustomerImage")] Customer customer)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(customer);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(customer);
-        }
+        //// POST: Admin/AdmCustomer/Create
+        //// To protect from overposting attacks, enable the specific properties you want to bind to.
+        //// For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> Create([Bind("CustomerId,CustomerFullName,CustomerUserName,CustomerPassword,CustomerDateCreated,CustomerEmail,CustomerAddress,CustomerState,CustomerImage")] Customer customer)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        _context.Add(customer);
+        //        await _context.SaveChangesAsync();
+        //        return RedirectToAction(nameof(Index));
+        //    }
+        //    return View(customer);
+        //}
 
-        // GET: Admin/AdmCustomer/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null || _context.Customers == null)
-            {
-                return NotFound();
-            }
+        //// GET: Admin/AdmCustomer/Edit/5
+        //public async Task<IActionResult> Edit(int? id)
+        //{
+        //    if (id == null || _context.Customers == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            var customer = await _context.Customers.FindAsync(id);
-            if (customer == null)
-            {
-                return NotFound();
-            }
-            return View(customer);
-        }
+        //    var customer = await _context.Customers.FindAsync(id);
+        //    if (customer == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    return View(customer);
+        //}
 
-        // POST: Admin/AdmCustomer/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CustomerId,CustomerFullName,CustomerUserName,CustomerPassword,CustomerDateCreated,CustomerEmail,CustomerAddress,CustomerState,CustomerImage")] Customer customer)
-        {
-            if (id != customer.CustomerId)
-            {
-                return NotFound();
-            }
+        //// POST: Admin/AdmCustomer/Edit/5
+        //// To protect from overposting attacks, enable the specific properties you want to bind to.
+        //// For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> Edit(int id, [Bind("CustomerId,CustomerFullName,CustomerUserName,CustomerPassword,CustomerDateCreated,CustomerEmail,CustomerAddress,CustomerState,CustomerImage")] Customer customer)
+        //{
+        //    if (id != customer.CustomerId)
+        //    {
+        //        return NotFound();
+        //    }
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(customer);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!CustomerExists(customer.CustomerId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(customer);
-        }
+        //    if (ModelState.IsValid)
+        //    {
+        //        try
+        //        {
+        //            _context.Update(customer);
+        //            await _context.SaveChangesAsync();
+        //        }
+        //        catch (DbUpdateConcurrencyException)
+        //        {
+        //            if (!CustomerExists(customer.CustomerId))
+        //            {
+        //                return NotFound();
+        //            }
+        //            else
+        //            {
+        //                throw;
+        //            }
+        //        }
+        //        return RedirectToAction(nameof(Index));
+        //    }
+        //    return View(customer);
+        //}
 
         // GET: Admin/AdmCustomer/Delete/5
         public async Task<IActionResult> Delete(int? id)

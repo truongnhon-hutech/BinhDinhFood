@@ -34,7 +34,9 @@
                                 <input type="checkbox" checked="@item.DeliveryState" />
                             </td>
                             <td>@item.TotalMoney.ToString("#,###", cul.NumberFormat) Đ</td>
-                            <td><a asp-action="OderDetail" asp-controller="Cart" asp-route-id="@item.OrderId" data-ajax="true" data-ajax-update="#Order-tabld-detail">Xem thêm</a></td>
+                            <td>
+                                <a class="btn btn-info rounded-pill" asp-action="OderDetail" asp-controller="Cart" asp-route-id="@item.OrderId">Xem thêm</a>
+                            </td>
                         </tr>
                     }
 
