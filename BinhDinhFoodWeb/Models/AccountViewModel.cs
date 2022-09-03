@@ -6,81 +6,82 @@ namespace BinhDinhFoodWeb.Models
     public class RegisterViewModel
     {
         [DisplayName("Họ tên")]
-        public string CustomerFullName { get; set; }
+        public string FullName { get; set; }
         [Required]
         [StringLength(50)]
         [DisplayName("Tài khoản")]
-        public string CustomerUserName { get; set; }
+        public string UserName { get; set; }
         [Required]
         [StringLength(50)]
         [DisplayName("Mật khẩu")]
-        public string CustomerPassword { get; set; }
+        public string Password { get; set; }
         [Required]
         [StringLength(50)]
         [DisplayName("Nhập lại mật khẩu")]
-        [Compare("CustomerPassword", ErrorMessage = "The password and confirmation password do not match.")]
-        public string CustomerConfirmPassword { get; set; }
+        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        public string ConfirmPassword { get; set; }
         [Required]
         [DisplayName("Email")]
-        public string CustomerEmail { get; set; }
+        public string Email { get; set; }
         [DisplayName("Địa chỉ")]
-        public string CustomerAddress { get; set; }
+        public string Address { get; set; }
     }
     public class LoginViewModel
     {
         [Required]
         [Display(Name = "Username")]
-        public string CustomerUserName { get; set; }
+        public string UserName { get; set; }
         [Required]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
-        public string CustomerPassword { get; set; }
+        public string Password { get; set; }
         public bool RememberLogin { get; set; }
     }
     public class CookieUserItem
     {
-        public int CustomerId { get; set; }
-        public string CustomerUserName { get; set; }
-        public string CustomerEmail { get; set; }
+        public int Id { get; set; }
+        public string UserName { get; set; }
+        public string Email { get; set; }
+        public string Role { get; set; }
     }
     public class ForgotViewModel
     {
         [Required]
         [Display(Name="UserName")]
-        public string CustomerUserName { get; set; }
+        public string UserName { get; set; }
         [Required]
         [Display(Name = "Email")]
-        public string CustomerEmail { get; set; }
+        public string Email { get; set; }
     }
     public class ResetViewModel
     {
         [Required]
         [Display(Name = "UserName")]
-        public string CustomerUserName { get; set; }
+        public string UserName { get; set; }
         [Required]
         [StringLength(50)]
         [DisplayName("Mật khẩu")]
-        public string CustomerPassword { get; set; }
+        public string Password { get; set; }
         [Required]
         [StringLength(50)]
         [DisplayName("Nhập lại mật khẩu")]
-        [Compare("CustomerPassword", ErrorMessage = "The password and confirmation password do not match.")]
-        public string CustomerConfirmPassword { get; set; }
+        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        public string ConfirmPassword { get; set; }
         [Required]
         public string Token { get; set; }
     }
-    public class ChangeInforViewModel
+    public class InforViewModel
     {
         [DisplayName("Họ tên")]
-        public string CustomerFullName { get; set; }
+        public string FullName { get; set; }
         [DisplayName("Số điện thoại")]
-        public string CustomerPhone { get; set; }
+        public string? Phone { get; set; }
         [DisplayName("Email")]
-        public string CustomerEmail { get; set; }
+        public string Email { get; set; }
         [DisplayName("Địa chỉ")]
-        public string CustomerAddress { get; set; }
+        public string Address { get; set; }
         [DisplayName("Hình đại diện")]
-        public string? CustomerImage { get; set; }
+        public string? Image { get; set; }
     }
     public class ChangePasswordViewModel
     {

@@ -11,6 +11,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Areas\Admin\Views\AdmAccount\ChangePass.cshtml" />
+    <None Include="Areas\Admin\Views\AdmAccount\ForgotPassword.cshtml" />
+    <None Include="Areas\Admin\Views\AdmAccount\Login.cshtml" />
+    <None Include="Areas\Admin\Views\AdmAccount\ResetPassword.cshtml" />
+    <None Include="Areas\Admin\Views\AdmAccount\ShowMessage.cshtml" />
     <None Include="wwwroot\Content\img\staff\avatar.jpg" />
     <None Include="wwwroot\Content\sass\.sass-cache\15d0ecb28ac2ebbde0040e5fc526352bdf258014\about.scssc" />
     <None Include="wwwroot\Content\sass\.sass-cache\15d0ecb28ac2ebbde0040e5fc526352bdf258014\account.scssc" />
@@ -210,6 +215,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="log4net" Version="2.0.15" />
     <PackageReference Include="MailKit" Version="3.3.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.0.8" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.8" />

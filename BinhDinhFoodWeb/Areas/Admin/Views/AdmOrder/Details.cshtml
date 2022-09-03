@@ -5,7 +5,7 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 <div class="pagetitle">
-    <h1>Chi tiết hóa đơn</h1>
+    <h1>Hóa đơn</h1>
     <nav>
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a asp-action="Index" asp-controller="AdmHome">Trang chủ</a></li>
@@ -56,6 +56,12 @@
             </dt>
             <dd class="col-sm-10">
                 @Html.DisplayFor(model => model.Customer.CustomerFullName)
+            </dd>
+            <dt class="col-sm-2">
+                Xem thêm
+            </dt>
+            <dd class="col-sm-10">
+                <a class="btn btn-info rounded-pill" asp-controller="AdmOrderDetail" asp-action="Details" asp-route-id="@Model.OrderId"><i class="bi bi-eye"></i></a>
             </dd>
         </dl>
     </div>

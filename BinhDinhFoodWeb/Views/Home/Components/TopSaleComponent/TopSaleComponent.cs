@@ -14,7 +14,7 @@ namespace BinhDinhFoodWeb.Views.Home.Components.TopSaleComponent
         }
         public async Task<IViewComponentResult> InvokeAsync() 
         { 
-            var obj = await _repo.GetListAsync(orderBy: x=>x.OrderByDescending(x=>x.ProductId), take: 8);
+            var obj = await _repo.GetListAsync(filter: x=>x.ProductDiscount>0, orderBy: x=>x.OrderByDescending(x=>x.ProductId), take: 8);
             return View("TopSaleComponent", obj);
         }
     }

@@ -22,7 +22,7 @@ builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 builder.Services.AddScoped<IOrderDetailRepository, OrderDetailRepository>();
-
+builder.Services.AddScoped<IAdminRepository, AdminRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserManager, UserManager>();
 builder.Services.AddScoped<ITokenRepository, TokenRepository>();
@@ -123,7 +123,7 @@ app.UseSession();
 app.MapAreaControllerRoute(
     name: "Admin",
     areaName: "Admin",
-    pattern: "Admin/{controller=AdmHome}/{action=Index}/{id?}");
+    pattern: "Admin/{controller=AdmAccount}/{action=Login}/{id?}");
 
 
 app.MapControllerRoute(

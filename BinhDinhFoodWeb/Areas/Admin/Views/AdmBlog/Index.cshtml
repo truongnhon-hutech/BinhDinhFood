@@ -55,7 +55,7 @@
                             @Html.DisplayFor(modelItem => item.BlogName)
                         </td>
                         <td>
-                            @Html.Raw(@item.BlogContent)
+                            @Html.Raw(@item.BlogContent).ToString().Substring(0, 100), ...
                         </td>
                         <td>
                             <img width="100" src="~/Content/img/products/@Html.DisplayFor(modelItem => item.BlogImage)" alt="@Html.DisplayFor(modelItem => item.BlogImage)" />

@@ -6,6 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BinhDinhFood.Models;
+using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
+using BinhDinhFoodWeb.Models;
+using System.Reflection.Metadata;
 
 namespace BinhDinhFoodWeb.Areas.Admin.Controllers
 {
@@ -13,10 +16,12 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
     public class AdmProductController : Controller
     {
         private readonly BinhDinhFoodDbContext _context;
+        private readonly IHostingEnvironment _appEnvironment;
 
-        public AdmProductController(BinhDinhFoodDbContext context)
+        public AdmProductController(BinhDinhFoodDbContext context, IHostingEnvironment appEnvironment)
         {
             _context = context;
+            _appEnvironment = appEnvironment;
         }
 
         // GET: Admin/AdmProduct
@@ -59,8 +64,26 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ProductId,ProductName,ProductPrice,ProductDescription,ProductAmount,ProductDiscount,ProductImage,ProductDateCreated,CategoryId")] Product product)
         {
+            IFormFileCollection files = HttpContext.Request.Form.Files;
             if (ModelState.IsValid)
             {
+                foreach (var Image in files)
+                {
+                    if (Image != null && Image.Length > 0)
+                    {
+                        var file = Image;
+                        var uploads = Path.Combine(_appEnvironment.WebRootPath, "Content\\img\\products\\");
+                        if (file.Length > 0)
+                        {
+                            var fileName = Guid.NewGuid().ToString().Replace("-", "") + Path.GetExtension(file.FileName);
+                            using (var fileStream = new FileStream(Path.Combine(uploads, fileName), FileMode.Create))
+                            {
+                                await file.CopyToAsync(fileStream);
+                                product.ProductImage = fileName;
+                            }
+                        }
+                    }
+                }
                 _context.Add(product);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -72,6 +95,7 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
         // GET: Admin/AdmProduct/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+
             if (id == null || _context.Products == null)
             {
                 return NotFound();
@@ -93,6 +117,8 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("ProductId,ProductName,ProductPrice,ProductDescription,ProductAmount,ProductDiscount,ProductImage,ProductDateCreated,CategoryId")] Product product)
         {
+            IFormFileCollection files = HttpContext.Request.Form.Files;
+
             if (id != product.ProductId)
             {
                 return NotFound();
@@ -102,6 +128,23 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
             {
                 try
                 {
+                    foreach (var Image in files)
+                    {
+                        if (Image != null && Image.Length > 0)
+                        {
+                            var file = Image;
+                            var uploads = Path.Combine(_appEnvironment.WebRootPath, "Content\\img\\products\\");
+                            if (file.Length > 0)
+                            {
+                                var fileName = Guid.NewGuid().ToString().Replace("-", "") + Path.GetExtension(file.FileName);
+                                using (var fileStream = new FileStream(Path.Combine(uploads, fileName), FileMode.Create))
+                                {
+                                    await file.CopyToAsync(fileStream);
+                                    product.ProductImage = fileName;
+                                }
+                            }
+                        }
+                    }
                     _context.Update(product);
                     await _context.SaveChangesAsync();
                 }

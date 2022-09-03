@@ -11,6 +11,7 @@ namespace BinhDinhFood.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [DisplayName("Mã sản phẩm")]
         public int ProductId { get; set; }
         [Required]
         [StringLength(100)]

@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "8/M56Mx4jUmk+aYjVAmg80lE7uaZR24gP8k2Z/F38f49yQ5IiZwymTaJpAOTyHUB1LeMOoTWjn4/xuyp/wO7Sw==",
+  "dgSpecHash": "tW29gCM5hqVG719E7adgjrYZpmDDuq0aBHMDb/mMQykAz++c1C5u0s6CCQOu1yA/Wr/liHFx2DkhM3R1F+DqPA==",
   "success": true,
   "projectFilePath": "C:\\Users\\vothu\\Downloads\\My-first-website-Contest\\BinhDinhFood\\BinhDinhFoodWeb\\BinhDinhFoodWeb.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\vothu\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\vothu\\.nuget\\packages\\jetbrains.annotations\\2022.1.0\\jetbrains.annotations.2022.1.0.nupkg.sha512",
+    "C:\\Users\\vothu\\.nuget\\packages\\log4net\\2.0.15\\log4net.2.0.15.nupkg.sha512",
     "C:\\Users\\vothu\\.nuget\\packages\\mailkit\\3.3.0\\mailkit.3.3.0.nupkg.sha512",
     "C:\\Users\\vothu\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
     "C:\\Users\\vothu\\.nuget\\packages\\messagepack.annotations\\2.1.152\\messagepack.annotations.2.1.152.nupkg.sha512",

@@ -78,6 +78,10 @@
             "X.PagedList.Mvc.Core": {
               "target": "Package",
               "version": "[8.4.3, )"
+            },
+            "log4net": {
+              "target": "Package",
+              "version": "[2.0.15, )"
             }
           },
           "imports": [

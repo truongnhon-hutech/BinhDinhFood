@@ -22,7 +22,7 @@ namespace BinhDinhFoodWeb.Controllers
         public async Task<IActionResult> Index(int page = 1)
         {
             var obj = await _repoProduct.GetListAsync();
-            return View(obj.ToPagedList(page, 7));
+            return View(obj.ToPagedList(page, 9));
         }
         // Product Details page
         public async Task<IActionResult> ProductDetail(int id)
@@ -60,10 +60,6 @@ namespace BinhDinhFoodWeb.Controllers
         // Search feature
         public async Task<IActionResult> SearchByFilter(string name, int? categoryId, string sortOrder, int page = 1)
         {
-            //@ViewData["price_asce"] = sortOrder == "price_asce" ? "price_asce" : "price_desc";
-            //@ViewData["date_asce"] = sortOrder == "date_asce" ? "date_asce" : "date_desc";
-
-
             IEnumerable<Product> obj = await _repoProduct.GetListAsync();
             if (!string.IsNullOrEmpty(name))
                 obj = await _repoProduct.GetListAsync(filter: x => x.ProductName.Contains(name));
@@ -91,7 +87,6 @@ namespace BinhDinhFoodWeb.Controllers
             }
             return View(obj.ToPagedList(page, 7));
         }
-        // I don't how the form working
         [HttpGet]
         public async Task<IActionResult> Filter()
         {

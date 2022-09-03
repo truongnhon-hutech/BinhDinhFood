@@ -8,6 +8,7 @@ namespace BinhDinhFood.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [DisplayName("Mã đơn đặt hàng")]
         public int OrderId { get; set; }
         [DisplayName("Ngày đặt hàng")]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]

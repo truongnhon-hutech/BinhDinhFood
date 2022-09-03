@@ -15,13 +15,12 @@
         </ol>
     </nav>
 </div><!-- End Page Title -->
+
 <section class="section">
     <div class="row">
         <div class="col-lg-6">
             <form asp-action="Edit" class="row g-3" enctype="multipart/form-data">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Chỉnh sửa bài viết</h5>
@@ -55,8 +54,7 @@
 
                         <div class="form-group">
                             <label asp-for="BlogContent" class="form-label"></label>
-                            <textarea asp-for ="BlogContent" class="form-control"></textarea>
-                            
+                            <textarea asp-for="BlogContent" class="form-control"></textarea>
                             <span asp-validation-for="BlogContent" class="text-danger"></span>
                         </div>
 

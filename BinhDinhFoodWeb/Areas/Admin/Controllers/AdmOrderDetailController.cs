@@ -37,7 +37,7 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
             var orderDetail = await _context.OrderDetails
                 .Include(o => o.Order)
                 .Include(o => o.Product)
-                .FirstOrDefaultAsync(m => m.ProductId == id);
+                .FirstOrDefaultAsync(m => m.OrderId == id);
             if (orderDetail == null)
             {
                 return NotFound();

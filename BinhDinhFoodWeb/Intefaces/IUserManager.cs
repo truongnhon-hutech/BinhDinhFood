@@ -21,9 +21,10 @@ namespace BinhDinhFoodWeb.Intefaces
         {
             List<Claim> claims = new List<Claim>
                 {
-                    new Claim(ClaimTypes.NameIdentifier, user.CustomerId.ToString()),
-                    new Claim(ClaimTypes.Name,user.CustomerUserName),
-                    new Claim(ClaimTypes.Email,user.CustomerEmail),
+                    new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+                    new Claim(ClaimTypes.Name,user.UserName),
+                    new Claim(ClaimTypes.Email,user.Email),
+                    new Claim(ClaimTypes.Role,user.Role)
                 };
             return claims;
         }

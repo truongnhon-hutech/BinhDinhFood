@@ -42,6 +42,7 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "6.0.8",
           "MimeKit": "3.4.0",
           "X.PagedList.Mvc.Core": "8.4.3",
+          "log4net": "2.0.15",
           "Microsoft.AspNetCore.Antiforgery": "6.0.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "6.0.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "6.0.0.0",
@@ -355,6 +356,20 @@
         },
         "compile": {
           "lib/netstandard2.0/JetBrains.Annotations.dll": {}
+        }
+      },
+      "log4net/2.0.15": {
+        "dependencies": {
+          "System.Configuration.ConfigurationManager": "6.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/log4net.dll": {
+            "assemblyVersion": "2.0.15.0",
+            "fileVersion": "2.0.15.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/log4net.dll": {}
         }
       },
       "MailKit/3.3.0": {
@@ -4603,6 +4618,13 @@
       "sha512": "sha512-ASfpoFJxiRsC9Xc4TWuPM41Zb/gl64xwfMOhnOZ3RnVWGYIZchjpWQV5zshJgoc/ZxVtgjaF7b577lURj7E6ig==",
       "path": "jetbrains.annotations/2022.1.0",
       "hashPath": "jetbrains.annotations.2022.1.0.nupkg.sha512"
+    },
+    "log4net/2.0.15": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-GahnO9ZgFka+xYcFwAfIFjW+k86P2nxFoaEpH6t3v4hiGj7tv2ksVZphxCVIHmJxoySS0HeU3dgCW+bSCcfD0A==",
+      "path": "log4net/2.0.15",
+      "hashPath": "log4net.2.0.15.nupkg.sha512"
     },
     "MailKit/3.3.0": {
       "type": "package",

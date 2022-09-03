@@ -21,7 +21,7 @@ namespace BinhDinhFoodWeb.Views.Cart.Components.MiniCartComponent
             List<Item> listCart = _cartRepo.Get(HttpContext.Session);
             if (listCart != null)
             {
-                totalMoney = listCart.Sum(x => x.Quantity * x.Product.ProductPrice);
+                totalMoney = listCart.Sum(x => x.Quantity * (x.Product.ProductPrice - (x.Product.ProductPrice * x.Product.ProductDiscount / 100)));
             }
             return totalMoney;
         }

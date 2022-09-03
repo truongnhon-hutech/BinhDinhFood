@@ -41,8 +41,8 @@ namespace BinhDinhFoodWeb.Migrations
 
                     b.Property<string>("AdminPassword")
                         .IsRequired()
-                        .HasMaxLength(8)
-                        .HasColumnType("nvarchar(8)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("AdminUserName")
                         .IsRequired()

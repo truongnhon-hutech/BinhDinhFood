@@ -9,6 +9,11 @@ namespace BinhDinhFoodWeb.Repositories
 		{
 
 		}
-
+		public async Task UpdatePaymentState(int orderId)
+        {
+			var order = await _context.Orders.FindAsync(orderId);
+			order.PaidState = true;
+			await _context.SaveChangesAsync();
+        }
 	}
 }

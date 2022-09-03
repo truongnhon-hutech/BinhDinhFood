@@ -1,13 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.Security.Cryptography;
-using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using BinhDinhFoodWeb.Intefaces;
 using System.Security.Claims;
 using BinhDinhFoodWeb.Models;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authentication;
-using System;
 
 namespace BinhDinhFoodWeb.Controllers
 {
@@ -86,8 +81,8 @@ namespace BinhDinhFoodWeb.Controllers
                     ViewBag.Message = "Your username or email is wrong!";
                     return View(model);
                 }
-                string linkResetPassword = _repo.CreateResetPasswordLink(model.CustomerUserName);
-                await _mailService.SendEmailAsync(new MailRequest(model.CustomerEmail,"Reset password",linkResetPassword));
+                string linkResetPassword = _repo.CreateResetPasswordLink(model.UserName);
+                await _mailService.SendEmailAsync(new MailRequest(model.Email,"Reset password",linkResetPassword));
                 return RedirectToAction("ShowMessage");
             }
             else
@@ -121,7 +116,7 @@ namespace BinhDinhFoodWeb.Controllers
             ViewBag.Message = "hi";
             if (ModelState.IsValid)
             {
-                bool checkedToken = _tokenRepository.CheckToken(model.CustomerUserName,model.Token);
+                bool checkedToken = _tokenRepository.CheckToken(model.UserName,model.Token);
                 if (checkedToken)
                 {
                     await _repo.ResetPassWord(model);
@@ -129,9 +124,9 @@ namespace BinhDinhFoodWeb.Controllers
                 }
                 return RedirectToAction("Login");
             }
-                ViewBag.CustomerUserName = model.CustomerUserName;
+                ViewBag.CustomerUserName = model.UserName;
                 ViewBag.Token = model.Token;
-                return RedirectToAction("Index", "Home");
+            return View(model);
         }
         [HttpGet]
         public IActionResult ChangeInfor()
@@ -139,11 +134,11 @@ namespace BinhDinhFoodWeb.Controllers
             if (!User.Identity.IsAuthenticated) 
                 return RedirectToAction("Login");
             int id = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
-            ChangeInforViewModel model = _repo.GetUserInfor(id); 
+            InforViewModel model = _repo.GetUserInfor(id); 
             return View(model);
         }
         [HttpPost]
-        public async Task<IActionResult> ChangeInforAsync(ChangeInforViewModel model)
+        public async Task<IActionResult> ChangeInforAsync(InforViewModel model)
         {
             if (!User.Identity.IsAuthenticated) 
                 return RedirectToAction("Login");
@@ -191,11 +186,10 @@ namespace BinhDinhFoodWeb.Controllers
                 return RedirectToAction("Login");
 
             int id = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
-            ChangeInforViewModel model = _repo.GetUserInfor(id);
+            InforViewModel model = _repo.GetUserInfor(id);
             
             
             return View(model);
         }
-
     }
 }

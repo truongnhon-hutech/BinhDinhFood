@@ -14,7 +14,7 @@ namespace BinhDinhFood.Models
         [DisplayName("Tài khoản")]
         public string AdminUserName { get; set; }
         [Required]
-        [StringLength(8)]
+        [StringLength(50)]
         [DisplayName("Mật khẩu")]
         public string AdminPassword{ get; set; }
         [DisplayName("Email")]

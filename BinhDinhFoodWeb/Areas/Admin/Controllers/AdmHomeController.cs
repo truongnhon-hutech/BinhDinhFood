@@ -36,8 +36,7 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
                         && x.DayOrder.Month == DateTime.Now.Month
                         && x.DayOrder.Year == DateTime.Now.Year
                         ).Count();
-
-                    ViewBag.SalePercent = objSale / (objSale + (objSale / 3)) * 100;
+                    ViewBag.SalePercent = objSale;
                     ViewBag.SaleDay = "Hôm nay";
                     break;
                 case "thisMonth":
@@ -46,12 +45,12 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
                         && x.DayOrder.Month == DateTime.Now.Month
                         ).Count();
                     ViewBag.SaleDay = "Tháng này";
-                    ViewBag.SalePercent = objSale / (objSale + (objSale / 3)) * 100;
+                    ViewBag.SalePercent = objSale;
                     break;
                 case "thisYear":
                     objSale = _context.Orders.Where(x => x.DayOrder.Year == DateTime.Now.Year).Count();
                     ViewBag.SaleDay = "Năm này";
-                    ViewBag.SalePercent = objSale / (objSale + (objSale / 3)) * 100;
+                    ViewBag.SalePercent = objSale;
                     break;
             }
             ViewBag.SaleNumbers = objSale;
@@ -65,7 +64,7 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
                         && x.DayOrder.Month == DateTime.Now.Month
                         && x.DayOrder.Year == DateTime.Now.Year
                         ).Sum(x => x.TotalMoney);
-                    ViewBag.RevenuePercent = Math.Round((objRevenue / (objRevenue + objRevenue / 2) * 100), 2);
+                    ViewBag.RevenuePercent = objRevenue;
                     ViewBag.RevenueDay = "Hôm nay";
                     break;
                 case "thisMonth":
@@ -74,12 +73,12 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
                         && x.DayOrder.Month == DateTime.Now.Month
                         ).Sum(x => x.TotalMoney);
                     ViewBag.RevenueDay = "Tháng này";
-                    ViewBag.RevenuePercent = Math.Round((objRevenue / (objRevenue + objRevenue / 2) * 100), 2);
+                    ViewBag.RevenuePercent = objRevenue;
                     break;
                 case "thisYear":
                     objRevenue = _context.Orders.Where(x => x.DayOrder.Year == DateTime.Now.Year).Sum(x => x.TotalMoney);
                     ViewBag.RevenueDay = "Năm này";
-                    ViewBag.RevenuePercent = Math.Round((objRevenue / (objRevenue + objRevenue / 2) * 100), 2);
+                    ViewBag.RevenuePercent = objRevenue;
                     break;
             }
             ViewBag.RevenueNumbers = objRevenue.ToString("#,###", cul.NumberFormat);

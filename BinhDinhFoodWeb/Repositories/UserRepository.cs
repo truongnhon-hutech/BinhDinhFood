@@ -1,7 +1,6 @@
 ﻿using BinhDinhFood.Models;
 using BinhDinhFoodWeb.Intefaces;
 using BinhDinhFoodWeb.Models;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Cryptography;
 using System.Text;
@@ -60,21 +59,21 @@ namespace BinhDinhFoodWeb.Repositories
                 return result.ToString();
             }
         }
-        public Customer GetCustomer(int id)
+        private Customer GetCustomer(int id)
         {
             return _context.Customers.Find(id);
         }
-        public ChangeInforViewModel GetUserInfor(int id)
+        public InforViewModel GetUserInfor(int id)
         {
             var user = GetCustomer(id);
-            ChangeInforViewModel model = new ChangeInforViewModel();
-            return new ChangeInforViewModel
+            InforViewModel model = new InforViewModel();
+            return new InforViewModel
             {
-                CustomerFullName = user.CustomerFullName,
-                CustomerAddress = user.CustomerAddress,
-                CustomerPhone = user.CustomerPhone,
-                CustomerImage = user.CustomerImage,
-                CustomerEmail = user.CustomerEmail
+                FullName = user.CustomerFullName,
+                Address = user.CustomerAddress,
+                Phone = user.CustomerPhone,
+                Image = user.CustomerImage,
+                Email = user.CustomerEmail
             };
         }
         private Customer GetCustomer(string userName)
@@ -83,15 +82,16 @@ namespace BinhDinhFoodWeb.Repositories
         }
         public CookieUserItem Validate(LoginViewModel model)
         {
-            var userRecords = _context.Customers.Where(x => x.CustomerUserName == model.CustomerUserName);
+            var userRecords = _context.Customers.Where(x => x.CustomerUserName == model.UserName);
 
             var results = userRecords.AsEnumerable()
-            .Where(m => m.CustomerPassword == Encode(model.CustomerPassword))
+            .Where(m => m.CustomerPassword == Encode(model.Password))
             .Select(m => new CookieUserItem
             {
-                CustomerId = m.CustomerId,
-                CustomerEmail = m.CustomerEmail,
-                CustomerUserName = m.CustomerUserName
+                Id = m.CustomerId,
+                Email = m.CustomerEmail,
+                UserName = m.CustomerUserName,
+                Role = "Customer"
             });
 
             return results.FirstOrDefault();
@@ -100,11 +100,11 @@ namespace BinhDinhFoodWeb.Repositories
         {
             var user = new Customer
             {
-                CustomerFullName = model.CustomerFullName,
-                CustomerUserName = model.CustomerUserName,
-                CustomerPassword = Encode(model.CustomerPassword),
-                CustomerEmail = model.CustomerEmail,
-                CustomerAddress = model.CustomerAddress,
+                CustomerFullName = model.FullName,
+                CustomerUserName = model.UserName,
+                CustomerPassword = Encode(model.Password),
+                CustomerEmail = model.Email,
+                CustomerAddress = model.Address,
                 CustomerImage = "avatar.jpg",
                 CustomerPhone = "0905726748"
             };
@@ -113,9 +113,10 @@ namespace BinhDinhFoodWeb.Repositories
 
             return new CookieUserItem
             {
-                CustomerId = user.CustomerId,
-                CustomerUserName =user.CustomerUserName,
-                CustomerEmail = user.CustomerEmail,
+                Id = user.CustomerId,
+                UserName =user.CustomerUserName,
+                Email = user.CustomerEmail,
+                Role = "Customer"
             };
         }
         public string CreateResetPasswordLink(string customerUserName)
@@ -128,7 +129,7 @@ namespace BinhDinhFoodWeb.Repositories
         }
         public async Task<bool> HaveAccount(ForgotViewModel model)
         {
-            return await _context.Customers.AnyAsync(x => x.CustomerUserName == model.CustomerUserName && x.CustomerEmail == model.CustomerEmail);
+            return await _context.Customers.AnyAsync(x => x.CustomerUserName == model.UserName && x.CustomerEmail == model.Email);
         }
         public async Task<bool> HaveAccount(string userName,string password)
         {
@@ -136,18 +137,18 @@ namespace BinhDinhFoodWeb.Repositories
         }
         public async Task ResetPassWord(ResetViewModel model)
         {
-            var customer = GetCustomer(model.CustomerUserName);
-            customer.CustomerPassword = Encode(model.CustomerPassword);
+            var customer = GetCustomer(model.UserName);
+            customer.CustomerPassword = Encode(model.Password);
             await _context.SaveChangesAsync();
         }
-        public async Task ChangeInforUser(ChangeInforViewModel model,int id, IFormFileCollection files)
+        public async Task ChangeInforUser(InforViewModel model,int id, IFormFileCollection files)
         {
             var user = GetCustomer(id);
-            user.CustomerFullName = model.CustomerFullName;
-            user.CustomerEmail = model.CustomerEmail;
-            user.CustomerPhone = model.CustomerPhone;
-            //user.CustomerImage = model.CustomerImage;
-            user.CustomerAddress = model.CustomerAddress;
+            user.CustomerFullName = model.FullName;
+            user.CustomerEmail = model.Email;
+            user.CustomerPhone = model.Phone;
+            //user.CustomerImage = model.Image;
+            user.CustomerAddress = model.Address;
 
             foreach (var Image in files)
             {
