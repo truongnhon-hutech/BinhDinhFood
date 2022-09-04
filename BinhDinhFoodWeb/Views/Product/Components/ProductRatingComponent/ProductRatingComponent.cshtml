@@ -9,7 +9,9 @@
 	<div id="collapse-B" class="collapse" role="tabpanel" aria-labelledby="heading-B">
 		<div class="card-body">
 			<div class="row justify-content-between">
-				@foreach(var item in Model){
+				
+				@foreach(var item in Model)
+				{
 					<div class="col-lg-6">
 						<div class="review_content">
 							<div class="clearfix add_bottom_10">
@@ -20,7 +22,7 @@
 									}
 									@for (int i = 1; i <= 5 - @item.Stars; i++)
 									{
-										<i class="icon-star"></i>
+										<i class="bi bi-star"></i>
 									}
 									<em>@item.Stars/5.0</em>
 								</span>

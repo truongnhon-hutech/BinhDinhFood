@@ -4,16 +4,21 @@
 	CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
 	var product = new List<Product>();
 }
+<script src="https://unpkg.com/js-image-zoom@0.4.1/js-image-zoom.js" type="application/javascript"></script>
 <div class="container margin_30">
 	<div class="countdown_inner">
 		-20% This offer ends in <div data-countdown="@DateTime.Now.AddHours(1).ToString("yyyy-MM-dd h:mm tt")" class="countdown"></div>
 	</div>
+	
+	
+	
+
 	<div class="row">
 		<div class="col-md-6">
 			<div class="all">
-				<div class="slider">
+				<div class="slider" id="exzoom">
 					<div class="owl-carousel owl-theme main">
-						<div><img src="~/Content/img/products/@Model.ProductImage" class="item-box"></div>
+						<div><img src="~/Content/img/products/@Model.ProductImage" class="item-box" ></div>
 						<div><img src="~/Content/img/products/@Model.ProductImage" class="item-box" style="filter: contrast(200%);"></div>
 						<div><img src="~/Content/img/products/@Model.ProductImage" class="item-box" style="filter: drop-shadow(8px 8px 10px gray);"></div>
 						<div><img src="~/Content/img/products/@Model.ProductImage" class="item-box" style="filter: grayscale(50%);"></div>
@@ -23,6 +28,7 @@
 					<div class="left nonl"><i class="ti-angle-left"></i></div>
 					<div class="right"><i class="ti-angle-right"></i></div>
 				</div>
+
 				<div class="slider-two">
 					<div class="owl-carousel owl-theme thumbs">
 						<div><img src="~/Content/img/products/@Model.ProductImage" class="item active"></div>
@@ -37,6 +43,8 @@
 				</div>
 			</div>
 		</div>
+		
+
 		<div class="col-md-6">
 			<div class="breadcrumbs">
 				<ul>
@@ -79,13 +87,13 @@
 					<div class="col-lg-4 col-md-6">
 						@if (User.Identity.IsAuthenticated)
 						{
-								<a class="btn_1" 
-									asp-action="AddInCart" 
-									asp-controller="Cart" 
-									asp-route-id="@Model.ProductId" data-ajax="true" data-ajax-success="addCartAlert" data-ajax-failure="addCartFailAlert" data-ajax-update="#mini-cart">
-									<i class="ti-shopping-cart"></i> Thêm vào giỏ hàng
-								</a>
-							
+							<a class="btn_1"
+						   asp-action="AddInCart"
+						   asp-controller="Cart"
+						   asp-route-id="@Model.ProductId" data-ajax="true" data-ajax-success="addCartAlert" data-ajax-failure="addCartFailAlert" data-ajax-update="#mini-cart">
+								<i class="ti-shopping-cart"></i> Thêm vào giỏ hàng
+							</a>
+
 
 						}
 						else
@@ -145,11 +153,28 @@
 				<div id="collapse-A" class="collapse" role="tabpanel" aria-labelledby="heading-A">
 					<div class="card-body">
 						<div class="row justify-content-between">
+							<div class="col-lg-3">
+								<h3>Hình ảnh sản phẩm</h3>
+
+								<div id="img-container">
+									<img src="~/Content/img/products/@Model.ProductImage" style="width: 400px; height: 300px">
+								</div>
+								<script>
+									var options = {
+										width: 200,
+										zoomWidth: 300,
+										offset: { vertical: 0, horizontal: 100 }
+									};
+									new ImageZoom(document.getElementById("img-container"), options);
+
+								</script>
+							</div>
 							<div class="col-lg-6">
 								<h3>Chi tiết</h3>
 								<p>@Model.ProductDescription</p>
 							</div>
-							<div class="col-lg-5">
+							
+								<div class="col-lg-3">
 								<h3>Thông tin chi tiết</h3>
 								<div class="table-responsive">
 									<table class="table table-sm table-striped">
