@@ -99,7 +99,7 @@ builder.Services.AddCors(options =>
     options.AddDefaultPolicy(
         builder =>
         {
-            builder.WithOrigins("https://localhost:7049/")
+            builder.WithOrigins("http://binhdinhfood-001-site1.dtempurl.com/")
                 .AllowAnyHeader()
                 .WithMethods("GET", "POST")
                 .AllowCredentials();

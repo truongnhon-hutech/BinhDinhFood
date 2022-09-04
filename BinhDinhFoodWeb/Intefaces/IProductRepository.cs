@@ -1,17 +1,18 @@
 ﻿using BinhDinhFood.Models;
-
+using BinhDinhFoodWeb.Models;
 namespace BinhDinhFoodWeb.Intefaces
 {
     public interface IProductRepository : IRepository<Product>
     {
-        //public Task<List<Product>> GetAllProductsAsync();
-        //public Task<List<Product>> SearchByFilter(string searchString);
-        //public List<Product> GetAllProductsDecending();
-        //public Task<Product> GetProductByIdAsync(int id);
-        //public Task<bool> CreateProductAsync(Product product);
-        //public Task<bool> UpdateProductAsync(Product product);
-        //public Task<bool> DeleteProductAsync(Product product);
-        //public Task<bool> HasProductsAsync();
-        //public Task<bool> SaveAsync();
+        //Lấy ra danh sách Product : số lượng bán được từ startDate đến endDate
+        public Table[] GetProductWithAmount(DateTime startDate, DateTime endDate);
+
+        //Lấy ra danh sách Product : doanh thu từ startDate đến endDate
+        public Table[] GetProductWithRevenue(DateTime startDate, DateTime endDate);
+
+        //Lấy ra danh sách Tháng : số lượng bán được của sản phẩm có id là productId
+        public Table[] GetProductAmountInYear(int productId);
+        public Table[] GetProductRevenueInYear(int productId);
+        public List<Table> GetListProduct();
     }
 }

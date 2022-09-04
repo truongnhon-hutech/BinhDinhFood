@@ -1,4 +1,5 @@
 ﻿using BinhDinhFood.Models;
+using BinhDinhFoodWeb.Models;
 using BinhDinhFoodWeb.Intefaces;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
@@ -12,52 +13,126 @@ namespace BinhDinhFoodWeb.Repositories
         {
         }
 
-        //public async Task<bool> CreateProductAsync(Product product)
-        //{
-        //    await _context.Products.AddAsync(product);
-        //    return await SaveAsync();
-        //}
+        public List<Table> GetListProduct()
+        {
+            return _context.Products.Select(x => new Table
+            {
+                Key = x.ProductName,
+                Value = x.ProductId
+            }).ToList();
+        }
 
-        //public async Task<bool> DeleteProductAsync(Product product)
-        //{
-        //    _context.Products.Remove(product);
-        //    return await SaveAsync();
-        //}
-        //public async Task<List<Product>> GetAllProductsAsync()
-        //    => await _context.Products.ToListAsync();
+        public Table[] GetProductAmountInYear(int productId)
+        {
+            Table[] data = new Table[13];
+            for (int month = 1; month <= 12; month++)
+            {
+                //data[month] 
+                var product = _context.Products.Include(x=> x.OrderDetails).ThenInclude(y=>y.Order).FirstOrDefault(x=> x.ProductId == productId);
 
-        //public  List<Product> GetAllProductsDecending()
-        //    => _context.Products.OrderByDescending(x => x.ProductId).Take(8).ToList();
+                if(product != null)
+                {
+                    var dataInMonth = product.OrderDetails
+                    .Where(x => x.Order.DayOrder.Month == month && x.Order.DayOrder.Year == DateTime.Now.Year);
+                    if (dataInMonth.Count() !=0)
+                        data[month] = dataInMonth
+                        .Select(od => new Table
+                        {
+                            Key = "Tháng " + month,
+                            Value = od.Quantity
+                        }).FirstOrDefault();
+                    else 
+                        data[month] = new Table
+                    {
+                        Key = "Tháng " + month,
+                        Value = 0
+                    };
+                }
+                else data[month] = new Table
+                {
+                    Key = "Tháng " + month,
+                    Value = 0
+                };
+            }
+            return data;
+        }
+        public Table[] GetProductRevenueInYear(int productId)
+        {
+            Table[] data = new Table[13];
+            for (int month = 1; month <= 12; month++)
+            {
+                var product = _context.Products.Include(x => x.OrderDetails).ThenInclude(y => y.Order).FirstOrDefault(x => x.ProductId == productId);
+                if (product != null)
+                {
+                    var dataInMonth = product.OrderDetails
+                                             .Where(x => x.Order.DayOrder.Month == month && x.Order.DayOrder.Year == DateTime.Now.Year);
+                    if (dataInMonth.Count() != 0)
+                        data[month] = 
+                            dataInMonth
+                    .Select(od => new Table
+                    {
+                        Key = "Tháng " + month,
+                        Value = (int)(od.Quantity * od.UnitPrice)
+                    }).FirstOrDefault();
+                    else data[month] = new Table
+                    {
+                        Key = "Tháng " + month,
+                        Value = 0
+                    };
+                }
+                else data[month] = new Table
+                {
+                    Key = "Tháng " + month,
+                    Value = 0
+                };
+            }
+            return data;
+        }
+        public Table[] GetProductWithAmount(DateTime startDate, DateTime endDate)
+        {
+            var product = _context.OrderDetails
+                                  .Where(x => x.Order.DayOrder >= startDate && x.Order.DayOrder < endDate)
+                                  .GroupBy(x => new { x.Product.ProductId, x.Product.ProductName })
+                                  .Select(t => new Table
+                                    {
+                                        Key = t.Key.ProductName,
+                                        Value = t.Sum(k => k.Quantity)
+                                    })
+                                  .ToArray();
+                                  //.Join(_context.OrderDetails, p => p.ProductId, d => d.ProductId, (p, d) => new { p, d })
+                                  //.Join(_context.Orders, g => g.d.OrderId, o => o.OrderId, (g, o) => new { g, o })
+                                  //.Where(y => y.o.DayOrder >= startDate && y.o.DayOrder < endDate)
+                                  //.GroupBy(x => new { x.g.p.ProductId, x.g.p.ProductName })
+                                  //.Select(t => new Table
+                                  //{
+                                  //    Key = t.Key.ProductName,
+                                  //    Value = t.Sum(x => x.g.d.Quantity),
+                                  //}).ToArray();
+            return product;
+        }
 
-        //public async Task<Product> GetProductByIdAsync(int id)
-        //{
-        //    Product? product = await _context.Products.FirstOrDefaultAsync(p => p.ProductId == id);
-        //    if (product == null)
-        //        return new Product();
-        //    return product;
-        //}
+        public Table[] GetProductWithRevenue(DateTime startDate, DateTime endDate)
+        {
+            var product = _context.OrderDetails
+                                  .Where(x => x.Order.DayOrder >= startDate && x.Order.DayOrder < endDate)
+                                  .GroupBy(x => new { x.Product.ProductId, x.Product.ProductName })
+                                  .Select(t => new Table
+                                  {
+                                      Key = t.Key.ProductName,
+                                      Value = (int)t.Sum(k => k.Quantity*k.UnitPrice)
+                                  })
+                                  .ToArray();
 
-        //public async Task<bool> HasProductsAsync()
-        //{
-        //    return await _context.Products.AnyAsync();
-        //}
-
-        //public async Task<bool> SaveAsync()
-        //{
-        //    int saved = await _context.SaveChangesAsync();
-        //    return saved > 0;
-        //}
-
-        //public async Task<List<Product>> SearchByFilter(string searchString)
-        //{
-        //    List<Product> obj = await _context.Products.Where(x => x.ProductName.Contains(searchString)).ToListAsync();
-        //    return obj;
-        //}
-
-        //public async Task<bool> UpdateProductAsync(Product product)
-        //{
-        //    _context.Products.Update(product);
-        //    return await SaveAsync();
-        //}
+            //.Join(_context.OrderDetails, p => p.ProductId, d => d.ProductId, (p, d) => new { p, d })
+            //.Join(_context.Orders, g => g.d.OrderId, o => o.OrderId, (g, o) => new { g, o })
+            //.Where(y => y.o.DayOrder >= startDate && y.o.DayOrder < endDate)
+            //.GroupBy(x => new { x.g.p.ProductId, x.g.p.ProductName })
+            //.Select(t => new Table
+            //{
+            //    Key = t.Key.ProductName,
+            //    Value = Convert.ToInt32(t.Sum(k => k.g.d.Quantity * k.g.d.UnitPrice)),
+            //}).ToArray();
+            return product;
+        }
     }
 }

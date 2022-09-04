@@ -1,5 +1,6 @@
 C:\Users\vothu\Downloads\My-first-website-Contest\BinhDinhFood\BinhDinhFoodWeb\bin\Debug\net6.0\appsettings.Development.json
 C:\Users\vothu\Downloads\My-first-website-Contest\BinhDinhFood\BinhDinhFoodWeb\bin\Debug\net6.0\appsettings.json
+C:\Users\vothu\Downloads\My-first-website-Contest\BinhDinhFood\BinhDinhFoodWeb\bin\Debug\net6.0\libman.json
 C:\Users\vothu\Downloads\My-first-website-Contest\BinhDinhFood\BinhDinhFoodWeb\bin\Debug\net6.0\BinhDinhFoodWeb.staticwebassets.runtime.json
 C:\Users\vothu\Downloads\My-first-website-Contest\BinhDinhFood\BinhDinhFoodWeb\bin\Debug\net6.0\BinhDinhFoodWeb.exe
 C:\Users\vothu\Downloads\My-first-website-Contest\BinhDinhFood\BinhDinhFoodWeb\bin\Debug\net6.0\BinhDinhFoodWeb.deps.json
@@ -296,6 +297,7 @@ C:\Users\vothu\Downloads\My-first-website-Contest\BinhDinhFood\BinhDinhFoodWeb\b
 C:\Users\vothu\Downloads\My-first-website-Contest\BinhDinhFood\BinhDinhFoodWeb\bin\Debug\net6.0\refs\WindowsBase.dll
 C:\Users\vothu\Downloads\My-first-website-Contest\BinhDinhFood\BinhDinhFoodWeb\bin\Debug\net6.0\Humanizer.dll
 C:\Users\vothu\Downloads\My-first-website-Contest\BinhDinhFood\BinhDinhFoodWeb\bin\Debug\net6.0\JetBrains.Annotations.dll
+C:\Users\vothu\Downloads\My-first-website-Contest\BinhDinhFood\BinhDinhFoodWeb\bin\Debug\net6.0\log4net.dll
 C:\Users\vothu\Downloads\My-first-website-Contest\BinhDinhFood\BinhDinhFoodWeb\bin\Debug\net6.0\MailKit.dll
 C:\Users\vothu\Downloads\My-first-website-Contest\BinhDinhFood\BinhDinhFoodWeb\bin\Debug\net6.0\MessagePack.dll
 C:\Users\vothu\Downloads\My-first-website-Contest\BinhDinhFood\BinhDinhFoodWeb\bin\Debug\net6.0\MessagePack.Annotations.dll
@@ -557,5 +559,3 @@ C:\Users\vothu\Downloads\My-first-website-Contest\BinhDinhFood\BinhDinhFoodWeb\o
 C:\Users\vothu\Downloads\My-first-website-Contest\BinhDinhFood\BinhDinhFoodWeb\obj\Debug\net6.0\BinhDinhFoodWeb.pdb
 C:\Users\vothu\Downloads\My-first-website-Contest\BinhDinhFood\BinhDinhFoodWeb\obj\Debug\net6.0\BinhDinhFoodWeb.genruntimeconfig.cache
 C:\Users\vothu\Downloads\My-first-website-Contest\BinhDinhFood\BinhDinhFoodWeb\obj\Debug\net6.0\ref\BinhDinhFoodWeb.dll
-C:\Users\vothu\Downloads\My-first-website-Contest\BinhDinhFood\BinhDinhFoodWeb\bin\Debug\net6.0\log4net.dll
-C:\Users\vothu\Downloads\My-first-website-Contest\BinhDinhFood\BinhDinhFoodWeb\bin\Debug\net6.0\libman.json

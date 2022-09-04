@@ -7,5 +7,6 @@ namespace BinhDinhFoodWeb.Intefaces
     {
         //public Task<List<Category>> Get();
         //public Task<Category> GetById(int id);
+        public Table[] GetRevenueStructure(int year);
     }
 }

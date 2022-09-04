@@ -1,5 +1,6 @@
 ﻿using BinhDinhFood.Models;
 using BinhDinhFoodWeb.Intefaces;
+using BinhDinhFoodWeb.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace BinhDinhFoodWeb.Repositories
@@ -9,6 +10,18 @@ namespace BinhDinhFoodWeb.Repositories
 
         public CategoryRepository(BinhDinhFoodDbContext context): base(context)
         {
+        }
+
+        public Table[] GetRevenueStructure(int year)
+        {
+            return _context.OrderDetails
+                           .Where(o => o.Order.DayOrder.Year == year)
+                           .GroupBy(d => new { d.Product.Category.CategoryId, d.Product.Category.CategoryName })
+                           .Select(t => new Table
+                           {
+                               Key = t.Key.CategoryName,
+                               Value = (int)t.Sum(k => k.Quantity * k.UnitPrice)
+                           }).ToArray();
         }
 
         //public async Task<List<Category>> Get() 
