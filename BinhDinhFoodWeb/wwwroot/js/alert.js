@@ -25,3 +25,21 @@ function loginFirstAlert() {
         backgroundColor: 'red',
     })
 }
+function addFavAlert() {
+    Snackbar.show({
+        text: 'Thêm vào danh sách yêu thích thành công',
+        textColor: 'white',
+        actionText: 'Bỏ qua',
+        actionTextColor: 'white',
+        backgroundColor: '#004DDA',
+    })
+}
+function removeFavAlert() {
+    Snackbar.show({
+        text: 'Xoá sản phẩm thành công',
+        textColor: 'white',
+        actionText: 'Bỏ qua',
+        actionTextColor: 'white',
+        backgroundColor: '#004DDA',
+    })
+}

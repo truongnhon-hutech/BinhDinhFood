@@ -9,6 +9,7 @@ using BinhDinhFood.Models;
 using BinhDinhFoodWeb.Models;
 using System.Reflection.Metadata;
 using Microsoft.AspNetCore.Hosting;
+using System.Security.Claims;
 
 namespace BinhDinhFoodWeb.Areas.Admin.Controllers
 {
@@ -27,7 +28,9 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
         // GET: Admin/AdmBanner
         public async Task<IActionResult> Index()
         {
-              return _context.Banners != null ? 
+            if (!User.Identity.IsAuthenticated && User.FindFirstValue(ClaimTypes.Role) != "Admin")
+                return RedirectToAction("Login", "AdmAccount");
+            return _context.Banners != null ?
                           View(await _context.Banners.ToListAsync()) :
                           Problem("Entity set 'BinhDinhFoodDbContext.Banners'  is null.");
         }
@@ -35,6 +38,8 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
         // GET: Admin/AdmBanner/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+            if (!User.Identity.IsAuthenticated && User.FindFirstValue(ClaimTypes.Role) != "Admin")
+                return RedirectToAction("Login", "AdmAccount");
             if (id == null || _context.Banners == null)
             {
                 return NotFound();
@@ -53,6 +58,8 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
         // GET: Admin/AdmBanner/Create
         public IActionResult Create()
         {
+            if (!User.Identity.IsAuthenticated && User.FindFirstValue(ClaimTypes.Role) != "Admin")
+                return RedirectToAction("Login", "AdmAccount");
             return View();
         }
 
@@ -93,6 +100,8 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
         // GET: Admin/AdmBanner/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+            if (!User.Identity.IsAuthenticated && User.FindFirstValue(ClaimTypes.Role) != "Admin")
+                return RedirectToAction("Login", "AdmAccount");
             if (id == null || _context.Banners == null)
             {
                 return NotFound();
@@ -162,6 +171,8 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
         // GET: Admin/AdmBanner/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
+            if (!User.Identity.IsAuthenticated && User.FindFirstValue(ClaimTypes.Role) != "Admin")
+                return RedirectToAction("Login", "AdmAccount");
             if (id == null || _context.Banners == null)
             {
                 return NotFound();
@@ -191,14 +202,14 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
             {
                 _context.Banners.Remove(banner);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool BannerExists(int id)
         {
-          return (_context.Banners?.Any(e => e.BannerId == id)).GetValueOrDefault();
+            return (_context.Banners?.Any(e => e.BannerId == id)).GetValueOrDefault();
         }
     }
 }

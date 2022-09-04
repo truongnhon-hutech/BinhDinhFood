@@ -48,7 +48,7 @@ namespace BinhDinhFoodWeb.Areas.Admin.Views.AdmHome.Components.SaleComponent
                 case "thisYear":
                     var lastYearDate = DateTime.Now.Date.AddYears(-1);
                     objSale = _context.Orders.Where(x => x.DayOrder.Year == DateTime.Now.Year).Count();
-                    objSale = _context.Orders.Where(x => x.DayOrder.Year == lastYearDate.Year).Count();
+                    objLastSale = _context.Orders.Where(x => x.DayOrder.Year == lastYearDate.Year).Count();
                     ViewBag.SaleDay = "Năm này";
                     break;
             }

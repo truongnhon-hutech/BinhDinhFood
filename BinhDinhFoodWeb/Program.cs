@@ -1,4 +1,5 @@
 using BinhDinhFood.Models;
+using BinhDinhFoodWeb.Hubs;
 using BinhDinhFoodWeb.Intefaces;
 using BinhDinhFoodWeb.Models;
 using BinhDinhFoodWeb.Repositories;
@@ -90,9 +91,22 @@ var emailConfig = builder.Configuration.GetSection("MailSettings").Get<MailSetti
 builder.Services.AddSingleton(emailConfig);
 builder.Services.AddControllers();
 
+// signal R count number customer online
+builder.Services.AddSignalR();
+
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(
+        builder =>
+        {
+            builder.WithOrigins("https://localhost:7049/")
+                .AllowAnyHeader()
+                .WithMethods("GET", "POST")
+                .AllowCredentials();
+        });
+});
 
 var app = builder.Build();
-
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
@@ -114,6 +128,9 @@ app.UseAuthentication();
 
 app.UseSession();
 
+// belong to signal R
+app.UseCors();
+
 
 
 //app.MapControllerRoute(
@@ -130,5 +147,10 @@ app.MapAreaControllerRoute(
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+
+
+app.MapHub<CustomerHub>("/hubs/customerCount");
+app.MapHub<AdminHub>("/hubs/adminHub");
 
 app.Run();

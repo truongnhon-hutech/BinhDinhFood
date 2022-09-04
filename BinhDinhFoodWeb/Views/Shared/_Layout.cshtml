@@ -56,7 +56,7 @@
 </head>
 
 <body>
-    
+
     <div id="preloader">
         <div id="status">
             <span></span>
@@ -127,6 +127,7 @@
                                     <li>
                                         <a asp-action="About" asp-controller="Home">Về Chúng tôi</a>
                                     </li>
+
                                 </ul>
                             </div>
                             <!--/main-menu -->
@@ -200,6 +201,7 @@
                                 <li>
                                     <a href="javascript:void(0);" class="btn_search_mob"><span>Tìm kiếm</span></a>
                                 </li>
+
                                 <li>
                                     <a href="#menu" class="btn_cat_mob">
                                         <div class="hamburger hamburger--spin" id="hamburger">
@@ -220,7 +222,6 @@
                         <input type="text" class="form-control" placeholder="Tìm kiếm hơn 1000 sản phẩm">
                         <input type="submit" class="btn_1 full-width" value="Search">
                     </form>
-
                 </div>
                 <!-- /search_mobile -->
             </div>
@@ -243,7 +244,6 @@
                                 <li><a asp-action="Index" asp-controller="Home">Trợ giúp</a></li>
                                 <li><a asp-action="Index" asp-controller="Home">Thông tin tài khoản</a></li>
                                 <li><a asp-action="Index" asp-controller="Home">Bài viết</a></li>
-                                <li><a asp-action="Index" asp-controller="Home">Liên lạc</a></li>
                             </ul>
                         </div>
                     </div>
@@ -320,7 +320,11 @@
                             <li><span>© 2022 BinhDinhFood - Dev team: Phạm Đức Tài - Võ Thương Trường Nhơn - Nguyễn Hồng Thái</span></li>
                         </ul>
                     </div>
-                    <div style="color: white"> &copy; Bản quyền <strong><span>Bình Định Food</span></strong>. Đã đăng ký Bản quyền</div>
+                    <div style="color: white">
+                        &copy; Bản quyền <strong><span>Bình Định Food</span></strong>. Đã đăng ký Bản quyền
+                        <br />
+                        <p>Đang có <strong id="customerCount">0</strong> khách hàng đang online</p>
+                    </div>
                 </div>
             </div>
         </footer>
@@ -340,6 +344,8 @@
     <script src="~/Content/js/carousel_with_thumbs.js"></script>
     <script src="~/Content/js/jquery.cookiebar.js"></script>
     <script src="~/js/preloading.js"></script>
+    <script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
+    <script src="~/js/customernumcount.js"></script>
     <script>
         $(document).ready(function () {
             'use strict';
@@ -350,6 +356,7 @@
     </script>
 
     <script src="//code.tidio.co/incvhb7bukkdgzpkw5m28i383htztlrb.js" async></script>
+
 
 </body>
 </html>

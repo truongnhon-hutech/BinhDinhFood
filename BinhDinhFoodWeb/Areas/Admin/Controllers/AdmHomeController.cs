@@ -1,8 +1,11 @@
 ﻿using BinhDinhFood.Models;
 using BinhDinhFoodWeb.Intefaces;
+using BinhDinhFoodWeb.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.ComponentModel;
 using System.Globalization;
+using System.Security.Claims;
 using System.Text.Json;
 
 namespace BinhDinhFoodWeb.Areas.Admin.Controllers
@@ -13,7 +16,6 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
 
         private readonly BinhDinhFoodDbContext _context;
         CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
-
         public AdmHomeController(BinhDinhFoodDbContext context)
         {
             _context = context;
@@ -36,6 +38,9 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
         }
         public IActionResult Index()
         {
+            if (!User.Identity.IsAuthenticated && User.FindFirstValue(ClaimTypes.Role) != "Admin")
+                return RedirectToAction("Login", "AdmAccount");
+
             var saleChart1 = _context.Orders.Where(
                         x => x.DayOrder.Month >= 1 && x.DayOrder.Month <= 4
                         && x.DayOrder.Year == DateTime.Now.Year

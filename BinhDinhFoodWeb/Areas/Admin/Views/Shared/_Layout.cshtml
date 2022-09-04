@@ -224,10 +224,11 @@
                         </li>
 
                         <li>
-                            <a class="dropdown-item d-flex align-items-center" asp-action="Logout" asp-controller="AdmAccount">
-                                <i class="bi bi-box-arrow-right"></i>
-                                <span>Đăng xuất</span>
-                            </a>
+                                <a class="dropdown-item d-flex align-items-center" asp-action="Logout" asp-controller="AdmAccount">
+                                    <i class="bi bi-box-arrow-right"></i>
+                                    <span>Đăng xuất</span>
+                                </a>
+                            if (!User.Identity.IsAuthenticated && User.FindFirstValue(ClaimTypes.Role) == "Admin")
                         </li>
 
                     </ul><!-- End Profile Dropdown Items -->
@@ -348,7 +349,12 @@
                     <span>Báo cáo</span>
                 </a>
             </li><!-- End Profile Page Nav -->
-
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#main">
+                    <i class="bi bi-person"></i>
+                    <span>Số người online: <b id="customerCount">0</b> người</span>
+                </a>
+            </li><!-- End Profile Page Nav -->
         </ul>
 
     </aside><!-- End Sidebar-->
@@ -369,6 +375,9 @@
 
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
+
+    
+
     <!-- Vendor JS Files -->
     <script src="~/content/admin/vendor/apexcharts/apexcharts.min.js"></script>
     <script src="~/content/admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -382,11 +391,13 @@
     <!-- Template Main JS File -->
     <script src="~/content/admin/js/main.js"></script>
     <script src="~/js/imagepreview.js"></script>
+
     <!-- Library Script -->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.min.js"></script>
-    <!-- Tiny -->
+    <script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
 
+    <!-- Tiny -->
     <script src="https://cdn.tiny.cloud/1/xekc15gke11qin6cwkvv4jha5qamongkxqxqkige4s3m32yr/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
         tinymce.init({
@@ -401,6 +412,7 @@
         });
     </script>
 
+    <script src="~/js/admingetcustomercount.js"></script>
 </body>
 
 </html>

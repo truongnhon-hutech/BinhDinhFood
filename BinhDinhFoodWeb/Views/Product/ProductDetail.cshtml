@@ -9,16 +9,16 @@
 	<div class="countdown_inner">
 		-20% This offer ends in <div data-countdown="@DateTime.Now.AddHours(1).ToString("yyyy-MM-dd h:mm tt")" class="countdown"></div>
 	</div>
-	
-	
-	
+
+
+
 
 	<div class="row">
 		<div class="col-md-6">
 			<div class="all">
 				<div class="slider" id="exzoom">
 					<div class="owl-carousel owl-theme main">
-						<div><img src="~/Content/img/products/@Model.ProductImage" class="item-box" ></div>
+						<div><img src="~/Content/img/products/@Model.ProductImage" class="item-box"></div>
 						<div><img src="~/Content/img/products/@Model.ProductImage" class="item-box" style="filter: contrast(200%);"></div>
 						<div><img src="~/Content/img/products/@Model.ProductImage" class="item-box" style="filter: drop-shadow(8px 8px 10px gray);"></div>
 						<div><img src="~/Content/img/products/@Model.ProductImage" class="item-box" style="filter: grayscale(50%);"></div>
@@ -43,7 +43,7 @@
 				</div>
 			</div>
 		</div>
-		
+
 
 		<div class="col-md-6">
 			<div class="breadcrumbs">
@@ -93,8 +93,6 @@
 						   asp-route-id="@Model.ProductId" data-ajax="true" data-ajax-success="addCartAlert" data-ajax-failure="addCartFailAlert" data-ajax-update="#mini-cart">
 								<i class="ti-shopping-cart"></i> Thêm vào giỏ hàng
 							</a>
-
-
 						}
 						else
 						{
@@ -111,7 +109,7 @@
 				<div class="product_actions">
 					<ul>
 						<li>
-							<a href="#"><i class="ti-heart"></i><span>Thêm vào danh sách yêu thích</span></a>
+							<a asp-action="FavoriteList" asp-controller="Cart" asp-route-id="@Model.ProductId"><i class="ti-heart"></i><span>Thêm vào danh sách yêu thích</span></a>
 						</li>
 						<li>
 							<a href="#"><i class="ti-control-shuffle"></i><span>So sánh</span></a>
@@ -173,8 +171,8 @@
 								<h3>Chi tiết</h3>
 								<p>@Model.ProductDescription</p>
 							</div>
-							
-								<div class="col-lg-3">
+
+							<div class="col-lg-3">
 								<h3>Thông tin chi tiết</h3>
 								<div class="table-responsive">
 									<table class="table table-sm table-striped">
@@ -201,8 +199,26 @@
 				</div>
 			</div>
 			<!-- /TAB A -->
-			@await Component.InvokeAsync("ProductRatingComponent", new { id = @Model.ProductId })
-			<p class="text-right"><a asp-action="LeaveReview" asp-controller="Product" asp-route-id="@Model.ProductId" class="btn_1">Bình luận</a></p>
+			<div id="pane-B" class="card tab-pane fade" role="tabpanel" aria-labelledby="tab-B">
+				<div class="card-header" role="tab" id="heading-B">
+					<h5 class="mb-0">
+						<a class="collapsed" data-toggle="collapse" href="#collapse-B" aria-expanded="false" aria-controls="collapse-B">
+							Đánh giá
+						</a>
+					</h5>
+				</div>
+				<div id="collapse-B" class="collapse" role="tabpanel" aria-labelledby="heading-B">
+					<div class="card-body">
+						<div class="row justify-content-between">
+							@await Component.InvokeAsync("ProductRatingComponent", new { id = @Model.ProductId })
+						</div>
+						<!-- /row -->
+					</div>
+					<p class="text-right"><a asp-action="LeaveReview" asp-controller="Product" asp-route-id="@Model.ProductId" class="btn_1">Bình luận</a></p>
+					<!-- /card-body -->
+				</div>
+			</div>
+			<!-- /tab B -->
 
 		</div>
 		<!-- /tab-content -->

@@ -558,3 +558,4 @@ C:\Users\vothu\Downloads\My-first-website-Contest\BinhDinhFood\BinhDinhFoodWeb\o
 C:\Users\vothu\Downloads\My-first-website-Contest\BinhDinhFood\BinhDinhFoodWeb\obj\Debug\net6.0\BinhDinhFoodWeb.genruntimeconfig.cache
 C:\Users\vothu\Downloads\My-first-website-Contest\BinhDinhFood\BinhDinhFoodWeb\obj\Debug\net6.0\ref\BinhDinhFoodWeb.dll
 C:\Users\vothu\Downloads\My-first-website-Contest\BinhDinhFood\BinhDinhFoodWeb\bin\Debug\net6.0\log4net.dll
+C:\Users\vothu\Downloads\My-first-website-Contest\BinhDinhFood\BinhDinhFoodWeb\bin\Debug\net6.0\libman.json

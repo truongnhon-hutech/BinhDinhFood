@@ -331,13 +331,15 @@ namespace BinhDinhFoodWeb.Controllers
         // Order - checkout
         public async Task<IActionResult> Order(bool orderFailed = false)
         {
+            // Authentication user
             if(!User.Identity.IsAuthenticated)
                 return RedirectToAction("Login", "User");
+            
             if (orderFailed) ViewBag.ErrorMessage = "Thanh toán lỗi";
             List<Item> listCart = _cartRepo.Get(HttpContext.Session);
             
+            // get customer 
             int id = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
-            //Customer customer = await _customerRepo.GetByIdAsync(id);
             InforViewModel customer = _userRepository.GetUserInfor(id);
             ViewBag.Name = customer.FullName;
             ViewBag.Phone= customer.Phone;
@@ -405,7 +407,7 @@ namespace BinhDinhFoodWeb.Controllers
         {
             return View();
         }
-        // Track your order
+        // Your order
         public async Task<IActionResult> TrackOrderAsync()
         {
             if (!User.Identity.IsAuthenticated)
@@ -415,7 +417,7 @@ namespace BinhDinhFoodWeb.Controllers
             IEnumerable<Order> obj = await _orderRepo.GetListAsync(filter: x => x.CustomerId == id);
             return View(obj);
         }
-
+        // Your order detail
         public async Task<IActionResult> OderDetail(int id)
         {
             if (!User.Identity.IsAuthenticated)
@@ -454,7 +456,7 @@ namespace BinhDinhFoodWeb.Controllers
             }
         }
         // remove in favorite list
-        public async Task RemoveInFavoriteAsync(int id)
+        public async Task RemoveInFavorite(int id)
         {
             if (!User.Identity.IsAuthenticated)
                 RedirectToAction("Login");
@@ -467,6 +469,12 @@ namespace BinhDinhFoodWeb.Controllers
             {
                 _repoFavorite.Delete(where: x => x.ProductId == id);
             }
+            await _repoFavorite.SaveAsync();
+        }
+        // compare with other products 
+        public IActionResult Compare(int id)
+        {
+            return View();
         }
     }
 }

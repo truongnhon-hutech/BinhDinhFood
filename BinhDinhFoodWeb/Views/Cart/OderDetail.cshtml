@@ -23,6 +23,7 @@
                         <thead>
                             <tr>
                                 <th scope="col">Tên sản phẩm</th>
+                                <th scope="col">Hình sản phẩm</th>
                                 <th scope="col">Đơn giá</th>
                                 <th scope="col">Số lượng</th>
                             </tr>
@@ -32,6 +33,7 @@
                             {
                                 <tr>
                                     <th scope="row">@item.Product.ProductName</th>
+                                    <th scope="row"><img src="~/Content/img/products/@item.Product.ProductImage" width="150"></th>
                                     <td>@item.UnitPrice</td>
                                     <td>@item.Quantity</td>
                                 </tr>
