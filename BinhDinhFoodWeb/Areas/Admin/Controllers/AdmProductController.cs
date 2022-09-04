@@ -16,9 +16,9 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
     public class AdmProductController : Controller
     {
         private readonly BinhDinhFoodDbContext _context;
-        private readonly IHostingEnvironment _appEnvironment;
+        private readonly IWebHostEnvironment _appEnvironment;
 
-        public AdmProductController(BinhDinhFoodDbContext context, IHostingEnvironment appEnvironment)
+        public AdmProductController(BinhDinhFoodDbContext context, IWebHostEnvironment appEnvironment)
         {
             _context = context;
             _appEnvironment = appEnvironment;

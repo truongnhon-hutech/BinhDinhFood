@@ -4,16 +4,15 @@ using BinhDinhFoodWeb.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Cryptography;
 using System.Text;
-using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 
 namespace BinhDinhFoodWeb.Repositories
 {
     public class UserRepository : IUserRepository
     {
         private readonly BinhDinhFoodDbContext _context;
-        private readonly IHostingEnvironment _appEnvironment;
+        private readonly IWebHostEnvironment _appEnvironment;
 
-        public UserRepository(BinhDinhFoodDbContext context, IHostingEnvironment appEnvironment)
+        public UserRepository(BinhDinhFoodDbContext context, IWebHostEnvironment appEnvironment)
         {
             _context = context;
             _appEnvironment = appEnvironment;

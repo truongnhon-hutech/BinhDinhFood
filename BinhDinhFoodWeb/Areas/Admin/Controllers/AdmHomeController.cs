@@ -3,6 +3,7 @@ using BinhDinhFoodWeb.Intefaces;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel;
 using System.Globalization;
+using System.Text.Json;
 
 namespace BinhDinhFoodWeb.Areas.Admin.Controllers
 {
@@ -17,100 +18,24 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
         {
             _context = context;
         }
-
-        public IActionResult Index(string saleOrder, string revenueOrder, string customerOrder)
+        public IActionResult GetSale(string saleOrder)
         {
-            if (saleOrder == null)
-                saleOrder = "today";
-            if (revenueOrder == null)
-                revenueOrder = "today";
-            if (customerOrder == null)
-                customerOrder = "today";
-
-            int objSale = 0;
-            switch (saleOrder)
-            {
-                case "today":
-                    objSale = _context.Orders.Where(
-                        x => x.DayOrder.Day == DateTime.Now.Day
-                        && x.DayOrder.Month == DateTime.Now.Month
-                        && x.DayOrder.Year == DateTime.Now.Year
-                        ).Count();
-                    ViewBag.SalePercent = objSale;
-                    ViewBag.SaleDay = "Hôm nay";
-                    break;
-                case "thisMonth":
-                    objSale = _context.Orders.Where(
-                        x => x.DayOrder.Year == DateTime.Now.Year
-                        && x.DayOrder.Month == DateTime.Now.Month
-                        ).Count();
-                    ViewBag.SaleDay = "Tháng này";
-                    ViewBag.SalePercent = objSale;
-                    break;
-                case "thisYear":
-                    objSale = _context.Orders.Where(x => x.DayOrder.Year == DateTime.Now.Year).Count();
-                    ViewBag.SaleDay = "Năm này";
-                    ViewBag.SalePercent = objSale;
-                    break;
-            }
-            ViewBag.SaleNumbers = objSale;
-
-            double objRevenue = 0;
-            switch (revenueOrder)
-            {
-                case "today":
-                    objRevenue = _context.Orders.Where(
-                        x => x.DayOrder.Day == DateTime.Now.Day
-                        && x.DayOrder.Month == DateTime.Now.Month
-                        && x.DayOrder.Year == DateTime.Now.Year
-                        ).Sum(x => x.TotalMoney);
-                    ViewBag.RevenuePercent = objRevenue;
-                    ViewBag.RevenueDay = "Hôm nay";
-                    break;
-                case "thisMonth":
-                    objRevenue = _context.Orders.Where(
-                        x => x.DayOrder.Year == DateTime.Now.Year
-                        && x.DayOrder.Month == DateTime.Now.Month
-                        ).Sum(x => x.TotalMoney);
-                    ViewBag.RevenueDay = "Tháng này";
-                    ViewBag.RevenuePercent = objRevenue;
-                    break;
-                case "thisYear":
-                    objRevenue = _context.Orders.Where(x => x.DayOrder.Year == DateTime.Now.Year).Sum(x => x.TotalMoney);
-                    ViewBag.RevenueDay = "Năm này";
-                    ViewBag.RevenuePercent = objRevenue;
-                    break;
-            }
-            ViewBag.RevenueNumbers = objRevenue.ToString("#,###", cul.NumberFormat);
-
-            int objCustomer = 0;
-            switch (customerOrder)
-            {
-                case "today":
-                    objCustomer = _context.Customers.Where(
-                        x => x.CustomerDateCreated.Day == DateTime.Now.Day
-                        && x.CustomerDateCreated.Month == DateTime.Now.Month
-                        && x.CustomerDateCreated.Year == DateTime.Now.Year
-                        ).Count();
-                    ViewBag.CustomerPercent = (objCustomer);
-                    ViewBag.CustomerDay = "Hôm nay";
-                    break;
-                case "thisMonth":
-                    objCustomer = _context.Customers.Where(
-                        x => x.CustomerDateCreated.Year == DateTime.Now.Year
-                        && x.CustomerDateCreated.Month == DateTime.Now.Month
-                        ).Count();
-                    ViewBag.CustomerDay = "Tháng này";
-                    ViewBag.CustomerPercent = (objCustomer);
-                    break;
-                case "thisYear":
-                    objCustomer = _context.Customers.Where(x => x.CustomerDateCreated.Year == DateTime.Now.Year).Count();
-                    ViewBag.CustomerDay = "Năm này";
-                    ViewBag.CustomerPercent = (objCustomer);
-                    break;
-            }
-            ViewBag.CustomerNumbers = objCustomer;
-
+            return ViewComponent("SaleComponent", saleOrder);
+        }
+        public IActionResult GetRevenue(string revenueOrder)
+        {
+            return ViewComponent("RevenueComponent", revenueOrder);
+        }
+        public IActionResult GetCustomer(string customerOrder)
+        {
+            return ViewComponent("CustomerComponent", customerOrder);
+        }
+        public IActionResult GetRecentActivity(string order)
+        {
+            return ViewComponent("ActivityComponent", order);
+        }
+        public IActionResult Index()
+        {
             var saleChart1 = _context.Orders.Where(
                         x => x.DayOrder.Month >= 1 && x.DayOrder.Month <= 4
                         && x.DayOrder.Year == DateTime.Now.Year
@@ -123,25 +48,37 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
                         x => x.DayOrder.Month >= 8 && x.DayOrder.Month <= 12
                         && x.DayOrder.Year == DateTime.Now.Year
                         ).Count();
-            ViewBag.saleChart1 = saleChart1;
-            ViewBag.saleChart2 = saleChart2;
-            ViewBag.saleChart3 = saleChart3;
-
+            ViewBag.saleChart = JsonSerializer.Serialize(new List<Int32>
+                {
+                    saleChart1,
+                    saleChart2,
+                    saleChart3,
+                    saleChart1,
+                    saleChart2,
+                    saleChart3
+                });
             var revenueChart1 = _context.Orders.Where(
-                       x => x.DayOrder.Month >= 1 && x.DayOrder.Month <= 4
-                       && x.DayOrder.Year == DateTime.Now.Year
-                       ).Sum(x => x.TotalMoney);
+                x => x.DayOrder.Month >= 1 && x.DayOrder.Month <= 4
+                && x.DayOrder.Year == DateTime.Now.Year
+                ).Sum(x => x.TotalMoney) / 100000;
             var revenueChart2 = _context.Orders.Where(
                         x => x.DayOrder.Month >= 4 && x.DayOrder.Month <= 8
                         && x.DayOrder.Year == DateTime.Now.Year
-                        ).Sum(x => x.TotalMoney);
+                        ).Sum(x => x.TotalMoney) / 100000;
             var revenueChart3 = _context.Orders.Where(
                         x => x.DayOrder.Month >= 8 && x.DayOrder.Month <= 12
                         && x.DayOrder.Year == DateTime.Now.Year
-                        ).Sum(x => x.TotalMoney);
-            ViewBag.revenueChart1 = revenueChart1 / 100000;
-            ViewBag.revenueChart2 = revenueChart2 / 100000;
-            ViewBag.revenueChart3 = revenueChart3 / 100000;
+                        ).Sum(x => x.TotalMoney) / 100000;
+
+            ViewBag.revenueChart = JsonSerializer.Serialize(new List<Double>
+            {
+                revenueChart2,
+                revenueChart2,
+                revenueChart1,
+                revenueChart2,
+                revenueChart3,
+                revenueChart1
+            });
 
             var customerChart1 = _context.Customers.Where(
                         x => x.CustomerDateCreated.Month >= 1 && x.CustomerDateCreated.Month <= 4
@@ -155,9 +92,15 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
                         x => x.CustomerDateCreated.Month >= 8 && x.CustomerDateCreated.Month <= 12
                         && x.CustomerDateCreated.Year == DateTime.Now.Year
                         ).Count();
-            ViewBag.customerChart1 = customerChart1;
-            ViewBag.customerChart2 = customerChart2;
-            ViewBag.customerChart3 = customerChart3;
+            ViewBag.customerChart = JsonSerializer.Serialize(new List<Int32>
+            {
+                customerChart1,
+                customerChart2,
+                customerChart3,
+                customerChart3,
+                customerChart2,
+                customerChart1
+            });
             return View();
         }
     }

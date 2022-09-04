@@ -430,7 +430,7 @@ namespace BinhDinhFoodWeb.Controllers
                 return RedirectToAction("Login");
 
             int id = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
-            var obj = await _repoFavorite.GetListAsync(filter: x => x.CustomerId == id);
+            var obj = await _repoFavorite.GetListAsync(filter: x => x.CustomerId == id, includeProperties: "Product");
             return View(obj);
         }
         // add in favorite List

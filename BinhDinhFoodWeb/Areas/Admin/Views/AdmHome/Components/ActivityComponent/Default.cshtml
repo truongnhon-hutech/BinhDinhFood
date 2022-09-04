@@ -1,0 +1,16 @@
+
+<h5 class="card-title">Cập nhật gần đây <span>| @ViewBag.ActivityTime</span></h5>
+<div class="activity">
+    @{
+    foreach (var item in Model)
+        {
+            <div class="activity-item d-flex">
+                <div class="activite-label">@(((DateTime.Now - @item.BuyTime).Days != 0) ? $"{(DateTime.Now - @item.BuyTime).Days} ngày" : "") @(((DateTime.Now - @item.BuyTime).Hours != 0) ? $"{(DateTime.Now - @item.BuyTime).Hours} giờ" : "") @(((DateTime.Now - @item.BuyTime).Minutes > 0) ? $"{(DateTime.Now - @item.BuyTime).Minutes} phút" : "vài giây") trước</div>
+                <i class='bi bi-circle-fill activity-badge @item.TextColor align-self-start'></i>
+                <div class="activity-content">
+                    @item.UserFullName đã mua @item.Quantity - @item.ProductName 
+                </div>
+            </div><!-- End activity item-->
+        }
+    }
+</div>

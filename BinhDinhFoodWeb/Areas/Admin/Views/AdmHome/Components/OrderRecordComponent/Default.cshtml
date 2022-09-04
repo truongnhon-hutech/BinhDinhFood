@@ -1,0 +1,12 @@
+﻿
+@foreach (var item in Model)
+{
+
+    <tr>
+        <th scope="row"><a href="#">#@item.OrderId</a></th>
+        <td>@item.CustomerName</td>
+        <td><a href="#" class="text-primary">@item.ProductName</a></td>
+        <td>@item.TotalMoney Đ</td>
+        <td><span class="badge bg-success">@item.Status</span></td>
+    </tr>
+}

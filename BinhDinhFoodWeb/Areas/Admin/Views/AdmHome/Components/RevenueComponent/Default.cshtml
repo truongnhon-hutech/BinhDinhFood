@@ -1,1 +1,15 @@
-﻿
+﻿<div class="card-body">
+    <h5 class="card-title"> Doanh thu <span> | @ViewBag.RevenueDay </span> </h5>
+
+
+    <div class="d-flex align-items-center">
+        <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+            <i class="bi bi-currency-dollar"></i>
+        </div>
+        <div class="ps-3">
+            <h6>@ViewBag.RevenueNumbers Đ</h6>
+            <span class="@ViewBag.RevenueColor small pt-1 fw-bold">@ViewBag.RevenuePercent%</span> <span class="text-muted small pt-2 ps-1">@ViewBag.RevenueStatus</span>
+
+        </div>
+    </div>
+</div>

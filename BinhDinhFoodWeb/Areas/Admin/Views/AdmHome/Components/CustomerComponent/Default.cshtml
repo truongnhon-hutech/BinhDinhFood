@@ -1,1 +1,16 @@
-﻿
+﻿<div class="card-body">
+    <h5 class="card-title"> Khách hàng <span> | @ViewBag.CustomerDay </span> </h5>
+
+
+    <div class="d-flex align-items-center">
+        <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+            <i class="bi bi-people"></i>
+        </div>
+        <div class="ps-3">
+            <h6>@ViewBag.CustomerNumbers</h6>
+            <span class="@ViewBag.CustomerColor small pt-1 fw-bold">@ViewBag.CustomerPercent%</span> <span class="text-muted small pt-2 ps-1">@ViewBag.CustomerStatus</span>
+
+        </div>
+    </div>
+
+</div>

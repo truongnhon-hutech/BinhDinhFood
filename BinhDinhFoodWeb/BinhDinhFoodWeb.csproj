@@ -16,6 +16,10 @@
     <None Include="Areas\Admin\Views\AdmAccount\Login.cshtml" />
     <None Include="Areas\Admin\Views\AdmAccount\ResetPassword.cshtml" />
     <None Include="Areas\Admin\Views\AdmAccount\ShowMessage.cshtml" />
+    <None Include="Areas\Admin\Views\AdmHome\Components\CustomerComponent\Default.cshtml" />
+    <None Include="Areas\Admin\Views\AdmHome\Components\RevenueComponent\Default.cshtml" />
+    <None Include="Areas\Admin\Views\AdmHome\Components\SaleComponent\Default.cshtml" />
+    <None Include="Areas\Admin\Views\AdmHome\Index.cshtml" />
     <None Include="wwwroot\Content\img\staff\avatar.jpg" />
     <None Include="wwwroot\Content\sass\.sass-cache\15d0ecb28ac2ebbde0040e5fc526352bdf258014\about.scssc" />
     <None Include="wwwroot\Content\sass\.sass-cache\15d0ecb28ac2ebbde0040e5fc526352bdf258014\account.scssc" />

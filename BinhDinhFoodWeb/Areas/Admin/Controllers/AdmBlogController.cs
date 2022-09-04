@@ -14,10 +14,10 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
     [Area("Admin")]
     public class AdmBlogController : Controller
     {
-        private readonly IHostingEnvironment _appEnvironment;
+        private readonly IWebHostEnvironment _appEnvironment;
         private readonly BinhDinhFoodDbContext _context;
 
-        public AdmBlogController(BinhDinhFoodDbContext context, IHostingEnvironment appEnvironment)
+        public AdmBlogController(BinhDinhFoodDbContext context, IWebHostEnvironment appEnvironment)
         {
             _context = context;
             _appEnvironment = appEnvironment;
