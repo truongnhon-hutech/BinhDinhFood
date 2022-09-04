@@ -20,10 +20,10 @@ namespace BinhDinhFood.Models
 
         [Column(TypeName = "money")]
         [DisplayName("Đơn giá")]
-        public decimal? UnitPrice { get; set; }
+        public decimal UnitPrice { get; set; }
         [DisplayName("Số lượng")]
 
-        public int? Quantity { get; set; }
+        public int Quantity { get; set; }
 
         public virtual Order Order { get; set; }
 

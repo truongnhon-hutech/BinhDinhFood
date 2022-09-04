@@ -40,6 +40,7 @@ namespace BinhDinhFood.Models
         public string? CustomerImage { get; set; }
         public ICollection<Order> Orders { get; set; }
         public virtual ICollection<ProductRating> ProductRatings { get; set; }
+        public virtual ICollection<Favorite> Favorites { get; set; }
 
 
     }

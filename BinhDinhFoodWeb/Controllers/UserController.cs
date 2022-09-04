@@ -13,6 +13,7 @@ namespace BinhDinhFoodWeb.Controllers
         private readonly IUserManager _userManager;
         private readonly IMailService _mailService;
         private readonly ITokenRepository _tokenRepository;
+
         public UserController(IUserRepository repo, IUserManager userManager, IMailService mailService, ITokenRepository tokenRepository)
         {
             _repo = repo;
@@ -191,5 +192,6 @@ namespace BinhDinhFoodWeb.Controllers
             
             return View(model);
         }
+        
     }
 }

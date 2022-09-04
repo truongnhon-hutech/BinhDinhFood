@@ -23,14 +23,17 @@ namespace BinhDinhFoodWeb.Controllers
         private readonly IOrderRepository _orderRepo;
         private readonly IOrderDetailRepository _orderDetailRepo;
         private readonly IConfiguration _configuration;
+        private readonly IFavoriteRepository _repoFavorite;
+
         private double shippingCost = 30000;
-        public CartController(ICartRepository cartRepo, IProductRepository productRepo, IOrderDetailRepository orderDetailRepo, IOrderRepository orderRepo,IUserRepository userRepository, IConfiguration configuration)
+        public CartController(ICartRepository cartRepo, IProductRepository productRepo, IOrderDetailRepository orderDetailRepo, IOrderRepository orderRepo,IUserRepository userRepository, IConfiguration configuration, IFavoriteRepository favoriteRepository)
         {
             _cartRepo = cartRepo;
             _productRepo = productRepo;
             _orderRepo = orderRepo;
             _orderDetailRepo = orderDetailRepo;
             _userRepository = userRepository;
+            _repoFavorite = favoriteRepository;
             _configuration = configuration;
         }
         private async Task CompletePayment(bool paidState)
@@ -355,8 +358,10 @@ namespace BinhDinhFoodWeb.Controllers
         {
             if (!User.Identity.IsAuthenticated) RedirectToAction("Login", "User");
             var totalMoney = TotalMoney()+shippingCost;
+
             List<Item> listCart = _cartRepo.Get(HttpContext.Session);
             int id = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
+
             Order or = new Order();
             or.CustomerId = id;
             or.DayOrder = DateTime.Now;
@@ -417,6 +422,51 @@ namespace BinhDinhFoodWeb.Controllers
                 return RedirectToAction("Login");
             IEnumerable<OrderDetail> obj = await _orderDetailRepo.GetListAsync(filter: x => x.OrderId == id, includeProperties: "Product");
             return View(obj);
+        }
+        // get favorite List
+        public async Task<IActionResult> FavoriteList()
+        {
+            if (!User.Identity.IsAuthenticated)
+                return RedirectToAction("Login");
+
+            int id = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            var obj = await _repoFavorite.GetListAsync(filter: x => x.CustomerId == id);
+            return View(obj);
+        }
+        // add in favorite List
+        public async Task AddInFavorite(int id)
+        {
+            if (!User.Identity.IsAuthenticated)
+                RedirectToAction("Login");
+
+            int userid = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
+           var listFav = await _repoFavorite.GetListAsync(filter: x => x.CustomerId == userid);
+
+            bool isInFav = listFav.Any(x => x.ProductId == id);
+            if (!isInFav)
+            {
+                Favorite newItem = new Favorite {
+                    Product = await _productRepo.GetByIdAsync(id),
+                    CustomerId = userid
+                };
+                await _repoFavorite.AddAsync(newItem);
+                await _repoFavorite.SaveAsync();
+            }
+        }
+        // remove in favorite list
+        public async Task RemoveInFavoriteAsync(int id)
+        {
+            if (!User.Identity.IsAuthenticated)
+                RedirectToAction("Login");
+
+            int userid = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            var listFav = await _repoFavorite.GetListAsync(filter: x => x.CustomerId == userid);
+
+            bool isInFav = listFav.Any(x => x.ProductId == id);
+            if (isInFav)
+            {
+                _repoFavorite.Delete(where: x => x.ProductId == id);
+            }
         }
     }
 }

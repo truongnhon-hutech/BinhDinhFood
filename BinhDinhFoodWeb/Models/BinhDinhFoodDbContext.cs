@@ -19,6 +19,7 @@ namespace BinhDinhFood.Models
         public DbSet<Banner> Blogs{ get; set; }
         public DbSet<Token> Tokens { get; set; }
         public DbSet<Banner> Banners { get; set; }
+        public DbSet<Favorite> Favorites { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -31,6 +32,7 @@ namespace BinhDinhFood.Models
             modelBuilder.Entity<Banner>().ToTable("Blog");
             modelBuilder.Entity<Token>().ToTable("Token");
             modelBuilder.Entity<Banner>().ToTable("Banner");
+            modelBuilder.Entity<Favorite>().ToTable("Favorite");
 
             modelBuilder.Entity<OrderDetail>()
                 .HasKey(c => new { c.ProductId, c.OrderId });
@@ -46,6 +48,12 @@ namespace BinhDinhFood.Models
 
             modelBuilder.Entity<Customer>()
                 .HasMany(g => g.ProductRatings);
+
+            modelBuilder.Entity<Product>()
+               .HasMany(g => g.Favorites);
+
+            modelBuilder.Entity<Customer>()
+                .HasMany(g => g.Favorites);
 
             modelBuilder.Entity<Admin>()
                 .HasIndex(g => g.AdminUserName)

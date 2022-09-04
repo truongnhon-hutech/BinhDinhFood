@@ -175,10 +175,10 @@ namespace BinhDinhFoodWeb.Migrations
                         .HasColumnType("int")
                         .HasColumnOrder(0);
 
-                    b.Property<int?>("Quantity")
+                    b.Property<int>("Quantity")
                         .HasColumnType("int");
 
-                    b.Property<decimal?>("UnitPrice")
+                    b.Property<decimal>("UnitPrice")
                         .HasColumnType("money");
 
                     b.HasKey("ProductId", "OrderId");
@@ -289,6 +289,32 @@ namespace BinhDinhFoodWeb.Migrations
                     b.ToTable("Blog");
                 });
 
+            modelBuilder.Entity("BinhDinhFoodWeb.Models.Favorite", b =>
+                {
+                    b.Property<int>("FavoriteId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FavoriteId"), 1L, 1);
+
+                    b.Property<int>("CustomerId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("PRDateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.HasKey("FavoriteId");
+
+                    b.HasIndex("CustomerId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("Favorite", (string)null);
+                });
+
             modelBuilder.Entity("BinhDinhFoodWeb.Models.ProductRating", b =>
                 {
                     b.Property<int>("ProductRatingId")
@@ -387,6 +413,25 @@ namespace BinhDinhFoodWeb.Migrations
                     b.Navigation("Category");
                 });
 
+            modelBuilder.Entity("BinhDinhFoodWeb.Models.Favorite", b =>
+                {
+                    b.HasOne("BinhDinhFood.Models.Customer", "Customer")
+                        .WithMany("Favorites")
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BinhDinhFood.Models.Product", "Product")
+                        .WithMany("Favorites")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Customer");
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("BinhDinhFoodWeb.Models.ProductRating", b =>
                 {
                     b.HasOne("BinhDinhFood.Models.Customer", "Customer")
@@ -413,6 +458,8 @@ namespace BinhDinhFoodWeb.Migrations
 
             modelBuilder.Entity("BinhDinhFood.Models.Customer", b =>
                 {
+                    b.Navigation("Favorites");
+
                     b.Navigation("Orders");
 
                     b.Navigation("ProductRatings");
@@ -425,6 +472,8 @@ namespace BinhDinhFoodWeb.Migrations
 
             modelBuilder.Entity("BinhDinhFood.Models.Product", b =>
                 {
+                    b.Navigation("Favorites");
+
                     b.Navigation("OrderDetails");
 
                     b.Navigation("ProductRatings");
