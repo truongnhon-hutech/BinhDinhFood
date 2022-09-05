@@ -111,7 +111,9 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
             Period time = new Period(option);
 
             //Lấy data từ cơ sở dữ liệu
-            var data = _productRepository.GetProductWithAmount(time.startDate, time.endDate).OrderByDescending(x => x.Value).ToArray();
+            var data = _productRepository
+                .GetProductWithAmount(time.startDate, time.endDate)
+                .OrderByDescending(x => x.Value).ToArray();
             int amount = data.Count();// số lượng cột của chart
 
             //Tạo chart mới với số cột amount

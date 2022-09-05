@@ -26,7 +26,7 @@ namespace BinhDinhFoodWeb.Controllers
         private readonly IFavoriteRepository _repoFavorite;
 
         private double shippingCost = 30000;
-        public CartController(ICartRepository cartRepo, IProductRepository productRepo, IOrderDetailRepository orderDetailRepo, IOrderRepository orderRepo,IUserRepository userRepository, IConfiguration configuration, IFavoriteRepository favoriteRepository)
+        public CartController(ICartRepository cartRepo, IProductRepository productRepo, IOrderDetailRepository orderDetailRepo, IOrderRepository orderRepo, IUserRepository userRepository, IConfiguration configuration, IFavoriteRepository favoriteRepository)
         {
             _cartRepo = cartRepo;
             _productRepo = productRepo;
@@ -64,7 +64,7 @@ namespace BinhDinhFoodWeb.Controllers
             // clear cart
             _cartRepo.Set(HttpContext.Session, new List<Item>());
         }
-        private void VnPayPayment(double totalMoney,int orderId)
+        private void VnPayPayment(double totalMoney, int orderId)
         {
             string vnp_Returnurl = _configuration["VnPaySettings:vnp_Returnurl"]; //URL nhan ket qua tra ve 
             string vnp_Url = _configuration["VnPaySettings:vnp_Url"]; //URL thanh toan cua VNPAY 
@@ -75,7 +75,7 @@ namespace BinhDinhFoodWeb.Controllers
 
             OrderInfo order = new OrderInfo();
             order.OrderId = orderId;// Giả lập mã giao dịch hệ thống merchant gửi sang VNPAY
-            order.Amount = (long)(totalMoney+shippingCost);// Giả lập số tiền thanh toán hệ thống merchant gửi sang VNPAY giá gói
+            order.Amount = (long)(totalMoney + shippingCost);// Giả lập số tiền thanh toán hệ thống merchant gửi sang VNPAY giá gói
             order.Status = "0"; //0: Trạng thái thanh toán "chờ thanh toán" hoặc "Pending"
             order.OrderDesc = "Thanh toan Binh Dinh Food";
             order.CreatedDate = DateTime.Now;
@@ -135,7 +135,7 @@ namespace BinhDinhFoodWeb.Controllers
                 //vnp_TransactionNo: Ma GD tai he thong VNPAY
                 //vnp_ResponseCode:Response code from VNPAY: 00: Thanh cong, Khac 00: Xem tai lieu
                 //vnp_SecureHash: HmacSHA512 cua du lieu tra ve
-                
+
                 //long orderId = Convert.ToInt64(vnpay.GetResponseData("vnp_TxnRef"));
                 //long vnpayTranId = Convert.ToInt64(vnpay.GetResponseData("vnp_TransactionNo"));
                 string vnp_ResponseCode = vnpay.GetResponseData("vnp_ResponseCode");
@@ -155,12 +155,12 @@ namespace BinhDinhFoodWeb.Controllers
                         //return RedirectToAction("Index", "Home");
                         int orderId = Convert.ToInt32(findId);
                         await _orderRepo.UpdatePaymentState(orderId);
-                        return RedirectToAction("Index","Home");
+                        return RedirectToAction("Index", "Home");
                         //return View();
                     }
                 }
             }
-            return RedirectToAction("Order", "Cart", new { orderFailed = true });      
+            return RedirectToAction("Order", "Cart", new { orderFailed = true });
         }
         public void MOMOPayment(double totalMoney, int orderID)
         {
@@ -229,7 +229,7 @@ namespace BinhDinhFoodWeb.Controllers
                 int orderId = Convert.ToInt32(findId);
                 await _orderRepo.UpdatePaymentState(orderId);
             }
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("Index", "Home");
         }
         public IActionResult Index()
         {
@@ -262,7 +262,7 @@ namespace BinhDinhFoodWeb.Controllers
                 var quantity = cart.Quantity + value;
                 if (quantity >= 0)
                     cart.Quantity = quantity;
-                    _cartRepo.Set(HttpContext.Session, listCart);
+                _cartRepo.Set(HttpContext.Session, listCart);
             }
             return ViewComponent("ItemComponent", cart);
         }
@@ -279,7 +279,7 @@ namespace BinhDinhFoodWeb.Controllers
         // Add product to cart
         public async Task<IActionResult> AddInCart(int id)
         {
-            
+
             List<Item> listCart = _cartRepo.Get(HttpContext.Session);
             bool isInCart = listCart.Any(x => x.Product.ProductId == id);
             if (!isInCart)
@@ -298,7 +298,7 @@ namespace BinhDinhFoodWeb.Controllers
         // remove product in cart
         public IActionResult RemoveInCart(int id)
         {
-            
+
             List<Item> listCart = _cartRepo.Get(HttpContext.Session);
             bool cart = listCart.Any(x => x.Product.ProductId == id);
             if (cart)
@@ -332,23 +332,23 @@ namespace BinhDinhFoodWeb.Controllers
         public async Task<IActionResult> Order(bool orderFailed = false)
         {
             // Authentication user
-            if(!User.Identity.IsAuthenticated)
+            if (!User.Identity.IsAuthenticated)
                 return RedirectToAction("Login", "User");
-            
+
             if (orderFailed) ViewBag.ErrorMessage = "Thanh toán lỗi";
             List<Item> listCart = _cartRepo.Get(HttpContext.Session);
-            
+
             // get customer 
             int id = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
             InforViewModel customer = _userRepository.GetUserInfor(id);
             ViewBag.Name = customer.FullName;
-            ViewBag.Phone= customer.Phone;
+            ViewBag.Phone = customer.Phone;
             ViewBag.Address = customer.Address;
             ViewBag.Email = customer.Email;
 
             if (listCart == null)
                 return RedirectToAction("Order", "Cart");
-            
+
             ViewData["TotalSubMoney"] = TotalMoney().ToString("#,###", cul.NumberFormat);
             ViewData["ShippingCost"] = shippingCost.ToString("#,###", cul.NumberFormat);
             ViewData["TotalMoney"] = (shippingCost + TotalMoney()).ToString("#,###", cul.NumberFormat);
@@ -360,7 +360,7 @@ namespace BinhDinhFoodWeb.Controllers
         {
             if (!User.Identity.IsAuthenticated)
                 RedirectToAction("Login", "User");
-            var totalMoney = TotalMoney()+shippingCost;
+            var totalMoney = TotalMoney() + shippingCost;
 
             List<Item> listCart = _cartRepo.Get(HttpContext.Session);
             int id = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
@@ -391,13 +391,13 @@ namespace BinhDinhFoodWeb.Controllers
             int paymentMethod = Convert.ToInt32(form["ChoosePaymentMethod"]);
             if (paymentMethod == 2)
             {
-                VnPayPayment(totalMoney,or.OrderId);
+                VnPayPayment(totalMoney, or.OrderId);
             }
-            else if(paymentMethod == 1)
+            else if (paymentMethod == 1)
             {
                 MOMOPayment(totalMoney, or.OrderId);
             }
-            else if(paymentMethod == 0)
+            else if (paymentMethod == 0)
             {
                 Response.Redirect("Confirm");
             }
@@ -434,7 +434,7 @@ namespace BinhDinhFoodWeb.Controllers
         public async Task<IActionResult> FavoriteList()
         {
             if (!User.Identity.IsAuthenticated)
-                return RedirectToAction("Login");
+                return RedirectToAction("Login", "User");
 
             int id = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
             var obj = await _repoFavorite.GetListAsync(filter: x => x.CustomerId == id, includeProperties: "Product");
@@ -443,16 +443,14 @@ namespace BinhDinhFoodWeb.Controllers
         // add in favorite List
         public async Task AddInFavorite(int id)
         {
-            if (!User.Identity.IsAuthenticated)
-                RedirectToAction("Login");
-
             int userid = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
-           var listFav = await _repoFavorite.GetListAsync(filter: x => x.CustomerId == userid);
+            var listFav = await _repoFavorite.GetListAsync(filter: x => x.CustomerId == userid);
 
             bool isInFav = listFav.Any(x => x.ProductId == id);
             if (!isInFav)
             {
-                Favorite newItem = new Favorite {
+                Favorite newItem = new Favorite
+                {
                     Product = await _productRepo.GetByIdAsync(id),
                     CustomerId = userid
                 };
@@ -463,8 +461,6 @@ namespace BinhDinhFoodWeb.Controllers
         // remove in favorite list
         public async Task<IActionResult> RemoveInFavorite(int id)
         {
-            if (!User.Identity.IsAuthenticated)
-                return RedirectToAction("Login");
 
             int userid = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
             var listFav = await _repoFavorite.GetListAsync(filter: x => x.CustomerId == userid);

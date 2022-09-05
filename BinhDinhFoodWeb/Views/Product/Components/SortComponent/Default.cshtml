@@ -1,33 +1,33 @@
-﻿<div class="toolbox elemento_stick">
-    <div class="container">
-        <nav class="categories">
+﻿
 
+
+<form asp-action="SearchByFilter" method="get">
+
+    <div class="toolbox elemento_stick">
+        <div class="container">
+            <input value="Lọc" type="submit" id="filter-submit" hidden />
             <ul class="clearfix">
                 <li>
-                    <strong>
-                        Sắp xếp theo
-                    </strong>
-                    <div id="menu">
-                        <ul>
-                            <li>
-                                <a asp-action="SearchByFilter" asp-route-sortOrder="@ViewData["discount"]" value="discount">Khuyến mãi</a>
-                            </li>
-                            <li>
-                                <a asp-action="SearchByFilter" asp-route-sortOrder="@ViewData["date_asce"]" value="date_asce">Mới nhất</a>
-                            </li>
-                            <li>
-                                <a asp-action="SearchByFilter" asp-route-sortOrder="@ViewData["date_desc"]" value="date_desc">Cũ nhất</a>
-                            </li>
-                            <li>
-                                <a asp-action="SearchByFilter" asp-route-sortOrder="@ViewData["price_desc"]" value="price_desc">Giá thấp đến cao</a>
-                            </li>
-                            <li>
-                                <a asp-action="SearchByFilter" asp-route-sortOrder="@ViewData["price_asce"]" value="price_asce">Giá cao đến thấp</a>
-                            </li>
-                        </ul>
+                    <div class="sort_select">
+                        <select name="sort" id="sort">
+                            <option value="discount" selected="selected">Khuyến mãi</option>
+                            <option value="date_asce">Mới nhất</option>
+                            <option value="date_desc">Cũ nhất</option>
+                            <option value="price_asce">Giá cao đến thấp</option>
+                            <option value="price_desc">Giá thấp đến cao</option>
+                        </select>
                     </div>
                 </li>
+                <li>
+                    <a asp-action="Index" asp-controller="Product">
+                        <i class="ti-view-grid"></i>
+                    </a>
+                   
+                    <a asp-action="ListView" asp-controller="Product"><i class="ti-view-list"></i></a>
+
+                </li>
+                <label for="filter-submit"><span><i class="ti-filter"></i>Lọc</span></label>
             </ul>
-        </nav>
+        </div>
     </div>
-</div>
+</form>

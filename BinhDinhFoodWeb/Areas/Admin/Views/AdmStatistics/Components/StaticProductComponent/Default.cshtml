@@ -1,17 +1,4 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-<form asp-action="StaticProduct" method="get">
-    <select name="option">
-        <option selected value=@ViewData["option"]>@ViewData["optionName"]</option>
-        <option value=0>Doanh số</option>
-        <option value=1>Doanh thu</option>
-    </select>
-    <select name="product" asp-items="@ViewData["listProduct"] as SelectList"></select>
-    <input type="submit" value="Submit" />
-</form>
+﻿
 <canvas id="newchart"></canvas>
 <!--<div class="row">-->
 <!-- Pie Chart -->

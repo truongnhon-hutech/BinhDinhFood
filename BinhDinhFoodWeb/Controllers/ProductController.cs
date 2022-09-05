@@ -24,11 +24,17 @@ namespace BinhDinhFoodWeb.Controllers
             var obj = await _repoProduct.GetListAsync();
             return View(obj.ToPagedList(page, 9));
         }
+        // List view
+        public async Task<IActionResult> ListView(int page = 1)
+        {
+            var obj = await _repoProduct.GetListAsync();
+            return View(obj.ToPagedList(page, 5));
+        }
         // Product Details page
         public async Task<IActionResult> ProductDetail(int id)
         {
             var obj = await _repoProduct.GetByIdAsync(id);
-            ViewBag.Review = _repoProductRating.Count(x => x.ProductId == id);
+            ViewBag.Review = _repoProductRating.Count(x => x.ProductId == id)   ;
             return View(obj);
         }
         // Write review for PD 
@@ -58,7 +64,7 @@ namespace BinhDinhFoodWeb.Controllers
             return View();
         }
         // Search feature
-        public async Task<IActionResult> SearchByFilter(string name, int? categoryId, string sortOrder, int page = 1)
+        public async Task<IActionResult> SearchByFilter(string name, int? categoryId, string sort, int page = 1)
         {
             IEnumerable<Product> obj = await _repoProduct.GetListAsync();
             if (!string.IsNullOrEmpty(name))
@@ -67,13 +73,13 @@ namespace BinhDinhFoodWeb.Controllers
             if (categoryId.HasValue)
                 obj = await _repoProduct.GetListAsync(filter: x => x.CategoryId == categoryId);
 
-            switch (sortOrder)
+            switch (sort)
             {
                 case "date_desc":
-                    obj = await _repoProduct.GetListAsync(orderBy: x => x.OrderByDescending(x => x.ProductDateCreated));
+                    obj = await _repoProduct.GetListAsync(orderBy: x => x.OrderBy(x => x.ProductDateCreated));
                     break;
                 case "date_asce":
-                    obj = await _repoProduct.GetListAsync(orderBy: x => x.OrderBy(x => x.ProductDateCreated));
+                    obj = await _repoProduct.GetListAsync(orderBy: x => x.OrderByDescending(x => x.ProductDateCreated));
                     break;
                 case "price_desc":
                     obj = await _repoProduct.GetListAsync(orderBy: x => x.OrderByDescending(x => x.ProductPrice));
@@ -85,9 +91,8 @@ namespace BinhDinhFoodWeb.Controllers
                     obj = await _repoProduct.GetListAsync(orderBy: x => x.OrderByDescending(x => x.ProductDiscount));
                     break;
             }
-            return View(obj.ToPagedList(page, 7));
+            return View(obj.ToPagedList(page, 9));
         }
-        [HttpGet]
         public async Task<IActionResult> Filter()
         {
             var objCategory = await _repoCategory.GetListAsync();
@@ -104,11 +109,5 @@ namespace BinhDinhFoodWeb.Controllers
             //}
             return View();
         }
-        [HttpPost]
-        public async Task<IActionResult> Filter(IFormCollection form)
-        {
-            return View();
-        }
-       
     }
 }

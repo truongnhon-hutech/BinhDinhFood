@@ -224,11 +224,13 @@
                         </li>
 
                         <li>
+                            @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                            {   
                                 <a class="dropdown-item d-flex align-items-center" asp-action="Logout" asp-controller="AdmAccount">
                                     <i class="bi bi-box-arrow-right"></i>
                                     <span>Đăng xuất</span>
                                 </a>
-                            if (!User.Identity.IsAuthenticated && User.FindFirstValue(ClaimTypes.Role) == "Admin")
+                            }
                         </li>
 
                     </ul><!-- End Profile Dropdown Items -->

@@ -3,17 +3,8 @@
 *@
 @{
 }
-<form asp-action="StaticProductRevenue" method="get">
-    <select name="option">
-        <option value=@ViewData["option"]>@ViewData["optionName"]</option>
-        <option value=0>Trong ngày</option>
-        <option value=1>Trong tháng</option>
-        <option value=2>Trong năm</option>
-        <option value=3>Từ trước đến nay</option>
-    </select>
-    <input value="Submit" type="submit" />
-</form>
-<canvas id="newchart"></canvas>
+
+<canvas id="newchartRevenue"></canvas>
 <!--<div class="row">-->
 <!-- Pie Chart -->
 <!--<div class="col-xl-6 col-lg-7">
@@ -38,7 +29,7 @@
     $(function () {
 
 
-        var ctx = document.getElementById('newchart').getContext('2d');
+        var ctx = document.getElementById('newchartRevenue').getContext('2d');
         var model = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model) as String);
         console.log(model)
         var doanhthunam = new Chart(ctx, model)

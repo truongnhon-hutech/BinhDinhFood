@@ -22,14 +22,7 @@ namespace BinhDinhFoodWeb.Repositories
                                         Key = t.Key.CustomerFullName,
                                         Value = t.Count()
                                     }).ToList();
-                                    //.Join(_context.Orders, c => c.CustomerId, o => o.CustomerId, (c, o) => new { c, o })
-                                    //.Where(y => y.o.DayOrder >= startDate && y.o.DayOrder < endDate)
-                                    //.GroupBy(x => new { x.c.CustomerId, x.c.CustomerFullName })
-                                    //.Select(t => new Table
-                                    //{
-                                    //    Key = t.Key.CustomerFullName,
-                                    //    Value = t.Count()
-                                    //}).ToList();
+                                    
             return toporders;
         }
 
@@ -45,16 +38,6 @@ namespace BinhDinhFoodWeb.Repositories
                                     }).ToList();
 
 
-
-            //_context.Customers
-            //                        .Join(_context.Orders, c => c.CustomerId, o => o.CustomerId, (c, o) => new { c, o })
-            //                        .Where(y => y.o.DayOrder >= startDate && y.o.DayOrder < endDate)
-            //                        .GroupBy(x => new { x.c.CustomerId, x.c.CustomerFullName })
-            //                        .Select(t => new Table
-            //                        {
-            //                            Key = t.Key.CustomerFullName,
-            //                            Value = Convert.ToInt32(t.Sum(k=> k.o.TotalMoney))
-            //                        }).ToList();
             return toprevenue;
         }
         

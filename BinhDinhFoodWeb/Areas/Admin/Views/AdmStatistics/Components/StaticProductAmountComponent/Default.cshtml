@@ -1,15 +1,6 @@
 ﻿
-<form asp-action="StaticProductAmount" method="get">
-    <select name="option">
-        <option value=@ViewData["option"]>@ViewData["optionName"]</option>
-        <option value=0>Trong ngày</option>
-        <option value=1>Trong tháng</option>
-        <option value=2>Trong năm</option>
-        <option value=3>Từ trước đến nay</option>
-    </select>
-    <input value="Submit" type="submit" />
-</form>
-<canvas id="newchart"></canvas>
+
+<canvas id="newchartAmount"></canvas>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="~/js/jquery.js"></script>
@@ -18,7 +9,7 @@
     $(function () {
 
 
-        var ctx = document.getElementById('newchart').getContext('2d');
+        var ctx = document.getElementById('newchartAmount').getContext('2d');
         var model = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model) as String);
         console.log(model)
         var doanhthunam = new Chart(ctx, model)

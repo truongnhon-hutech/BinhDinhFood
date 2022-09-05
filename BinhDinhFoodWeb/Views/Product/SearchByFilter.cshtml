@@ -24,6 +24,7 @@
 <!-- /top_banner -->
 
 <div id="stick_here"></div>
+
 @await Component.InvokeAsync("SortComponent")
 
 <!-- /toolbox -->
@@ -31,7 +32,7 @@
     <div class="row">
         <aside class="col-lg-3" id="sidebar_fixed">
             <div class="filter_col">
-                <form asp-action="Filter" asp-controller="Product">
+                <form asp-action="Filter" asp-controller="Product" method="get">
                     <div class="inner_bt"><a href="#" class="open_filters"><i class="ti-close"></i></a></div>
                     <div class="filter_type version_2">
                         <h4><a href="#filter_1" data-toggle="collapse" class="opened">Loại sản phẩm</a></h4>
@@ -116,15 +117,15 @@
                                 <span class="old_price">@Convert.ToDouble(@item.ProductPrice -(@Convert.ToDouble(@item.ProductPrice) * @Convert.ToDouble(@item.ProductDiscount) / 100)).ToString("#,###", cul.NumberFormat) Đ</span>
                             </div>
                             <ul>
-                                <li><a href="#0" class="tooltip-1" data-toggle="tooltip" data-placement="left" title="Add to favorites"><i class="ti-heart"></i><span>Thêm vào yêu thích</span></a></li>
-                                <li><a href="#0" class="tooltip-1" data-toggle="tooltip" data-placement="left" title="Add to compare"><i class="ti-control-shuffle"></i><span>So sánh</span></a></li>
-                                @if(User.Identity.IsAuthenticated)
+                                @if (User.Identity.IsAuthenticated)
                                 {
+                                    <li><a asp-action="AddInFavorite" asp-controller="Cart" asp-route-id="@item.ProductId" data-ajax="true" data-ajax-success="addFavAlert" data-ajax-failure="addCartFailAlert" class="tooltip-1" data-toggle="tooltip" data-placement="left" title="Thêm vào yêu thích"><i class="ti-heart"></i><span>Thêm vào yêu thích</span></a></li>
                                     <li><a asp-action="AddInCart" asp-controller="Cart" asp-route-id="@item.ProductId" data-ajax="true" data-ajax-success="addCartAlert" data-ajax-failure="addCartFailAlert" data-ajax-update="#mini-cart" class="tooltip-1" data-toggle="tooltip" data-placement="left" title="Thêm vào giỏ hàng"><i class="ti-shopping-cart"></i><span>Thêm vào giỏ hàng</span></a></li>
 
                                 }
                                 else
                                 {
+                                    <li><a data-ajax="true" data-ajax-success="loginFirstAlert" data-ajax-failure="addCartFailAlert" class="tooltip-1" data-toggle="tooltip" data-placement="left" title="Thêm vào yêu thích"><i class="ti-heart"></i><span>Thêm vào yêu thích</span></a></li>
                                     <li><a data-ajax="true" data-ajax-success="loginFirstAlert" data-ajax-failure="addCartFailAlert" class="tooltip-1" data-toggle="tooltip" data-placement="left" title="Thêm vào giỏ hàng"><i class="ti-shopping-cart"></i><span>Thêm vào giỏ hàng</span></a></li>
                                 }
                             </ul>

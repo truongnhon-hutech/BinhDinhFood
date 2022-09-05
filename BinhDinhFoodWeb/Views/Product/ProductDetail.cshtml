@@ -104,10 +104,12 @@
 				<div class="product_actions">
 					<ul>
 						<li>
-							<a asp-action="FavoriteList" asp-controller="Cart" asp-route-id="@Model.ProductId"><i class="ti-heart"></i><span>Thêm vào danh sách yêu thích</span></a>
-						</li>
-						<li>
-							<a href="#"><i class="ti-control-shuffle"></i><span>So sánh</span></a>
+							@if (User.Identity.IsAuthenticated){
+								<a asp-action="AddInFavorite" asp-controller="Cart" asp-route-id="@Model.ProductId" data-ajax="true" data-ajax-success="addFavAlert" data-ajax-failure="addCartFailAlert" ><i class="ti-heart"></i><span>Thêm vào danh sách yêu thích</span></a>
+							}else{
+
+								<a ><i class="ti-heart"></i><span>Thêm vào danh sách yêu thích</span></a>
+							}
 						</li>
 					</ul>
 				</div>
@@ -214,7 +216,6 @@
 				</div>
 			</div>
 			<!-- /tab B -->
-
 		</div>
 		<!-- /tab-content -->
 	</div>
@@ -222,7 +223,6 @@
 </div>
 <!-- /tab_content_wrapper -->
 @await Component.InvokeAsync("RelatedProductComponent")
-
 
 <!-- /container -->
 
@@ -233,7 +233,7 @@
 				<div class="box">
 					<i class="ti-gift"></i>
 					<div class="justify-content-center">
-						<h3>Free Shipping</h3>
+						<h3>Miễn phí vận chuyển</h3>
 						<p>For all oders over $99</p>
 					</div>
 				</div>
@@ -242,7 +242,7 @@
 				<div class="box">
 					<i class="ti-wallet"></i>
 					<div class="justify-content-center">
-						<h3>Secure Payment</h3>
+						<h3>Thanh toán bảo mật</h3>
 						<p>100% secure payment</p>
 					</div>
 				</div>
@@ -251,7 +251,7 @@
 				<div class="box">
 					<i class="ti-headphone-alt"></i>
 					<div class="justify-content-center">
-						<h3>24/7 Support</h3>
+						<h3>24/7 Hổ trợ</h3>
 						<p>Online top support</p>
 					</div>
 				</div>

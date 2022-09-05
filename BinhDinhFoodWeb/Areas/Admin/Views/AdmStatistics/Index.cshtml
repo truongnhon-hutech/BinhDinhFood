@@ -8,8 +8,8 @@
     <h1>Dashboard</h1>
     <nav>
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-            <li class="breadcrumb-item active">Dashboard</li>
+            <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Home">Trang chủ</a></li>
+            <li class="breadcrumb-item active">Báo cáo và phân tích khinh doanh</li>
         </ol>
     </nav>
 </div><!-- End Page Title -->
@@ -28,24 +28,52 @@
                             <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
                             <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                                 <li class="dropdown-header text-start">
-                                    <h6>Filter</h6>
+                                    <h6>Lọc</h6>
                                 </li>
 
-                                <li><a class="dropdown-item" href="#">Today</a></li>
-                                <li><a class="dropdown-item" href="#">This Month</a></li>
-                                <li><a class="dropdown-item" href="#">This Year</a></li>
+                                <li>
+                                    <a class="dropdown-item" asp-controller="AdmStatistics"
+                                       asp-action="StaticProductRevenue"
+                                       asp-route-option="0"
+                                       data-ajax="true" data-ajax-update="#Static-Product-Revenue">Trong ngày</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-controller="AdmStatistics"
+                                       asp-action="StaticProductRevenue"
+                                       asp-route-option="1"
+                                       data-ajax="true" data-ajax-update="#Static-Product-Revenue">Trong tháng</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-controller="AdmStatistics"
+                                       asp-action="StaticProductRevenue"
+                                       asp-route-option="2"
+                                       data-ajax="true" data-ajax-update="#Static-Product-Revenue">Trong năm</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-controller="AdmStatistics"
+                                       asp-action="StaticProductRevenue"
+                                       asp-route-option="3"
+                                       data-ajax="true" data-ajax-update="#Static-Product-Revenue">Từ trước đến nay</a>
+                                </li>
                             </ul>
                         </div>
 
+                        
                         <div class="card-body">
-                            <h5 class="card-title">Reports <span>/Today</span></h5>
-                            @await Component.InvokeAsync("StaticProductRevenueComponent")
-
-                            <!-- Line Chart -->
-                            <div id="reportsChart"></div>
-
-                            <!-- End Line Chart -->
-
+                            <h5 class="card-title">Thống kê doanh thu từng sản phẩm<span>/@ViewData["optionName"]</span></h5>
+                            <form asp-action="StaticProductRevenue" method="get">
+                                <select name="option">
+                                    <option value=@ViewData["option"]>@ViewData["optionName"]</option>
+                                    <option value=0>Trong ngày</option>
+                                    <option value=1>Trong tháng</option>
+                                    <option value=2>Trong năm</option>
+                                    <option value=3>Từ trước đến nay</option>
+                                </select>
+                                <input value="Submit" type="submit" />
+                            </form>
+                            <div id="Static-Product-Revenue">
+                                @await Component.InvokeAsync("StaticProductRevenueComponent")
+                            </div>
                         </div>
 
                     </div>
@@ -58,18 +86,51 @@
                             <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
                             <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                                 <li class="dropdown-header text-start">
-                                    <h6>Filter</h6>
+                                    <h6>Lọc</h6>
                                 </li>
 
-                                <li><a class="dropdown-item" href="#">Today</a></li>
-                                <li><a class="dropdown-item" href="#">This Month</a></li>
-                                <li><a class="dropdown-item" href="#">This Year</a></li>
+                                <li>
+                                    <a class="dropdown-item" asp-controller="AdmStatistics"
+                                       asp-action="StaticProductAmount"
+                                       asp-route-option="0"
+                                       data-ajax="true" data-ajax-update="#Static-Product-Amount">Trong ngày</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-controller="AdmStatistics"
+                                       asp-action="StaticProductAmount"
+                                       asp-route-option="1"
+                                       data-ajax="true" data-ajax-update="#Static-Product-Amount">Trong tháng</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-controller="AdmStatistics"
+                                       asp-action="StaticProductAmount"
+                                       asp-route-option="2"
+                                       data-ajax="true" data-ajax-update="#Static-Product-Amount">Trong năm</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-controller="AdmStatistics"
+                                       asp-action="StaticProductAmount"
+                                       asp-route-option="3"
+                                       data-ajax="true" data-ajax-update="#Static-Product-Amount">Từ trước đến nay</a>
+                                </li>
                             </ul>
                         </div>
 
                         <div class="card-body">
-                            <h5 class="card-title">Recent Sales <span>| Today</span></h5>
-                            @await Component.InvokeAsync("StaticProductAmountComponent")
+                            <h5 class="card-title">Thống kê số lượng từng sản phẩm<span>| @ViewData["optionName"]</span></h5>
+                            <form asp-action="StaticProductAmount" method="get">
+                                <select name="option">
+                                    <option value=@ViewData["option"]>@ViewData["optionName"]</option>
+                                    <option value=0>Trong ngày</option>
+                                    <option value=1>Trong tháng</option>
+                                    <option value=2>Trong năm</option>
+                                    <option value=3>Từ trước đến nay</option>
+                                </select>
+                                <input value="Submit" type="submit" />
+                            </form>
+                            <div id="Static-Product-Amount">
+                                @await Component.InvokeAsync("StaticProductAmountComponent")
+                            </div>
 
                         </div>
 
@@ -83,78 +144,96 @@
                             <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
                             <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                                 <li class="dropdown-header text-start">
-                                    <h6>Filter</h6>
+                                    <h6>Lọc</h6>
                                 </li>
-
-                                <li><a class="dropdown-item" href="#">Today</a></li>
-                                <li><a class="dropdown-item" href="#">This Month</a></li>
-                                <li><a class="dropdown-item" href="#">This Year</a></li>
+                                <li>
+                                    <a class="dropdown-item" asp-controller="AdmStatistics"
+                                       asp-action="StaticProduct"
+                                       asp-route-option="0"
+                                       data-ajax="true" data-ajax-update="#Static-Product-Amount">Doanh số</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-controller="AdmStatistics"
+                                       asp-action="StaticProduct"
+                                       asp-route-option="1"
+                                       data-ajax="true" data-ajax-update="#Static-Product-Amount">Doanh thu</a>
+                                </li>
                             </ul>
                         </div>
 
                         <div class="card-body pb-0">
-                            <h5 class="card-title">Top Selling <span>| Today</span></h5>
-                            @await Component.InvokeAsync("StaticProductComponent")
+                            <h5 class="card-title">Phân tích sản phẩm <span>| @ViewData["optionName"]</span></h5>
 
+                            <form asp-action="StaticProduct" method="get">
+                                <select name="option">
+                                    <option selected value=@ViewData["option"]>@ViewData["optionName"]</option>
+                                    <option value=0>Doanh số</option>
+                                    <option value=1>Doanh thu</option>
+                                </select>
+                                <select name="product" asp-items="@ViewData["listProduct"] as SelectList"></select>
+                                <input type="submit" value="Submit" />
+                            </form>
+                            <div id="Static-Product">
+                                @await Component.InvokeAsync("StaticProductComponent")
+                            </div>
                         </div>
-
                     </div>
                 </div><!-- End Top Selling -->
-                <!-- Top Selling -->
-                <div class="col-12">
-                    <div class="card top-selling overflow-auto">
-
-                        <div class="filter">
-                            <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                                <li class="dropdown-header text-start">
-                                    <h6>Filter</h6>
-                                </li>
-
-                                <li><a class="dropdown-item" href="#">Today</a></li>
-                                <li><a class="dropdown-item" href="#">This Month</a></li>
-                                <li><a class="dropdown-item" href="#">This Year</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="card-body pb-0">
-                            <h5 class="card-title">Top Selling <span>| Today</span></h5>
-                            @await Component.InvokeAsync("RevenueStructureComponent")
-
-                        </div>
-
-                    </div>
-                </div><!-- End Top Selling -->
+               
 
             </div>
         </div><!-- End Left side columns -->
         <!-- Right side columns -->
         <div class="col-lg-4">
 
-            <!-- Recent Activity -->
-            <div class="card">
-                <div class="filter">
-                    <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                    <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                        <li class="dropdown-header text-start">
-                            <h6>Filter</h6>
-                        </li>
+            <!-- Top Selling -->
+                <div class="card top-selling overflow-auto">
 
-                        <li><a class="dropdown-item" href="#">Today</a></li>
-                        <li><a class="dropdown-item" href="#">This Month</a></li>
-                        <li><a class="dropdown-item" href="#">This Year</a></li>
-                    </ul>
-                </div>
+                    <div class="filter">
+                        <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                            <li class="dropdown-header text-start">
+                                <h6>Lọc</h6>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" asp-controller="AdmStatistics"
+                                   asp-action="RevenueStructure"
+                                   asp-route-option="0"
+                                   data-ajax="true" data-ajax-update="#Revenue-Structure">Trong năm</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" asp-controller="AdmStatistics"
+                                   asp-action="RevenueStructure"
+                                   asp-route-option="1"
+                                   data-ajax="true" data-ajax-update="#Revenue-Structure">Trong tháng</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" asp-controller="AdmStatistics"
+                                   asp-action="RevenueStructure"
+                                   asp-route-option="1"
+                                   data-ajax="true" data-ajax-update="#Revenue-Structure">Trong ngày</a>
+                            </li>
+                        </ul>
+                    </div>
 
-                <div class="card-body">
-                    <h5 class="card-title">Recent Activity <span>| Today</span></h5>
-
-                    <div class="activity">
+                    <div class="card-body pb-0">
+                        <h5 class="card-title">Cơ cấu doanh thu <span>| Today</span></h5>
+                        <form asp-action="RevenueStructure" method="get">
+                            <select name="option">
+                                <option value=@ViewData["option"]>@ViewData["option"]</option>
+                                <option value=0>2022</option>
+                                <option value=1>2021</option>
+                                <option value=2>2020</option>
+                            </select>
+                            <input value="Submit" type="submit" />
+                        </form>
+                        <div id="Revenue-Structure">
+                            @await Component.InvokeAsync("RevenueStructureComponent")
+                        </div>
 
                     </div>
 
                 </div>
-            </div><!-- End Recent Activity -->
             <!-- Budget Report -->
             <div class="card">
                 <div class="filter">

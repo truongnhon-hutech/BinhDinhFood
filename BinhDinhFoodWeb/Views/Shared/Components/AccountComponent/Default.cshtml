@@ -1,6 +1,6 @@
 ﻿<a asp-action="Profile" asp-controller="User" class="access_link"><span>Tài khoản</span></a>
 <div class="dropdown-menu">
-    @if (User.Identity.IsAuthenticated)
+    @if (User.Identity.IsAuthenticated && User.IsInRole("Customer"))
     {
         {
             <h4>
