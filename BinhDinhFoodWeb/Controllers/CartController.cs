@@ -358,7 +358,8 @@ namespace BinhDinhFoodWeb.Controllers
         [HttpPost]
         public async Task Order(IFormCollection form)
         {
-            if (!User.Identity.IsAuthenticated) RedirectToAction("Login", "User");
+            if (!User.Identity.IsAuthenticated)
+                RedirectToAction("Login", "User");
             var totalMoney = TotalMoney()+shippingCost;
 
             List<Item> listCart = _cartRepo.Get(HttpContext.Session);
@@ -396,6 +397,10 @@ namespace BinhDinhFoodWeb.Controllers
             {
                 MOMOPayment(totalMoney, or.OrderId);
             }
+            else if(paymentMethod == 0)
+            {
+                Response.Redirect("Confirm");
+            }
         }
         public IActionResult Checkout()
         {
@@ -403,7 +408,7 @@ namespace BinhDinhFoodWeb.Controllers
             return View();
         }
         // Comfirm order
-        public IActionResult Comfirm()
+        public IActionResult Confirm()
         {
             return View();
         }
@@ -456,10 +461,10 @@ namespace BinhDinhFoodWeb.Controllers
             }
         }
         // remove in favorite list
-        public async Task RemoveInFavorite(int id)
+        public async Task<IActionResult> RemoveInFavorite(int id)
         {
             if (!User.Identity.IsAuthenticated)
-                RedirectToAction("Login");
+                return RedirectToAction("Login");
 
             int userid = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
             var listFav = await _repoFavorite.GetListAsync(filter: x => x.CustomerId == userid);
@@ -470,6 +475,9 @@ namespace BinhDinhFoodWeb.Controllers
                 _repoFavorite.Delete(where: x => x.ProductId == id);
             }
             await _repoFavorite.SaveAsync();
+            var Obj = await _repoFavorite.GetListAsync(filter: x => x.CustomerId == userid);
+            return RedirectToAction("FavoriteList");
+            //return ViewComponent("FavComponent", Obj);
         }
         // compare with other products 
         public IActionResult Compare(int id)

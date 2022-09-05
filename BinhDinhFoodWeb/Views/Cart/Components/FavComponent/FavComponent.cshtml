@@ -18,10 +18,10 @@
                     <a asp-action="RemoveInFavorite"
                    asp-controller="Cart"
                    asp-route-id="@item.Product.ProductId"
-                   data-ajax="true"
                    data-ajax-success="removeFavAlert"
                    data-ajax-failure="addCartFailAlert"
-                   data-ajax-update="favorite-list">Xoá</a>
+                   data-ajax-update="#favorite-list">
+                   Xoá</a>
                 </td>
             </tr>
         }

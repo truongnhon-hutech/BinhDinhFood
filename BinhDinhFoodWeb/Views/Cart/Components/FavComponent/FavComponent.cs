@@ -5,9 +5,9 @@ namespace BinhDinhFoodWeb.Views.Cart.Components.FavComponent
 {
     public class FavComponent : ViewComponent
     {
-        public IViewComponentResult Invoke(IEnumerable<Favorite> fav)
+        public async Task<IViewComponentResult> InvokeAsync(IEnumerable<Favorite> fav)
         {
-            return View(fav);
+            return View("FavComponent", fav);
         }
     }
 }

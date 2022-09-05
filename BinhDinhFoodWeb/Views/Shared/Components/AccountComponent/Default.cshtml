@@ -3,13 +3,17 @@
     @if (User.Identity.IsAuthenticated)
     {
         {
-            <a asp-action="Profile" asp-controller="User">@User.Claims.FirstOrDefault(x => x.Type == System.Security.Claims.ClaimTypes.Name).Value</a>
-            <a asp-action="Logout" asp-controller="User" class="button_inc">Logout</a>
+            <h4>
+                <a asp-action="Profile" asp-controller="User">@User.Claims.FirstOrDefault(x => x.Type == System.Security.Claims.ClaimTypes.Name).Value</a>
+            </h4>
+
+            <a asp-action="Logout" asp-controller="User" class="btn_1 outline">Đăng xuất</a>
         }
     }
     else
     {
         <a asp-action="Login" asp-controller="User" class="btn_1">Đăng nhập</a>
+        <br/>
         <a asp-action="Register" asp-controller="User" class="btn_1 outline">Đăng ký</a>
     }
     <ul>
