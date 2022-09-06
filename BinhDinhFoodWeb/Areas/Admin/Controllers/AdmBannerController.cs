@@ -90,6 +90,7 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
                         }
                     }
                 }
+                banner.BannerDateCreated = DateTime.Now;
                 _context.Add(banner);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -149,6 +150,7 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
                             }
                         }
                     }
+                    banner.BannerDateCreated = DateTime.Now;
                     _context.Update(banner);
                     await _context.SaveChangesAsync();
                 }

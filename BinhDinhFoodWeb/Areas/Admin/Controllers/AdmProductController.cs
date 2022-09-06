@@ -9,6 +9,8 @@ using BinhDinhFood.Models;
 using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 using BinhDinhFoodWeb.Models;
 using System.Reflection.Metadata;
+using X.PagedList;
+using System.Security.Claims;
 
 namespace BinhDinhFoodWeb.Areas.Admin.Controllers
 {
@@ -25,10 +27,11 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
         }
 
         // GET: Admin/AdmProduct
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page = 1)
         {
             var binhDinhFoodDbContext = _context.Products.Include(p => p.Category);
-            return View(await binhDinhFoodDbContext.ToListAsync());
+            var obj = await binhDinhFoodDbContext.ToListAsync();
+            return View(obj.ToPagedList(page, 10));
         }
 
         // GET: Admin/AdmProduct/Details/5
@@ -53,6 +56,8 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
         // GET: Admin/AdmProduct/Create
         public IActionResult Create()
         {
+            if (!User.Identity.IsAuthenticated && User.FindFirstValue(ClaimTypes.Role) != "Admin")
+                return RedirectToAction("Login", "AdmAccount");
             ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryName");
             return View();
         }
@@ -64,9 +69,9 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ProductId,ProductName,ProductPrice,ProductDescription,ProductAmount,ProductDiscount,ProductImage,ProductDateCreated,CategoryId")] Product product)
         {
-            IFormFileCollection files = HttpContext.Request.Form.Files;
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
+                IFormFileCollection files = HttpContext.Request.Form.Files;
                 foreach (var Image in files)
                 {
                     if (Image != null && Image.Length > 0)
@@ -84,12 +89,14 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
                         }
                     }
                 }
+                product.ProductDateCreated = DateTime.Now;
                 _context.Add(product);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryName", product.CategoryId);
             return View(product);
+
         }
 
         // GET: Admin/AdmProduct/Edit/5
@@ -124,7 +131,7 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 try
                 {
@@ -145,6 +152,7 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
                             }
                         }
                     }
+                    product.ProductDateCreated = DateTime.Now;
                     _context.Update(product);
                     await _context.SaveChangesAsync();
                 }
@@ -198,14 +206,14 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
             {
                 _context.Products.Remove(product);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool ProductExists(int id)
         {
-          return (_context.Products?.Any(e => e.ProductId == id)).GetValueOrDefault();
+            return (_context.Products?.Any(e => e.ProductId == id)).GetValueOrDefault();
         }
     }
 }

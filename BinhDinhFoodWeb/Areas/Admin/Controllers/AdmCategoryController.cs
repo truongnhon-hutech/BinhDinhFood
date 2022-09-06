@@ -60,6 +60,7 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                category.CategoryDateCreated = DateTime.Now;
                 _context.Add(category);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -99,6 +100,7 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
             {
                 try
                 {
+                    category.CategoryDateCreated = DateTime.Now;
                     _context.Update(category);
                     await _context.SaveChangesAsync();
                 }

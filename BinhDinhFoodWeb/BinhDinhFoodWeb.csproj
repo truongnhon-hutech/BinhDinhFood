@@ -150,10 +150,6 @@
     <None Include="wwwroot\Content\img\logo_black.svg" />
     <None Include="wwwroot\Content\img\new_user.svg" />
     <None Include="wwwroot\Content\img\paypal.svg" />
-    <None Include="wwwroot\Content\img\products\product_placeholder_detail.jpg" />
-    <None Include="wwwroot\Content\img\products\product_placeholder_detail_2.jpg" />
-    <None Include="wwwroot\Content\img\products\product_placeholder_square_medium.jpg" />
-    <None Include="wwwroot\Content\img\products\product_placeholder_square_small.jpg" />
     <None Include="wwwroot\Content\img\search.svg" />
     <None Include="wwwroot\Content\img\stars.svg" />
     <None Include="wwwroot\Content\img\track_order.svg" />
@@ -231,6 +227,10 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.8" />
     <PackageReference Include="MimeKit" Version="3.4.0" />
     <PackageReference Include="X.PagedList.Mvc.Core" Version="8.4.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
   <ProjectExtensions><VisualStudio><UserProperties appsettings_1development_1json__JsonSchema="https://appliedengdesign.github.io/cnccodes-json-schema/draft/2022-07/schema" /></VisualStudio></ProjectExtensions>

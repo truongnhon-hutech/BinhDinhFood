@@ -43,6 +43,15 @@ namespace BinhDinhFood.Models
             modelBuilder.Entity<Product>()
                 .HasMany(e => e.OrderDetails);
 
+            modelBuilder.Entity<Favorite>()
+               .HasKey(c => new { c.ProductId, c.CustomerId });
+
+            modelBuilder.Entity<Customer>()
+                .HasMany(e => e.Favorites);
+
+            modelBuilder.Entity<Product>()
+                .HasMany(e => e.Favorites);
+
             modelBuilder.Entity<Product>()
                 .HasMany(g => g.ProductRatings);
 

@@ -83,6 +83,7 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
                         }
                     }
                 }
+                blog.BlogDateCreated = DateTime.Now;
                 _context.Add(blog);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -141,6 +142,7 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
                             }
                         }
                     }
+                    blog.BlogDateCreated = DateTime.Now;
                     _context.Update(blog);
                     await _context.SaveChangesAsync();
                 }

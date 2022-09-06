@@ -1,0 +1,16 @@
+﻿<!--/banners_grid -->
+<ul id="banners_grid" class="clearfix">
+    @foreach (var item in Model)
+    {
+    <li>
+        <a asp-action="SearchByFilter" asp-controller="Product" asp-route-categoryId="@item.CategoryId" class="img_container">
+            <img src="~/Content/img/products/@ViewData["objBannerImage1"]" alt="" class="lazy">
+            <div class="short_info opacity-mask" data-opacity-mask="rgba(0, 0, 0, 0.5)">
+                <h3>Hải sản</h3>
+                <div><span class="btn_1">Xem ngay</span></div>
+            </div>
+        </a>
+    </li>
+        
+    }
+</ul>

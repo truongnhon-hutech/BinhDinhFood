@@ -242,8 +242,6 @@ namespace BinhDinhFoodWeb.Controllers
         }
         public IActionResult UpdateCart()
         {
-            if (!User.Identity.IsAuthenticated)
-                return RedirectToAction("Login", "User");
             List<Item> cart = _cartRepo.Get(HttpContext.Session);
             ViewData["TotalSubMoney"] = TotalMoney().ToString("#,###", cul.NumberFormat); ;
             ViewData["ShippingCost"] = shippingCost.ToString("#,###", cul.NumberFormat); ;
@@ -253,8 +251,6 @@ namespace BinhDinhFoodWeb.Controllers
         // sum all money 
         public IActionResult UpdateItem(int id, int value)
         {
-            if (!User.Identity.IsAuthenticated)
-                return RedirectToAction("Login", "User");
             List<Item> listCart = _cartRepo.Get(HttpContext.Session);
             Item cart = listCart.FirstOrDefault(x => x.Product.ProductId == id);
             if (cart != null)
@@ -332,7 +328,7 @@ namespace BinhDinhFoodWeb.Controllers
         public async Task<IActionResult> Order(bool orderFailed = false)
         {
             // Authentication user
-            if (!User.Identity.IsAuthenticated)
+            if (!User.Identity.IsAuthenticated || User.IsInRole("Admin"))
                 return RedirectToAction("Login", "User");
 
             if (orderFailed) ViewBag.ErrorMessage = "Thanh toán lỗi";
@@ -358,49 +354,51 @@ namespace BinhDinhFoodWeb.Controllers
         [HttpPost]
         public async Task Order(IFormCollection form)
         {
-            if (!User.Identity.IsAuthenticated)
-                RedirectToAction("Login", "User");
-            var totalMoney = TotalMoney() + shippingCost;
+            if (User.Identity.IsAuthenticated && User.IsInRole("Customer"))
+            {
+                var totalMoney = TotalMoney() + shippingCost;
 
-            List<Item> listCart = _cartRepo.Get(HttpContext.Session);
-            int id = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
+                List<Item> listCart = _cartRepo.Get(HttpContext.Session);
+                int id = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
 
-            Order or = new Order();
-            or.CustomerId = id;
-            or.DayOrder = DateTime.Now;
-            or.DayDelivery = DateTime.Now.AddDays(3);
-            or.PaidState = false;
-            // build payment momo or vnpay
-            or.DeliveryState = false;
-            or.TotalMoney = totalMoney;
-            await _orderRepo.AddAsync(or);
-            await _orderRepo.SaveAsync();
+                Order or = new Order();
+                or.CustomerId = id;
+                or.DayOrder = DateTime.Now;
+                or.DayDelivery = DateTime.Now.AddDays(3);
+                or.PaidState = false;
+                // build payment momo or vnpay
+                or.DeliveryState = false;
+                or.TotalMoney = totalMoney;
+                await _orderRepo.AddAsync(or);
+                await _orderRepo.SaveAsync();
 
-            foreach (var item in listCart)
-            {
-                OrderDetail detail = new OrderDetail();
-                detail.OrderId = or.OrderId;
-                detail.ProductId = item.Product.ProductId;
-                detail.Quantity = item.Quantity;
-                detail.UnitPrice = Convert.ToDecimal(item.Product.ProductPrice);
-                await _orderDetailRepo.AddAsync(detail);
-                await _orderDetailRepo.SaveAsync();
+                foreach (var item in listCart)
+                {
+                    OrderDetail detail = new OrderDetail();
+                    detail.OrderId = or.OrderId;
+                    detail.ProductId = item.Product.ProductId;
+                    detail.Quantity = item.Quantity;
+                    detail.UnitPrice = Convert.ToDecimal(item.Product.ProductPrice);
+                    await _orderDetailRepo.AddAsync(detail);
+                    await _orderDetailRepo.SaveAsync();
+                }
+                // clear cart
+                _cartRepo.Set(HttpContext.Session, new List<Item>());
+                int paymentMethod = Convert.ToInt32(form["ChoosePaymentMethod"]);
+                if (paymentMethod == 2)
+                {
+                    VnPayPayment(totalMoney, or.OrderId);
+                }
+                else if (paymentMethod == 1)
+                {
+                    MOMOPayment(totalMoney, or.OrderId);
+                }
+                else if (paymentMethod == 0)
+                {
+                    Response.Redirect("Confirm");
+                }
             }
-            // clear cart
-            _cartRepo.Set(HttpContext.Session, new List<Item>());
-            int paymentMethod = Convert.ToInt32(form["ChoosePaymentMethod"]);
-            if (paymentMethod == 2)
-            {
-                VnPayPayment(totalMoney, or.OrderId);
-            }
-            else if (paymentMethod == 1)
-            {
-                MOMOPayment(totalMoney, or.OrderId);
-            }
-            else if (paymentMethod == 0)
-            {
-                Response.Redirect("Confirm");
-            }
+            
         }
         public IActionResult Checkout()
         {
@@ -415,8 +413,8 @@ namespace BinhDinhFoodWeb.Controllers
         // Your order
         public async Task<IActionResult> TrackOrderAsync()
         {
-            if (!User.Identity.IsAuthenticated)
-                return RedirectToAction("Login");
+            if (!User.Identity.IsAuthenticated || User.IsInRole("Admin"))
+                return RedirectToAction("Login", "User");
             int id = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
 
             IEnumerable<Order> obj = await _orderRepo.GetListAsync(filter: x => x.CustomerId == id);
@@ -425,15 +423,15 @@ namespace BinhDinhFoodWeb.Controllers
         // Your order detail
         public async Task<IActionResult> OderDetail(int id)
         {
-            if (!User.Identity.IsAuthenticated)
-                return RedirectToAction("Login");
+            if (!User.Identity.IsAuthenticated || User.IsInRole("Admin"))
+                return RedirectToAction("Login", "User");
             IEnumerable<OrderDetail> obj = await _orderDetailRepo.GetListAsync(filter: x => x.OrderId == id, includeProperties: "Product");
             return View(obj);
         }
         // get favorite List
         public async Task<IActionResult> FavoriteList()
         {
-            if (!User.Identity.IsAuthenticated)
+            if (!User.Identity.IsAuthenticated || User.IsInRole("Admin"))
                 return RedirectToAction("Login", "User");
 
             int id = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
@@ -443,25 +441,29 @@ namespace BinhDinhFoodWeb.Controllers
         // add in favorite List
         public async Task AddInFavorite(int id)
         {
-            int userid = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
-            var listFav = await _repoFavorite.GetListAsync(filter: x => x.CustomerId == userid);
-
-            bool isInFav = listFav.Any(x => x.ProductId == id);
-            if (!isInFav)
+            if (User.Identity.IsAuthenticated && User.IsInRole("Customer"))
             {
-                Favorite newItem = new Favorite
+                int userid = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
+                var listFav = await _repoFavorite.GetListAsync(filter: x => x.CustomerId == userid);
+
+                bool isInFav = listFav.Any(x => x.ProductId == id);
+                if (!isInFav)
                 {
-                    Product = await _productRepo.GetByIdAsync(id),
-                    CustomerId = userid
-                };
-                await _repoFavorite.AddAsync(newItem);
-                await _repoFavorite.SaveAsync();
+                    Favorite newItem = new Favorite
+                    {
+                        Product = await _productRepo.GetByIdAsync(id),
+                        CustomerId = userid
+                    };
+                    await _repoFavorite.AddAsync(newItem);
+                    await _repoFavorite.SaveAsync();
+                }
             }
         }
         // remove in favorite list
         public async Task<IActionResult> RemoveInFavorite(int id)
         {
-
+            if (!User.Identity.IsAuthenticated || User.IsInRole("Admin"))
+                return RedirectToAction("Login", "User");
             int userid = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
             var listFav = await _repoFavorite.GetListAsync(filter: x => x.CustomerId == userid);
 

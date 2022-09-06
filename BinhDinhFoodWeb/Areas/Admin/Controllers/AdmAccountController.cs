@@ -20,8 +20,10 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
             _tokenRepository = tokenRepository;
         }
         [HttpGet]
-        public IActionResult Login()
+        public async Task<IActionResult> Login()
         {
+            if (User.Identity.IsAuthenticated)
+                await _userManager.SignOut(this.HttpContext);
             return View();
         }
         [HttpPost]
@@ -41,6 +43,8 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
         }
         public async Task<IActionResult> Logout()
         {
+            if (!User.Identity.IsAuthenticated || User.IsInRole("Customer"))
+                return RedirectToAction("Index", "AdmHomeController");
             await _userManager.SignOut(this.HttpContext);
 
             return RedirectToAction("Login");
@@ -110,7 +114,7 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult ChangePass()
         {
-            if (!User.Identity.IsAuthenticated)
+            if (!User.Identity.IsAuthenticated || User.IsInRole("Customer"))
                 return RedirectToAction("Login");
 
             return View();
@@ -118,7 +122,7 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> ChangePassAsync(ChangePasswordViewModel model)
         {
-            if (!User.Identity.IsAuthenticated && User.FindFirstValue(ClaimTypes.Role) !="Admin")
+            if (!User.Identity.IsAuthenticated || User.IsInRole("Customer"))
                 return RedirectToAction("Login");
             if (!ModelState.IsValid) return View(model);
             int id = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));

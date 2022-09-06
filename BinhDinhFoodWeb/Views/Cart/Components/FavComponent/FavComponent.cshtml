@@ -11,7 +11,7 @@
         @foreach (var item in Model)
         {
             <tr>
-                <th scope="row">@item.FavoriteId</th>
+                <th scope="row">@item.Product.ProductId</th>
                 <td>@item.Product.ProductName</td>
                 <td><img src="~/Content/img/products/@item.Product.ProductImage" width="150"></td>
                 <td>
@@ -20,8 +20,10 @@
                    asp-route-id="@item.Product.ProductId"
                    data-ajax-success="removeFavAlert"
                    data-ajax-failure="addCartFailAlert"
-                   data-ajax-update="#favorite-list">
-                   Xoá</a>
+                   data-ajax-update="#favorite-list"
+                   class="btn_1">
+                        Xoá
+                    </a>
                 </td>
             </tr>
         }

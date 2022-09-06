@@ -41,9 +41,11 @@ namespace BinhDinhFoodWeb.Controllers
             return LocalRedirect("~/Home/Index");
         }
         [HttpGet]
-        public IActionResult Login()
+        public async Task<IActionResult> Login()
         {
-           return View();
+            if (User.Identity.IsAuthenticated) 
+                await _userManager.SignOut(this.HttpContext);
+            return View();
         }
         [HttpPost]
         public async Task<IActionResult> LoginAsync(LoginViewModel model)
@@ -60,8 +62,11 @@ namespace BinhDinhFoodWeb.Controllers
 
             return RedirectToAction("Index","Home");
         }
+        [HttpPost]
         public async Task<IActionResult> Logout(string returnUrl)
         {
+            if(!User.Identity.IsAuthenticated || User.IsInRole("Admin"))
+                return RedirectToAction("Index", "Home");
             await _userManager.SignOut(this.HttpContext);
 
             return RedirectToAction("Index", "Home");
@@ -132,7 +137,7 @@ namespace BinhDinhFoodWeb.Controllers
         [HttpGet]
         public IActionResult ChangeInfor()
         {
-            if (!User.Identity.IsAuthenticated) 
+            if (!User.Identity.IsAuthenticated || User.IsInRole("Admin"))
                 return RedirectToAction("Login");
             int id = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
             InforViewModel model = _repo.GetUserInfor(id); 
@@ -141,9 +146,9 @@ namespace BinhDinhFoodWeb.Controllers
         [HttpPost]
         public async Task<IActionResult> ChangeInforAsync(InforViewModel model)
         {
-            if (!User.Identity.IsAuthenticated) 
+            if (!User.Identity.IsAuthenticated || User.IsInRole("Admin"))
                 return RedirectToAction("Login");
-            
+
             int id = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
             IFormFileCollection files = HttpContext.Request.Form.Files;
             await _repo.ChangeInforUser(model, id, files);
@@ -160,15 +165,15 @@ namespace BinhDinhFoodWeb.Controllers
         [HttpGet]
         public IActionResult ChangePass()
         {
-            if (!User.Identity.IsAuthenticated) 
-                return RedirectToAction("Login"); 
-            
+            if (!User.Identity.IsAuthenticated || User.IsInRole("Admin"))
+                return RedirectToAction("Login");
+
             return View();
         }
         [HttpPost]
         public async Task<IActionResult> ChangePassAsync(ChangePasswordViewModel model)
         {
-            if (!User.Identity.IsAuthenticated) 
+            if (!User.Identity.IsAuthenticated || User.IsInRole("Admin"))
                 return RedirectToAction("Login");
             if (!ModelState.IsValid)return View(model);
             int id = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
@@ -183,7 +188,7 @@ namespace BinhDinhFoodWeb.Controllers
         }
         public IActionResult Profile()
         {
-            if (!User.Identity.IsAuthenticated)
+            if (!User.Identity.IsAuthenticated || User.IsInRole("Admin"))
                 return RedirectToAction("Login");
 
             int id = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));

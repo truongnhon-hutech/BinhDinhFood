@@ -46,6 +46,8 @@ namespace BinhDinhFoodWeb.Controllers
         [HttpPost]
         public async Task<IActionResult> LeaveReview(IFormCollection form, int id)
         {
+            if (!User.Identity.IsAuthenticated || User.IsInRole("Admin"))
+                return RedirectToAction("Login");
             ProductRating pd = new ProductRating();
             pd.CustomerId = 1;
             pd.ProductId = id;

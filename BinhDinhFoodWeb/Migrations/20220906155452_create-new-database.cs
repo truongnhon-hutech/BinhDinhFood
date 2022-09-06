@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BinhDinhFoodWeb.Migrations
 {
-    public partial class CreatenewDatabase : Migration
+    public partial class createnewdatabase : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -16,7 +16,7 @@ namespace BinhDinhFoodWeb.Migrations
                     AdminId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     AdminUserName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    AdminPassword = table.Column<string>(type: "nvarchar(8)", maxLength: 8, nullable: false),
+                    AdminPassword = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     AdminEmail = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     AdminImage = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     AdminDateCreated = table.Column<DateTime>(type: "datetime2", nullable: false)
@@ -86,6 +86,7 @@ namespace BinhDinhFoodWeb.Migrations
                     CustomerDateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CustomerEmail = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     CustomerAddress = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    CustomerPhone = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CustomerState = table.Column<bool>(type: "bit", nullable: false),
                     CustomerImage = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true)
                 },
@@ -160,6 +161,31 @@ namespace BinhDinhFoodWeb.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Favorite",
+                columns: table => new
+                {
+                    ProductId = table.Column<int>(type: "int", nullable: false),
+                    CustomerId = table.Column<int>(type: "int", nullable: false),
+                    PRDateCreated = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Favorite", x => new { x.ProductId, x.CustomerId });
+                    table.ForeignKey(
+                        name: "FK_Favorite_Customer_CustomerId",
+                        column: x => x.CustomerId,
+                        principalTable: "Customer",
+                        principalColumn: "CustomerId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Favorite_Product_ProductId",
+                        column: x => x.ProductId,
+                        principalTable: "Product",
+                        principalColumn: "ProductId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "ProductRating",
                 columns: table => new
                 {
@@ -194,8 +220,8 @@ namespace BinhDinhFoodWeb.Migrations
                 {
                     OrderId = table.Column<int>(type: "int", nullable: false),
                     ProductId = table.Column<int>(type: "int", nullable: false),
-                    UnitPrice = table.Column<decimal>(type: "money", nullable: true),
-                    Quantity = table.Column<int>(type: "int", nullable: true)
+                    UnitPrice = table.Column<decimal>(type: "money", nullable: false),
+                    Quantity = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -225,6 +251,11 @@ namespace BinhDinhFoodWeb.Migrations
                 table: "Customer",
                 column: "CustomerUserName",
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Favorite_CustomerId",
+                table: "Favorite",
+                column: "CustomerId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Order_CustomerId",
@@ -262,6 +293,9 @@ namespace BinhDinhFoodWeb.Migrations
 
             migrationBuilder.DropTable(
                 name: "Blog");
+
+            migrationBuilder.DropTable(
+                name: "Favorite");
 
             migrationBuilder.DropTable(
                 name: "OrderDetail");

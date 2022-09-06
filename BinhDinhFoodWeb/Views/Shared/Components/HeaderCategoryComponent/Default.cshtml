@@ -1,43 +1,9 @@
-﻿
-<div class="col-lg-3">
-    <a asp-action="SearchByFilter" asp-controller="Product" asp-route-categoryId="1">
-        <h3>Hải sản</h3>
-    </a>
-    @foreach (var item in ViewBag.Category1)
-    {
-        <ul>
-            <li>
-                <a asp-action="ProductDetail" asp-controller="Product" asp-route-id="@item.ProductId">@item.ProductName</a>
-            </li>
-        </ul>
-    }
+﻿@foreach (var item in Model)
+{
 
-</div>
-<div class="col-lg-3">
-    <a asp-action="SearchByFilter" asp-controller="Product" asp-route-categoryId="6">
-        <h3>Hải sản</h3>
-    </a>
-    @foreach (var item in ViewBag.Category2)
-    {
-        <ul>
-            <li>
-                <a asp-action="ProductDetail" asp-controller="Product" asp-route-id="@item.ProductId">@item.ProductName</a>
-            </li>
-        </ul>
-    }
-
-</div>
-<div class="col-lg-3">
-    <a asp-action="SearchByFilter" asp-controller="Product" asp-route-categoryId="7">
-        <h3>Hải sản</h3>
-    </a>
-    @foreach (var item in ViewBag.Category3)
-    {
-        <ul>
-            <li>
-                <a asp-action="ProductDetail" asp-controller="Product" asp-route-id="@item.ProductId">@item.ProductName</a>
-            </li>
-        </ul>
-    }
-
-</div>
+    <div class="col-lg-3">
+        <a asp-action="SearchByFilter" asp-controller="Product" asp-route-categoryId="@item.CategoryId">
+            <h3>@item.CategoryName</h3>
+        </a>
+    </div>
+}

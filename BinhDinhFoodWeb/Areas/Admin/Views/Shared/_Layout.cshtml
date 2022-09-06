@@ -6,13 +6,16 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>@ViewBag.Title</title>
+    <title>Admin - Bình Định Food - Đặc sản Bình Định</title>
+
     <meta content="" name="description">
     <meta content="" name="keywords">
 
+
     <!-- Favicons -->
-    <link href="~/content/admin/img/favicon.png" rel="icon">
-    <link href="~/content/admin/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link rel="shortcut icon" href="~/content/img/logo.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" type="image/x-icon" href="~/Content/img/Bình_Định_Food__1_-removebg-preview.png">
+
 
     <!-- Google Fonts -->
     <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -29,6 +32,7 @@
 
     <!-- Template Main CSS File -->
     <link href="~/content/admin/css/style.css" rel="stylesheet">
+
 
     <!-- =======================================================
     * Template Name: NiceAdmin - v2.3.1
@@ -336,21 +340,39 @@
 
             <li class="nav-heading">Thông kê và báo cáo</li>
 
-
             <li class="nav-item">
-                <a class="nav-link collapsed" asp-action="Index" asp-controller="AdmStatistics">
-                    <i class="bi bi-person"></i>
-                    <span>Thống kê kinh doanh</span>
+                <a class="nav-link collapsed" data-bs-target="#icons-nav-new-1" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-gem"></i><span>Thống kê kinh doanh</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
-            </li><!-- End Profile Page Nav -->
+                <ul id="icons-nav-new-1" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a class="nav-link collapsed" asp-action="RevenueStructure" asp-controller="AdmStatistics">
+                            <i class="bi bi-person"></i>
+                            <span>Lợi nhuận</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link collapsed" asp-action="StaticProduct" asp-controller="AdmStatistics">
+                            <i class="bi bi-person"></i>
+                            <span>Phân tích sản phẩm</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link collapsed" asp-action="StaticProductAmount" asp-controller="AdmStatistics">
+                            <i class="bi bi-person"></i>
+                            <span>Số lượng sản phẩm đã bán</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link collapsed" asp-action="StaticProductRevenue" asp-controller="AdmStatistics">
+                            <i class="bi bi-person"></i>
+                            <span>Lợi nhuận trên từng sản phẩm</span>
+                        </a>
+                    </li>
+                </ul>
+            </li><!-- End Icons Nav -->
 
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" >
-                    <i class="bi bi-person"></i>
-                    <span>Báo cáo kinh doanh</span>
-                </a>
-            </li><!-- End Profile Page Nav -->
+           
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#main">
                     <i class="bi bi-person"></i>

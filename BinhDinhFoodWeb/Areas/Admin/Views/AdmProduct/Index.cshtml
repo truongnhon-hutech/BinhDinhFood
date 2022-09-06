@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<BinhDinhFood.Models.Product>
-
+@using X.PagedList
+@using X.PagedList.Mvc.Core
 @{
     ViewData["Title"] = "Quản lý sản phẩm";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
@@ -70,7 +71,7 @@
                             @Html.DisplayFor(modelItem => item.ProductPrice)
                         </td>
                         <td>
-                            @Html.Raw(@item.ProductDescription)
+                            @Html.Raw(@item.ProductDescription).ToString().Substring(0,100)...
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.ProductAmount)
@@ -92,12 +93,16 @@
                             <a class="btn btn-info rounded-pill" asp-action="Details" asp-route-id="@item.ProductId"><i class="bi bi-eye"></i></a>
                             <a class="btn btn-danger rounded-pill" asp-action="Delete" asp-route-id="@item.ProductId"><i class="bi bi-trash"></i></a>
                         </td>
-                       
+
                     </tr>
                 }
             </tbody>
         </table>
         <!-- End Table with hoverable rows -->
-
+        <div class="pagination__wrapper">
+            <ul class="pagination">
+                @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new{ page}))
+            </ul>
+        </div>
     </div>
 </div>

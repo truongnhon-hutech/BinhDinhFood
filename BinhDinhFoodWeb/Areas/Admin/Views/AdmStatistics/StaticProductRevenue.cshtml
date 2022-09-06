@@ -1,50 +1,111 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
-<form asp-action="StaticProductRevenue" method="get">
-    <select name="option">
-        <option value=@ViewData["option"]>@ViewData["optionName"]</option>
-        <option value=0>Trong ngày</option>
-        <option value=1>Trong tháng</option>
-        <option value=2>Trong năm</option>
-        <option value=3>Từ trước đến nay</option>
-    </select>
-    <input value="Submit" type="submit" />
-</form>
-<canvas id="newchart"></canvas>
-<!--<div class="row">-->
-<!-- Pie Chart -->
-<!--<div class="col-xl-6 col-lg-7">
-    <div class="card shadow mb-4">-->
-<!-- Card Header - Dropdown -->
-<!--<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-    <h6 class="m-0 font-weight-bold text-primary">
-        Doanh thu gói theo nă
-    </h6>
-</div>-->
-<!-- Card Body -->
-<!--<div class="card-body">
 
+
+<div class="pagetitle">
+    <h1>Dashboard</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Home">Trang chủ</a></li>
+            <li class="breadcrumb-item active">Báo cáo và phân tích khinh doanh</li>
+        </ol>
+    </nav>
+</div><!-- End Page Title -->
+
+
+<section class="section dashboard">
+    <div class="row">
+
+        <!-- Left side columns -->
+        <div class="col-lg-8">
+            <div class="row">
+
+                <div class="col-12">
+                    <div class="card top-selling overflow-auto">
+
+                        <div class="filter">
+                            <a class="icon" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                                <li class="dropdown-header text-start">
+                                    <h6>Lọc</h6>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-controller="AdmStatistics"
+                                       asp-action="RevenueStructure"
+                                       asp-route-option="2022"
+                                       data-ajax="true" data-ajax-update="#newchart">2022</a>
+                                </li>
+
+                                <li>
+                                    <a class="dropdown-item" asp-controller="AdmStatistics"
+                                       asp-action="RevenueStructure"
+                                       asp-route-option="2021"
+                                       data-ajax="true" data-ajax-update="#newchart">2021</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-controller="AdmStatistics"
+                                       asp-action="RevenueStructure"
+                                       asp-route-option="2020"
+                                       data-ajax="true" data-ajax-update="#Static-Product-Amount">2020</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="card-body pb-0">
+                            <h5 class="card-title">Phân tích sản phẩm <span>|</span></h5>
+                            <form asp-action="StaticProductRevenue" method="get" >
+                                <div class="col-md-2">
+                                <select name="option" class="form-select">
+                                    <option value=@ViewData["option"]>@ViewData["optionName"]</option>
+                                    <option value=0>Trong ngày</option>
+                                    <option value=1>Trong tháng</option>
+                                    <option value=2>Trong năm</option>
+                                    <option value=3>Từ trước đến nay</option>
+                                </select>
+                                <input value="Thống kê" type="submit" class="btn btn-primary" />
+                                </div>
+                            </form>
+                            <canvas id="newchart"></canvas>
+                            <!--<div class="row">-->
+                            <!-- Pie Chart -->
+                            <!--<div class="col-xl-6 col-lg-7">
+                                <div class="card shadow mb-4">-->
+                            <!-- Card Header - Dropdown -->
+                            <!--<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                <h6 class="m-0 font-weight-bold text-primary">
+                                    Doanh thu gói theo nă
+                                </h6>
+                            </div>-->
+                            <!-- Card Body -->
+                            <!--<div class="card-body">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>-->
+                            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                            <script src="~/js/jquery.js"></script>
+                            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+                            <script type="text/javascript">
+                                $(function () {
+
+
+                                    var ctx = document.getElementById('newchart').getContext('2d');
+                                    var model = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model) as String);
+                                    console.log(model)
+                                    var doanhthunam = new Chart(ctx, model)
+                                });
+
+
+                            </script>
+
+                        </div>
+                    </div>
+                </div><!-- End Top Selling -->
             </div>
-        </div>
+        </div><!-- End Left side columns -->
+
     </div>
-</div>-->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="~/js/jquery.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-<script type="text/javascript">
-        $(function () {
-
-
-            var ctx = document.getElementById('newchart').getContext('2d');
-            var model = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model) as String);
-            console.log(model)
-            var doanhthunam = new Chart(ctx, model)
-        });
-
-
-</script>
-
-
+</section>
