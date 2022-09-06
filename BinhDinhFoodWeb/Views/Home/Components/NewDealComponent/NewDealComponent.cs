@@ -12,7 +12,8 @@ namespace BinhDinhFoodWeb.Views.Home.Components.NewDealComponent
         }
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var obj = await _repo.GetListAsync(filter: x=>x.ProductDateCreated.Month == DateTime.Now.Month);
+            var obj = await _repo.GetListAsync(
+                filter: x=>x.ProductDateCreated.Month == DateTime.Now.Month);
             return View("NewDealComponent", obj);
         }
     }

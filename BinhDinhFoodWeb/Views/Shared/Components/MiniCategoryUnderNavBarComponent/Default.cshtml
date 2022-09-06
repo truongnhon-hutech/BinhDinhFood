@@ -1,6 +1,5 @@
 ﻿@foreach(var item in Model)
 {
-
     <li>
         <a asp-action ="SearchByFilter" asp-controller="Product" asp-route-id="@item.CategoryId">@item.CategoryName</a>
     </li>

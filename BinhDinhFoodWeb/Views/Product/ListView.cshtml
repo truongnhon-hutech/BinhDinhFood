@@ -136,8 +136,8 @@
                         <ul>
                             @if (User.Identity.IsAuthenticated)
                             {
-                                <li><a asp-action="AddInCart" asp-controller="Cart" asp-route-id="@item.ProductId" data-ajax="true" data-ajax-success="addCartAlert" data-ajax-failure="addCartFailAlert" class="btn_1">Thêm vào giỏ hàng</a></li>
-                                <li><a asp-action="AddInFavorite" asp-controller="Cart" asp-route-id="@item.ProductId" data-ajax="true"  data-ajax-success="addFavAlert" data-ajax-failure="addCartFailAlert" class="btn_1 gray tooltip-1" data-toggle="tooltip" data-placement="top" title="Thêm vào yêu thích"><i class="ti-heart"></i><span>Thêm vào yêu thích</span></a></li>
+                                <li><a asp-action="AddInCart" asp-controller="Cart" asp-route-id="@item.ProductId" data-ajax="true" data-ajax-success="addCartAlert" data-ajax-failure="addCartFailAlert" data-ajax-update="#mini-cart" class="btn_1">Thêm vào giỏ hàng</a></li>
+                                <li><a asp-action="AddInFavorite" asp-controller="Cart" asp-route-id="@item.ProductId" data-ajax="true" data-ajax-success="addFavAlert" data-ajax-failure="addCartFailAlert" class="btn_1 gray tooltip-1" data-toggle="tooltip" data-placement="top" title="Thêm vào yêu thích"><i class="ti-heart"></i><span>Thêm vào yêu thích</span></a></li>
 
                             }
                             else

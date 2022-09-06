@@ -12,7 +12,7 @@ namespace BinhDinhFoodWeb.Views.Home.Components.NewsComponent
         }
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var obj = await _repo.GetListAsync(take: 2);
+            var obj = await _repo.GetListAsync(take: 4);
             return View("NewsComponent", obj);
         }
     }
