@@ -69,7 +69,7 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ProductId,ProductName,ProductPrice,ProductDescription,ProductAmount,ProductDiscount,ProductImage,ProductDateCreated,CategoryId")] Product product)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 IFormFileCollection files = HttpContext.Request.Form.Files;
                 foreach (var Image in files)

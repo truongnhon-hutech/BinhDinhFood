@@ -9,9 +9,8 @@
 	<div class="page_header">
 		<div class="breadcrumbs">
 			<ul>
-				<li><a href="#">Home</a></li>
-				<li><a href="#">Category</a></li>
-				<li>Page active</li>
+				<li><a asp-action="Index" asp-controller="Home">Trang chủ</a></li>
+				<li>Giỏ hàng</li>
 			</ul>
 		</div>
 		<h1>Giỏ hàng</h1>
@@ -49,7 +48,7 @@
 		<div class="col-sm-4 text-right">
 			<a asp-action="UpdateCart" data-ajax="true" data-ajax-update="#render-body" type="button" class="btn btn_1 gray">
 				Cập nhật giỏ hàng</a>
-			<a asp-action="RemoveAll" class="btn_1 ">Xoá giỏ hàng</a>
+			<a asp-action="RemoveAll" data-ajax="true" data-ajax-update="#render-body" class="btn_1">Xoá giỏ hàng</a>
 
 		</div>
 		<div class="col-sm-8">

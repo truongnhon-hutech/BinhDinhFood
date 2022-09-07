@@ -38,9 +38,9 @@ namespace BinhDinhFood.Models
         public virtual Category? Category { get; set; }
         [ForeignKey("Category")]
         public int CategoryId { get; set; }
-        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
-        public virtual ICollection<ProductRating> ProductRatings { get; set; }
-        public virtual ICollection<Favorite> Favorites { get; set; }
+        public virtual ICollection<OrderDetail>? OrderDetails { get; set; }
+        public virtual ICollection<ProductRating>? ProductRatings { get; set; }
+        public virtual ICollection<Favorite>? Favorites { get; set; }
 
     }
 }

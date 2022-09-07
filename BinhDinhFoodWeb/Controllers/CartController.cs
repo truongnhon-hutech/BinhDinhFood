@@ -273,20 +273,22 @@ namespace BinhDinhFoodWeb.Controllers
             return totalMoney;
         }
         // Add product to cart
-        public async Task<IActionResult> AddInCart(int id)
+        public async Task<IActionResult> AddInCart(int id, int? quantity)
         {
 
             List<Item> listCart = _cartRepo.Get(HttpContext.Session);
             bool isInCart = listCart.Any(x => x.Product.ProductId == id);
+            if (quantity == null)
+                quantity = 1;
             if (!isInCart)
             {
-                Item newItem = new Item { Product = await _productRepo.GetByIdAsync(id), Quantity = 1 };
+                Item newItem = new Item { Product = await _productRepo.GetByIdAsync(id), Quantity = (int)quantity };
                 listCart.Add(newItem);
             }
             else
             {
                 Item? item = listCart.FirstOrDefault(x => x.Product.ProductId == id);
-                item.Quantity++;
+                item.Quantity += (int)quantity;
             }
             _cartRepo.Set(HttpContext.Session, listCart);
             return ViewComponent("MiniCartComponent");
