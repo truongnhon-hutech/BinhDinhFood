@@ -62,7 +62,7 @@ namespace BinhDinhFoodWeb.Controllers
 
             return RedirectToAction("Index","Home");
         }
-        [HttpPost]
+        // delete [httppost]
         public async Task<IActionResult> Logout(string returnUrl)
         {
             if(!User.Identity.IsAuthenticated || User.IsInRole("Admin"))

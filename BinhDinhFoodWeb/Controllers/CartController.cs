@@ -36,34 +36,6 @@ namespace BinhDinhFoodWeb.Controllers
             _repoFavorite = favoriteRepository;
             _configuration = configuration;
         }
-        private async Task CompletePayment(bool paidState)
-        {
-            List<Item> listCart = _cartRepo.Get(HttpContext.Session);
-            int id = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
-            Order or = new Order();
-            or.CustomerId = id;
-            or.DayOrder = DateTime.Now;
-            or.DayDelivery = DateTime.Now.AddDays(3);
-            or.PaidState = paidState;
-            // build payment momo or vnpay
-            or.DeliveryState = false;
-            or.TotalMoney = shippingCost + TotalMoney();
-            await _orderRepo.AddAsync(or);
-            await _orderRepo.SaveAsync();
-
-            foreach (var item in listCart)
-            {
-                OrderDetail detail = new OrderDetail();
-                detail.OrderId = or.OrderId;
-                detail.ProductId = item.Product.ProductId;
-                detail.Quantity = item.Quantity;
-                detail.UnitPrice = Convert.ToDecimal(item.Product.ProductPrice);
-                await _orderDetailRepo.AddAsync(detail);
-                await _orderDetailRepo.SaveAsync();
-            }
-            // clear cart
-            _cartRepo.Set(HttpContext.Session, new List<Item>());
-        }
         private void VnPayPayment(double totalMoney, int orderId)
         {
             string vnp_Returnurl = _configuration["VnPaySettings:vnp_Returnurl"]; //URL nhan ket qua tra ve 
@@ -327,7 +299,7 @@ namespace BinhDinhFoodWeb.Controllers
             return ViewComponent("CartComponent", new List<Item>());
         }
         // Order - checkout
-        public async Task<IActionResult> Order(bool orderFailed = false)
+        public IActionResult Order(bool orderFailed = false)
         {
             // Authentication user
             if (!User.Identity.IsAuthenticated || User.IsInRole("Admin"))

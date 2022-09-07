@@ -89,19 +89,11 @@
 						</div>
 					</div>
 					<div class="col-lg-4 col-md-6">
-						@if (User.Identity.IsAuthenticated)
-						{
+						
 							<button type="submit" class="btn_1">
 								<i class="ti-shopping-cart"></i> Thêm vào giỏ hàng
 							</button>
-						}
-						else
-						{
-							<a class="btn_1" data-ajax="true" data-ajax-success="loginFirstAlert" data-ajax-failure="addCartFailAlert">
-								<i class="ti-shopping-cart"></i>
-								Thêm vào giỏ hàng
-							</a>
-						}
+						
 					</div>
 				</div>
 				<!-- /prod_info -->

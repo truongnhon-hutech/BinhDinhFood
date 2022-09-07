@@ -17,17 +17,7 @@ namespace BinhDinhFoodWeb.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            // search data for banner
-            var tmp1 = await _repo.GetByIdAsync(6);
-            ViewData["objBannerImage1"] = tmp1.ProductImage;
-            var tmp2 = await _repo.GetByIdAsync(7);
-
-            ViewData["objBannerImage2"] = tmp2.ProductImage;
-            var tmp3 = await _repo.GetByIdAsync(16);
-
-            ViewData["objBannerImage3"] = tmp3.ProductImage;
-            var objProductList = await _repo.GetListAsync();
-            return View(objProductList);
+            return View();
         }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
 
