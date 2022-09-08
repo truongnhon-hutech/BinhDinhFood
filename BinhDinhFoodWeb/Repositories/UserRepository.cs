@@ -124,7 +124,7 @@ namespace BinhDinhFoodWeb.Repositories
             Token toKen = new Token(customerUserName, token, DateTime.Now.AddMinutes(2));
             _context.Tokens.Add(toKen);
             _context.SaveChanges();
-            return "https://localhost:44316/User/ResetPassword?user=" + customerUserName + "&token=" + token;
+            return "http://binhdinhfood-001-site1.dtempurl.com/User/ResetPassword?user=" + customerUserName + "&token=" + token;
         }
         public async Task<bool> HaveAccount(ForgotViewModel model)
         {

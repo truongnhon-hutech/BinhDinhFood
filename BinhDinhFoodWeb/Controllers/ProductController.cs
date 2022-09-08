@@ -84,10 +84,10 @@ namespace BinhDinhFoodWeb.Controllers
                     obj = await _repoProduct.GetListAsync(orderBy: x => x.OrderByDescending(x => x.ProductDateCreated));
                     break;
                 case "price_desc":
-                    obj = await _repoProduct.GetListAsync(orderBy: x => x.OrderByDescending(x => x.ProductPrice));
+                    obj = await _repoProduct.GetListAsync(orderBy: x => x.OrderBy(x => x.ProductPrice));
                     break;
                 case "price_asce":
-                    obj = await _repoProduct.GetListAsync(orderBy: x => x.OrderBy(x => x.ProductPrice));
+                    obj = await _repoProduct.GetListAsync(orderBy: x => x.OrderByDescending(x => x.ProductPrice));
                     break;
                 case "discount":
                     obj = await _repoProduct.GetListAsync(orderBy: x => x.OrderByDescending(x => x.ProductDiscount));

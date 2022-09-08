@@ -206,9 +206,9 @@ namespace BinhDinhFoodWeb.Controllers
         public IActionResult Index()
         {
             List<Item> listCart = _cartRepo.Get(HttpContext.Session);
-            ViewData["TotalSubMoney"] = TotalMoney();
-            ViewData["ShippingCost"] = shippingCost;
-            ViewData["TotalMoney"] = shippingCost + TotalMoney();
+            ViewData["TotalSubMoney"] = TotalMoney().ToString("#,###", cul.NumberFormat);
+            ViewData["ShippingCost"] = shippingCost.ToString("#,###", cul.NumberFormat);
+            ViewData["TotalMoney"] = (shippingCost + TotalMoney()).ToString("#,###", cul.NumberFormat);
 
             return View(listCart);
         }
@@ -372,7 +372,7 @@ namespace BinhDinhFoodWeb.Controllers
                     Response.Redirect("Confirm");
                 }
             }
-            
+
         }
         public IActionResult Checkout()
         {

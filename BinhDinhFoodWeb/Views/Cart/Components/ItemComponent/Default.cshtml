@@ -1,4 +1,9 @@
-﻿@using BinhDinhFoodWeb.Models
+﻿@using System.Globalization
+@using BinhDinhFoodWeb.Models
+@{
+
+	CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
+}
 @model Item
 
 <td>
@@ -8,7 +13,7 @@
 	<span class="item_cart">@Html.DisplayFor(modelItem => Model.Product.ProductName)</span>
 </td>
 <td>
-	<strong>@Html.DisplayFor(modelItem => Model.TotalCost) Đ</strong>
+	<strong>@Model.TotalCost.ToString("#,###", cul.NumberFormat) Đ</strong>
 </td>
 <td>
 	<div class="numbers-row">
@@ -18,7 +23,8 @@
 	</div>
 </td>
 <td>
-	<strong>@Html.DisplayFor(modelItem => Model.Product.ProductPrice) Đ</strong>
+	<strong>@Convert.ToDouble(@Model.Product.ProductPrice -(@Convert.ToDouble(@Model.Product.ProductPrice) * @Convert.ToDouble(@Model.Product.ProductDiscount) / 100)).ToString("#,###", cul.NumberFormat) Đ</strong>
+
 </td>
 <td class="options">
 	<a asp-action="RemoveInCart" asp-route-id="@Model.Product.ProductId" data-ajax="true" data-ajax-update="#render-body"><i class="ti-trash"></i></a>

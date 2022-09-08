@@ -106,6 +106,9 @@ builder.Services.AddCors(options =>
         });
 });
 
+var vnPaySettings = builder.Configuration.GetSection("VnPaySettings").Get<VnPaySettings>();
+builder.Services.AddSingleton(vnPaySettings);
+
 var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -114,7 +117,7 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
-
+// handler error 404 page
 app.UseStatusCodePagesWithRedirects("/Home/Error?statuscode = {0}");
 
 
