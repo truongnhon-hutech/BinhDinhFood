@@ -8,489 +8,489 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = BinhDinhFoodWeb
 build_property.RootNamespace = BinhDinhFoodWeb
-build_property.ProjectDir = C:\Users\vothu\Downloads\Final-BinhDinhFood\BinhDinhFood\BinhDinhFoodWeb\
+build_property.ProjectDir = C:\Users\vothu\Downloads\project\BinhDinhFood\BinhDinhFoodWeb\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = true
-build_property.MSBuildProjectDirectory = C:\Users\vothu\Downloads\Final-BinhDinhFood\BinhDinhFood\BinhDinhFoodWeb
+build_property.MSBuildProjectDirectory = C:\Users\vothu\Downloads\project\BinhDinhFood\BinhDinhFoodWeb
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmAccount/ChangePass.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmAccount/ChangePass.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtQWNjb3VudFxDaGFuZ2VQYXNzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmAccount/ForgotPassword.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmAccount/ForgotPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtQWNjb3VudFxGb3Jnb3RQYXNzd29yZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmAccount/Login.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmAccount/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmAccount/ResetPassword.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmAccount/ResetPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtQWNjb3VudFxSZXNldFBhc3N3b3JkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmAccount/ShowMessage.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmAccount/ShowMessage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtQWNjb3VudFxTaG93TWVzc2FnZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmBanner/Create.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmBanner/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtQmFubmVyXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmBanner/Delete.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmBanner/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtQmFubmVyXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmBanner/Details.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmBanner/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtQmFubmVyXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmBanner/Edit.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmBanner/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtQmFubmVyXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmBanner/Index.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmBanner/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtQmFubmVyXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmBlog/Create.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmBlog/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtQmxvZ1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmBlog/Delete.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmBlog/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtQmxvZ1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmBlog/Details.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmBlog/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtQmxvZ1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmBlog/Edit.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmBlog/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtQmxvZ1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmBlog/Index.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmBlog/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtQmxvZ1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmCategory/Create.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmCategory/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtQ2F0ZWdvcnlcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmCategory/Delete.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmCategory/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtQ2F0ZWdvcnlcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmCategory/Details.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmCategory/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtQ2F0ZWdvcnlcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmCategory/Edit.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmCategory/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtQ2F0ZWdvcnlcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmCategory/Index.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmCategory/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtQ2F0ZWdvcnlcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmCustomer/Delete.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmCustomer/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtQ3VzdG9tZXJcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmCustomer/Details.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmCustomer/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtQ3VzdG9tZXJcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmCustomer/Index.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmCustomer/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtQ3VzdG9tZXJcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmHome/Components/ActivityComponent/Default.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmHome/Components/ActivityComponent/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtSG9tZVxDb21wb25lbnRzXEFjdGl2aXR5Q29tcG9uZW50XERlZmF1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmHome/Components/CustomerComponent/Default.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmHome/Components/CustomerComponent/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtSG9tZVxDb21wb25lbnRzXEN1c3RvbWVyQ29tcG9uZW50XERlZmF1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmHome/Components/OrderRecordComponent/Default.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmHome/Components/OrderRecordComponent/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtSG9tZVxDb21wb25lbnRzXE9yZGVyUmVjb3JkQ29tcG9uZW50XERlZmF1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmHome/Components/RevenueComponent/Default.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmHome/Components/RevenueComponent/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtSG9tZVxDb21wb25lbnRzXFJldmVudWVDb21wb25lbnRcRGVmYXVsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmHome/Components/SaleComponent/Default.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmHome/Components/SaleComponent/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtSG9tZVxDb21wb25lbnRzXFNhbGVDb21wb25lbnRcRGVmYXVsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmHome/Index.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmHome/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmOrderDetail/Delete.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmOrderDetail/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtT3JkZXJEZXRhaWxcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmOrderDetail/Details.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmOrderDetail/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtT3JkZXJEZXRhaWxcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmOrderDetail/Edit.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmOrderDetail/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtT3JkZXJEZXRhaWxcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmOrderDetail/Index.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmOrderDetail/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtT3JkZXJEZXRhaWxcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmOrder/Delete.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmOrder/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtT3JkZXJcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmOrder/Details.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmOrder/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtT3JkZXJcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmOrder/Edit.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmOrder/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtT3JkZXJcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmOrder/Index.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmOrder/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtT3JkZXJcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmProductRating/Delete.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmProductRating/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtUHJvZHVjdFJhdGluZ1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmProductRating/Details.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmProductRating/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtUHJvZHVjdFJhdGluZ1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmProductRating/Index.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmProductRating/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtUHJvZHVjdFJhdGluZ1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmProduct/Create.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmProduct/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtUHJvZHVjdFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmProduct/Delete.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmProduct/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtUHJvZHVjdFxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmProduct/Details.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmProduct/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtUHJvZHVjdFxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmProduct/Edit.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmProduct/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtUHJvZHVjdFxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmProduct/Index.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmProduct/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtUHJvZHVjdFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmStatistics/Components/RevenueStructureComponent/Default.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmStatistics/Components/RevenueStructureComponent/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtU3RhdGlzdGljc1xDb21wb25lbnRzXFJldmVudWVTdHJ1Y3R1cmVDb21wb25lbnRcRGVmYXVsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmStatistics/Components/StaticOrdersByUsersComponent/Default.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmStatistics/Components/StaticOrdersByUsersComponent/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtU3RhdGlzdGljc1xDb21wb25lbnRzXFN0YXRpY09yZGVyc0J5VXNlcnNDb21wb25lbnRcRGVmYXVsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmStatistics/Components/StaticProductAmountComponent/Default.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmStatistics/Components/StaticProductAmountComponent/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtU3RhdGlzdGljc1xDb21wb25lbnRzXFN0YXRpY1Byb2R1Y3RBbW91bnRDb21wb25lbnRcRGVmYXVsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmStatistics/Components/StaticProductComponent/Default.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmStatistics/Components/StaticProductComponent/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtU3RhdGlzdGljc1xDb21wb25lbnRzXFN0YXRpY1Byb2R1Y3RDb21wb25lbnRcRGVmYXVsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmStatistics/Components/StaticProductRevenueComponent/Default.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmStatistics/Components/StaticProductRevenueComponent/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtU3RhdGlzdGljc1xDb21wb25lbnRzXFN0YXRpY1Byb2R1Y3RSZXZlbnVlQ29tcG9uZW50XERlZmF1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmStatistics/Components/StaticRevenueByUsersComponent/Default.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmStatistics/Components/StaticRevenueByUsersComponent/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtU3RhdGlzdGljc1xDb21wb25lbnRzXFN0YXRpY1JldmVudWVCeVVzZXJzQ29tcG9uZW50XERlZmF1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmStatistics/Index.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmStatistics/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtU3RhdGlzdGljc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmStatistics/RevenueStructure.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmStatistics/RevenueStructure.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtU3RhdGlzdGljc1xSZXZlbnVlU3RydWN0dXJlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmStatistics/StaticProduct.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmStatistics/StaticProduct.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtU3RhdGlzdGljc1xTdGF0aWNQcm9kdWN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmStatistics/StaticProductAmount.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmStatistics/StaticProductAmount.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtU3RhdGlzdGljc1xTdGF0aWNQcm9kdWN0QW1vdW50LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmStatistics/StaticProductRevenue.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/AdmStatistics/StaticProductRevenue.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtU3RhdGlzdGljc1xTdGF0aWNQcm9kdWN0UmV2ZW51ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/Shared/_Layout.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/Shared/_LayoutLogin.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/Shared/_LayoutLogin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9MYXlvdXRMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/_ViewImports.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Areas/Admin/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/Blog/BlogPost.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/Blog/BlogPost.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ1xCbG9nUG9zdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/Blog/Components/BlogAsideComponent/BlogAsideComponent.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/Blog/Components/BlogAsideComponent/BlogAsideComponent.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ1xDb21wb25lbnRzXEJsb2dBc2lkZUNvbXBvbmVudFxCbG9nQXNpZGVDb21wb25lbnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/Blog/Components/BlogCommentComponents/BlogCommentComponents.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/Blog/Components/BlogCommentComponents/BlogCommentComponents.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ1xDb21wb25lbnRzXEJsb2dDb21tZW50Q29tcG9uZW50c1xCbG9nQ29tbWVudENvbXBvbmVudHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/Blog/Components/HeaderComponent/Default.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/Blog/Components/HeaderComponent/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ1xDb21wb25lbnRzXEhlYWRlckNvbXBvbmVudFxEZWZhdWx0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/Blog/Index.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/Blog/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/Blog/ProductDetail.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/Blog/ProductDetail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmxvZ1xQcm9kdWN0RGV0YWlsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/Cart/Checkout.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/Cart/Checkout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxDaGVja291dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/Cart/Components/CartComponent/Default.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/Cart/Components/CartComponent/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxDb21wb25lbnRzXENhcnRDb21wb25lbnRcRGVmYXVsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/Cart/Components/FavComponent/FavComponent.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/Cart/Components/FavComponent/FavComponent.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxDb21wb25lbnRzXEZhdkNvbXBvbmVudFxGYXZDb21wb25lbnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/Cart/Components/ItemComponent/Default.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/Cart/Components/ItemComponent/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxDb21wb25lbnRzXEl0ZW1Db21wb25lbnRcRGVmYXVsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/Cart/Components/OrderDetailComponent/Default.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/Cart/Components/OrderDetailComponent/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxDb21wb25lbnRzXE9yZGVyRGV0YWlsQ29tcG9uZW50XERlZmF1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/Cart/Components/OrdersComponent/Default.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/Cart/Components/OrdersComponent/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxDb21wb25lbnRzXE9yZGVyc0NvbXBvbmVudFxEZWZhdWx0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/Cart/Confirm.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/Cart/Confirm.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxDb25maXJtLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/Cart/FavoriteList.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/Cart/FavoriteList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxGYXZvcml0ZUxpc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/Cart/Index.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/Cart/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/Cart/OderDetail.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/Cart/OderDetail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxPZGVyRGV0YWlsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/Cart/Order.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/Cart/Order.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxPcmRlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/Cart/TrackOrder.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/Cart/TrackOrder.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxUcmFja09yZGVyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/Cart/VnPayPayment.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/Cart/VnPayPayment.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxWblBheVBheW1lbnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/Cart/_ShowItem.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/Cart/_ShowItem.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxfU2hvd0l0ZW0uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/Home/About.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/Home/About.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBYm91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/Home/Components/BannerComponent/BannerComponent.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/Home/Components/BannerComponent/BannerComponent.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb21wb25lbnRzXEJhbm5lckNvbXBvbmVudFxCYW5uZXJDb21wb25lbnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/Home/Components/BannerGridComponent/Default.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/Home/Components/BannerGridComponent/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb21wb25lbnRzXEJhbm5lckdyaWRDb21wb25lbnRcRGVmYXVsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/Home/Components/NewDealComponent/NewDealComponent.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/Home/Components/NewDealComponent/NewDealComponent.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb21wb25lbnRzXE5ld0RlYWxDb21wb25lbnRcTmV3RGVhbENvbXBvbmVudC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/Home/Components/NewsComponent/NewsComponent.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/Home/Components/NewsComponent/NewsComponent.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb21wb25lbnRzXE5ld3NDb21wb25lbnRcTmV3c0NvbXBvbmVudC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/Home/Components/SingleBannerComponent/SingleBannerComponent.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/Home/Components/SingleBannerComponent/SingleBannerComponent.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb21wb25lbnRzXFNpbmdsZUJhbm5lckNvbXBvbmVudFxTaW5nbGVCYW5uZXJDb21wb25lbnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/Home/Components/TopSaleComponent/TopSaleComponent.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/Home/Components/TopSaleComponent/TopSaleComponent.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb21wb25lbnRzXFRvcFNhbGVDb21wb25lbnRcVG9wU2FsZUNvbXBvbmVudC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/Home/Contact.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/Home/Contact.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb250YWN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/Home/Help.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/Home/Help.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxIZWxwLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/Home/Index.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/Product/Components/AsideComponent/Default.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/Product/Components/AsideComponent/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxDb21wb25lbnRzXEFzaWRlQ29tcG9uZW50XERlZmF1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/Product/Components/ProductRatingComponent/ProductRatingComponent.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/Product/Components/ProductRatingComponent/ProductRatingComponent.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxDb21wb25lbnRzXFByb2R1Y3RSYXRpbmdDb21wb25lbnRcUHJvZHVjdFJhdGluZ0NvbXBvbmVudC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/Product/Components/RelatedProductComponent/RelatedProductComponent.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/Product/Components/RelatedProductComponent/RelatedProductComponent.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxDb21wb25lbnRzXFJlbGF0ZWRQcm9kdWN0Q29tcG9uZW50XFJlbGF0ZWRQcm9kdWN0Q29tcG9uZW50LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/Product/Components/SortComponent/Default.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/Product/Components/SortComponent/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxDb21wb25lbnRzXFNvcnRDb21wb25lbnRcRGVmYXVsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/Product/Confirm.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/Product/Confirm.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxDb25maXJtLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/Product/Index.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/Product/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/Product/LeaveReview.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/Product/LeaveReview.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxMZWF2ZVJldmlldy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/Product/ListView.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/Product/ListView.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxMaXN0Vmlldy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/Product/ProductDetail.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/Product/ProductDetail.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxQcm9kdWN0RGV0YWlsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/Product/SearchByFilter.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/Product/SearchByFilter.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxTZWFyY2hCeUZpbHRlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/Shared/Components/AccountComponent/Default.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/Shared/Components/AccountComponent/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcQWNjb3VudENvbXBvbmVudFxEZWZhdWx0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/Shared/Components/HeaderCategoryComponent/Default.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/Shared/Components/HeaderCategoryComponent/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcSGVhZGVyQ2F0ZWdvcnlDb21wb25lbnRcRGVmYXVsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/Shared/Components/MiniCartComponent/Default.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/Shared/Components/MiniCartComponent/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcTWluaUNhcnRDb21wb25lbnRcRGVmYXVsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/Shared/Components/MiniCategoryNavBarComponent/Default.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/Shared/Components/MiniCategoryNavBarComponent/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcTWluaUNhdGVnb3J5TmF2QmFyQ29tcG9uZW50XERlZmF1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/Shared/Components/MiniCategoryUnderNavBarComponent/Default.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/Shared/Components/MiniCategoryUnderNavBarComponent/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcTWluaUNhdGVnb3J5VW5kZXJOYXZCYXJDb21wb25lbnRcRGVmYXVsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/Shared/Error.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/User/ChangePass.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/User/ChangePass.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxDaGFuZ2VQYXNzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/User/Components/AvatarComponent/Default.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/User/Components/AvatarComponent/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxDb21wb25lbnRzXEF2YXRhckNvbXBvbmVudFxEZWZhdWx0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/User/Components/ChangePassComponent/Default.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/User/Components/ChangePassComponent/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxDb21wb25lbnRzXENoYW5nZVBhc3NDb21wb25lbnRcRGVmYXVsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/User/Components/EditProfileComponent/Default.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/User/Components/EditProfileComponent/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxDb21wb25lbnRzXEVkaXRQcm9maWxlQ29tcG9uZW50XERlZmF1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/User/Components/ShowProfileComponent/Default.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/User/Components/ShowProfileComponent/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxDb21wb25lbnRzXFNob3dQcm9maWxlQ29tcG9uZW50XERlZmF1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/User/ForgotPassword.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/User/ForgotPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxGb3Jnb3RQYXNzd29yZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/User/Login.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/User/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/User/Profile.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/User/Profile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxQcm9maWxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/User/Register.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/User/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/User/ResetPassword.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/User/ResetPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxSZXNldFBhc3N3b3JkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/User/ShowMessage.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/User/ShowMessage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxTaG93TWVzc2FnZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/_ViewImports.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/_ViewStart.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/vothu/Downloads/Final-BinhDinhFood/BinhDinhFood/BinhDinhFoodWeb/Views/Shared/_Layout.cshtml]
+[C:/Users/vothu/Downloads/project/BinhDinhFood/BinhDinhFoodWeb/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-ovn25bjeey
