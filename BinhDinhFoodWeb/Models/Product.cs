@@ -41,6 +41,6 @@ namespace BinhDinhFood.Models
         public virtual ICollection<OrderDetail>? OrderDetails { get; set; }
         public virtual ICollection<ProductRating>? ProductRatings { get; set; }
         public virtual ICollection<Favorite>? Favorites { get; set; }
-
+        public virtual ICollection<DiscountDetail> DiscountDetails { get; set; }
     }
 }

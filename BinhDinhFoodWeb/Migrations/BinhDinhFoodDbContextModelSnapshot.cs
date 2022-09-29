@@ -289,6 +289,49 @@ namespace BinhDinhFoodWeb.Migrations
                     b.ToTable("Blog");
                 });
 
+            modelBuilder.Entity("BinhDinhFoodWeb.Models.Discount", b =>
+                {
+                    b.Property<int>("DiscountId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DiscountId"), 1L, 1);
+
+                    b.Property<DateTime?>("DateEnd")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DateStart")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<int>("DiscountPercent")
+                        .HasColumnType("int");
+
+                    b.HasKey("DiscountId");
+
+                    b.ToTable("Discount", (string)null);
+                });
+
+            modelBuilder.Entity("BinhDinhFoodWeb.Models.DiscountDetail", b =>
+                {
+                    b.Property<int>("DiscountId")
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int")
+                        .HasColumnOrder(1);
+
+                    b.HasKey("DiscountId", "ProductId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("DiscountDetail", (string)null);
+                });
+
             modelBuilder.Entity("BinhDinhFoodWeb.Models.Favorite", b =>
                 {
                     b.Property<int>("ProductId")
@@ -407,6 +450,25 @@ namespace BinhDinhFoodWeb.Migrations
                     b.Navigation("Category");
                 });
 
+            modelBuilder.Entity("BinhDinhFoodWeb.Models.DiscountDetail", b =>
+                {
+                    b.HasOne("BinhDinhFoodWeb.Models.Discount", "Discount")
+                        .WithMany("DiscountDetails")
+                        .HasForeignKey("DiscountId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BinhDinhFood.Models.Product", "Product")
+                        .WithMany("DiscountDetails")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Discount");
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("BinhDinhFoodWeb.Models.Favorite", b =>
                 {
                     b.HasOne("BinhDinhFood.Models.Customer", "Customer")
@@ -466,11 +528,18 @@ namespace BinhDinhFoodWeb.Migrations
 
             modelBuilder.Entity("BinhDinhFood.Models.Product", b =>
                 {
+                    b.Navigation("DiscountDetails");
+
                     b.Navigation("Favorites");
 
                     b.Navigation("OrderDetails");
 
                     b.Navigation("ProductRatings");
+                });
+
+            modelBuilder.Entity("BinhDinhFoodWeb.Models.Discount", b =>
+                {
+                    b.Navigation("DiscountDetails");
                 });
 #pragma warning restore 612, 618
         }

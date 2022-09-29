@@ -20,6 +20,8 @@ namespace BinhDinhFood.Models
         public DbSet<Token> Tokens { get; set; }
         public DbSet<Banner> Banners { get; set; }
         public DbSet<Favorite> Favorites { get; set; }
+        public DbSet<Discount> Discounts{ get; set; }
+        public DbSet<DiscountDetail> DiscountDetails{ get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -33,6 +35,8 @@ namespace BinhDinhFood.Models
             modelBuilder.Entity<Token>().ToTable("Token");
             modelBuilder.Entity<Banner>().ToTable("Banner");
             modelBuilder.Entity<Favorite>().ToTable("Favorite");
+            modelBuilder.Entity<Discount>().ToTable("Discount");
+            modelBuilder.Entity<DiscountDetail>().ToTable("DiscountDetail");
 
             modelBuilder.Entity<OrderDetail>()
                 .HasKey(c => new { c.ProductId, c.OrderId });
@@ -42,6 +46,15 @@ namespace BinhDinhFood.Models
 
             modelBuilder.Entity<Product>()
                 .HasMany(e => e.OrderDetails);
+
+            modelBuilder.Entity<DiscountDetail>()
+                .HasKey(c => new { c.DiscountId, c.ProductId });
+
+            modelBuilder.Entity<Discount>()
+                .HasMany(e => e.DiscountDetails);
+
+            modelBuilder.Entity<Product>()
+                .HasMany(e => e.DiscountDetails);
 
             modelBuilder.Entity<Favorite>()
                .HasKey(c => new { c.ProductId, c.CustomerId });
@@ -71,6 +84,7 @@ namespace BinhDinhFood.Models
             modelBuilder.Entity<Customer>()
                 .HasIndex(g => g.CustomerUserName)
                 .IsUnique();            
+
         }
 
         public DbSet<BinhDinhFoodWeb.Models.Blog>? Blog { get; set; }
