@@ -1,4 +1,5 @@
-﻿using BinhDinhFoodWeb.Intefaces;
+﻿using BinhDinhFood.Models;
+using BinhDinhFoodWeb.Intefaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BinhDinhFoodWeb.Views.Home.Components.NewDealComponent

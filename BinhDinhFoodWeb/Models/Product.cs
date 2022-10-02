@@ -26,6 +26,8 @@ namespace BinhDinhFood.Models
         [DisplayName("Khuyến mãi")]
         [Range(0, 1)]
         public int ProductDiscount { get; set; }
+        [DisplayName("Đánh giá")]
+        public int ProductRating { get; set; }
         [DisplayName("Hình ảnh")]
         public string? ProductImage { get; set; }
         [DisplayName("Ngày thêm")]

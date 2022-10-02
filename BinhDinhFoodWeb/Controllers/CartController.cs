@@ -307,7 +307,8 @@ namespace BinhDinhFoodWeb.Controllers
 
             if (orderFailed) ViewBag.ErrorMessage = "Thanh toán lỗi";
             List<Item> listCart = _cartRepo.Get(HttpContext.Session);
-
+            if (listCart.Count() == 0)
+                RedirectToAction("Index", "Cart");
             // get customer 
             int id = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
             InforViewModel customer = _userRepository.GetUserInfor(id);
@@ -316,8 +317,7 @@ namespace BinhDinhFoodWeb.Controllers
             ViewBag.Address = customer.Address;
             ViewBag.Email = customer.Email;
 
-            if (listCart == null)
-                return RedirectToAction("Order", "Cart");
+            
 
             ViewData["TotalSubMoney"] = TotalMoney().ToString("#,###", cul.NumberFormat);
             ViewData["ShippingCost"] = shippingCost.ToString("#,###", cul.NumberFormat);
@@ -330,9 +330,11 @@ namespace BinhDinhFoodWeb.Controllers
         {
             if (User.Identity.IsAuthenticated && User.IsInRole("Customer"))
             {
+                
                 var totalMoney = TotalMoney() + shippingCost;
 
                 List<Item> listCart = _cartRepo.Get(HttpContext.Session);
+                
                 int id = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
 
                 Order or = new Order();
@@ -353,6 +355,7 @@ namespace BinhDinhFoodWeb.Controllers
                     detail.ProductId = item.Product.ProductId;
                     detail.Quantity = item.Quantity;
                     detail.UnitPrice = Convert.ToDecimal(item.Product.ProductPrice);
+                    await _productRepo.UpdateAmount(item.Product.ProductId);
                     await _orderDetailRepo.AddAsync(detail);
                     await _orderDetailRepo.SaveAsync();
                 }

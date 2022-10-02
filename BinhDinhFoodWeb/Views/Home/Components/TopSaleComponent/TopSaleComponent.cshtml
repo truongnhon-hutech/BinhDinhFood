@@ -15,14 +15,23 @@
                 <div class="grid_item">
                     <figure>
                         <span class="ribbon off"> - @Convert.ToDouble(@item.ProductDiscount)%</span>
-                        <a asp-action="ProductDetail" asp-controller ="Product" asp-route-id="@item.ProductId">
+                        <a asp-action="ProductDetail" asp-controller="Product" asp-route-id="@item.ProductId">
                             <img class="img-fluid lazy" src="~/Content/img/products/@item.ProductImage" alt="@item.ProductName" style="width: 400px; height: 200px">
                             <img class="img-fluid lazy" src="~/Content/img/products/@item.ProductImage" alt="@item.ProductName" style="width: 400px; height: 200px">
                         </a>
                         <div data-countdown="@DateTime.Now.AddHours(5).ToString("yyyy-MM-dd h:mm tt")" class="countdown"></div>
                     </figure>
-                    <div class="rating"><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star voted"></i><i class="icon-star"></i></div>
-                    <a asp-action="ProductDetail" asp-controller ="Product" asp-route-id="@item.ProductId">
+                    <div class="rating">
+                        @for (int i = 1; i <= @item.ProductRating; i++)
+                        {
+                            <i class="icon-star voted"></i>
+                        }
+                        @for (int i = 5 - @item.ProductRating; i >= 1; i--)
+                        {
+                            <i class="icon-star"></i>
+                        }
+                    </div>
+                    <a asp-action="ProductDetail" asp-controller="Product" asp-route-id="@item.ProductId">
                         <h3>@item.ProductName</h3>
                     </a>
                     <div class="price_box">

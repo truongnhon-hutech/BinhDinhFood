@@ -56,9 +56,10 @@ namespace BinhDinhFoodWeb.Controllers
             pd.PRDateCreated = DateTime.Now;
             await _repoProductRating.AddAsync(pd);
             await _repoProductRating.SaveAsync();
-
+            await _repoProduct.UpdateRating(id);
             return RedirectToAction("Confirm");
         }
+ 
 
         // Confirm feature
         public IActionResult Confirm()

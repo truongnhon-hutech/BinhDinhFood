@@ -14,5 +14,7 @@ namespace BinhDinhFoodWeb.Intefaces
         public Table[] GetProductAmountInYear(int productId);
         public Table[] GetProductRevenueInYear(int productId);
         public List<Table> GetListProduct();
+        public Task UpdateRating(int id);
+        public Task UpdateAmount(int id);
     }
 }

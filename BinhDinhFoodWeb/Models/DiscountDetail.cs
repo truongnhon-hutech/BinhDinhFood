@@ -15,6 +15,7 @@ namespace BinhDinhFoodWeb.Models
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ProductId { get; set; }
         public virtual Product Product { get; set; }
+        [Range(0, 1)]
         public virtual Discount Discount { get; set; }
     }
 }
