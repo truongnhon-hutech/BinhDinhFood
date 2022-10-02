@@ -17,7 +17,7 @@
     <WebStackScaffolding_DbContextTypeFullName>BinhDinhFood.Models.BinhDinhFoodDbContext</WebStackScaffolding_DbContextTypeFullName>
     <WebStackScaffolding_IsAsyncSelected>False</WebStackScaffolding_IsAsyncSelected>
     <WebStackScaffolding_IsViewGenerationSelected>True</WebStackScaffolding_IsViewGenerationSelected>
-    <NameOfLastUsedPublishProfile>IISProfile</NameOfLastUsedPublishProfile>
+    <NameOfLastUsedPublishProfile>C:\Users\vothu\Downloads\project\BinhDinhFood\BinhDinhFoodWeb\Properties\PublishProfiles\IISProfile.pubxml</NameOfLastUsedPublishProfile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>

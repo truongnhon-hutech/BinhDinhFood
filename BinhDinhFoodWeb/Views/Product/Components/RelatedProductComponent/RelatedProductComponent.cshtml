@@ -22,11 +22,14 @@
                         <div data-countdown="2022/8/22" class="countdown"></div>
                     </figure>
                     <div class="rating">
-                        <i class="icon-star voted"></i>
-                        <i class="icon-star voted"></i>
-                        <i class="icon-star voted"></i>
-                        <i class="icon-star voted"></i>
-                        <i class="icon-star"></i>
+                        @for (int i = 1; i <= @item.ProductRating; i++)
+                        {
+                            <i class="icon-star voted"></i>
+                        }
+                        @for (int i = 5 - @item.ProductRating; i >= 1; i--)
+                        {
+                            <i class="icon-star"></i>
+                        }
                     </div>
                     <a asp-action="ProductDetail" asp-controller="Product" asp-route-id="@item.ProductId">
                         <h3>@item.ProductName</h3>

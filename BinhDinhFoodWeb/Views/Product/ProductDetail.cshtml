@@ -60,13 +60,18 @@
 						   data-ajax-update="#mini-cart"
 						   class="prod_info">
 				<h1>@Model.ProductName</h1>
-				<span class="rating">
-					<i class="icon-star voted"></i>
-					<i class="icon-star voted"></i>
-					<i class="icon-star voted"></i>
-					<i class="icon-star voted"></i>
-					<i class="icon-star"></i><em>@ViewBag.Review reviews</em>
-				</span>
+				  <div class="rating">
+                        @for (int i = 1; i <= @Model.ProductRating; i++)
+                        {
+                            <i class="icon-star voted"></i>
+                        }
+                        @for (int i = 5 - @Model.ProductRating; i >= 1; i--)
+                        {
+                            <i class="icon-star"></i>
+                        }
+                    </div>
+				
+				<em>@ViewBag.Review reviews</em>
 				<p><small>Mã: @Model.ProductId</small><br></p>
 				<div class="prod_options">
 					<div class="row">
