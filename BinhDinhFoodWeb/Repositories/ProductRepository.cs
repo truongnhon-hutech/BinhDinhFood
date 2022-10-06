@@ -12,7 +12,7 @@ namespace BinhDinhFoodWeb.Repositories
         public ProductRepository(BinhDinhFoodDbContext context) : base(context)
         {
         }
-
+        // get list all product
         public List<Table> GetListProduct()
         {
             return _context.Products.Select(x => new Table

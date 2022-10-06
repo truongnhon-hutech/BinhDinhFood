@@ -317,7 +317,7 @@ namespace BinhDinhFoodWeb.Controllers
             ViewBag.Address = customer.Address;
             ViewBag.Email = customer.Email;
 
-            
+
 
             ViewData["TotalSubMoney"] = TotalMoney().ToString("#,###", cul.NumberFormat);
             ViewData["ShippingCost"] = shippingCost.ToString("#,###", cul.NumberFormat);
@@ -330,11 +330,11 @@ namespace BinhDinhFoodWeb.Controllers
         {
             if (User.Identity.IsAuthenticated && User.IsInRole("Customer"))
             {
-                
+
                 var totalMoney = TotalMoney() + shippingCost;
 
                 List<Item> listCart = _cartRepo.Get(HttpContext.Session);
-                
+
                 int id = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
 
                 Order or = new Order();

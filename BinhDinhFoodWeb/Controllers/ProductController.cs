@@ -34,7 +34,7 @@ namespace BinhDinhFoodWeb.Controllers
         public async Task<IActionResult> ProductDetail(int id)
         {
             var obj = await _repoProduct.GetByIdAsync(id);
-            ViewBag.Review = _repoProductRating.Count(x => x.ProductId == id)   ;
+            ViewBag.Review = _repoProductRating.Count(x => x.ProductId == id);
             return View(obj);
         }
         // Write review for PD 
@@ -47,7 +47,7 @@ namespace BinhDinhFoodWeb.Controllers
         public async Task<IActionResult> LeaveReview(IFormCollection form, int id)
         {
             if (!User.Identity.IsAuthenticated || User.IsInRole("Admin"))
-                return RedirectToAction("Login");
+                return RedirectToAction("Login","User");
             ProductRating pd = new ProductRating();
             pd.CustomerId = 1;
             pd.ProductId = id;
@@ -57,9 +57,9 @@ namespace BinhDinhFoodWeb.Controllers
             await _repoProductRating.AddAsync(pd);
             await _repoProductRating.SaveAsync();
             await _repoProduct.UpdateRating(id);
-            return RedirectToAction("Confirm");
+            return RedirectToAction("Confirm", "Product");
         }
- 
+
 
         // Confirm feature
         public IActionResult Confirm()

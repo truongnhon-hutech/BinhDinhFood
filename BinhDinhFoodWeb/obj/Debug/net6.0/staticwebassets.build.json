@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ekXkbfERZ1HYnGWPjyo+CUx0Rfx9kBgReLfHW2oXxn0=",
+  "Hash": "mCMvNBW/IG8KGhedLvY/lHD6IW9Ll4i+WvY+BJvr/rE=",
   "Source": "BinhDinhFoodWeb",
   "BasePath": "_content/BinhDinhFoodWeb",
   "Mode": "Default",
@@ -6798,6 +6798,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Content\\img\\products\\6e603dfe1d184d17b5b2551e322f82e5.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\vothu\\Downloads\\project\\BinhDinhFood\\BinhDinhFoodWeb\\wwwroot\\Content\\img\\products\\a0dfa91d426d4fd6bc772dab40861331.jpg",
+      "SourceId": "BinhDinhFoodWeb",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\vothu\\Downloads\\project\\BinhDinhFood\\BinhDinhFoodWeb\\wwwroot\\",
+      "BasePath": "_content/BinhDinhFoodWeb",
+      "RelativePath": "Content/img/products/a0dfa91d426d4fd6bc772dab40861331.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Content\\img\\products\\a0dfa91d426d4fd6bc772dab40861331.jpg"
     },
     {
       "Identity": "C:\\Users\\vothu\\Downloads\\project\\BinhDinhFood\\BinhDinhFoodWeb\\wwwroot\\Content\\img\\products\\banhhong.jpg",
