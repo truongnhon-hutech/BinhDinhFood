@@ -50,11 +50,12 @@
             }
             public Data(int soLuong)
             {
-                this.labels = new string[soLuong];
-                this.datasets = new Dataset[soLuong];
-                for(int i = 0; i < soLuong; i++) 
-                    datasets[i] = new Dataset(soLuong);
-                this.datasets[0] = new Dataset(soLuong);
+                if(soLuong>0)
+                {
+                    this.labels = new string[soLuong];
+                    this.datasets = new Dataset[1];
+                    this.datasets[0] = new Dataset(soLuong);
+                }
             }
         }
         public Bar(int soLuong)

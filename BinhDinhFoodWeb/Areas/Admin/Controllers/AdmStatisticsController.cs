@@ -71,10 +71,10 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
             for (int i = 0; i < amount; i++)
             {
                 bar.data.labels[i] = data[i].Key;//tên các cột 
-                bar.data.datasets[i].backgroundColor[i] = GetRandomColour();//màu ngẫu nhiên cho cột
-                bar.data.datasets[i].borderColor[i] = GetRandomColour();//màu viền cho cột
-                bar.data.datasets[i].data[i] = data[i].Value;//giá trị của cột
-                bar.data.datasets[i].label = data[i].Key;
+                bar.data.datasets[0].backgroundColor[i] = GetRandomColour();//màu ngẫu nhiên cho cột
+                bar.data.datasets[0].borderColor[i] = GetRandomColour();//màu viền cho cột
+                bar.data.datasets[0].data[i] = data[i].Value;//giá trị của cột
+              //  bar.data.datasets[0].label = data[i].Key;
             }
         }
         //Truyền dữ liệu cho line chart
@@ -120,7 +120,7 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
             Bar productAmount = new Bar(amount);//Setup các thông số cho chart
             SetupBarChart(productAmount, data);     
             productAmount.options.plugins.title.text = "Số lượng sản phẩm bán được trong " + TimeOption(option);//Đặt tên cho chart
-            productAmount.data.labels[0] = "Doanh số";
+            //productAmount.data.labels[0] = "Doanh số";
             return View(productAmount);
         }
         //Thống kê doanh thu từng sản phẩm bán ra trong khoảng thời gian option bằng bar chart 
