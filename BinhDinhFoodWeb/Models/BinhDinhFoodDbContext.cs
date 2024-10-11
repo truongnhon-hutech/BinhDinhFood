@@ -3,11 +3,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BinhDinhFood.Models;
 
-public class BinhDinhFoodDbContext : DbContext
+public class BinhDinhFoodDbContext(DbContextOptions<BinhDinhFoodDbContext> options) : DbContext(options)
 {
-    public BinhDinhFoodDbContext(DbContextOptions<BinhDinhFoodDbContext> options) : base(options)
-    {
-    }
     public DbSet<Customer> Customers { get; set; }
     public DbSet<Order> Orders { get; set; }
     public DbSet<OrderDetail> OrderDetails { get; set; }
@@ -15,10 +12,10 @@ public class BinhDinhFoodDbContext : DbContext
     public DbSet<Admin> Admins { get; set; }
     public DbSet<Category> Categories { get; set; }
     public DbSet<ProductRating> ProductRatings { get; set; }
-    public DbSet<Banner> Blogs { get; set; }
     public DbSet<Token> Tokens { get; set; }
     public DbSet<Banner> Banners { get; set; }
     public DbSet<Favorite> Favorites { get; set; }
+    public DbSet<Blog> Blog { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -70,8 +67,5 @@ public class BinhDinhFoodDbContext : DbContext
         modelBuilder.Entity<Customer>()
             .HasIndex(g => g.CustomerUserName)
             .IsUnique();
-
     }
-
-    public DbSet<BinhDinhFoodWeb.Models.Blog>? Blog { get; set; }
 }

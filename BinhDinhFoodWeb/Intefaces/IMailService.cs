@@ -10,20 +10,15 @@ public interface IMailService
 {
     Task SendEmailAsync(MailRequest mailRequest);
 }
-public class MailService : IMailService
+public class MailService(IOptions<MailSettings> mailSettings, AppSettings configuration) : IMailService
 {
-    private readonly MailSettings _mailSettings;
-    private readonly IConfiguration _configuration;
-    public MailService(IOptions<MailSettings> mailSettings, IConfiguration configuration)
-    {
-        _mailSettings = mailSettings.Value;
-        _configuration = configuration;
-    }
+    private readonly MailSettings _mailSettings = mailSettings.Value;
+    private readonly AppSettings _configuration = configuration;
 
     public async Task SendEmailAsync(MailRequest mailRequest)
     {
         var email = new MimeMessage();
-        string mail = _configuration["MailSettings:Mail"];//_mailSettings.Mail;
+        string mail = _configuration.MailSettings.Mail;//_mailSettings.Mail;
                                                           // if (string.IsNullOrEmpty(mail)) mail = "twoonez@outlook.com";
         email.Sender = MailboxAddress.Parse(mail);
         email.To.Add(MailboxAddress.Parse(mailRequest.ToEmail));
@@ -48,8 +43,8 @@ public class MailService : IMailService
         builder.HtmlBody = mailRequest.Body;
         email.Body = builder.ToMessageBody();
         using var smtp = new SmtpClient();
-        string host = _configuration["MailSettings:Host"];//"smtp -mail.outlook.com";
-        string password = _configuration["MailSettings:Password"]; //"Iknowwhoyouare1001";
+        string host = _configuration.MailSettings.Host;//"smtp -mail.outlook.com";
+        string password = _configuration.MailSettings.Password; //"Iknowwhoyouare1001";
         smtp.Connect(host, _mailSettings.Port, SecureSocketOptions.StartTls);
         smtp.Authenticate(mail, password);
         await smtp.SendAsync(email);

@@ -8,11 +8,14 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var configuration = builder.Configuration.Get<AppSettings>();
+
 // Add services to the container.
+builder.Services.AddSingleton(configuration);
+
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<BinhDinhFoodDbContext>(options => options.UseSqlServer(
-    builder.Configuration.GetConnectionString("DefaultConnection")
-    ));
+builder.Services.AddDbContext<BinhDinhFoodDbContext>(options =>
+        options.UseSqlServer(configuration.ConnectionStrings.DefaultConnection));
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<ICartRepository, CartRepository>();
@@ -95,19 +98,7 @@ builder.Services.AddControllers();
 builder.Services.AddSignalR();
 
 builder.Services.AddCors(options =>
-{
-    options.AddDefaultPolicy(
-        builder =>
-        {
-            builder.WithOrigins("http://binhdinhfood-001-site1.dtempurl.com/")
-                .AllowAnyHeader()
-                .WithMethods("GET", "POST")
-                .AllowCredentials();
-        });
-});
-
-var vnPaySettings = builder.Configuration.GetSection("VnPaySettings").Get<VnPaySettings>();
-builder.Services.AddSingleton(vnPaySettings);
+options.AddDefaultPolicy(builder => builder.WithOrigins("http://binhdinhfood-001-site1.dtempurl.com/").AllowAnyHeader().WithMethods("GET", "POST").AllowCredentials()));
 
 var app = builder.Build();
 // Configure the HTTP request pipeline.
@@ -134,13 +125,6 @@ app.UseSession();
 // belong to signal R
 app.UseCors();
 
-
-
-//app.MapControllerRoute(
-//    name: "Admin",
-//    pattern: "{area:exists}/{controller=AdmBlog}/{action=Index}/{id?}");
-
-
 app.MapAreaControllerRoute(
     name: "Admin",
     areaName: "Admin",
@@ -150,8 +134,6 @@ app.MapAreaControllerRoute(
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
-
-
 
 app.MapHub<CustomerHub>("/hubs/customerCount");
 app.MapHub<AdminHub>("/hubs/adminHub");
