@@ -1,30 +1,31 @@
 ﻿using Microsoft.AspNetCore.SignalR;
 
-namespace BinhDinhFoodWeb.Hubs
+namespace BinhDinhFoodWeb.Hubs;
+
+public class CustomerHub : Hub
 {
-    public class CustomerHub : Hub
+    public static int _customerCounter = 0;
+    public override Task OnConnectedAsync()
     {
-        public static int _customerCounter = 0;
-        public override Task OnConnectedAsync()
+        _customerCounter++;
+        Clients.All.SendAsync("updateCustomerCounter", _customerCounter).GetAwaiter().GetResult();
+        return base.OnConnectedAsync();
+    }
+    public override Task OnDisconnectedAsync(Exception? exception)
+    {
+        _customerCounter--;
+        Clients.All.SendAsync("updateCustomerCounter", _customerCounter).GetAwaiter().GetResult();
+        return base.OnDisconnectedAsync(exception);
+    }
+    public static int CustomerCount
+    {
+        get
         {
-            _customerCounter++;
-            Clients.All.SendAsync("updateCustomerCounter", _customerCounter).GetAwaiter().GetResult();
-            return base.OnConnectedAsync();
+            return _customerCounter;
         }
-        public override Task OnDisconnectedAsync(Exception? exception)
+        set
         {
-            _customerCounter--;
-            Clients.All.SendAsync("updateCustomerCounter", _customerCounter).GetAwaiter().GetResult();
-            return base.OnDisconnectedAsync(exception);
-        }
-        public static int CustomerCount { get
-            {
-                return _customerCounter;
-            }
-            set
-            {
-                _customerCounter = value;
-            }
+            _customerCounter = value;
         }
     }
 }

@@ -1,70 +1,123 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using BinhDinhFood.Models;
+﻿using BinhDinhFood.Models;
 using BinhDinhFoodWeb.Models;
-using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
-namespace BinhDinhFoodWeb.Areas.Admin.Controllers
+namespace BinhDinhFoodWeb.Areas.Admin.Controllers;
+
+[Area("Admin")]
+public class AdmBlogController : Controller
 {
-    [Area("Admin")]
-    public class AdmBlogController : Controller
+    private readonly IWebHostEnvironment _appEnvironment;
+    private readonly BinhDinhFoodDbContext _context;
+
+    public AdmBlogController(BinhDinhFoodDbContext context, IWebHostEnvironment appEnvironment)
     {
-        private readonly IWebHostEnvironment _appEnvironment;
-        private readonly BinhDinhFoodDbContext _context;
+        _context = context;
+        _appEnvironment = appEnvironment;
+    }
 
-        public AdmBlogController(BinhDinhFoodDbContext context, IWebHostEnvironment appEnvironment)
+    // GET: Admin/AdmBlog
+    public async Task<IActionResult> Index()
+    {
+        return _context.Blog != null ?
+                    View(await _context.Blog.ToListAsync()) :
+                    Problem("Entity set 'BinhDinhFoodDbContext.Blog'  is null.");
+    }
+
+    // GET: Admin/AdmBlog/Details/5
+    public async Task<IActionResult> Details(int? id)
+    {
+        if (id == null || _context.Blog == null)
         {
-            _context = context;
-            _appEnvironment = appEnvironment;
+            return NotFound();
         }
 
-        // GET: Admin/AdmBlog
-        public async Task<IActionResult> Index()
+        var blog = await _context.Blog
+            .FirstOrDefaultAsync(m => m.BlogId == id);
+        if (blog == null)
         {
-            return _context.Blog != null ?
-                        View(await _context.Blog.ToListAsync()) :
-                        Problem("Entity set 'BinhDinhFoodDbContext.Blog'  is null.");
+            return NotFound();
         }
 
-        // GET: Admin/AdmBlog/Details/5
-        public async Task<IActionResult> Details(int? id)
+        return View(blog);
+    }
+
+    // GET: Admin/AdmBlog/Create
+    public IActionResult Create()
+    {
+        return View();
+    }
+
+    // POST: Admin/AdmBlog/Create
+    // To protect from overposting attacks, enable the specific properties you want to bind to.
+    // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Create([Bind("BlogId,BlogName,BlogContent,BlogImage,BlogDateCreated")] Blog blog)
+    {
+        IFormFileCollection files = HttpContext.Request.Form.Files;
+
+        if (ModelState.IsValid)
         {
-            if (id == null || _context.Blog == null)
+            foreach (var Image in files)
             {
-                return NotFound();
+                if (Image != null && Image.Length > 0)
+                {
+                    var file = Image;
+                    var uploads = Path.Combine(_appEnvironment.WebRootPath, "Content\\img\\products\\");
+                    if (file.Length > 0)
+                    {
+                        var fileName = Guid.NewGuid().ToString().Replace("-", "") + Path.GetExtension(file.FileName);
+                        using (var fileStream = new FileStream(Path.Combine(uploads, fileName), FileMode.Create))
+                        {
+                            await file.CopyToAsync(fileStream);
+                            blog.BlogImage = fileName;
+                        }
+                    }
+                }
             }
+            blog.BlogDateCreated = DateTime.Now;
+            _context.Add(blog);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+        return View(blog);
+    }
 
-            var blog = await _context.Blog
-                .FirstOrDefaultAsync(m => m.BlogId == id);
-            if (blog == null)
-            {
-                return NotFound();
-            }
-
-            return View(blog);
+    // GET: Admin/AdmBlog/Edit/5
+    public async Task<IActionResult> Edit(int? id)
+    {
+        if (id == null || _context.Blog == null)
+        {
+            return NotFound();
         }
 
-        // GET: Admin/AdmBlog/Create
-        public IActionResult Create()
+        var blog = await _context.Blog.FindAsync(id);
+        if (blog == null)
         {
-            return View();
+            return NotFound();
+        }
+        return View(blog);
+    }
+
+    // POST: Admin/AdmBlog/Edit/5
+    // To protect from overposting attacks, enable the specific properties you want to bind to.
+    // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Edit(int id, [Bind("BlogId,BlogName,BlogContent,BlogImage,BlogDateCreated")] Blog blog)
+    {
+        IFormFileCollection files = HttpContext.Request.Form.Files;
+
+        if (id != blog.BlogId)
+        {
+            return NotFound();
         }
 
-        // POST: Admin/AdmBlog/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("BlogId,BlogName,BlogContent,BlogImage,BlogDateCreated")] Blog blog)
+        if (ModelState.IsValid)
         {
-            IFormFileCollection files = HttpContext.Request.Form.Files;
-
-            if (ModelState.IsValid)
+            try
             {
                 foreach (var Image in files)
                 {
@@ -84,124 +137,64 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
                     }
                 }
                 blog.BlogDateCreated = DateTime.Now;
-                _context.Add(blog);
+                _context.Update(blog);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
             }
-            return View(blog);
-        }
-
-        // GET: Admin/AdmBlog/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null || _context.Blog == null)
+            catch (DbUpdateConcurrencyException)
             {
-                return NotFound();
-            }
-
-            var blog = await _context.Blog.FindAsync(id);
-            if (blog == null)
-            {
-                return NotFound();
-            }
-            return View(blog);
-        }
-
-        // POST: Admin/AdmBlog/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("BlogId,BlogName,BlogContent,BlogImage,BlogDateCreated")] Blog blog)
-        {
-            IFormFileCollection files = HttpContext.Request.Form.Files;
-
-            if (id != blog.BlogId)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
+                if (!BlogExists(blog.BlogId))
                 {
-                    foreach (var Image in files)
-                    {
-                        if (Image != null && Image.Length > 0)
-                        {
-                            var file = Image;
-                            var uploads = Path.Combine(_appEnvironment.WebRootPath, "Content\\img\\products\\");
-                            if (file.Length > 0)
-                            {
-                                var fileName = Guid.NewGuid().ToString().Replace("-", "") + Path.GetExtension(file.FileName);
-                                using (var fileStream = new FileStream(Path.Combine(uploads, fileName), FileMode.Create))
-                                {
-                                    await file.CopyToAsync(fileStream);
-                                    blog.BlogImage = fileName;
-                                }
-                            }
-                        }
-                    }
-                    blog.BlogDateCreated = DateTime.Now;
-                    _context.Update(blog);
-                    await _context.SaveChangesAsync();
+                    return NotFound();
                 }
-                catch (DbUpdateConcurrencyException)
+                else
                 {
-                    if (!BlogExists(blog.BlogId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    throw;
                 }
-                return RedirectToAction(nameof(Index));
             }
-            return View(blog);
-        }
-
-        // GET: Admin/AdmBlog/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null || _context.Blog == null)
-            {
-                return NotFound();
-            }
-
-            var blog = await _context.Blog
-                .FirstOrDefaultAsync(m => m.BlogId == id);
-            if (blog == null)
-            {
-                return NotFound();
-            }
-
-            return View(blog);
-        }
-
-        // POST: Admin/AdmBlog/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            if (_context.Blog == null)
-            {
-                return Problem("Entity set 'BinhDinhFoodDbContext.Blog'  is null.");
-            }
-            var blog = await _context.Blog.FindAsync(id);
-            if (blog != null)
-            {
-                _context.Blog.Remove(blog);
-            }
-
-            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+        return View(blog);
+    }
 
-        private bool BlogExists(int id)
+    // GET: Admin/AdmBlog/Delete/5
+    public async Task<IActionResult> Delete(int? id)
+    {
+        if (id == null || _context.Blog == null)
         {
-            return (_context.Blog?.Any(e => e.BlogId == id)).GetValueOrDefault();
+            return NotFound();
         }
+
+        var blog = await _context.Blog
+            .FirstOrDefaultAsync(m => m.BlogId == id);
+        if (blog == null)
+        {
+            return NotFound();
+        }
+
+        return View(blog);
+    }
+
+    // POST: Admin/AdmBlog/Delete/5
+    [HttpPost, ActionName("Delete")]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> DeleteConfirmed(int id)
+    {
+        if (_context.Blog == null)
+        {
+            return Problem("Entity set 'BinhDinhFoodDbContext.Blog'  is null.");
+        }
+        var blog = await _context.Blog.FindAsync(id);
+        if (blog != null)
+        {
+            _context.Blog.Remove(blog);
+        }
+
+        await _context.SaveChangesAsync();
+        return RedirectToAction(nameof(Index));
+    }
+
+    private bool BlogExists(int id)
+    {
+        return (_context.Blog?.Any(e => e.BlogId == id)).GetValueOrDefault();
     }
 }

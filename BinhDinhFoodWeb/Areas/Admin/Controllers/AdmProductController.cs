@@ -1,77 +1,133 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Security.Claims;
+using BinhDinhFood.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using BinhDinhFood.Models;
-using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
-using BinhDinhFoodWeb.Models;
-using System.Reflection.Metadata;
 using X.PagedList;
-using System.Security.Claims;
 
-namespace BinhDinhFoodWeb.Areas.Admin.Controllers
+namespace BinhDinhFoodWeb.Areas.Admin.Controllers;
+
+[Area("Admin")]
+public class AdmProductController : Controller
 {
-    [Area("Admin")]
-    public class AdmProductController : Controller
+    private readonly BinhDinhFoodDbContext _context;
+    private readonly IWebHostEnvironment _appEnvironment;
+
+    public AdmProductController(BinhDinhFoodDbContext context, IWebHostEnvironment appEnvironment)
     {
-        private readonly BinhDinhFoodDbContext _context;
-        private readonly IWebHostEnvironment _appEnvironment;
+        _context = context;
+        _appEnvironment = appEnvironment;
+    }
 
-        public AdmProductController(BinhDinhFoodDbContext context, IWebHostEnvironment appEnvironment)
+    // GET: Admin/AdmProduct
+    public async Task<IActionResult> Index(int page = 1)
+    {
+        var binhDinhFoodDbContext = _context.Products.Include(p => p.Category);
+        var obj = await binhDinhFoodDbContext.ToListAsync();
+        return View(obj.ToPagedList(page, 10));
+    }
+
+    // GET: Admin/AdmProduct/Details/5
+    public async Task<IActionResult> Details(int? id)
+    {
+        if (id == null || _context.Products == null)
         {
-            _context = context;
-            _appEnvironment = appEnvironment;
+            return NotFound();
         }
 
-        // GET: Admin/AdmProduct
-        public async Task<IActionResult> Index(int page = 1)
+        var product = await _context.Products
+            .Include(p => p.Category)
+            .FirstOrDefaultAsync(m => m.ProductId == id);
+        if (product == null)
         {
-            var binhDinhFoodDbContext = _context.Products.Include(p => p.Category);
-            var obj = await binhDinhFoodDbContext.ToListAsync();
-            return View(obj.ToPagedList(page, 10));
+            return NotFound();
         }
 
-        // GET: Admin/AdmProduct/Details/5
-        public async Task<IActionResult> Details(int? id)
+        return View(product);
+    }
+
+    // GET: Admin/AdmProduct/Create
+    public IActionResult Create()
+    {
+        if (!User.Identity.IsAuthenticated && User.FindFirstValue(ClaimTypes.Role) != "Admin")
+            return RedirectToAction("Login", "AdmAccount");
+        ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryName");
+        return View();
+    }
+
+    // POST: Admin/AdmProduct/Create
+    // To protect from overposting attacks, enable the specific properties you want to bind to.
+    // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Create([Bind("ProductId,ProductName,ProductPrice,ProductDescription,ProductAmount,ProductDiscount,ProductImage,ProductDateCreated,CategoryId")] Product product)
+    {
+        if (ModelState.IsValid)
         {
-            if (id == null || _context.Products == null)
+            IFormFileCollection files = HttpContext.Request.Form.Files;
+            foreach (var Image in files)
             {
-                return NotFound();
+                if (Image != null && Image.Length > 0)
+                {
+                    var file = Image;
+                    var uploads = Path.Combine(_appEnvironment.WebRootPath, "Content\\img\\products\\");
+                    if (file.Length > 0)
+                    {
+                        var fileName = Guid.NewGuid().ToString().Replace("-", "") + Path.GetExtension(file.FileName);
+                        using (var fileStream = new FileStream(Path.Combine(uploads, fileName), FileMode.Create))
+                        {
+                            await file.CopyToAsync(fileStream);
+                            product.ProductImage = fileName;
+                        }
+                    }
+                }
             }
+            product.ProductDateCreated = DateTime.Now;
+            _context.Add(product);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+        ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryName", product.CategoryId);
+        return View(product);
 
-            var product = await _context.Products
-                .Include(p => p.Category)
-                .FirstOrDefaultAsync(m => m.ProductId == id);
-            if (product == null)
-            {
-                return NotFound();
-            }
+    }
 
-            return View(product);
+    // GET: Admin/AdmProduct/Edit/5
+    public async Task<IActionResult> Edit(int? id)
+    {
+
+        if (id == null || _context.Products == null)
+        {
+            return NotFound();
         }
 
-        // GET: Admin/AdmProduct/Create
-        public IActionResult Create()
+        var product = await _context.Products.FindAsync(id);
+        if (product == null)
         {
-            if (!User.Identity.IsAuthenticated && User.FindFirstValue(ClaimTypes.Role) != "Admin")
-                return RedirectToAction("Login", "AdmAccount");
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryName");
-            return View();
+            return NotFound();
+        }
+        ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryName", product.CategoryId);
+        return View(product);
+    }
+
+    // POST: Admin/AdmProduct/Edit/5
+    // To protect from overposting attacks, enable the specific properties you want to bind to.
+    // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Edit(int id, [Bind("ProductId,ProductName,ProductPrice,ProductDescription,ProductAmount,ProductDiscount,ProductImage,ProductDateCreated,CategoryId")] Product product)
+    {
+        IFormFileCollection files = HttpContext.Request.Form.Files;
+
+        if (id != product.ProductId)
+        {
+            return NotFound();
         }
 
-        // POST: Admin/AdmProduct/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProductId,ProductName,ProductPrice,ProductDescription,ProductAmount,ProductDiscount,ProductImage,ProductDateCreated,CategoryId")] Product product)
+        if (ModelState.IsValid)
         {
-            if (ModelState.IsValid)
+            try
             {
-                IFormFileCollection files = HttpContext.Request.Form.Files;
                 foreach (var Image in files)
                 {
                     if (Image != null && Image.Length > 0)
@@ -90,130 +146,66 @@ namespace BinhDinhFoodWeb.Areas.Admin.Controllers
                     }
                 }
                 product.ProductDateCreated = DateTime.Now;
-                _context.Add(product);
+                _context.Update(product);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryName", product.CategoryId);
-            return View(product);
-
-        }
-
-        // GET: Admin/AdmProduct/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-
-            if (id == null || _context.Products == null)
+            catch (DbUpdateConcurrencyException)
             {
-                return NotFound();
-            }
-
-            var product = await _context.Products.FindAsync(id);
-            if (product == null)
-            {
-                return NotFound();
-            }
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryName", product.CategoryId);
-            return View(product);
-        }
-
-        // POST: Admin/AdmProduct/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ProductId,ProductName,ProductPrice,ProductDescription,ProductAmount,ProductDiscount,ProductImage,ProductDateCreated,CategoryId")] Product product)
-        {
-            IFormFileCollection files = HttpContext.Request.Form.Files;
-
-            if (id != product.ProductId)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
+                if (!ProductExists(product.ProductId))
                 {
-                    foreach (var Image in files)
-                    {
-                        if (Image != null && Image.Length > 0)
-                        {
-                            var file = Image;
-                            var uploads = Path.Combine(_appEnvironment.WebRootPath, "Content\\img\\products\\");
-                            if (file.Length > 0)
-                            {
-                                var fileName = Guid.NewGuid().ToString().Replace("-", "") + Path.GetExtension(file.FileName);
-                                using (var fileStream = new FileStream(Path.Combine(uploads, fileName), FileMode.Create))
-                                {
-                                    await file.CopyToAsync(fileStream);
-                                    product.ProductImage = fileName;
-                                }
-                            }
-                        }
-                    }
-                    product.ProductDateCreated = DateTime.Now;
-                    _context.Update(product);
-                    await _context.SaveChangesAsync();
+                    return NotFound();
                 }
-                catch (DbUpdateConcurrencyException)
+                else
                 {
-                    if (!ProductExists(product.ProductId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    throw;
                 }
-                return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryName", product.CategoryId);
-            return View(product);
-        }
-
-        // GET: Admin/AdmProduct/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null || _context.Products == null)
-            {
-                return NotFound();
-            }
-
-            var product = await _context.Products
-                .Include(p => p.Category)
-                .FirstOrDefaultAsync(m => m.ProductId == id);
-            if (product == null)
-            {
-                return NotFound();
-            }
-
-            return View(product);
-        }
-
-        // POST: Admin/AdmProduct/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            if (_context.Products == null)
-            {
-                return Problem("Entity set 'BinhDinhFoodDbContext.Products'  is null.");
-            }
-            var product = await _context.Products.FindAsync(id);
-            if (product != null)
-            {
-                _context.Products.Remove(product);
-            }
-
-            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+        ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryName", product.CategoryId);
+        return View(product);
+    }
 
-        private bool ProductExists(int id)
+    // GET: Admin/AdmProduct/Delete/5
+    public async Task<IActionResult> Delete(int? id)
+    {
+        if (id == null || _context.Products == null)
         {
-            return (_context.Products?.Any(e => e.ProductId == id)).GetValueOrDefault();
+            return NotFound();
         }
+
+        var product = await _context.Products
+            .Include(p => p.Category)
+            .FirstOrDefaultAsync(m => m.ProductId == id);
+        if (product == null)
+        {
+            return NotFound();
+        }
+
+        return View(product);
+    }
+
+    // POST: Admin/AdmProduct/Delete/5
+    [HttpPost, ActionName("Delete")]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> DeleteConfirmed(int id)
+    {
+        if (_context.Products == null)
+        {
+            return Problem("Entity set 'BinhDinhFoodDbContext.Products'  is null.");
+        }
+        var product = await _context.Products.FindAsync(id);
+        if (product != null)
+        {
+            _context.Products.Remove(product);
+        }
+
+        await _context.SaveChangesAsync();
+        return RedirectToAction(nameof(Index));
+    }
+
+    private bool ProductExists(int id)
+    {
+        return (_context.Products?.Any(e => e.ProductId == id)).GetValueOrDefault();
     }
 }

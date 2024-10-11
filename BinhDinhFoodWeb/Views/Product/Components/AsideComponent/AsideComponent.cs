@@ -1,6 +1,5 @@
-﻿namespace BinhDinhFoodWeb.Views.Product.Components.AsideComponent
+﻿namespace BinhDinhFoodWeb.Views.Product.Components.AsideComponent;
+
+public class AsideComponent
 {
-    public class AsideComponent
-    {
-    }
 }

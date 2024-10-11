@@ -1,12 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace BinhDinhFoodWeb.Areas.Admin.Views.AdmStatistics.Components.RevenueStructureComponent
+namespace BinhDinhFoodWeb.Areas.Admin.Views.AdmStatistics.Components.RevenueStructureComponent;
+
+public class RevenueStructureComponent : ViewComponent
 {
-    public class RevenueStructureComponent : ViewComponent
+    public IViewComponentResult Invoke()
     {
-        public IViewComponentResult Invoke()
-        {
-            return View();
-        }
+        return View();
     }
 }

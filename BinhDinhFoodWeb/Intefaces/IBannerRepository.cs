@@ -1,8 +1,7 @@
 ﻿using BinhDinhFoodWeb.Models;
 
-namespace BinhDinhFoodWeb.Intefaces
+namespace BinhDinhFoodWeb.Intefaces;
+
+public interface IBannerRepository : IRepository<Banner>
 {
-    public interface IBannerRepository : IRepository<Banner>
-    {
-    }
 }

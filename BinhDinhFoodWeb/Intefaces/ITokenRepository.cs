@@ -1,7 +1,6 @@
-﻿namespace BinhDinhFoodWeb.Intefaces
+﻿namespace BinhDinhFoodWeb.Intefaces;
+
+public interface ITokenRepository
 {
-    public interface ITokenRepository
-    {
-        public bool CheckToken(string userName, string token);
-    }
+    public bool CheckToken(string userName, string token);
 }

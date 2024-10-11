@@ -1,9 +1,7 @@
 ﻿using BinhDinhFoodWeb.Models;
 
-namespace BinhDinhFoodWeb.Intefaces
+namespace BinhDinhFoodWeb.Intefaces;
+
+public interface IBlogRepository : IRepository<Blog>
 {
-	public interface IBlogRepository : IRepository<Blog>
-	{
-	}
 }
-	

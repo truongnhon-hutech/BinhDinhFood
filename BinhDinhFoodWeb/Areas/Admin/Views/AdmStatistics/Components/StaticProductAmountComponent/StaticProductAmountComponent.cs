@@ -1,12 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace BinhDinhFoodWeb.Areas.Admin.Views.AdmStatistics.Components.StaticProductAmountComponent
+namespace BinhDinhFoodWeb.Areas.Admin.Views.AdmStatistics.Components.StaticProductAmountComponent;
+
+public class StaticProductAmountComponent : ViewComponent
 {
-    public class StaticProductAmountComponent : ViewComponent
+    public IViewComponentResult Invoke()
     {
-        public IViewComponentResult Invoke()
-        {
-            return View();
-        }
+        return View();
     }
 }
