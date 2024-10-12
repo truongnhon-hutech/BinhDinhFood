@@ -1,9 +1,9 @@
 ﻿using System.Linq.Expressions;
+using BinhDinhFood.Intefaces;
 using BinhDinhFood.Models;
-using BinhDinhFoodWeb.Intefaces;
 using Microsoft.EntityFrameworkCore;
 
-namespace BinhDinhFoodWeb.Repositories;
+namespace BinhDinhFood.Repositories;
 
 public class RepositoryBase<TEntity> : IRepository<TEntity> where TEntity : class
 {

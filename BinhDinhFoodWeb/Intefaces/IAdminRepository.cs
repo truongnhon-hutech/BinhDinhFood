@@ -1,5 +1,6 @@
-﻿using BinhDinhFoodWeb.Models;
-namespace BinhDinhFoodWeb.Intefaces;
+﻿using BinhDinhFood.Models;
+
+namespace BinhDinhFood.Intefaces;
 
 public interface IAdminRepository
 {

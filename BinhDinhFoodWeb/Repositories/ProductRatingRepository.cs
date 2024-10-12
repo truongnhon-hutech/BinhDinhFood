@@ -1,8 +1,7 @@
-﻿using BinhDinhFood.Models;
-using BinhDinhFoodWeb.Intefaces;
-using BinhDinhFoodWeb.Models;
+﻿using BinhDinhFood.Intefaces;
+using BinhDinhFood.Models;
 
-namespace BinhDinhFoodWeb.Repositories;
+namespace BinhDinhFood.Repositories;
 
 public class ProductRatingRepository : RepositoryBase<ProductRating>, IProductRatingRepository
 {

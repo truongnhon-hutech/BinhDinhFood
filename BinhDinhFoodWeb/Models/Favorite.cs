@@ -1,9 +1,8 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using BinhDinhFood.Models;
 
-namespace BinhDinhFoodWeb.Models;
+namespace BinhDinhFood.Models;
 
 public class Favorite
 {

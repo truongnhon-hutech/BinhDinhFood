@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace BinhDinhFoodWeb.Areas.Admin.Views.AdmStatistics.Components.StaticProductAmountComponent;
+namespace BinhDinhFood.Areas.Admin.Views.AdmStatistics.Components.StaticProductAmountComponent;
 
 public class StaticProductAmountComponent : ViewComponent
 {

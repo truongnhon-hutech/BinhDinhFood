@@ -1,4 +1,4 @@
-﻿namespace BinhDinhFoodWeb.Intefaces;
+﻿namespace BinhDinhFood.Intefaces;
 
 public interface ITokenRepository
 {

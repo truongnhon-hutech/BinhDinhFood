@@ -1,7 +1,7 @@
-﻿using BinhDinhFoodWeb.Intefaces;
+﻿using BinhDinhFood.Intefaces;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BinhDinhFoodWeb.Views.Home.Components.SingleBannerComponent;
+namespace BinhDinhFood.Views.Home.Components.SingleBannerComponent;
 
 public class SingleBannerComponent : ViewComponent
 {

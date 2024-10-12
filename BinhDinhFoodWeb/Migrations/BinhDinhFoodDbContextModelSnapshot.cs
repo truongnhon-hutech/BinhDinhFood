@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace BinhDinhFoodWeb.Migrations
+namespace BinhDinhFood.Migrations
 {
     [DbContext(typeof(BinhDinhFoodDbContext))]
     partial class BinhDinhFoodDbContextModelSnapshot : ModelSnapshot
@@ -232,7 +232,7 @@ namespace BinhDinhFoodWeb.Migrations
                     b.ToTable("Product", (string)null);
                 });
 
-            modelBuilder.Entity("BinhDinhFoodWeb.Models.Banner", b =>
+            modelBuilder.Entity("BinhDinhFood.Models.Banner", b =>
                 {
                     b.Property<int>("BannerId")
                         .ValueGeneratedOnAdd()
@@ -266,7 +266,7 @@ namespace BinhDinhFoodWeb.Migrations
                     b.ToTable("Banner", (string)null);
                 });
 
-            modelBuilder.Entity("BinhDinhFoodWeb.Models.Blog", b =>
+            modelBuilder.Entity("BinhDinhFood.Models.Blog", b =>
                 {
                     b.Property<int>("BlogId")
                         .ValueGeneratedOnAdd()
@@ -292,7 +292,7 @@ namespace BinhDinhFoodWeb.Migrations
                     b.ToTable("Blog");
                 });
 
-            modelBuilder.Entity("BinhDinhFoodWeb.Models.Favorite", b =>
+            modelBuilder.Entity("BinhDinhFood.Models.Favorite", b =>
                 {
                     b.Property<int>("ProductId")
                         .HasColumnType("int")
@@ -312,7 +312,7 @@ namespace BinhDinhFoodWeb.Migrations
                     b.ToTable("Favorite", (string)null);
                 });
 
-            modelBuilder.Entity("BinhDinhFoodWeb.Models.ProductRating", b =>
+            modelBuilder.Entity("BinhDinhFood.Models.ProductRating", b =>
                 {
                     b.Property<int>("ProductRatingId")
                         .ValueGeneratedOnAdd()
@@ -345,7 +345,7 @@ namespace BinhDinhFoodWeb.Migrations
                     b.ToTable("ProductRating", (string)null);
                 });
 
-            modelBuilder.Entity("BinhDinhFoodWeb.Models.Token", b =>
+            modelBuilder.Entity("BinhDinhFood.Models.Token", b =>
                 {
                     b.Property<int>("TokenID")
                         .ValueGeneratedOnAdd()
@@ -410,7 +410,7 @@ namespace BinhDinhFoodWeb.Migrations
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("BinhDinhFoodWeb.Models.Favorite", b =>
+            modelBuilder.Entity("BinhDinhFood.Models.Favorite", b =>
                 {
                     b.HasOne("BinhDinhFood.Models.Customer", "Customer")
                         .WithMany("Favorites")
@@ -429,7 +429,7 @@ namespace BinhDinhFoodWeb.Migrations
                     b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("BinhDinhFoodWeb.Models.ProductRating", b =>
+            modelBuilder.Entity("BinhDinhFood.Models.ProductRating", b =>
                 {
                     b.HasOne("BinhDinhFood.Models.Customer", "Customer")
                         .WithMany("ProductRatings")

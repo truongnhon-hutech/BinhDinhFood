@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 
-namespace BinhDinhFoodWeb.Models;
+namespace BinhDinhFood.Models;
 
 public class Line
 {

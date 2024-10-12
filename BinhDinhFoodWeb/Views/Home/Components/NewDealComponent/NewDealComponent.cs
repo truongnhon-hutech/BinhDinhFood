@@ -1,7 +1,7 @@
-﻿using BinhDinhFoodWeb.Intefaces;
+﻿using BinhDinhFood.Intefaces;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BinhDinhFoodWeb.Views.Home.Components.NewDealComponent;
+namespace BinhDinhFood.Views.Home.Components.NewDealComponent;
 
 public class NewDealComponent : ViewComponent
 {

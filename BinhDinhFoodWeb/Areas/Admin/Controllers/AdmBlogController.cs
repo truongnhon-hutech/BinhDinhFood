@@ -1,9 +1,8 @@
 ﻿using BinhDinhFood.Models;
-using BinhDinhFoodWeb.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace BinhDinhFoodWeb.Areas.Admin.Controllers;
+namespace BinhDinhFood.Areas.Admin.Controllers;
 
 [Area("Admin")]
 public class AdmBlogController : Controller

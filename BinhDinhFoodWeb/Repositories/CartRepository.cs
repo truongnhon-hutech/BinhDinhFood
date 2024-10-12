@@ -1,8 +1,8 @@
-﻿using BinhDinhFoodWeb.Intefaces;
-using BinhDinhFoodWeb.Models;
+﻿using BinhDinhFood.Intefaces;
+using BinhDinhFood.Models;
 using Newtonsoft.Json;
 
-namespace BinhDinhFoodWeb.Repositories;
+namespace BinhDinhFood.Repositories;
 
 public class CartRepository : ICartRepository
 {

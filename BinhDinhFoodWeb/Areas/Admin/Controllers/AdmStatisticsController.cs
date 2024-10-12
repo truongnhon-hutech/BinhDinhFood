@@ -1,9 +1,9 @@
-﻿using BinhDinhFoodWeb.Intefaces;
-using BinhDinhFoodWeb.Models;
+﻿using BinhDinhFood.Intefaces;
+using BinhDinhFood.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace BinhDinhFoodWeb.Areas.Admin.Controllers;
+namespace BinhDinhFood.Areas.Admin.Controllers;
 
 [Area("Admin")]
 public class AdmStatisticsController : Controller
@@ -148,7 +148,7 @@ public class AdmStatisticsController : Controller
     //option default là số lượng bán được
     public IActionResult StaticProduct(int product = 3, int option = 0)
     {
-        string text = (option == 0) ? "Doanh số" : "Doanh thu";
+        string text = option == 0 ? "Doanh số" : "Doanh thu";
         ViewData["option"] = option;
         ViewData["optionName"] = text;
         var listProduct = _productRepository.GetListProduct();

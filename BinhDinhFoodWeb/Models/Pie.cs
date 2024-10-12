@@ -1,4 +1,4 @@
-﻿namespace BinhDinhFoodWeb.Models;
+﻿namespace BinhDinhFood.Models;
 
 public class Pie
 {
@@ -31,19 +31,19 @@ public class Pie
             public float[] data;
             public Dataset(int sogoi)
             {
-                this.backgroundColor = new string[sogoi];
-                this.data = new float[sogoi];
+                backgroundColor = new string[sogoi];
+                data = new float[sogoi];
             }
         }
         public Data(int sogoi)
         {
-            this.labels = new string[sogoi];
-            this.datasets = new Dataset[1];
-            this.datasets[0] = new Dataset(sogoi);
+            labels = new string[sogoi];
+            datasets = new Dataset[1];
+            datasets[0] = new Dataset(sogoi);
         }
     }
     public Pie(int sogoi)
     {
-        this.data = new Data(sogoi);
+        data = new Data(sogoi);
     }
 }

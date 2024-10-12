@@ -1,9 +1,8 @@
-﻿using BinhDinhFood.Models;
-using BinhDinhFoodWeb.Intefaces;
-using BinhDinhFoodWeb.Models;
+﻿using BinhDinhFood.Intefaces;
+using BinhDinhFood.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace BinhDinhFoodWeb.Repositories;
+namespace BinhDinhFood.Repositories;
 
 public class ProductRepository : RepositoryBase<Product>, IProductRepository
 {

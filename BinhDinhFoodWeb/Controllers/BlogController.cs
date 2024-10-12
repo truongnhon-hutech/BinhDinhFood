@@ -1,8 +1,8 @@
-﻿using BinhDinhFoodWeb.Intefaces;
+﻿using BinhDinhFood.Intefaces;
 using Microsoft.AspNetCore.Mvc;
 using X.PagedList;
 
-namespace BinhDinhFoodWeb.Controllers;
+namespace BinhDinhFood.Controllers;
 
 public class BlogController : Controller
 {

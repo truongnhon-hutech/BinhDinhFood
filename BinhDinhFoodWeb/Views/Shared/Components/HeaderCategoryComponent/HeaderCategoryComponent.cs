@@ -1,7 +1,7 @@
-﻿using BinhDinhFoodWeb.Intefaces;
+﻿using BinhDinhFood.Intefaces;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BinhDinhFoodWeb.Views.Shared.Components.HeaderCategoryComponent;
+namespace BinhDinhFood.Views.Shared.Components.HeaderCategoryComponent;
 
 public class HeaderCategoryComponent : ViewComponent
 {

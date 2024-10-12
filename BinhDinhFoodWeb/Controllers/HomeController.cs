@@ -1,10 +1,10 @@
 ﻿using System.Diagnostics;
 using System.Globalization;
-using BinhDinhFoodWeb.Intefaces;
-using BinhDinhFoodWeb.Models;
+using BinhDinhFood.Intefaces;
+using BinhDinhFood.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BinhDinhFoodWeb.Controllers;
+namespace BinhDinhFood.Controllers;
 
 public class HomeController : Controller
 {

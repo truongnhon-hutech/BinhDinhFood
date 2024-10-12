@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.SignalR;
 
-namespace BinhDinhFoodWeb.Hubs;
+namespace BinhDinhFood.Hubs;
 
 public class CustomerHub : Hub
 {

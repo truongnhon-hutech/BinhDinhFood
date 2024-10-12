@@ -1,10 +1,10 @@
 ﻿using System.Security.Claims;
-using BinhDinhFoodWeb.Intefaces;
-using BinhDinhFoodWeb.Models;
+using BinhDinhFood.Intefaces;
+using BinhDinhFood.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BinhDinhFoodWeb.Controllers;
+namespace BinhDinhFood.Controllers;
 
 [AllowAnonymous]
 public class UserController : Controller
@@ -38,7 +38,7 @@ public class UserController : Controller
         var user = _repo.Register(model);
 
         // +1 line added for SignIn
-        await _userManager.SignIn(this.HttpContext, user, false);
+        await _userManager.SignIn(HttpContext, user, false);
 
         return LocalRedirect("~/Home/Index");
     }
@@ -47,7 +47,7 @@ public class UserController : Controller
     {
         if (User.Identity.IsAuthenticated)
         {
-            await _userManager.SignOut(this.HttpContext);
+            await _userManager.SignOut(HttpContext);
         }
 
         return View();
@@ -68,7 +68,7 @@ public class UserController : Controller
         }
 
         // +1 line added for SignIn
-        await _userManager.SignIn(this.HttpContext, user, model.RememberLogin);
+        await _userManager.SignIn(HttpContext, user, model.RememberLogin);
 
         return RedirectToAction("Index", "Home");
     }
@@ -80,7 +80,7 @@ public class UserController : Controller
             return RedirectToAction("Index", "Home");
         }
 
-        await _userManager.SignOut(this.HttpContext);
+        await _userManager.SignOut(HttpContext);
 
         return RedirectToAction("Index", "Home");
     }

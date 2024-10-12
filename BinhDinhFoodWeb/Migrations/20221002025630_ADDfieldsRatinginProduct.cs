@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace BinhDinhFoodWeb.Migrations;
+namespace BinhDinhFood.Migrations;
 
 public partial class ADDfieldsRatinginProduct : Migration
 {

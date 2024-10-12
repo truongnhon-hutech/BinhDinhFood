@@ -1,7 +1,7 @@
 ﻿using BinhDinhFood.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BinhDinhFoodWeb.Areas.Admin.Views.AdmHome.Components.CustomerComponent;
+namespace BinhDinhFood.Areas.Admin.Views.AdmHome.Components.CustomerComponent;
 
 public class CustomerComponent : ViewComponent
 {
@@ -46,9 +46,9 @@ public class CustomerComponent : ViewComponent
                 ViewBag.CustomerDay = "Năm này";
                 break;
         }
-        ViewBag.CustomerPercent = (objLastCustomer > 0) ? (objCustomer - objLastCustomer) * 100 / objLastCustomer : objCustomer * 100;
-        ViewBag.CustomerColor = (objCustomer == objLastCustomer) ? "text-muted" : (objCustomer > objLastCustomer) ? "text-success" : "text-danger";
-        ViewBag.CustomerStatus = (objCustomer == objLastCustomer) ? "" : (objCustomer > objLastCustomer) ? "tăng" : "giảm";
+        ViewBag.CustomerPercent = objLastCustomer > 0 ? (objCustomer - objLastCustomer) * 100 / objLastCustomer : objCustomer * 100;
+        ViewBag.CustomerColor = objCustomer == objLastCustomer ? "text-muted" : objCustomer > objLastCustomer ? "text-success" : "text-danger";
+        ViewBag.CustomerStatus = objCustomer == objLastCustomer ? "" : objCustomer > objLastCustomer ? "tăng" : "giảm";
         ViewBag.CustomerNumbers = objCustomer;
         return View();
     }

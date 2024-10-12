@@ -1,7 +1,6 @@
-﻿using BinhDinhFood.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
-namespace BinhDinhFoodWeb.Models;
+namespace BinhDinhFood.Models;
 
 public class BinhDinhFoodDbContextInitializer(BinhDinhFoodDbContext context, ILoggerFactory logger)
 {

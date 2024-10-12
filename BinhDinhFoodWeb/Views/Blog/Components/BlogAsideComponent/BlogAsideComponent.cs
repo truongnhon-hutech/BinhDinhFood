@@ -1,7 +1,7 @@
-﻿using BinhDinhFoodWeb.Intefaces;
+﻿using BinhDinhFood.Intefaces;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BinhDinhFoodWeb.Views.Blog.Components.BlogAsideComponent;
+namespace BinhDinhFood.Views.Blog.Components.BlogAsideComponent;
 
 public class BlogAsideComponent : ViewComponent
 {

@@ -1,5 +1,4 @@
-﻿using BinhDinhFoodWeb.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace BinhDinhFood.Models;
 

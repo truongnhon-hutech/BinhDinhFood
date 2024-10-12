@@ -1,7 +1,7 @@
-﻿using BinhDinhFoodWeb.Intefaces;
+﻿using BinhDinhFood.Intefaces;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BinhDinhFoodWeb.Views.Shared.Components.MiniCategoryUnderNavBarComponent;
+namespace BinhDinhFood.Views.Shared.Components.MiniCategoryUnderNavBarComponent;
 
 public class MiniCategoryUnderNavBarComponent : ViewComponent
 {

@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace BinhDinhFoodWeb.Areas.Admin.Views.AdmHome.Components.ActivityComponent;
+namespace BinhDinhFood.Areas.Admin.Views.AdmHome.Components.ActivityComponent;
 
 public class ActivityComponent : ViewComponent
 {

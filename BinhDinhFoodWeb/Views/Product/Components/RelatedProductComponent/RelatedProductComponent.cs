@@ -1,7 +1,7 @@
-﻿using BinhDinhFoodWeb.Intefaces;
+﻿using BinhDinhFood.Intefaces;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BinhDinhFoodWeb.Views.Product.Components.RelatedProductComponent;
+namespace BinhDinhFood.Views.Product.Components.RelatedProductComponent;
 
 public class RelatedProductComponent : ViewComponent
 {

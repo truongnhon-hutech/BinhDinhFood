@@ -1,7 +1,7 @@
-﻿using BinhDinhFoodWeb.Intefaces;
+﻿using BinhDinhFood.Intefaces;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BinhDinhFoodWeb.Views.Home.Components.NewsComponent;
+namespace BinhDinhFood.Views.Home.Components.NewsComponent;
 
 public class NewsComponent : ViewComponent
 {

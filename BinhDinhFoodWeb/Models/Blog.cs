@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace BinhDinhFoodWeb.Models;
+namespace BinhDinhFood.Models;
 
 public class Blog
 {
@@ -10,7 +10,7 @@ public class Blog
     public int BlogId { get; set; }
     [Required]
     [DisplayName("Tên bài viết")]
-    public String? BlogName { get; set; }
+    public string? BlogName { get; set; }
     [DisplayName("Nội dung")]
     public string? BlogContent { get; set; }
     [DisplayName("Hình ảnh")]

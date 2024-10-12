@@ -1,13 +1,12 @@
 ﻿using System.Globalization;
 using System.Security.Claims;
+using BinhDinhFood.Intefaces;
 using BinhDinhFood.Models;
-using BinhDinhFoodWeb.Intefaces;
-using BinhDinhFoodWeb.Models;
 using log4net;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json.Linq;
 
-namespace BinhDinhFoodWeb.Controllers;
+namespace BinhDinhFood.Controllers;
 
 public class CartController : Controller
 {
@@ -62,7 +61,7 @@ public class CartController : Controller
         }
         vnpay.AddRequestData("vnp_CreateDate", order.CreatedDate.ToString("yyyyMMddHHmmss"));
         vnpay.AddRequestData("vnp_CurrCode", "VND");
-        vnpay.AddRequestData("vnp_IpAddr", Utils.GetIpAddress(this.HttpContext.Request));
+        vnpay.AddRequestData("vnp_IpAddr", Utils.GetIpAddress(HttpContext.Request));
         if (!string.IsNullOrEmpty(locale))
         {
             vnpay.AddRequestData("vnp_Locale", locale);
@@ -108,12 +107,12 @@ public class CartController : Controller
             //long vnpayTranId = Convert.ToInt64(vnpay.GetResponseData("vnp_TransactionNo"));
             string vnp_ResponseCode = vnpay.GetResponseData("vnp_ResponseCode");
             string vnp_TransactionStatus = vnpay.GetResponseData("vnp_TransactionStatus");
-            String vnp_SecureHash = HttpContext.Request.Query["vnp_SecureHash"];
-            String TerminalID = HttpContext.Request.Query["vnp_TmnCode"];
+            string vnp_SecureHash = HttpContext.Request.Query["vnp_SecureHash"];
+            string TerminalID = HttpContext.Request.Query["vnp_TmnCode"];
             //long vnp_Amount = Convert.ToInt64(vnpay.GetResponseData("vnp_Amount")) / 100;
             //String bankCode = HttpContext.Request.Query["vnp_BankCode"];
             string vnp_OrderInfo = vnpay.GetResponseData("vnp_OrderInfo");
-            string findId = new String(vnp_OrderInfo.Where(Char.IsDigit).ToArray());
+            string findId = new string(vnp_OrderInfo.Where(char.IsDigit).ToArray());
             bool checkSignature = vnpay.ValidateSignature(vnp_SecureHash, vnp_HashSecret);
             if (checkSignature)
             {
@@ -193,7 +192,7 @@ public class CartController : Controller
         if (HttpContext.Request.Query.Count > 0)
         {
             string orderID = HttpContext.Request.Query["orderId"];
-            string findId = new String(orderID.Where(Char.IsDigit).ToArray());
+            string findId = new string(orderID.Where(char.IsDigit).ToArray());
             int orderId = Convert.ToInt32(findId);
             await _orderRepo.UpdatePaymentState(orderId);
         }
@@ -239,7 +238,7 @@ public class CartController : Controller
         List<Item> listCart = _cartRepo.Get(HttpContext.Session);
         if (listCart != null)
         {
-            totalMoney = listCart.Sum(x => x.Quantity * (x.Product.ProductPrice - (x.Product.ProductPrice * x.Product.ProductDiscount / 100)));
+            totalMoney = listCart.Sum(x => x.Quantity * (x.Product.ProductPrice - x.Product.ProductPrice * x.Product.ProductDiscount / 100));
         }
         return totalMoney;
     }

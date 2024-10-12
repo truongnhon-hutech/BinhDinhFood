@@ -1,4 +1,4 @@
-﻿namespace BinhDinhFoodWeb.Models;
+﻿namespace BinhDinhFood.Models;
 
 public class Period
 {

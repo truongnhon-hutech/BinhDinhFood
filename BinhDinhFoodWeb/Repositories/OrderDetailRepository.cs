@@ -1,7 +1,7 @@
-﻿using BinhDinhFood.Models;
-using BinhDinhFoodWeb.Intefaces;
+﻿using BinhDinhFood.Intefaces;
+using BinhDinhFood.Models;
 
-namespace BinhDinhFoodWeb.Repositories;
+namespace BinhDinhFood.Repositories;
 
 public class OrderDetailRepository : RepositoryBase<OrderDetail>, IOrderDetailRepository
 {

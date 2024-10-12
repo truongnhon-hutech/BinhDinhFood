@@ -1,8 +1,8 @@
 ﻿using System.Security.Claims;
-using BinhDinhFoodWeb.Intefaces;
-using BinhDinhFoodWeb.Models;
+using BinhDinhFood.Intefaces;
+using BinhDinhFood.Models;
 using Microsoft.AspNetCore.Mvc;
-namespace BinhDinhFoodWeb.Areas.Admin.Controllers;
+namespace BinhDinhFood.Areas.Admin.Controllers;
 
 [Area("Admin")]
 public class AdmAccountController : Controller
@@ -23,7 +23,7 @@ public class AdmAccountController : Controller
     {
         if (User.Identity.IsAuthenticated)
         {
-            await _userManager.SignOut(this.HttpContext);
+            await _userManager.SignOut(HttpContext);
         }
 
         return View();
@@ -44,7 +44,7 @@ public class AdmAccountController : Controller
         }
 
         // +1 line added for SignIn
-        await _userManager.SignIn(this.HttpContext, user, model.RememberLogin);
+        await _userManager.SignIn(HttpContext, user, model.RememberLogin);
 
         return RedirectToAction("Index", "AdmHome");
     }
@@ -55,7 +55,7 @@ public class AdmAccountController : Controller
             return RedirectToAction("Index", "AdmHomeController");
         }
 
-        await _userManager.SignOut(this.HttpContext);
+        await _userManager.SignOut(HttpContext);
 
         return RedirectToAction("Login");
     }

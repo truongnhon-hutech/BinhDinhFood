@@ -1,7 +1,7 @@
 ﻿using BinhDinhFood.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BinhDinhFoodWeb.Areas.Admin.Views.AdmHome.Components.SaleComponent;
+namespace BinhDinhFood.Areas.Admin.Views.AdmHome.Components.SaleComponent;
 
 public class SaleComponent : ViewComponent
 {
@@ -52,9 +52,9 @@ public class SaleComponent : ViewComponent
                 ViewBag.SaleDay = "Năm này";
                 break;
         }
-        ViewBag.SalePercent = (objLastSale > 0) ? (objSale - objLastSale) * 100 / objLastSale : objSale * 100;
-        ViewBag.SaleColor = (objSale == objLastSale) ? "text-muted" : (objSale > objLastSale) ? "text-success" : "text-danger";
-        ViewBag.SaleStatus = (objSale == objLastSale) ? "" : (objSale > objLastSale) ? "tăng" : "giảm";
+        ViewBag.SalePercent = objLastSale > 0 ? (objSale - objLastSale) * 100 / objLastSale : objSale * 100;
+        ViewBag.SaleColor = objSale == objLastSale ? "text-muted" : objSale > objLastSale ? "text-success" : "text-danger";
+        ViewBag.SaleStatus = objSale == objLastSale ? "" : objSale > objLastSale ? "tăng" : "giảm";
         ViewBag.SaleNumbers = objSale;
         return View();
     }

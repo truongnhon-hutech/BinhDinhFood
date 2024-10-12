@@ -1,6 +1,6 @@
 ﻿using BinhDinhFood.Models;
 
-namespace BinhDinhFoodWeb.Intefaces;
+namespace BinhDinhFood.Intefaces;
 
 public interface IOrderDetailRepository : IRepository<OrderDetail>
 {

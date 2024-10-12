@@ -2,7 +2,7 @@
 using BinhDinhFood.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BinhDinhFoodWeb.Areas.Admin.Views.AdmHome.Components.RevenueComponent;
+namespace BinhDinhFood.Areas.Admin.Views.AdmHome.Components.RevenueComponent;
 
 public class RevenueComponent : ViewComponent
 {
@@ -48,10 +48,10 @@ public class RevenueComponent : ViewComponent
                 ViewBag.RevenueDay = "Năm này";
                 break;
         }
-        ViewBag.RevenuePercent = (objLastRevenue > 0) ? Math.Round((objRevenue - objLastRevenue) * 100, 2) : objRevenue * 100;
-        ViewBag.RevenueColor = (objRevenue == objLastRevenue) ? "text-muted" : (objRevenue >= objLastRevenue) ? "text-success" : "text-danger";
-        ViewBag.RevenueStatus = (objRevenue == objLastRevenue) ? "" : (objRevenue >= objLastRevenue) ? "tăng" : "giảm";
-        ViewBag.RevenueNumbers = (objRevenue == 0) ? "0" : objRevenue.ToString("#,###", cul.NumberFormat);
+        ViewBag.RevenuePercent = objLastRevenue > 0 ? Math.Round((objRevenue - objLastRevenue) * 100, 2) : objRevenue * 100;
+        ViewBag.RevenueColor = objRevenue == objLastRevenue ? "text-muted" : objRevenue >= objLastRevenue ? "text-success" : "text-danger";
+        ViewBag.RevenueStatus = objRevenue == objLastRevenue ? "" : objRevenue >= objLastRevenue ? "tăng" : "giảm";
+        ViewBag.RevenueNumbers = objRevenue == 0 ? "0" : objRevenue.ToString("#,###", cul.NumberFormat);
         return View();
     }
 }

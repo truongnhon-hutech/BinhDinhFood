@@ -1,4 +1,4 @@
-﻿namespace BinhDinhFoodWeb.Models;
+﻿namespace BinhDinhFood.Models;
 
 public class Bar
 {
@@ -43,23 +43,23 @@ public class Bar
             public float[] data;
             public Dataset(int soLuong)
             {
-                this.backgroundColor = new string[soLuong];
-                this.borderColor = new string[soLuong];
-                this.data = new float[soLuong];
+                backgroundColor = new string[soLuong];
+                borderColor = new string[soLuong];
+                data = new float[soLuong];
             }
         }
         public Data(int soLuong)
         {
             if (soLuong > 0)
             {
-                this.labels = new string[soLuong];
-                this.datasets = new Dataset[1];
-                this.datasets[0] = new Dataset(soLuong);
+                labels = new string[soLuong];
+                datasets = new Dataset[1];
+                datasets[0] = new Dataset(soLuong);
             }
         }
     }
     public Bar(int soLuong)
     {
-        this.data = new Data(soLuong);
+        data = new Data(soLuong);
     }
 }

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace BinhDinhFoodWeb.Views.Blog.Components.HeaderComponent;
+namespace BinhDinhFood.Views.Blog.Components.HeaderComponent;
 
 public class HeaderComponent : ViewComponent
 {

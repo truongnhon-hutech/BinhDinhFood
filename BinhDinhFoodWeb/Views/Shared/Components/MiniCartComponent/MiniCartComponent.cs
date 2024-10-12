@@ -1,9 +1,9 @@
 ﻿using System.Globalization;
-using BinhDinhFoodWeb.Intefaces;
-using BinhDinhFoodWeb.Models;
+using BinhDinhFood.Intefaces;
+using BinhDinhFood.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BinhDinhFoodWeb.Views.Cart.Components.MiniCartComponent;
+namespace BinhDinhFood.Views.Shared.Components.MiniCartComponent;
 
 public class MiniCartComponent : ViewComponent
 {
@@ -19,7 +19,7 @@ public class MiniCartComponent : ViewComponent
         List<Item> listCart = _cartRepo.Get(HttpContext.Session);
         if (listCart != null)
         {
-            totalMoney = listCart.Sum(x => x.Quantity * (x.Product.ProductPrice - (x.Product.ProductPrice * x.Product.ProductDiscount / 100)));
+            totalMoney = listCart.Sum(x => x.Quantity * (x.Product.ProductPrice - x.Product.ProductPrice * x.Product.ProductDiscount / 100));
         }
         return totalMoney;
     }

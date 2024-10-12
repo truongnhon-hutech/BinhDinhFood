@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace BinhDinhFoodWeb.Views.User.Components.ChangePassComponent;
+namespace BinhDinhFood.Views.User.Components.ChangePassComponent;
 
 public class ChangePassComponent : ViewComponent
 {

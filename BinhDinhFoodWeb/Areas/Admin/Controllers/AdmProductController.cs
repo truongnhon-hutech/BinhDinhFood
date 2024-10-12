@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using X.PagedList;
 
-namespace BinhDinhFoodWeb.Areas.Admin.Controllers;
+namespace BinhDinhFood.Areas.Admin.Controllers;
 
 [Area("Admin")]
 public class AdmProductController : Controller

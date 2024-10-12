@@ -1,7 +1,7 @@
-﻿using BinhDinhFoodWeb.Intefaces;
+﻿using BinhDinhFood.Intefaces;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BinhDinhFoodWeb.Views.Product.Components.SortComponent;
+namespace BinhDinhFood.Views.Product.Components.SortComponent;
 
 public class SortComponent : ViewComponent
 {

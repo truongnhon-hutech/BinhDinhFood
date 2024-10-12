@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace BinhDinhFoodWeb.Views.Shared.Components.AccountComponent;
+namespace BinhDinhFood.Views.Shared.Components.AccountComponent;
 
 public class AccountComponent : ViewComponent
 {

@@ -1,11 +1,10 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
+using BinhDinhFood.Intefaces;
 using BinhDinhFood.Models;
-using BinhDinhFoodWeb.Intefaces;
-using BinhDinhFoodWeb.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace BinhDinhFoodWeb.Repositories;
+namespace BinhDinhFood.Repositories;
 
 public class UserRepository : IUserRepository
 {
@@ -20,8 +19,8 @@ public class UserRepository : IUserRepository
     private string Encode(string originalPassword)
     {
         MD5 md5 = MD5.Create();
-        Byte[] originalBytes = ASCIIEncoding.Default.GetBytes(originalPassword);
-        Byte[] encodedBytes = md5.ComputeHash(originalBytes);
+        byte[] originalBytes = Encoding.Default.GetBytes(originalPassword);
+        byte[] encodedBytes = md5.ComputeHash(originalBytes);
 
         return BitConverter.ToString(encodedBytes);
     }
@@ -41,13 +40,13 @@ public class UserRepository : IUserRepository
         var allowedCharSet = new HashSet<char>(allowedChars).ToArray();
         if (byteSize < allowedCharSet.Length)
         {
-            throw new ArgumentException(String.Format("allowedChars may contain no more than {0} characters.", byteSize));
+            throw new ArgumentException(string.Format("allowedChars may contain no more than {0} characters.", byteSize));
         }
 
         // Guid.NewGuid and System.Random are not particularly random. By using a
         // cryptographically-secure random number generator, the caller is always
         // protected, regardless of use.
-        using (var rng = System.Security.Cryptography.RandomNumberGenerator.Create())
+        using (var rng = RandomNumberGenerator.Create())
         {
             var result = new StringBuilder();
             var buf = new byte[128];
@@ -60,7 +59,7 @@ public class UserRepository : IUserRepository
                     // random value falls into the last group and the last group is
                     // too small to choose from the entire allowedCharSet, ignore
                     // the value in order to avoid biasing the result.
-                    var outOfRangeStart = byteSize - (byteSize % allowedCharSet.Length);
+                    var outOfRangeStart = byteSize - byteSize % allowedCharSet.Length;
                     if (outOfRangeStart <= buf[i])
                     {
                         continue;

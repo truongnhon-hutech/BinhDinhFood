@@ -1,7 +1,7 @@
 ﻿using BinhDinhFood.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BinhDinhFoodWeb.Views.Cart.Components.Orders;
+namespace BinhDinhFood.Views.Cart.Components.OrdersComponent;
 
 public class OrdersComponent : ViewComponent
 {

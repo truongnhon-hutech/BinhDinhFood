@@ -4,7 +4,7 @@ using System.Text.Json;
 using BinhDinhFood.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BinhDinhFoodWeb.Areas.Admin.Controllers;
+namespace BinhDinhFood.Areas.Admin.Controllers;
 
 [Area("Admin")]
 public class AdmHomeController : Controller
@@ -51,7 +51,7 @@ public class AdmHomeController : Controller
                     x => x.DayOrder.Month >= 8 && x.DayOrder.Month <= 12
                     && x.DayOrder.Year == DateTime.Now.Year
                     ).Count();
-        ViewBag.saleChart = JsonSerializer.Serialize(new List<Int32>
+        ViewBag.saleChart = JsonSerializer.Serialize(new List<int>
             {
                 saleChart1,
                 saleChart2,
@@ -73,7 +73,7 @@ public class AdmHomeController : Controller
                     && x.DayOrder.Year == DateTime.Now.Year
                     ).Sum(x => x.TotalMoney) / 100000;
 
-        ViewBag.revenueChart = JsonSerializer.Serialize(new List<Double>
+        ViewBag.revenueChart = JsonSerializer.Serialize(new List<double>
         {
             revenueChart2,
             revenueChart2,
@@ -95,7 +95,7 @@ public class AdmHomeController : Controller
                     x => x.CustomerDateCreated.Month >= 8 && x.CustomerDateCreated.Month <= 12
                     && x.CustomerDateCreated.Year == DateTime.Now.Year
                     ).Count();
-        ViewBag.customerChart = JsonSerializer.Serialize(new List<Int32>
+        ViewBag.customerChart = JsonSerializer.Serialize(new List<int>
         {
             customerChart1,
             customerChart2,

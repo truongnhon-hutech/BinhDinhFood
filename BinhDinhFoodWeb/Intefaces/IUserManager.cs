@@ -1,8 +1,8 @@
 ﻿using System.Security.Claims;
-using BinhDinhFoodWeb.Models;
+using BinhDinhFood.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
-namespace BinhDinhFoodWeb.Intefaces;
+namespace BinhDinhFood.Intefaces;
 
 public interface IUserManager
 {

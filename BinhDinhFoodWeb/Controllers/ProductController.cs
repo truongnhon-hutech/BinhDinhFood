@@ -1,9 +1,8 @@
-﻿using BinhDinhFood.Models;
-using BinhDinhFoodWeb.Intefaces;
-using BinhDinhFoodWeb.Models;
+﻿using BinhDinhFood.Intefaces;
+using BinhDinhFood.Models;
 using Microsoft.AspNetCore.Mvc;
 using X.PagedList;
-namespace BinhDinhFoodWeb.Controllers;
+namespace BinhDinhFood.Controllers;
 
 public class ProductController : Controller
 {
