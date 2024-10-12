@@ -34,12 +34,7 @@ public class AdmOrderDetailController : Controller
             .Include(o => o.Order)
             .Include(o => o.Product)
             .FirstOrDefaultAsync(m => m.OrderId == id);
-        if (orderDetail == null)
-        {
-            return NotFound();
-        }
-
-        return View(orderDetail);
+        return orderDetail == null ? NotFound() : View(orderDetail);
     }
 
     // GET: Admin/AdmOrderDetail/Create
@@ -135,12 +130,7 @@ public class AdmOrderDetailController : Controller
             .Include(o => o.Order)
             .Include(o => o.Product)
             .FirstOrDefaultAsync(m => m.ProductId == id);
-        if (orderDetail == null)
-        {
-            return NotFound();
-        }
-
-        return View(orderDetail);
+        return orderDetail == null ? NotFound() : View(orderDetail);
     }
 
     // POST: Admin/AdmOrderDetail/Delete/5

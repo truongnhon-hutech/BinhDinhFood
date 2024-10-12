@@ -35,12 +35,7 @@ public class AdmProductRatingController : Controller
             .Include(p => p.Customer)
             .Include(p => p.Product)
             .FirstOrDefaultAsync(m => m.ProductRatingId == id);
-        if (productRating == null)
-        {
-            return NotFound();
-        }
-
-        return View(productRating);
+        return productRating == null ? NotFound() : View(productRating);
     }
 
     // GET: Admin/AdmProductRating/Create
@@ -136,12 +131,7 @@ public class AdmProductRatingController : Controller
             .Include(p => p.Customer)
             .Include(p => p.Product)
             .FirstOrDefaultAsync(m => m.ProductRatingId == id);
-        if (productRating == null)
-        {
-            return NotFound();
-        }
-
-        return View(productRating);
+        return productRating == null ? NotFound() : View(productRating);
     }
 
     // POST: Admin/AdmProductRating/Delete/5

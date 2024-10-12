@@ -35,7 +35,9 @@ public class AdmHomeController : Controller
     public IActionResult Index()
     {
         if (!User.Identity.IsAuthenticated && User.FindFirstValue(ClaimTypes.Role) != "Admin")
+        {
             return RedirectToAction("Login", "AdmAccount");
+        }
 
         var saleChart1 = _context.Orders.Where(
                     x => x.DayOrder.Month >= 1 && x.DayOrder.Month <= 4

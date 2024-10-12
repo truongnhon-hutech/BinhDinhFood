@@ -45,7 +45,10 @@ public class ProductController : Controller
     public async Task<IActionResult> LeaveReview(IFormCollection form, int id)
     {
         if (!User.Identity.IsAuthenticated || User.IsInRole("Admin"))
+        {
             return RedirectToAction("Login", "User");
+        }
+
         ProductRating pd = new ProductRating();
         pd.CustomerId = 1;
         pd.ProductId = id;
@@ -69,10 +72,14 @@ public class ProductController : Controller
     {
         IEnumerable<Product> obj = await _repoProduct.GetListAsync();
         if (!string.IsNullOrEmpty(name))
+        {
             obj = await _repoProduct.GetListAsync(filter: x => x.ProductName.Contains(name));
+        }
 
         if (categoryId.HasValue)
+        {
             obj = await _repoProduct.GetListAsync(filter: x => x.CategoryId == categoryId);
+        }
 
         switch (sort)
         {

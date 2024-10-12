@@ -34,7 +34,9 @@ public class RepositoryBase<TEntity> : IRepository<TEntity> where TEntity : clas
     }
 
     public async Task<TEntity> GetByIdAsync(object id)
-        => await _context.Set<TEntity>().FindAsync(id);
+    {
+        return await _context.Set<TEntity>().FindAsync(id);
+    }
 
     public async Task<IEnumerable<TEntity>> GetListAsync(Expression<Func<TEntity, bool>> filter, Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy, string includeProperties = "", int skip = 0, int take = 0)
     {
@@ -55,18 +57,20 @@ public class RepositoryBase<TEntity> : IRepository<TEntity> where TEntity : clas
         {
             query = query.Take(take);
         }
-        if (orderBy != null)
-        {
-            return await orderBy(query).ToListAsync();
-        }
-        else
-        {
-            return await query.ToListAsync();
-        }
+        return orderBy != null ? await orderBy(query).ToListAsync() : (IEnumerable<TEntity>)await query.ToListAsync();
     }
-    public async Task<bool> AnyAsync(Expression<Func<TEntity, bool>> filter) => await _context.Set<TEntity>().AnyAsync(filter);
+    public async Task<bool> AnyAsync(Expression<Func<TEntity, bool>> filter)
+    {
+        return await _context.Set<TEntity>().AnyAsync(filter);
+    }
 
-    public async Task SaveAsync() => await _context.SaveChangesAsync();
+    public async Task SaveAsync()
+    {
+        await _context.SaveChangesAsync();
+    }
 
-    public void Update(TEntity entity) => _context.Update(entity);
+    public void Update(TEntity entity)
+    {
+        _context.Update(entity);
+    }
 }

@@ -11,11 +11,12 @@ public class CartRepository : ICartRepository
     {
         var value = session.GetString(CART);
         if (value == null)
+        {
             return new List<Item>();
+        }
+
         var result = JsonConvert.DeserializeObject<List<Item>>(value);
-        if (result == null)
-            return new List<Item>();
-        return result;
+        return result == null ? new List<Item>() : result;
     }
 
     public List<Item> Set(ISession session, List<Item> cart)

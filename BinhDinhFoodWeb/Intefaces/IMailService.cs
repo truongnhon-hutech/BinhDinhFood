@@ -19,7 +19,7 @@ public class MailService(IOptions<MailSettings> mailSettings, AppSettings config
     {
         var email = new MimeMessage();
         string mail = _configuration.MailSettings.Mail;//_mailSettings.Mail;
-                                                          // if (string.IsNullOrEmpty(mail)) mail = "twoonez@outlook.com";
+                                                       // if (string.IsNullOrEmpty(mail)) mail = "twoonez@outlook.com";
         email.Sender = MailboxAddress.Parse(mail);
         email.To.Add(MailboxAddress.Parse(mailRequest.ToEmail));
         email.Subject = mailRequest.Subject;

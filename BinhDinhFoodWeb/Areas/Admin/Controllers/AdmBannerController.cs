@@ -21,9 +21,9 @@ public class AdmBannerController : Controller
     // GET: Admin/AdmBanner
     public async Task<IActionResult> Index()
     {
-        if (!User.Identity.IsAuthenticated && User.FindFirstValue(ClaimTypes.Role) != "Admin")
-            return RedirectToAction("Login", "AdmAccount");
-        return _context.Banners != null ?
+        return !User.Identity.IsAuthenticated && User.FindFirstValue(ClaimTypes.Role) != "Admin"
+            ? RedirectToAction("Login", "AdmAccount")
+            : _context.Banners != null ?
                       View(await _context.Banners.ToListAsync()) :
                       Problem("Entity set 'BinhDinhFoodDbContext.Banners'  is null.");
     }
@@ -32,7 +32,10 @@ public class AdmBannerController : Controller
     public async Task<IActionResult> Details(int? id)
     {
         if (!User.Identity.IsAuthenticated && User.FindFirstValue(ClaimTypes.Role) != "Admin")
+        {
             return RedirectToAction("Login", "AdmAccount");
+        }
+
         if (id == null || _context.Banners == null)
         {
             return NotFound();
@@ -40,20 +43,15 @@ public class AdmBannerController : Controller
 
         var banner = await _context.Banners
             .FirstOrDefaultAsync(m => m.BannerId == id);
-        if (banner == null)
-        {
-            return NotFound();
-        }
-
-        return View(banner);
+        return banner == null ? NotFound() : View(banner);
     }
 
     // GET: Admin/AdmBanner/Create
     public IActionResult Create()
     {
-        if (!User.Identity.IsAuthenticated && User.FindFirstValue(ClaimTypes.Role) != "Admin")
-            return RedirectToAction("Login", "AdmAccount");
-        return View();
+        return !User.Identity.IsAuthenticated && User.FindFirstValue(ClaimTypes.Role) != "Admin"
+            ? RedirectToAction("Login", "AdmAccount")
+            : View();
     }
 
     // POST: Admin/AdmBanner/Create
@@ -95,18 +93,17 @@ public class AdmBannerController : Controller
     public async Task<IActionResult> Edit(int? id)
     {
         if (!User.Identity.IsAuthenticated && User.FindFirstValue(ClaimTypes.Role) != "Admin")
+        {
             return RedirectToAction("Login", "AdmAccount");
+        }
+
         if (id == null || _context.Banners == null)
         {
             return NotFound();
         }
 
         var banner = await _context.Banners.FindAsync(id);
-        if (banner == null)
-        {
-            return NotFound();
-        }
-        return View(banner);
+        return banner == null ? NotFound() : View(banner);
     }
 
     // POST: Admin/AdmBanner/Edit/5
@@ -167,7 +164,10 @@ public class AdmBannerController : Controller
     public async Task<IActionResult> Delete(int? id)
     {
         if (!User.Identity.IsAuthenticated && User.FindFirstValue(ClaimTypes.Role) != "Admin")
+        {
             return RedirectToAction("Login", "AdmAccount");
+        }
+
         if (id == null || _context.Banners == null)
         {
             return NotFound();
@@ -175,12 +175,7 @@ public class AdmBannerController : Controller
 
         var banner = await _context.Banners
             .FirstOrDefaultAsync(m => m.BannerId == id);
-        if (banner == null)
-        {
-            return NotFound();
-        }
-
-        return View(banner);
+        return banner == null ? NotFound() : View(banner);
     }
 
     // POST: Admin/AdmBanner/Delete/5

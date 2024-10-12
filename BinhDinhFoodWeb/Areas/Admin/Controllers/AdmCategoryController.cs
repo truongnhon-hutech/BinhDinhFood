@@ -32,12 +32,7 @@ public class AdmCategoryController : Controller
 
         var category = await _context.Categories
             .FirstOrDefaultAsync(m => m.CategoryId == id);
-        if (category == null)
-        {
-            return NotFound();
-        }
-
-        return View(category);
+        return category == null ? NotFound() : View(category);
     }
 
     // GET: Admin/AdmCategory/Create
@@ -72,11 +67,7 @@ public class AdmCategoryController : Controller
         }
 
         var category = await _context.Categories.FindAsync(id);
-        if (category == null)
-        {
-            return NotFound();
-        }
-        return View(category);
+        return category == null ? NotFound() : View(category);
     }
 
     // POST: Admin/AdmCategory/Edit/5
@@ -125,12 +116,7 @@ public class AdmCategoryController : Controller
 
         var category = await _context.Categories
             .FirstOrDefaultAsync(m => m.CategoryId == id);
-        if (category == null)
-        {
-            return NotFound();
-        }
-
-        return View(category);
+        return category == null ? NotFound() : View(category);
     }
 
     // POST: Admin/AdmCategory/Delete/5

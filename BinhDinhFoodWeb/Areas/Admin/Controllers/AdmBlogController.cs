@@ -35,12 +35,7 @@ public class AdmBlogController : Controller
 
         var blog = await _context.Blog
             .FirstOrDefaultAsync(m => m.BlogId == id);
-        if (blog == null)
-        {
-            return NotFound();
-        }
-
-        return View(blog);
+        return blog == null ? NotFound() : View(blog);
     }
 
     // GET: Admin/AdmBlog/Create
@@ -94,11 +89,7 @@ public class AdmBlogController : Controller
         }
 
         var blog = await _context.Blog.FindAsync(id);
-        if (blog == null)
-        {
-            return NotFound();
-        }
-        return View(blog);
+        return blog == null ? NotFound() : View(blog);
     }
 
     // POST: Admin/AdmBlog/Edit/5
@@ -166,12 +157,7 @@ public class AdmBlogController : Controller
 
         var blog = await _context.Blog
             .FirstOrDefaultAsync(m => m.BlogId == id);
-        if (blog == null)
-        {
-            return NotFound();
-        }
-
-        return View(blog);
+        return blog == null ? NotFound() : View(blog);
     }
 
     // POST: Admin/AdmBlog/Delete/5

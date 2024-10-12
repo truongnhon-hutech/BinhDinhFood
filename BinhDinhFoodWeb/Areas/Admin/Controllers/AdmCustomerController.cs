@@ -32,12 +32,7 @@ public class AdmCustomerController : Controller
 
         var customer = await _context.Customers
             .FirstOrDefaultAsync(m => m.CustomerId == id);
-        if (customer == null)
-        {
-            return NotFound();
-        }
-
-        return View(customer);
+        return customer == null ? NotFound() : View(customer);
     }
 
     //// GET: Admin/AdmCustomer/Create
@@ -123,12 +118,7 @@ public class AdmCustomerController : Controller
 
         var customer = await _context.Customers
             .FirstOrDefaultAsync(m => m.CustomerId == id);
-        if (customer == null)
-        {
-            return NotFound();
-        }
-
-        return View(customer);
+        return customer == null ? NotFound() : View(customer);
     }
 
     // POST: Admin/AdmCustomer/Delete/5

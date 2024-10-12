@@ -14,7 +14,9 @@ public class SaleComponent : ViewComponent
     public IViewComponentResult Invoke(string saleOrder)
     {
         if (saleOrder == null)
+        {
             saleOrder = "today";
+        }
 
         int objSale = 0;
         int objLastSale = 0;

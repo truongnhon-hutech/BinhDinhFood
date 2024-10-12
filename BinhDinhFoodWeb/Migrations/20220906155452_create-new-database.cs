@@ -20,10 +20,7 @@ public partial class createnewdatabase : Migration
                 AdminImage = table.Column<string>(type: "nvarchar(max)", nullable: true),
                 AdminDateCreated = table.Column<DateTime>(type: "datetime2", nullable: false)
             },
-            constraints: table =>
-            {
-                table.PrimaryKey("PK_Admin", x => x.AdminId);
-            });
+            constraints: table => table.PrimaryKey("PK_Admin", x => x.AdminId));
 
         migrationBuilder.CreateTable(
             name: "Banner",
@@ -38,10 +35,7 @@ public partial class createnewdatabase : Migration
                 BannerImage = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
                 BannerDateCreated = table.Column<DateTime>(type: "datetime2", nullable: false)
             },
-            constraints: table =>
-            {
-                table.PrimaryKey("PK_Banner", x => x.BannerId);
-            });
+            constraints: table => table.PrimaryKey("PK_Banner", x => x.BannerId));
 
         migrationBuilder.CreateTable(
             name: "Blog",
@@ -54,10 +48,7 @@ public partial class createnewdatabase : Migration
                 BlogImage = table.Column<string>(type: "nvarchar(max)", nullable: true),
                 BlogDateCreated = table.Column<DateTime>(type: "datetime2", nullable: false)
             },
-            constraints: table =>
-            {
-                table.PrimaryKey("PK_Blog", x => x.BlogId);
-            });
+            constraints: table => table.PrimaryKey("PK_Blog", x => x.BlogId));
 
         migrationBuilder.CreateTable(
             name: "Categories",
@@ -68,10 +59,7 @@ public partial class createnewdatabase : Migration
                 CategoryName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                 CategoryDateCreated = table.Column<DateTime>(type: "datetime2", nullable: false)
             },
-            constraints: table =>
-            {
-                table.PrimaryKey("PK_Categories", x => x.CategoryId);
-            });
+            constraints: table => table.PrimaryKey("PK_Categories", x => x.CategoryId));
 
         migrationBuilder.CreateTable(
             name: "Customer",
@@ -89,10 +77,7 @@ public partial class createnewdatabase : Migration
                 CustomerState = table.Column<bool>(type: "bit", nullable: false),
                 CustomerImage = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true)
             },
-            constraints: table =>
-            {
-                table.PrimaryKey("PK_Customer", x => x.CustomerId);
-            });
+            constraints: table => table.PrimaryKey("PK_Customer", x => x.CustomerId));
 
         migrationBuilder.CreateTable(
             name: "Token",
@@ -104,10 +89,7 @@ public partial class createnewdatabase : Migration
                 TokenValue = table.Column<string>(type: "nvarchar(max)", nullable: false),
                 Expiry = table.Column<DateTime>(type: "datetime2", nullable: false)
             },
-            constraints: table =>
-            {
-                table.PrimaryKey("PK_Token", x => x.TokenID);
-            });
+            constraints: table => table.PrimaryKey("PK_Token", x => x.TokenID));
 
         migrationBuilder.CreateTable(
             name: "Product",

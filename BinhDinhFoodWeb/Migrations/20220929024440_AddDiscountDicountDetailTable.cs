@@ -19,10 +19,7 @@ public partial class AddDiscountDicountDetailTable : Migration
                 DiscountPercent = table.Column<int>(type: "int", nullable: false),
                 Description = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: true)
             },
-            constraints: table =>
-            {
-                table.PrimaryKey("PK_Discount", x => x.DiscountId);
-            });
+            constraints: table => table.PrimaryKey("PK_Discount", x => x.DiscountId));
 
         migrationBuilder.CreateTable(
             name: "DiscountDetail",

@@ -19,13 +19,7 @@ public class CustomerHub : Hub
     }
     public static int CustomerCount
     {
-        get
-        {
-            return _customerCounter;
-        }
-        set
-        {
-            _customerCounter = value;
-        }
+        get => _customerCounter;
+        set => _customerCounter = value;
     }
 }

@@ -33,25 +33,27 @@ public class ProductRepository : RepositoryBase<Product>, IProductRepository
             {
                 var dataInMonth = product.OrderDetails
                 .Where(x => x.Order.DayOrder.Month == month && x.Order.DayOrder.Year == DateTime.Now.Year);
-                if (dataInMonth.Count() != 0)
-                    data[month] = dataInMonth
+                data[month] = dataInMonth.Count() != 0
+                    ? dataInMonth
                     .Select(od => new Table
                     {
                         Key = "Tháng " + month,
                         Value = od.Quantity
-                    }).FirstOrDefault();
-                else
-                    data[month] = new Table
+                    }).FirstOrDefault()
+                    : new Table
                     {
                         Key = "Tháng " + month,
                         Value = 0
                     };
             }
-            else data[month] = new Table
+            else
             {
-                Key = "Tháng " + month,
-                Value = 0
-            };
+                data[month] = new Table
+                {
+                    Key = "Tháng " + month,
+                    Value = 0
+                };
+            }
         }
         return data;
     }
@@ -65,25 +67,27 @@ public class ProductRepository : RepositoryBase<Product>, IProductRepository
             {
                 var dataInMonth = product.OrderDetails
                                          .Where(x => x.Order.DayOrder.Month == month && x.Order.DayOrder.Year == DateTime.Now.Year);
-                if (dataInMonth.Count() != 0)
-                    data[month] =
-                        dataInMonth
+                data[month] = dataInMonth.Count() != 0
+                    ? dataInMonth
                 .Select(od => new Table
                 {
                     Key = "Tháng " + month,
                     Value = (int)(od.Quantity * od.UnitPrice)
-                }).FirstOrDefault();
-                else data[month] = new Table
+                }).FirstOrDefault()
+                    : new Table
+                    {
+                        Key = "Tháng " + month,
+                        Value = 0
+                    };
+            }
+            else
+            {
+                data[month] = new Table
                 {
                     Key = "Tháng " + month,
                     Value = 0
                 };
             }
-            else data[month] = new Table
-            {
-                Key = "Tháng " + month,
-                Value = 0
-            };
         }
         return data;
     }

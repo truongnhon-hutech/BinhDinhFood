@@ -9,11 +9,5 @@ public class Item
     [DisplayName("Số lượng")]
     public int Quantity { get; set; }
     [DisplayName("Tổng tiền")]
-    public double TotalCost
-    {
-        get
-        {
-            return Product.ProductPrice * Quantity;
-        }
-    }
+    public double TotalCost => Product.ProductPrice * Quantity;
 }

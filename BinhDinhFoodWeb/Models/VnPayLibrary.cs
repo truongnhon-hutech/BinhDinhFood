@@ -29,14 +29,7 @@ public class VnPayLibrary
     public string GetResponseData(string key)
     {
         string retValue;
-        if (_responseData.TryGetValue(key, out retValue))
-        {
-            return retValue;
-        }
-        else
-        {
-            return string.Empty;
-        }
+        return _responseData.TryGetValue(key, out retValue) ? retValue : string.Empty;
     }
 
     #region Request
@@ -149,9 +142,21 @@ public class VnPayCompare : IComparer<string>
 {
     public int Compare(string x, string y)
     {
-        if (x == y) return 0;
-        if (x == null) return -1;
-        if (y == null) return 1;
+        if (x == y)
+        {
+            return 0;
+        }
+
+        if (x == null)
+        {
+            return -1;
+        }
+
+        if (y == null)
+        {
+            return 1;
+        }
+
         var vnpCompare = CompareInfo.GetCompareInfo("en-US");
         return vnpCompare.Compare(x, y, CompareOptions.Ordinal);
     }

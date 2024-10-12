@@ -28,10 +28,7 @@ public partial class DeleteDiscountTable : Migration
                 Description = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: true),
                 DiscountPercent = table.Column<int>(type: "int", nullable: false)
             },
-            constraints: table =>
-            {
-                table.PrimaryKey("PK_Discount", x => x.DiscountId);
-            });
+            constraints: table => table.PrimaryKey("PK_Discount", x => x.DiscountId));
 
         migrationBuilder.CreateTable(
             name: "DiscountDetail",

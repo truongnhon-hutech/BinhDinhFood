@@ -31,7 +31,9 @@ public class UserController : Controller
     public async Task<IActionResult> RegisterAsync(RegisterViewModel model)
     {
         if (!ModelState.IsValid)
+        {
             return View(model);
+        }
 
         var user = _repo.Register(model);
 
@@ -44,18 +46,26 @@ public class UserController : Controller
     public async Task<IActionResult> Login()
     {
         if (User.Identity.IsAuthenticated)
+        {
             await _userManager.SignOut(this.HttpContext);
+        }
+
         return View();
     }
     [HttpPost]
     public async Task<IActionResult> LoginAsync(LoginViewModel model)
     {
         if (!ModelState.IsValid)
+        {
             return RedirectToAction("Index", "User");
+        }
+
         var user = _repo.Validate(model);
 
         if (user == null)
+        {
             return View(model);
+        }
 
         // +1 line added for SignIn
         await _userManager.SignIn(this.HttpContext, user, model.RememberLogin);
@@ -66,7 +76,10 @@ public class UserController : Controller
     public async Task<IActionResult> Logout(string returnUrl)
     {
         if (!User.Identity.IsAuthenticated || User.IsInRole("Admin"))
+        {
             return RedirectToAction("Index", "Home");
+        }
+
         await _userManager.SignOut(this.HttpContext);
 
         return RedirectToAction("Index", "Home");
@@ -138,7 +151,10 @@ public class UserController : Controller
     public IActionResult ChangeInfor()
     {
         if (!User.Identity.IsAuthenticated || User.IsInRole("Admin"))
+        {
             return RedirectToAction("Login");
+        }
+
         int id = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
         InforViewModel model = _repo.GetUserInfor(id);
         return View(model);
@@ -147,7 +163,9 @@ public class UserController : Controller
     public async Task<IActionResult> ChangeInforAsync(InforViewModel model)
     {
         if (!User.Identity.IsAuthenticated || User.IsInRole("Admin"))
+        {
             return RedirectToAction("Login");
+        }
 
         int id = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
         IFormFileCollection files = HttpContext.Request.Form.Files;
@@ -165,17 +183,21 @@ public class UserController : Controller
     [HttpGet]
     public IActionResult ChangePass()
     {
-        if (!User.Identity.IsAuthenticated || User.IsInRole("Admin"))
-            return RedirectToAction("Login");
-
-        return View();
+        return !User.Identity.IsAuthenticated || User.IsInRole("Admin") ? RedirectToAction("Login") : View();
     }
     [HttpPost]
     public async Task<IActionResult> ChangePassAsync(ChangePasswordViewModel model)
     {
         if (!User.Identity.IsAuthenticated || User.IsInRole("Admin"))
+        {
             return RedirectToAction("Login");
-        if (!ModelState.IsValid) return View(model);
+        }
+
+        if (!ModelState.IsValid)
+        {
+            return View(model);
+        }
+
         int id = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
         string user = User.FindFirstValue(ClaimTypes.Name);
         if (await _repo.HaveAccount(user, model.OldPassword))
@@ -189,7 +211,9 @@ public class UserController : Controller
     public IActionResult Profile()
     {
         if (!User.Identity.IsAuthenticated || User.IsInRole("Admin"))
+        {
             return RedirectToAction("Login");
+        }
 
         int id = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
         InforViewModel model = _repo.GetUserInfor(id);

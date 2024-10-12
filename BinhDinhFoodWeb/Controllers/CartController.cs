@@ -225,7 +225,10 @@ public class CartController : Controller
         {
             var quantity = cart.Quantity + value;
             if (quantity >= 0)
+            {
                 cart.Quantity = quantity;
+            }
+
             _cartRepo.Set(HttpContext.Session, listCart);
         }
         return ViewComponent("ItemComponent", cart);
@@ -247,7 +250,10 @@ public class CartController : Controller
         List<Item> listCart = _cartRepo.Get(HttpContext.Session);
         bool isInCart = listCart.Any(x => x.Product.ProductId == id);
         if (quantity == null)
+        {
             quantity = 1;
+        }
+
         if (!isInCart)
         {
             Item newItem = new Item { Product = await _productRepo.GetByIdAsync(id), Quantity = (int)quantity };
@@ -299,12 +305,20 @@ public class CartController : Controller
     {
         // Authentication user
         if (!User.Identity.IsAuthenticated || User.IsInRole("Admin"))
+        {
             return RedirectToAction("Login", "User");
+        }
 
-        if (orderFailed) ViewBag.ErrorMessage = "Thanh toán lỗi";
+        if (orderFailed)
+        {
+            ViewBag.ErrorMessage = "Thanh toán lỗi";
+        }
+
         List<Item> listCart = _cartRepo.Get(HttpContext.Session);
         if (listCart.Count() == 0)
+        {
             RedirectToAction("Index", "Cart");
+        }
         // get customer 
         int id = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
         InforViewModel customer = _userRepository.GetUserInfor(id);
@@ -387,7 +401,10 @@ public class CartController : Controller
     public async Task<IActionResult> TrackOrderAsync()
     {
         if (!User.Identity.IsAuthenticated || User.IsInRole("Admin"))
+        {
             return RedirectToAction("Login", "User");
+        }
+
         int id = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
 
         IEnumerable<Order> obj = await _orderRepo.GetListAsync(filter: x => x.CustomerId == id);
@@ -397,7 +414,10 @@ public class CartController : Controller
     public async Task<IActionResult> OderDetail(int id)
     {
         if (!User.Identity.IsAuthenticated || User.IsInRole("Admin"))
+        {
             return RedirectToAction("Login", "User");
+        }
+
         IEnumerable<OrderDetail> obj = await _orderDetailRepo.GetListAsync(filter: x => x.OrderId == id, includeProperties: "Product");
         return View(obj);
     }
@@ -405,7 +425,9 @@ public class CartController : Controller
     public async Task<IActionResult> FavoriteList()
     {
         if (!User.Identity.IsAuthenticated || User.IsInRole("Admin"))
+        {
             return RedirectToAction("Login", "User");
+        }
 
         int id = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
         var obj = await _repoFavorite.GetListAsync(filter: x => x.CustomerId == id, includeProperties: "Product");
@@ -436,7 +458,10 @@ public class CartController : Controller
     public async Task<IActionResult> RemoveInFavorite(int id)
     {
         if (!User.Identity.IsAuthenticated || User.IsInRole("Admin"))
+        {
             return RedirectToAction("Login", "User");
+        }
+
         int userid = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
         var listFav = await _repoFavorite.GetListAsync(filter: x => x.CustomerId == userid);
 

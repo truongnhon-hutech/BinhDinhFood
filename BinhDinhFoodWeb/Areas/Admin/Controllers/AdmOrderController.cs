@@ -33,12 +33,7 @@ public class AdmOrderController : Controller
         var order = await _context.Orders
             .Include(o => o.Customer)
             .FirstOrDefaultAsync(m => m.OrderId == id);
-        if (order == null)
-        {
-            return NotFound();
-        }
-
-        return View(order);
+        return order == null ? NotFound() : View(order);
     }
 
     // GET: Admin/AdmOrder/Create
@@ -129,12 +124,7 @@ public class AdmOrderController : Controller
         var order = await _context.Orders
             .Include(o => o.Customer)
             .FirstOrDefaultAsync(m => m.OrderId == id);
-        if (order == null)
-        {
-            return NotFound();
-        }
-
-        return View(order);
+        return order == null ? NotFound() : View(order);
     }
 
     // POST: Admin/AdmOrder/Delete/5

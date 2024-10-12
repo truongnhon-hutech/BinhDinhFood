@@ -22,18 +22,26 @@ public class AdmAccountController : Controller
     public async Task<IActionResult> Login()
     {
         if (User.Identity.IsAuthenticated)
+        {
             await _userManager.SignOut(this.HttpContext);
+        }
+
         return View();
     }
     [HttpPost]
     public async Task<IActionResult> LoginAsync(LoginViewModel model)
     {
         if (!ModelState.IsValid)
+        {
             return View(model);
+        }
+
         var user = _repo.Validate(model);
 
         if (user == null)
+        {
             return View(model);
+        }
 
         // +1 line added for SignIn
         await _userManager.SignIn(this.HttpContext, user, model.RememberLogin);
@@ -43,7 +51,10 @@ public class AdmAccountController : Controller
     public async Task<IActionResult> Logout()
     {
         if (!User.Identity.IsAuthenticated || User.IsInRole("Customer"))
+        {
             return RedirectToAction("Index", "AdmHomeController");
+        }
+
         await _userManager.SignOut(this.HttpContext);
 
         return RedirectToAction("Login");
@@ -113,17 +124,21 @@ public class AdmAccountController : Controller
     [HttpGet]
     public IActionResult ChangePass()
     {
-        if (!User.Identity.IsAuthenticated || User.IsInRole("Customer"))
-            return RedirectToAction("Login");
-
-        return View();
+        return !User.Identity.IsAuthenticated || User.IsInRole("Customer") ? RedirectToAction("Login") : View();
     }
     [HttpPost]
     public async Task<IActionResult> ChangePassAsync(ChangePasswordViewModel model)
     {
         if (!User.Identity.IsAuthenticated || User.IsInRole("Customer"))
+        {
             return RedirectToAction("Login");
-        if (!ModelState.IsValid) return View(model);
+        }
+
+        if (!ModelState.IsValid)
+        {
+            return View(model);
+        }
+
         int id = Convert.ToInt32(User.FindFirstValue(ClaimTypes.NameIdentifier));
         string user = User.FindFirstValue(ClaimTypes.Name);
         if (await _repo.HaveAccount(user, model.OldPassword))

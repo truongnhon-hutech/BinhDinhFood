@@ -38,19 +38,17 @@ public class AdmProductController : Controller
         var product = await _context.Products
             .Include(p => p.Category)
             .FirstOrDefaultAsync(m => m.ProductId == id);
-        if (product == null)
-        {
-            return NotFound();
-        }
-
-        return View(product);
+        return product == null ? NotFound() : View(product);
     }
 
     // GET: Admin/AdmProduct/Create
     public IActionResult Create()
     {
         if (!User.Identity.IsAuthenticated && User.FindFirstValue(ClaimTypes.Role) != "Admin")
+        {
             return RedirectToAction("Login", "AdmAccount");
+        }
+
         ViewData["CategoryId"] = new SelectList(_context.Categories, "CategoryId", "CategoryName");
         return View();
     }
@@ -177,12 +175,7 @@ public class AdmProductController : Controller
         var product = await _context.Products
             .Include(p => p.Category)
             .FirstOrDefaultAsync(m => m.ProductId == id);
-        if (product == null)
-        {
-            return NotFound();
-        }
-
-        return View(product);
+        return product == null ? NotFound() : View(product);
     }
 
     // POST: Admin/AdmProduct/Delete/5

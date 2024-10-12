@@ -177,7 +177,10 @@ public class AdmStatisticsController : Controller
     public IActionResult RevenueStructure(int? option)
     {
         if (option == null)
+        {
             option = DateTime.Now.Year;
+        }
+
         ViewData["option"] = option;
         var data = _categoryRepository.GetRevenueStructure((int)option);
         int amount = data.Count();
