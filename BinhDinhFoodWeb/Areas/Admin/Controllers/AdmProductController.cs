@@ -1,5 +1,6 @@
 ﻿using System.Security.Claims;
 using BinhDinhFood.Models;
+using BinhDinhFood.Models.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;

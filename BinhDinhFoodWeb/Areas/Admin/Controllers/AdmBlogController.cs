@@ -1,4 +1,5 @@
 ﻿using BinhDinhFood.Models;
+using BinhDinhFood.Models.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 

@@ -1,5 +1,5 @@
 ﻿using System.Security.Claims;
-using BinhDinhFood.Models;
+using BinhDinhFood.Models.Authentication;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 namespace BinhDinhFood.Intefaces;

@@ -1,4 +1,4 @@
-﻿using BinhDinhFood.Models;
+﻿using BinhDinhFood.Models.Authentication;
 
 namespace BinhDinhFood.Intefaces;
 

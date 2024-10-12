@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 using BinhDinhFood.Intefaces;
-using BinhDinhFood.Models;
+using BinhDinhFood.Models.Report;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BinhDinhFood.Views.Shared.Components.MiniCartComponent;

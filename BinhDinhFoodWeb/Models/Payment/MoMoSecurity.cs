@@ -1,7 +1,7 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
 
-namespace BinhDinhFood.Models;
+namespace BinhDinhFood.Models.Payment;
 
 class MoMoSecurity
 {

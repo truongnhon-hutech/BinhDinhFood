@@ -1,5 +1,5 @@
 ﻿using BinhDinhFood.Intefaces;
-using BinhDinhFood.Models;
+using BinhDinhFood.Models.Entities;
 using Microsoft.AspNetCore.Mvc;
 using X.PagedList;
 namespace BinhDinhFood.Controllers;

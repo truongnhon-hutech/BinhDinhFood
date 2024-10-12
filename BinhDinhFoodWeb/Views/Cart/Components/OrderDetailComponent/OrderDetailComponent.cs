@@ -1,4 +1,4 @@
-﻿using BinhDinhFood.Models;
+﻿using BinhDinhFood.Models.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BinhDinhFood.Views.Cart.Components.OrderDetailComponent;

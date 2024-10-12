@@ -1,5 +1,6 @@
 ﻿using BinhDinhFood.Intefaces;
 using BinhDinhFood.Models;
+using BinhDinhFood.Models.Entities;
 
 namespace BinhDinhFood.Repositories;
 

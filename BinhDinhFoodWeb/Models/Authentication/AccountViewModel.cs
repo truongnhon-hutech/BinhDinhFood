@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-namespace BinhDinhFood.Models;
+namespace BinhDinhFood.Models.Authentication;
 
 public class RegisterViewModel
 {

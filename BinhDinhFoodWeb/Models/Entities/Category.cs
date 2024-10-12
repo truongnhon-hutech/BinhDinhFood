@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace BinhDinhFood.Models;
+namespace BinhDinhFood.Models.Entities;
 
 public class Category
 {

@@ -1,6 +1,7 @@
 ﻿using System.Security.Claims;
 using BinhDinhFood.Intefaces;
-using BinhDinhFood.Models;
+using BinhDinhFood.Models.Authentication;
+using BinhDinhFood.Models.Mail;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 

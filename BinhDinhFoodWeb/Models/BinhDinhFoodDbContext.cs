@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using BinhDinhFood.Models.Authentication;
+using BinhDinhFood.Models.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace BinhDinhFood.Models;
 

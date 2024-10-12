@@ -1,7 +1,10 @@
 ﻿using System.Globalization;
 using System.Security.Claims;
 using BinhDinhFood.Intefaces;
-using BinhDinhFood.Models;
+using BinhDinhFood.Models.Authentication;
+using BinhDinhFood.Models.Entities;
+using BinhDinhFood.Models.Payment;
+using BinhDinhFood.Models.Report;
 using log4net;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json.Linq;

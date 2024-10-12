@@ -1,5 +1,5 @@
 ﻿using BinhDinhFood.Intefaces;
-using BinhDinhFood.Models;
+using BinhDinhFood.Models.Report;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BinhDinhFood.Views.Cart.Components.ItemComponent;

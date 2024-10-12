@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Globalization;
 using BinhDinhFood.Intefaces;
-using BinhDinhFood.Models;
+using BinhDinhFood.Models.Result;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BinhDinhFood.Controllers;

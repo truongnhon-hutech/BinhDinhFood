@@ -1,4 +1,4 @@
-namespace BinhDinhFood.Models;
+namespace BinhDinhFood.Models.Result;
 
 public class ErrorViewModel
 {

@@ -1,7 +1,7 @@
 ﻿using System.Net;
 using System.Text;
 
-namespace BinhDinhFood.Models;
+namespace BinhDinhFood.Models.Payment;
 
 class PaymentRequest
 {

@@ -1,5 +1,6 @@
 ﻿using BinhDinhFood.Intefaces;
 using BinhDinhFood.Models;
+using BinhDinhFood.Models.Report;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 

@@ -1,4 +1,5 @@
 ﻿using BinhDinhFood.Models;
+using BinhDinhFood.Models.Entities;
 namespace BinhDinhFood.Intefaces;
 
 public interface IProductRepository : IRepository<Product>

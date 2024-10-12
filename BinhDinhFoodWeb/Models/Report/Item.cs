@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
+using BinhDinhFood.Models.Entities;
 
-namespace BinhDinhFood.Models;
+namespace BinhDinhFood.Models.Report;
 
 public class Item
 {

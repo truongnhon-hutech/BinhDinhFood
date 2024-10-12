@@ -1,4 +1,4 @@
-﻿namespace BinhDinhFood.Models;
+﻿namespace BinhDinhFood.Models.Mail;
 
 public class MailRequest
 {

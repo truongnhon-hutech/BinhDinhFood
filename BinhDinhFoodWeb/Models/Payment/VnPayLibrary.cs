@@ -2,17 +2,17 @@
 using System.Net;
 using System.Security.Cryptography;
 using System.Text;
-namespace BinhDinhFood.Models;
+namespace BinhDinhFood.Models.Payment;
 
 public class VnPayLibrary
 {
     public const string VERSION = "2.1.0";
-    private readonly SortedList<String, String> _requestData = new SortedList<String, String>(new VnPayCompare());
-    private readonly SortedList<String, String> _responseData = new SortedList<String, String>(new VnPayCompare());
+    private readonly SortedList<string, string> _requestData = new SortedList<string, string>(new VnPayCompare());
+    private readonly SortedList<string, string> _responseData = new SortedList<string, string>(new VnPayCompare());
 
     public void AddRequestData(string key, string value)
     {
-        if (!String.IsNullOrEmpty(value))
+        if (!string.IsNullOrEmpty(value))
         {
             _requestData.Add(key, value);
         }
@@ -20,7 +20,7 @@ public class VnPayLibrary
 
     public void AddResponseData(string key, string value)
     {
-        if (!String.IsNullOrEmpty(value))
+        if (!string.IsNullOrEmpty(value))
         {
             _responseData.Add(key, value);
         }
@@ -39,7 +39,7 @@ public class VnPayLibrary
         StringBuilder data = new StringBuilder();
         foreach (KeyValuePair<string, string> kv in _requestData)
         {
-            if (!String.IsNullOrEmpty(kv.Value))
+            if (!string.IsNullOrEmpty(kv.Value))
             {
                 data.Append(WebUtility.UrlEncode(kv.Key) + "=" + WebUtility.UrlEncode(kv.Value) + "&");
             }
@@ -47,7 +47,7 @@ public class VnPayLibrary
         string queryString = data.ToString();
 
         baseUrl += "?" + queryString;
-        String signData = queryString;
+        string signData = queryString;
         if (signData.Length > 0)
         {
 
@@ -85,7 +85,7 @@ public class VnPayLibrary
         }
         foreach (KeyValuePair<string, string> kv in _responseData)
         {
-            if (!String.IsNullOrEmpty(kv.Value))
+            if (!string.IsNullOrEmpty(kv.Value))
             {
                 data.Append(WebUtility.UrlEncode(kv.Key) + "=" + WebUtility.UrlEncode(kv.Value) + "&");
             }
@@ -103,7 +103,7 @@ public class VnPayLibrary
 
 public class Utils
 {
-    public static String HmacSHA512(string key, String inputData)
+    public static string HmacSHA512(string key, string inputData)
     {
         var hash = new StringBuilder();
         byte[] keyBytes = Encoding.UTF8.GetBytes(key);

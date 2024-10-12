@@ -2,6 +2,8 @@
 using System.Text;
 using BinhDinhFood.Intefaces;
 using BinhDinhFood.Models;
+using BinhDinhFood.Models.Authentication;
+using BinhDinhFood.Models.Entities;
 using Microsoft.EntityFrameworkCore;
 namespace BinhDinhFood.Repositories;
 
