@@ -33,8 +33,10 @@ builder.Services.AddScoped<IUserManager, UserManager>();
 builder.Services.AddScoped<ITokenRepository, TokenRepository>();
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddTransient<IMailService, MailService>();
+builder.Services.AddScoped<BinhDinhFoodDbContextInitializer>();
 
 builder.Services.AddDistributedMemoryCache();
+
 
 builder.Services.AddSession(options =>
 {
@@ -101,6 +103,11 @@ builder.Services.AddCors(options =>
 options.AddDefaultPolicy(builder => builder.WithOrigins("http://binhdinhfood-001-site1.dtempurl.com/").AllowAnyHeader().WithMethods("GET", "POST").AllowCredentials()));
 
 var app = builder.Build();
+
+using var scope = app.Services.CreateScope();
+var initialize = scope.ServiceProvider.GetRequiredService<BinhDinhFoodDbContextInitializer>();
+await initialize.InitializeAsync();
+
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
