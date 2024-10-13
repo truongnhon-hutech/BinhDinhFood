@@ -17,7 +17,6 @@ public class Customer
     [DisplayName("Tài khoản")]
     public string CustomerUserName { get; set; }
     [Required]
-    [StringLength(50)]
     [DisplayName("Mật khẩu")]
     public string CustomerPassword { get; set; }
     [DisplayName("Ngày khởi tạo")]

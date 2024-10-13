@@ -14,7 +14,6 @@ public class Admin
     [DisplayName("Tài khoản")]
     public string AdminUserName { get; set; }
     [Required]
-    [StringLength(50)]
     [DisplayName("Mật khẩu")]
     public string AdminPassword { get; set; }
     [DisplayName("Email")]
