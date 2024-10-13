@@ -120,7 +120,7 @@ public class UserRepository : IUserRepository
             CustomerEmail = model.Email,
             CustomerAddress = model.Address,
             CustomerImage = "avatar.jpg",
-            CustomerPhone = "0905726748"
+            CustomerPhone = "0900000000"
         };
         _context.Customers.Add(user);
         _context.SaveChanges();
