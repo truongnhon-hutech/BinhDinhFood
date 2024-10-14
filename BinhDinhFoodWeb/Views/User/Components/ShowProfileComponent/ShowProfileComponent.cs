@@ -1,12 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace BinhDinhFoodWeb.Views.User.Components.ShowProfileComponent
+namespace BinhDinhFood.Views.User.Components.ShowProfileComponent;
+
+public class ShowProfileComponent : ViewComponent
 {
-    public class ShowProfileComponent:ViewComponent
+    public IViewComponentResult Invoke()
     {
-        public IViewComponentResult Invoke()
-        {
-            return View();
-        }
+        return View();
     }
 }

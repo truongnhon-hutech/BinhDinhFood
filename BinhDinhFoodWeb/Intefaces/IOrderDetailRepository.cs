@@ -1,12 +1,8 @@
-﻿using BinhDinhFood.Models;
-using BinhDinhFoodWeb.Models;
-using BinhDinhFoodWeb.Repositories;
-using NuGet.Protocol.Core.Types;
+﻿using BinhDinhFood.Models.Entities;
 
-namespace BinhDinhFoodWeb.Intefaces
+namespace BinhDinhFood.Intefaces;
+
+public interface IOrderDetailRepository : IRepository<OrderDetail>
 {
-	public interface IOrderDetailRepository : IRepository<OrderDetail>
-    {
-		
-	}
+
 }

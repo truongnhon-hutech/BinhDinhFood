@@ -1,8 +1,7 @@
-﻿using BinhDinhFoodWeb.Models;
+﻿using BinhDinhFood.Models.Entities;
 
-namespace BinhDinhFoodWeb.Intefaces
+namespace BinhDinhFood.Intefaces;
+
+public interface IFavoriteRepository : IRepository<Favorite>
 {
-    public interface IFavoriteRepository : IRepository<Favorite>
-    {
-    }
 }

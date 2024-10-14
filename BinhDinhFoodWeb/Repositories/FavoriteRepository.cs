@@ -1,14 +1,13 @@
-﻿using BinhDinhFood.Models;
-using BinhDinhFoodWeb.Intefaces;
-using BinhDinhFoodWeb.Models;
+﻿using BinhDinhFood.Intefaces;
+using BinhDinhFood.Models;
+using BinhDinhFood.Models.Entities;
 
-namespace BinhDinhFoodWeb.Repositories
+namespace BinhDinhFood.Repositories;
+
+public class FavoriteRepository : RepositoryBase<Favorite>, IFavoriteRepository
 {
-    public class FavoriteRepository: RepositoryBase<Favorite>, IFavoriteRepository
+    public FavoriteRepository(BinhDinhFoodDbContext context) : base(context)
     {
-        public FavoriteRepository(BinhDinhFoodDbContext context) : base(context)
-        {
 
-        }
     }
 }

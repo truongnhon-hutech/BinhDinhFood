@@ -1,21 +1,19 @@
-﻿using BinhDinhFoodWeb.Intefaces;
-using BinhDinhFoodWeb.Repositories;
+﻿using BinhDinhFood.Intefaces;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BinhDinhFoodWeb.Views.Home.Components.TopSaleComponent
-{
-    public class TopSaleComponent : ViewComponent
-    {
-        private readonly IProductRepository _repo;
+namespace BinhDinhFood.Views.Home.Components.TopSaleComponent;
 
-        public TopSaleComponent(IProductRepository repo)
-        {
-            _repo = repo;
-        }
-        public async Task<IViewComponentResult> InvokeAsync() 
-        { 
-            var obj = await _repo.GetListAsync(filter: x=>x.ProductDiscount>0, orderBy: x=>x.OrderByDescending(x=>x.ProductId), take: 8);
-            return View("TopSaleComponent", obj);
-        }
+public class TopSaleComponent : ViewComponent
+{
+    private readonly IProductRepository _repo;
+
+    public TopSaleComponent(IProductRepository repo)
+    {
+        _repo = repo;
+    }
+    public async Task<IViewComponentResult> InvokeAsync()
+    {
+        var obj = await _repo.GetListAsync(filter: x => x.ProductDiscount > 0, orderBy: x => x.OrderByDescending(x => x.ProductId), take: 8);
+        return View("TopSaleComponent", obj);
     }
 }

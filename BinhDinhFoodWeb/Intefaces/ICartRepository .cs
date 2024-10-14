@@ -1,11 +1,10 @@
-﻿using BinhDinhFoodWeb.Models;
+﻿using BinhDinhFood.Models.Report;
 
-namespace BinhDinhFoodWeb.Intefaces
+namespace BinhDinhFood.Intefaces;
+
+public interface ICartRepository
 {
-    public interface ICartRepository
-    {
-        //public Task<List<Item>> GetAll();
-        public List<Item> Get(ISession session);
-        public List<Item> Set(ISession session, List<Item> cart);
-    }
+    //public Task<List<Item>> GetAll();
+    public List<Item> Get(ISession session);
+    public List<Item> Set(ISession session, List<Item> cart);
 }

@@ -1,8 +1,10 @@
-﻿@model IEnumerable<Item>
+﻿@using BinhDinhFood.Models.Report
+@model IEnumerable<Item>
 @using System.Globalization
 @{
     CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
 }
+
 <a class="cart_bt" asp-action="Index" asp-controller="Cart"><strong>@ViewData["Count"]</strong></a>
 <div class="dropdown-menu">
     <ul>

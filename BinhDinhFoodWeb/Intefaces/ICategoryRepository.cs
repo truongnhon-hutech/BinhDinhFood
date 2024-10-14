@@ -1,12 +1,11 @@
 ﻿using BinhDinhFood.Models;
-using BinhDinhFoodWeb.Models;
+using BinhDinhFood.Models.Entities;
 
-namespace BinhDinhFoodWeb.Intefaces
+namespace BinhDinhFood.Intefaces;
+
+public interface ICategoryRepository : IRepository<Category>
 {
-    public interface ICategoryRepository : IRepository<Category>
-    {
-        //public Task<List<Category>> Get();
-        //public Task<Category> GetById(int id);
-        public Table[] GetRevenueStructure(int year);
-    }
+    //public Task<List<Category>> Get();
+    //public Task<Category> GetById(int id);
+    public Table[] GetRevenueStructure(int year);
 }

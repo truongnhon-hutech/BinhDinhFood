@@ -1,18 +1,20 @@
+using BinhDinhFood.Hubs;
+using BinhDinhFood.Intefaces;
 using BinhDinhFood.Models;
-using BinhDinhFoodWeb.Hubs;
-using BinhDinhFoodWeb.Intefaces;
-using BinhDinhFoodWeb.Models;
-using BinhDinhFoodWeb.Repositories;
+using BinhDinhFood.Repositories;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var configuration = builder.Configuration.Get<AppSettings>();
+
 // Add services to the container.
+builder.Services.AddSingleton(configuration);
+
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<BinhDinhFoodDbContext>(options => options.UseSqlServer(
-    builder.Configuration.GetConnectionString("DefaultConnection")
-    ));
+builder.Services.AddDbContext<BinhDinhFoodDbContext>(options =>
+        options.UseSqlServer(configuration.ConnectionStrings.DefaultConnection));
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<ICartRepository, CartRepository>();
@@ -30,8 +32,10 @@ builder.Services.AddScoped<IUserManager, UserManager>();
 builder.Services.AddScoped<ITokenRepository, TokenRepository>();
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddTransient<IMailService, MailService>();
+builder.Services.AddScoped<BinhDinhFoodDbContextInitializer>();
 
 builder.Services.AddDistributedMemoryCache();
+
 
 builder.Services.AddSession(options =>
 {
@@ -95,21 +99,14 @@ builder.Services.AddControllers();
 builder.Services.AddSignalR();
 
 builder.Services.AddCors(options =>
-{
-    options.AddDefaultPolicy(
-        builder =>
-        {
-            builder.WithOrigins("http://binhdinhfood-001-site1.dtempurl.com/")
-                .AllowAnyHeader()
-                .WithMethods("GET", "POST")
-                .AllowCredentials();
-        });
-});
-
-var vnPaySettings = builder.Configuration.GetSection("VnPaySettings").Get<VnPaySettings>();
-builder.Services.AddSingleton(vnPaySettings);
+options.AddDefaultPolicy(builder => builder.WithOrigins("http://binhdinhfood-001-site1.dtempurl.com/").AllowAnyHeader().WithMethods("GET", "POST").AllowCredentials()));
 
 var app = builder.Build();
+
+using var scope = app.Services.CreateScope();
+var initialize = scope.ServiceProvider.GetRequiredService<BinhDinhFoodDbContextInitializer>();
+await initialize.InitializeAsync();
+
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
@@ -134,13 +131,6 @@ app.UseSession();
 // belong to signal R
 app.UseCors();
 
-
-
-//app.MapControllerRoute(
-//    name: "Admin",
-//    pattern: "{area:exists}/{controller=AdmBlog}/{action=Index}/{id?}");
-
-
 app.MapAreaControllerRoute(
     name: "Admin",
     areaName: "Admin",
@@ -150,8 +140,6 @@ app.MapAreaControllerRoute(
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
-
-
 
 app.MapHub<CustomerHub>("/hubs/customerCount");
 app.MapHub<AdminHub>("/hubs/adminHub");

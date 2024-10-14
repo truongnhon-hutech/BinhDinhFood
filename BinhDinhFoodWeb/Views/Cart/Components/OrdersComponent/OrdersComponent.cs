@@ -1,13 +1,12 @@
-﻿using BinhDinhFood.Models;
+﻿using BinhDinhFood.Models.Entities;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BinhDinhFoodWeb.Views.Cart.Components.Orders
+namespace BinhDinhFood.Views.Cart.Components.OrdersComponent;
+
+public class OrdersComponent : ViewComponent
 {
-    public class OrdersComponent : ViewComponent
+    public IViewComponentResult Invoke(IEnumerable<Order> obj)
     {
-        public IViewComponentResult Invoke(IEnumerable<Order> obj) 
-        { 
-            return View(obj); 
-        }
+        return View(obj);
     }
 }

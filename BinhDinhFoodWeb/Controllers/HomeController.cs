@@ -1,46 +1,43 @@
-﻿    using BinhDinhFood.Models;
-using BinhDinhFoodWeb.Intefaces;
-using BinhDinhFoodWeb.Models;
-using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Globalization;
+using BinhDinhFood.Intefaces;
+using BinhDinhFood.Models.Result;
+using Microsoft.AspNetCore.Mvc;
 
-namespace BinhDinhFoodWeb.Controllers
+namespace BinhDinhFood.Controllers;
+
+public class HomeController : Controller
 {
-    public class HomeController : Controller
+    readonly CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
+    private readonly IProductRepository _repo;
+    public HomeController(IProductRepository repo)
     {
-        CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");
-        private readonly IProductRepository _repo;
-        public HomeController(IProductRepository repo)
-        {
-            _repo = repo;
-        }
-        public async Task<IActionResult> Index()
-        {
-            return View();
-        }
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-
-        public IActionResult Error(int statuscode)
-        {
-            if (statuscode == 404)
-                return View("NotFound");
-            else
-                return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
-        public IActionResult About()
-        {
-            return View();
-
-        }
-        public IActionResult Help()
-        {
-            return View();
-        }
-        public IActionResult Contact()
-        {
-            return View();
-        }
-        
+        _repo = repo;
     }
+    public async Task<IActionResult> Index()
+    {
+        return View();
+    }
+    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+
+    public IActionResult Error(int statuscode)
+    {
+        return statuscode == 404
+            ? View("NotFound")
+            : (IActionResult)View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+    }
+    public IActionResult About()
+    {
+        return View();
+
+    }
+    public IActionResult Help()
+    {
+        return View();
+    }
+    public IActionResult Contact()
+    {
+        return View();
+    }
+
 }

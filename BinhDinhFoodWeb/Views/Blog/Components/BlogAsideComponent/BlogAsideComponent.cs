@@ -1,19 +1,18 @@
-﻿using BinhDinhFoodWeb.Intefaces;
+﻿using BinhDinhFood.Intefaces;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BinhDinhFoodWeb.Views.Blog.Components.BlogAsideComponent
+namespace BinhDinhFood.Views.Blog.Components.BlogAsideComponent;
+
+public class BlogAsideComponent : ViewComponent
 {
-    public class BlogAsideComponent : ViewComponent
+    private readonly IBlogRepository _repo;
+    public BlogAsideComponent(IBlogRepository repo)
     {
-        private readonly IBlogRepository _repo;
-        public BlogAsideComponent(IBlogRepository repo)
-        {
-            _repo = repo;
-        }
-        public async Task<IViewComponentResult> InvokeAsync() 
-        { 
-            var obj = await _repo.GetListAsync();
-            return View("BlogAsideComponent", obj);
-        }
+        _repo = repo;
+    }
+    public async Task<IViewComponentResult> InvokeAsync()
+    {
+        var obj = await _repo.GetListAsync();
+        return View("BlogAsideComponent", obj);
     }
 }

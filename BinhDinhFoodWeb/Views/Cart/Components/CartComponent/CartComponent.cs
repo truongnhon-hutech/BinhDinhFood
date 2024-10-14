@@ -1,13 +1,12 @@
-﻿using BinhDinhFoodWeb.Models;
+﻿using BinhDinhFood.Models.Report;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BinhDinhFoodWeb.Views.Cart.Components.CartComponent
+namespace BinhDinhFood.Views.Cart.Components.CartComponent;
+
+public class CartComponent : ViewComponent
 {
-	public class CartComponent : ViewComponent
-	{
-        public IViewComponentResult Invoke(IEnumerable<Item> list)
-        {
-            return View(list);
-        }
+    public IViewComponentResult Invoke(IEnumerable<Item> list)
+    {
+        return View(list);
     }
 }

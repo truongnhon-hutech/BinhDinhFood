@@ -1,19 +1,18 @@
-﻿using BinhDinhFoodWeb.Intefaces;
+﻿using BinhDinhFood.Intefaces;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BinhDinhFoodWeb.Views.Product.Components.RelatedProductComponent
+namespace BinhDinhFood.Views.Product.Components.RelatedProductComponent;
+
+public class RelatedProductComponent : ViewComponent
 {
-    public class RelatedProductComponent : ViewComponent
+    private readonly IProductRepository _repo;
+    public RelatedProductComponent(IProductRepository repo)
     {
-        private readonly IProductRepository _repo;
-        public RelatedProductComponent(IProductRepository repo)
-        {
-            _repo = repo;
-        }
-        public async Task<IViewComponentResult> InvokeAsync()
-        {
-            var obj = await _repo.GetListAsync();
-            return View("RelatedProductComponent",obj);
-        }
+        _repo = repo;
+    }
+    public async Task<IViewComponentResult> InvokeAsync()
+    {
+        var obj = await _repo.GetListAsync();
+        return View("RelatedProductComponent", obj);
     }
 }

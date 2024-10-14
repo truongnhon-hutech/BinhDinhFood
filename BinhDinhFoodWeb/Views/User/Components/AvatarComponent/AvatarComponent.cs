@@ -1,12 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace BinhDinhFoodWeb.Views.User.Components.AvatarComponent
+namespace BinhDinhFood.Views.User.Components.AvatarComponent;
+
+public class AvatarComponent : ViewComponent
 {
-    public class AvatarComponent : ViewComponent
+    public IViewComponentResult Invoke()
     {
-        public IViewComponentResult Invoke()
-        {
-            return View();
-        }
+        return View();
     }
 }

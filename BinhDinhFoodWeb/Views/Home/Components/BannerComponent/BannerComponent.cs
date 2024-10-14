@@ -1,20 +1,19 @@
-﻿using BinhDinhFoodWeb.Intefaces;
+﻿using BinhDinhFood.Intefaces;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BinhDinhFoodWeb.Views.Home.Components.BannerComponent
-{
-    public class BannerComponent : ViewComponent
-    {
-        private readonly IBannerRepository _repo;
+namespace BinhDinhFood.Views.Home.Components.BannerComponent;
 
-        public BannerComponent(IBannerRepository repo)
-        {
-            _repo = repo;
-        }
-        public async Task<IViewComponentResult> InvokeAsync()
-        {
-            var obj = await _repo.GetListAsync(take: 3);
-            return View("BannerComponent", obj);
-        }
+public class BannerComponent : ViewComponent
+{
+    private readonly IBannerRepository _repo;
+
+    public BannerComponent(IBannerRepository repo)
+    {
+        _repo = repo;
+    }
+    public async Task<IViewComponentResult> InvokeAsync()
+    {
+        var obj = await _repo.GetListAsync(take: 3);
+        return View("BannerComponent", obj);
     }
 }

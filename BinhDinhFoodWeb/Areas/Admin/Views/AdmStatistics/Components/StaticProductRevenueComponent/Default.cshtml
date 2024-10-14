@@ -1,8 +1,4 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@{ }
 
 <canvas id="newchartRevenue"></canvas>
 <!--<div class="row">-->
@@ -26,16 +22,12 @@
 <script src="~/js/jquery.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script type="text/javascript">
-    $(function () {
+  $(function () {
 
 
-        var ctx = document.getElementById('newchartRevenue').getContext('2d');
-        var model = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model) as String);
-        console.log(model)
-        var doanhthunam = new Chart(ctx, model)
-    });
-
-
+      var ctx = document.getElementById('newchartRevenue').getContext('2d');
+      var model = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(Model) as String);
+      console.log(model)
+      var doanhthunam = new Chart(ctx, model)
+  });
 </script>
-
-

@@ -1,19 +1,18 @@
-﻿using BinhDinhFoodWeb.Intefaces;
+﻿using BinhDinhFood.Intefaces;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BinhDinhFoodWeb.Views.Home.Components.NewsComponent
+namespace BinhDinhFood.Views.Home.Components.NewsComponent;
+
+public class NewsComponent : ViewComponent
 {
-    public class NewsComponent: ViewComponent
+    private readonly IBlogRepository _repo;
+    public NewsComponent(IBlogRepository repo)
     {
-        private readonly IBlogRepository _repo;
-        public NewsComponent(IBlogRepository repo)
-        {
-            _repo = repo;
-        }
-        public async Task<IViewComponentResult> InvokeAsync()
-        {
-            var obj = await _repo.GetListAsync(take: 4);
-            return View("NewsComponent", obj);
-        }
+        _repo = repo;
+    }
+    public async Task<IViewComponentResult> InvokeAsync()
+    {
+        var obj = await _repo.GetListAsync(take: 4);
+        return View("NewsComponent", obj);
     }
 }

@@ -1,10 +1,8 @@
-﻿using BinhDinhFood.Models;
-using BinhDinhFoodWeb.Models;
+﻿using BinhDinhFood.Models.Entities;
 
-namespace BinhDinhFoodWeb.Intefaces
+namespace BinhDinhFood.Intefaces;
+
+public interface IOrderRepository : IRepository<Order>
 {
-	public interface IOrderRepository : IRepository<Order>
-    {
-		public Task UpdatePaymentState(int orderId);
-	}
+    public Task UpdatePaymentState(int orderId);
 }

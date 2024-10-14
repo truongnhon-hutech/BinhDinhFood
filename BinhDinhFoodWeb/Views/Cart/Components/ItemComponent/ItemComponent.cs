@@ -1,20 +1,19 @@
-﻿using BinhDinhFoodWeb.Intefaces;
-using BinhDinhFoodWeb.Models;
+﻿using BinhDinhFood.Intefaces;
+using BinhDinhFood.Models.Report;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BinhDinhFoodWeb.Views.Cart.Components.ItemComponent
-{
-    public class ItemComponent : ViewComponent
-    {
-        private readonly IProductRepository _productRepo;
+namespace BinhDinhFood.Views.Cart.Components.ItemComponent;
 
-        public ItemComponent(IProductRepository productRepo)
-        {
-            _productRepo = productRepo;
-        }
-        public IViewComponentResult Invoke(Item item)
-        {
-            return View(item);
-        }
+public class ItemComponent : ViewComponent
+{
+    private readonly IProductRepository _productRepo;
+
+    public ItemComponent(IProductRepository productRepo)
+    {
+        _productRepo = productRepo;
+    }
+    public IViewComponentResult Invoke(Item item)
+    {
+        return View(item);
     }
 }

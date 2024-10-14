@@ -1,19 +1,18 @@
-﻿using BinhDinhFoodWeb.Intefaces;
+﻿using BinhDinhFood.Intefaces;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BinhDinhFoodWeb.Views.Product.Components.SortComponent
-{
-    public class SortComponent: ViewComponent
-    {
-        private readonly IProductRepository _repo;
+namespace BinhDinhFood.Views.Product.Components.SortComponent;
 
-        public SortComponent(IProductRepository repo)
-        {
-            _repo = repo;
-        }
-        public async Task<IViewComponentResult> InvokeAsync()
-        {
-            return View();
-        }
+public class SortComponent : ViewComponent
+{
+    private readonly IProductRepository _repo;
+
+    public SortComponent(IProductRepository repo)
+    {
+        _repo = repo;
+    }
+    public async Task<IViewComponentResult> InvokeAsync()
+    {
+        return View();
     }
 }

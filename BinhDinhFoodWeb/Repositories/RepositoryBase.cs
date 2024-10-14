@@ -1,74 +1,76 @@
-﻿using BinhDinhFood.Models;
-using BinhDinhFoodWeb.Intefaces;
+﻿using System.Linq.Expressions;
+using BinhDinhFood.Intefaces;
+using BinhDinhFood.Models;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
-using System.Linq.Expressions;
 
-namespace BinhDinhFoodWeb.Repositories
+namespace BinhDinhFood.Repositories;
+
+public class RepositoryBase<TEntity> : IRepository<TEntity> where TEntity : class
 {
-    public class RepositoryBase<TEntity> : IRepository<TEntity> where TEntity : class
+    protected BinhDinhFoodDbContext _context;
+
+    public RepositoryBase(BinhDinhFoodDbContext context)
     {
-        protected BinhDinhFoodDbContext _context;
+        _context = context;
+    }
+    public async Task AddAsync(TEntity entity)
+    {
+        await _context.Set<TEntity>().AddAsync(entity);
+    }
+    public int Count(Expression<Func<TEntity, bool>> where)
+    {
+        return _context.Set<TEntity>().Count(where);
+    }
 
-        public RepositoryBase(BinhDinhFoodDbContext context)
+    public void Delete(TEntity entity)
+    {
+        _context.Remove(entity);
+    }
+
+    public void Delete(Expression<Func<TEntity, bool>> where)
+    {
+        var list = _context.Set<TEntity>().Where(where).AsEnumerable();
+        _context.RemoveRange(list);
+    }
+
+    public async Task<TEntity> GetByIdAsync(object id)
+    {
+        return await _context.Set<TEntity>().FindAsync(id);
+    }
+
+    public async Task<IEnumerable<TEntity>> GetListAsync(Expression<Func<TEntity, bool>> filter, Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy, string includeProperties = "", int skip = 0, int take = 0)
+    {
+        IQueryable<TEntity> query = _context.Set<TEntity>();
+        if (filter != null)
         {
-            _context = context;
+            query = query.Where(filter);
         }
-        public async Task AddAsync(TEntity entity)
+        foreach (var includeProperty in includeProperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
         {
-            await _context.Set<TEntity>().AddAsync(entity);
+            query = query.Include(includeProperty);
         }
-        public int Count(Expression<Func<TEntity, bool>> where)
+        if (skip > 0)
         {
-            return _context.Set<TEntity>().Count(where);
+            query = query.Skip(skip);
         }
-
-        public void Delete (TEntity entity)
+        if (take > 0)
         {
-            _context.Remove(entity);
+            query = query.Take(take);
         }
+        return orderBy != null ? await orderBy(query).ToListAsync() : (IEnumerable<TEntity>)await query.ToListAsync();
+    }
+    public async Task<bool> AnyAsync(Expression<Func<TEntity, bool>> filter)
+    {
+        return await _context.Set<TEntity>().AnyAsync(filter);
+    }
 
-        public void Delete(Expression<Func<TEntity, bool>> where)
-        {
-            var list = _context.Set<TEntity>().Where(where).AsEnumerable();
-            _context.RemoveRange(list);
-        }
+    public async Task SaveAsync()
+    {
+        await _context.SaveChangesAsync();
+    }
 
-        public async Task<TEntity> GetByIdAsync(object id)
-            => await _context.Set<TEntity>().FindAsync(id);
-
-        public async Task<IEnumerable<TEntity>> GetListAsync(Expression<Func<TEntity, bool>> filter, Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy, string includeProperties = "", int skip =0, int take =0) 
-        {
-            IQueryable<TEntity> query = _context.Set<TEntity>();
-            if (filter != null)
-            {
-                query = query.Where(filter);
-            }
-            foreach (var includeProperty in includeProperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
-            {
-                query = query.Include(includeProperty);
-            }
-            if(skip > 0) 
-            {
-                query= query.Skip(skip);
-            }
-            if (take > 0) 
-            { 
-                query = query.Take(take);
-            }
-            if (orderBy != null)
-            {
-                return await orderBy(query).ToListAsync();
-            }
-            else
-            {
-                return await query.ToListAsync();
-            }
-        }
-        public async Task<bool> AnyAsync(Expression<Func<TEntity, bool>> filter) => await _context.Set<TEntity>().AnyAsync(filter); 
-
-        public async Task SaveAsync() => await _context.SaveChangesAsync();
-
-        public void Update(TEntity entity) =>  _context.Update(entity);
+    public void Update(TEntity entity)
+    {
+        _context.Update(entity);
     }
 }

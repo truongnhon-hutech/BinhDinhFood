@@ -1,15 +1,11 @@
-﻿using BinhDinhFoodWeb.Intefaces;
-using BinhDinhFoodWeb.Models;
-using Microsoft.AspNetCore.Mvc;
-using System.Security.Claims;
+﻿using Microsoft.AspNetCore.Mvc;
 
-namespace BinhDinhFoodWeb.Views.User.Components.ChangePassComponent
+namespace BinhDinhFood.Views.User.Components.ChangePassComponent;
+
+public class ChangePassComponent : ViewComponent
 {
-    public class ChangePassComponent : ViewComponent
+    public IViewComponentResult Invoke()
     {
-        public IViewComponentResult Invoke()
-        {
-            return View();  
-        }
+        return View();
     }
 }
